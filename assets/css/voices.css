@@ -142,6 +142,29 @@ body.page-voices #main-content {
   border: 1px solid rgba(var(--color-accent-rgb), 0.45);
 }
 
+/* 体験談索引（taiken.html）: ヒーロー高さを抑える */
+.page-taiken-index .voices-hero--compact {
+  min-height: 0;
+  padding: calc(clamp(2.5rem, 5vw, 3.5rem) + 0.5rem) 0 calc(clamp(1.5rem, 3vw, 2rem) + 0.5rem);
+  margin-bottom: 0;
+}
+
+.page-taiken-index .taiken-index__note {
+  font-size: 0.95rem;
+  color: var(--color-text-muted, #5a5a5a);
+  margin: 0.75rem 0 1rem;
+  max-width: 42rem;
+}
+
+.page-taiken-index .legal-table {
+  min-width: 100%;
+}
+
+.page-taiken-index .voices-back {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
 .page-voices .voices-hero .hero__chips {
   margin-bottom: 0;
 }
