@@ -1,11 +1,14 @@
-# 体験談索引: 元データはリポジトリ内の旧フル面付 HTML（バックアップ）から取得
+# 体験談索引: 元データは docs/oldHP/taiken-legacy-root-backup.html から取得し、
+# リポジトリルートの taiken.html を更新する。FTP 用ファイルではない（tools/ 配下）。
+
 import re
 import sys
 from pathlib import Path
 
-SRC = Path("docs/oldHP/taiken-legacy-root-backup.html")
+ROOT = Path(__file__).resolve().parent.parent
+SRC = ROOT / "docs" / "oldHP" / "taiken-legacy-root-backup.html"
 if not SRC.exists():
-    SRC = Path("taiken.html")
+    SRC = ROOT / "taiken.html"
 t = SRC.read_text(encoding="utf-8", errors="replace")
 # name before taiken link in same <tr> (name cell often has style5 in nested fonts)
 rows = []
@@ -14,10 +17,9 @@ for block in t.split("<tr>")[1:]:
     if not mhref:
         continue
     href = mhref.group(1)
-    # first style5 or style5 in font: participant name
     mname = re.search(
         r'class="style5"[^>]*>(?:<font[^>]*>)?([^<]+)(?:</font>)?</span>', block
-    ) or re.search(r"<span class=\"style5\"[^>]*><font[^>]*>([^<]+)</font>", block)
+    ) or re.search(r'<span class="style5"[^>]*><font[^>]*>([^<]+)</font>', block)
     if not mname:
         mname = re.search(r"style5[^>]*>([^<]+)</", block)
     name = mname.group(1).strip() if mname else ""
@@ -30,8 +32,8 @@ for n, h in rows:
         continue
     seen.add(base)
     out.append((n, h))
-# sort: nepal first (desc num), then srilanka (desc num)
 nepal_nums = {82, 73, 69, 56, 46, 37, 36, 27, 26, 9}
+
 
 def key(item):
     n, h = item
@@ -39,16 +41,16 @@ def key(item):
     is_n = num in nepal_nums
     return (0 if is_n else 1, -num)
 
+
 out.sort(key=key)
-lines = []
+lines: list[str] = []
 for n, h in out:
     num = int(re.search(r"taiken(\d+)", h).group(1))
-    country = "ネパール" if num in nepal_nums else "スリランカ"
-    lines.append(f"{num}\t{country}\t{n}\t{h}")
-Path("_taiken_index.tsv").write_text("\n".join(lines), encoding="utf-8")
+    ctry = "ネパール" if num in nepal_nums else "スリランカ"
+    lines.append(f"{num}\t{ctry}\t{n}\t{h}")
+(ROOT / "tools" / "_taiken_index.tsv").write_text("\n".join(lines), encoding="utf-8")
 print("TOTAL", len(out), file=sys.stderr)
 
-# HTML rows: 国 | 掲載名 | 体験談を開く
 tr_list = []
 for n, h in out:
     num = int(re.search(r"taiken(\d+)", h).group(1))
@@ -61,8 +63,6 @@ for n, h in out:
         f'          <td><a href="{h}">体験談{num}を開く</a></td>\n'
         f"        </tr>"
     )
-Path("_taiken_tbody.html").write_text("\n".join(tr_list), encoding="utf-8")
-print("wrote _taiken_tbody.html", file=sys.stderr)
 
 HEADER = """<!DOCTYPE html>
 <html lang="ja">
@@ -222,6 +222,5 @@ FOOTER = """
 </body>
 </html>
 """
-out_html = HEADER + "\n".join(tr_list) + FOOTER
-Path("taiken.html").write_text(out_html, encoding="utf-8")
-print("wrote taiken.html", file=sys.stderr)
+(ROOT / "taiken.html").write_text(HEADER + "\n".join(tr_list) + FOOTER, encoding="utf-8")
+print("wrote", ROOT / "taiken.html", file=sys.stderr)

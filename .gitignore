@@ -1,3 +1,7 @@
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# 体験談索引再生成の中間ファイル（rebuild_taiken_index.py）
+tools/_taiken_index.tsv
+tools/last-deploy-list.txt
