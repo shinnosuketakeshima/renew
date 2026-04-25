@@ -750,6 +750,25 @@ body.page-srilanka #main-content {
   border-top: 1px solid rgba(var(--color-primary-rgb), 0.08);
 }
 
+/* さらに一段弱い小見出し（h4 配下: 食卓のマナー など） */
+.srilanka-section .srilanka-detail h5.srilanka-detail__h {
+  margin: 0.75rem 0 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.05);
+}
+
+/* 「ホームステイ先の例（参考）」直後の h4 だけ、区切りを弱めて本文が途切れないよう見せる */
+#srilanka-hs-example + p + h4.srilanka-detail__h {
+  margin-top: 0.9rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.05);
+}
+
 .srilanka-section .srilanka-detail h3.srilanka-detail__h:first-child,
 .srilanka-section .srilanka-detail > .page-srilanka__prose:first-child + h3.srilanka-detail__h {
   border-top: 0;

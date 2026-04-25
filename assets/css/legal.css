@@ -1,0 +1,224 @@
+/* 約款 / プライバシー / 航空券・保険 等の法務・補足ページ */
+.page-legal {
+  --legal-max: 45rem;
+}
+
+.page-legal__head {
+  padding: 2.25rem 0 1.5rem;
+  background: var(--color-bg-mute, #f7f6f2);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.08);
+}
+
+.page-legal__head h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.6rem);
+  line-height: 1.3;
+  color: var(--color-text, #2c2c2c);
+}
+
+.page-legal__lead,
+.page-legal__meta {
+  margin: 0 0 0.4rem;
+  max-width: var(--legal-max);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #3d3d3d);
+}
+
+.page-legal__meta {
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.08);
+}
+
+.page-legal__body {
+  padding: 2rem 0 2.5rem;
+}
+
+.legal-toc {
+  max-width: var(--legal-max);
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.1rem 1.05rem;
+  background: #fff;
+  border: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.12);
+  border-radius: 4px;
+}
+
+.legal-toc h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary, #2d4a3e);
+}
+
+.legal-toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.65;
+}
+
+.legal-toc a {
+  color: var(--color-text, #2c2c2c);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--color-primary, #2d4a3e);
+}
+
+.legal-article h2 {
+  margin: 2.25rem 0 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-primary, #2d4a3e);
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.12);
+}
+
+.legal-article h2:first-of-type,
+.legal-article > h2.legal-article__h2--first {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.legal-article h3 {
+  margin: 1.35rem 0 0.5rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-text, #2c2c2c);
+}
+
+.legal-article p,
+.legal-article li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text, #2c2c2c);
+}
+
+.legal-article p {
+  margin: 0 0 0.9rem;
+}
+
+.legal-article ol.legal-article__ol,
+.legal-article ul.legal-article__ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.4rem;
+}
+
+.legal-article li {
+  margin-bottom: 0.35rem;
+}
+
+.legal-article__note {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #3d3d3d);
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.9rem;
+  background: var(--color-bg-mute, #f7f6f2);
+  border-left: 3px solid var(--color-accent, #a85c3d);
+  border-radius: 0 4px 4px 0;
+}
+
+.legal-article__warn {
+  font-weight: 600;
+  color: #5c3d2a;
+  margin: 0 0 0.4rem;
+}
+
+.legal-article__ref {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+}
+
+.legal-article a:not(.btn) {
+  color: var(--color-primary, #2d4a3e);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.legal-article a:not(.btn):hover,
+.legal-article a:not(.btn):focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.legal-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0.75rem 0 1.1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  min-width: 16rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text, #2c2c2c);
+}
+
+.legal-table th,
+.legal-table td {
+  border: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.2);
+  padding: 0.6rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-table th {
+  background: var(--color-bg-mute, #f7f6f2);
+  font-weight: 600;
+  color: var(--color-primary, #2d4a3e);
+}
+
+.legal-figure {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  max-width: 32rem;
+  margin: 1.25rem 0;
+}
+
+@media (min-width: 520px) {
+  .legal-figure--pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.legal-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+}
+
+.page-others .page-legal__head {
+  margin-bottom: 0;
+}
+
+.legal-others-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: var(--legal-max);
+}
+
+.legal-others-cta {
+  margin-top: 2rem;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.1);
+  text-align: center;
+}
+
+.legal-others-cta .btn--accent {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.4rem;
+}

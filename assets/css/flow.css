@@ -223,3 +223,110 @@ body.page-flow {
 .page-flow .srilanka-cta {
   margin-top: 0.5rem;
 }
+
+/* --- ホームステイ先のイメージ（旧 example.html 統合） --- */
+.flow-hs-section {
+  margin: clamp(2rem, 4vw, 2.75rem) 0;
+  padding: clamp(1.35rem, 3vw, 1.75rem) 0 0;
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  scroll-margin-top: calc(var(--header-h, 64px) + 12px);
+}
+
+.flow-hs-section__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.2rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.35;
+}
+
+.flow-hs-section__intro,
+.flow-hs-section__note {
+  margin: 0 0 0.9rem;
+  max-width: 48rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.flow-hs-section__note {
+  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  padding: 0.85rem 1rem;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.08);
+}
+
+.flow-hs-grid {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem 1.25rem;
+}
+
+@media (min-width: 560px) {
+  .flow-hs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.flow-hs-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.flow-hs-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #e8e6e0;
+}
+
+.flow-hs-card__cap {
+  margin: 0;
+  padding: 0.75rem 0.9rem 0.95rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.flow-hs-cta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 40rem;
+}
+
+.flow-hs-cta__text {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+@media (min-width: 640px) {
+  .flow-hs-cta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: none;
+  }
+
+  .flow-hs-cta__text {
+    flex: 1 1 12rem;
+    min-width: 12rem;
+  }
+}
