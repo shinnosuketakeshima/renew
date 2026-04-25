@@ -329,15 +329,15 @@ main {
   padding-top: var(--header-h);
 }
 
-/* ----- ヒーロー（大きな写真＋右側に映え／左はガラスパネル） ----- */
+/* ----- ヒーロー（静かな強さ: 写真＋淡い層。ループアニメなし。バナー風の多段帯を避ける） */
 
 .hero {
   position: relative;
-  min-height: min(88vh, 860px);
+  min-height: min(88vh, 850px);
   display: flex;
   align-items: center;
-  padding: calc(var(--section-space) + 0.5rem) 0;
-  background: #1a3028;
+  padding: calc(var(--section-space) + 0.65rem) 0;
+  background: #1a2e27;
   overflow: hidden;
 }
 
@@ -347,40 +347,20 @@ main {
   z-index: 0;
 }
 
-/* 深緑基調の階層＋左は読みやすいミルク層。柄は使わない */
+/* オーバーレイは1枚に集約。左=可読 ／ 右=写真の空気（TODO: 差し替え画像に合わせ微調整可） */
 .hero__media::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
+  /* 左は可読、右は写真の粒をほんの少しより見せる（色は既存の白・深緑系のみ） */
   background: linear-gradient(
-    100deg,
-    rgba(240, 248, 244, 0.94) 0%,
-    rgba(232, 242, 238, 0.72) 24%,
-    rgba(30, 77, 62, 0.22) 48%,
-    rgba(12, 38, 32, 0.5) 75%,
-    rgba(8, 28, 24, 0.65) 100%
+    105deg,
+    rgba(250, 249, 245, 0.92) 0%,
+    rgba(250, 249, 245, 0.5) 34%,
+    rgba(20, 52, 44, 0.1) 100%
   );
   pointer-events: none;
-}
-
-/* 下方向の深み（アジアの「湿り気＝光」は押さえめに） */
-.hero__vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse 95% 85% at 75% 35%, transparent 0%, rgba(6, 22, 18, 0.42) 100%);
-  pointer-events: none;
-}
-
-/* 画面左下のやわらかい光。アクセント色はここにだけ微量 */
-.hero__glow {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse 60% 50% at 8% 88%, rgba(184, 92, 69, 0.09) 0%, transparent 55%);
-  pointer-events: none;
-  mix-blend-mode: multiply;
 }
 
 .hero__image-clip {
@@ -395,28 +375,17 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* family.jpg: 庭の緑＋人物のバランス（必要なら微調整） */
+  /* TODO: assets/images/hero-main.jpg（Adobe Stock 上書き後）に合わせて object-position を再調整 */
   object-position: 50% 42%;
   z-index: 0;
-  transform: scale(1.04);
-  filter: brightness(0.98) contrast(0.98) saturate(1.04);
-  animation: hero-ken 32s ease-in-out infinite alternate;
+  transform: scale(1.03);
+  /* 初見の視認性: 明るさを僅微に。彩度は抑える */
+  filter: brightness(1.04) contrast(1.01) saturate(0.99);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__image {
-    transform: scale(1);
-    animation: none;
-  }
-}
-
-/* 拡大は小さく、穏やかに */
-@keyframes hero-ken {
-  0% {
-    transform: scale(1.03);
-  }
-  100% {
-    transform: scale(1.07);
+    transform: none;
   }
 }
 
@@ -426,23 +395,24 @@ main {
   width: 100%;
 }
 
-.hero__inner {
+/* 旧 .hero__inner。テキスト面：余白＋信頼感。アクセント1色=左の細線のみ */
+.hero__panel {
   position: relative;
   z-index: 2;
-  max-width: 28.5rem;
-  padding: 1.75rem 1.5rem 1.75rem 1.35rem;
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.78);
+  max-width: 30rem;
+  margin-right: auto;
+  padding: 1.95rem 1.6rem 1.85rem 1.35rem;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: var(--radius-xl);
-  /* アクセント1色＝左の細い内側ラインのみ */
-  box-shadow: var(--shadow-hero), inset 3px 0 0 0 var(--color-accent);
-  animation: hero-enter 0.85s ease-out both;
+  box-shadow: 0 16px 48px rgba(20, 40, 35, 0.12), inset 3px 0 0 0 var(--color-accent);
+  animation: hero-enter 0.65s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__inner {
+  .hero__panel {
     animation: none;
   }
 }
@@ -450,7 +420,7 @@ main {
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -459,74 +429,74 @@ main {
 }
 
 @media (min-width: 600px) {
-  .hero__inner {
-    padding: 2rem 2rem 2.25rem;
+  .hero__panel {
+    padding: 2.1rem 2rem 2.1rem 1.5rem;
   }
 }
 
 @media (max-width: 500px) {
-  .hero__inner {
+  .hero__panel {
     max-width: none;
   }
 
   .hero {
-    min-height: min(92vh, 800px);
+    min-height: min(90vh, 800px);
   }
 }
 
-.hero__eyebrow {
-  margin: 0 0 0.75rem;
-  font-size: 0.82rem;
+.hero__kicker {
+  margin: 0 0 0.8rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
   font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.5;
 }
 
-.hero__eyebrow-mark {
-  display: inline-block;
-  margin-right: 0.35rem;
-  padding: 0.15em 0.5em 0.2em;
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  background: rgba(30, 77, 62, 0.08);
-  border-radius: 3px;
+.hero__kicker-sep {
+  margin: 0 0.25em;
+  opacity: 0.5;
+  font-weight: 400;
 }
 
-.hero h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+.hero__title {
+  margin: 0 0 0.95rem;
+  font-size: clamp(1.65rem, 4.1vw, 2.2rem);
   font-weight: 700;
-  line-height: 1.32;
+  line-height: 1.28;
   color: var(--color-text);
   letter-spacing: -0.02em;
 }
 
-/* 大画面のみ改行でリズム */
-.hero__break {
-  display: none;
-}
-
-@media (min-width: 500px) {
-  .hero__break {
-    display: inline;
-  }
-}
-
-.hero__lede {
-  margin: 0 0 0.9rem;
-  font-size: 1.05rem;
+.hero__sub {
+  margin: 0 0 1.2rem;
+  font-size: 1.1rem;
   color: var(--color-text);
   line-height: 1.75;
+  font-weight: 500;
 }
 
-.hero__note {
+/* 小さな安心要素（3点まで。バッジ風にしすぎない） */
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
   margin: 0 0 1.35rem;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
+  padding: 0;
+  list-style: none;
+}
+
+.hero__chip {
+  display: inline-block;
+  padding: 0.32rem 0.58rem 0.36rem;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(30, 77, 62, 0.07);
+  border-radius: 4px;
+  border: 1px solid rgba(30, 77, 62, 0.12);
 }
 
 .hero__actions {
@@ -534,13 +504,19 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero__actions .btn--primary {
+  /* hero 主CTA 1本 */
+  box-shadow: 0 3px 12px rgba(30, 77, 62, 0.22);
 }
 
 .hero__tel {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.01rem;
   color: var(--color-text-muted);
+  line-height: 1.55;
 }
 
 .hero__tel strong {
@@ -564,7 +540,8 @@ main {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(250, 249, 246, 0.9) 0%, rgba(250, 249, 246, 0.82) 50%, rgba(250, 249, 246, 0.93) 100%),
-    url("../../HomestayRoom.jpg") center 60% / cover no-repeat;
+    /* TODO: trust-bg.jpg を Adobe Stock 版で上書き（adobe-stock-sources.txt 参照） */
+    url("../images/trust-bg.jpg") center 60% / cover no-repeat;
   transform: scale(1.02);
   pointer-events: none;
 }
@@ -655,7 +632,8 @@ main {
   min-height: 120px;
   background:
     linear-gradient(90deg, rgba(30, 77, 62, 0.45) 0%, rgba(30, 77, 62, 0.2) 100%),
-    url("../../image3-1.jpg") center 45% / cover no-repeat;
+    /* TODO: countries-strip.jpg を Adobe Stock 版で上書き */
+    url("../images/countries-strip.jpg") center 45% / cover no-repeat;
   margin-bottom: var(--section-space);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
 }

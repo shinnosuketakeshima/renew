@@ -1,0 +1,29 @@
+Beインターナショナル（renew）— 編集ポイント・復元手順
+================================================
+
+■ この時点に戻す（タグで復元）
+  以下のタグは「トップページ・hero 調整済み・Adobe_stock 連携」時点のスナップショットです。
+
+  タグ名: restore-point/2026-04-25-top
+
+  作業ツリーをこのタグと同じ内容に戻す例:
+    git fetch origin
+    git checkout restore-point/2026-04-25-top
+
+  ブランチ main の先端に戻す例:
+    git checkout main
+
+  ブランチ上で「タグの内容で上書き」する例（破壊的操作。要確認）:
+    git reset --hard restore-point/2026-04-25-top
+
+■ トップページで主に触るファイル
+  index.html              … 構造・文言・画像パス（hero ほか）
+  assets/css/home.css     … 全体スタイル（:root、.hero など）
+  assets/images/*.jpg     … トップ用画像（hero-main 等）
+  Adobe_stock/            … 元写真（参照・差し替え用）
+
+■ リモート同期
+  git push origin main
+  git push origin --tags
+
+（このファイル自体もリポジトリに含め、いつでも参照できます。）
