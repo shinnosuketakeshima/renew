@@ -1,0 +1,311 @@
+/* 資料請求（postmail.html）— FAQ / 国別と同系トークン。フォームは postmail.cgi 用 name を維持。 */
+
+body.page-postmail {
+  --pm-ink: var(--color-text);
+  --pm-tq: var(--color-primary);
+  --pm-tq-rgb: var(--color-primary-rgb);
+  --pm-surface: #f0e8de;
+}
+
+body.page-postmail #main-content {
+  background: var(--color-bg);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.postmail-head {
+  padding: calc(var(--header-h) + 1.75rem) 0 2rem;
+  background: linear-gradient(180deg, var(--pm-surface) 0%, #ffffff 72%);
+  border-bottom: 1px solid rgba(var(--pm-tq-rgb), 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.postmail-head .layout-container,
+.postmail-content .layout-container {
+  max-width: min(calc(100% - 32px), 40rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postmail-head h1 {
+  display: table;
+  margin: 0 0 0.65rem;
+  max-width: 100%;
+  font-size: clamp(1.35rem, 2.8vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.postmail-lead {
+  margin: 0 0 0.5rem;
+  max-width: 40rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--pm-ink);
+}
+
+.postmail-reply {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.postmail-reply strong {
+  color: var(--pm-ink);
+  font-weight: 600;
+}
+
+.postmail-content {
+  padding: 1.5rem 0 0;
+}
+
+.postmail-notice {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--pm-ink);
+  background: rgba(var(--pm-tq-rgb), 0.06);
+  border-radius: var(--radius-md, 8px);
+  border-left: 3px solid var(--pm-tq);
+}
+
+.postmail-notice--warn {
+  margin-top: 0.5rem;
+  color: #8b2b1b;
+  background: rgba(200, 80, 50, 0.08);
+  border-left-color: #c45a3a;
+}
+
+.postmail-form {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+.postmail-form fieldset {
+  border: 0;
+  margin: 0 0 1.35rem;
+  padding: 0;
+  min-width: 0;
+}
+
+.postmail-form legend,
+.postmail-label {
+  display: block;
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--pm-ink);
+  line-height: 1.4;
+}
+
+.postmail-form .postmail-legend--inline {
+  display: inline;
+  font-weight: 600;
+}
+
+.postmail-req {
+  color: #b91c1c;
+  font-weight: 700;
+  margin-left: 0.15em;
+}
+
+.postmail-label--tight {
+  margin-top: 0;
+}
+
+.postmail-hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.postmail-form input[type="text"],
+.postmail-form input[type="email"],
+.postmail-form textarea,
+.postmail-form select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.45;
+  color: var(--pm-ink);
+  background: #ffffff;
+  border: 1px solid rgba(var(--pm-tq-rgb), 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  min-height: 48px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.postmail-form textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.postmail-form select {
+  min-height: 48px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234d5055' d='M1 0l5 5 5-5h-10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.postmail-form input:focus,
+.postmail-form textarea:focus,
+.postmail-form select:focus {
+  outline: none;
+  border-color: rgba(var(--color-accent-rgb), 0.75);
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.2);
+}
+
+/* ラジオ: 大きめタップ領域 */
+.postmail-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.1rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.postmail-radios li {
+  margin: 0;
+}
+
+.postmail-radios label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--pm-ink);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.postmail-radios input {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  accent-color: var(--pm-tq);
+}
+
+.postmail-row--emails .postmail-email-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .postmail-row--emails .postmail-email-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.postmail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 1.5rem 0 0;
+  padding-top: 0.5rem;
+}
+
+.postmail-form input[type="submit"],
+.postmail-form input[type="reset"] {
+  min-height: 48px;
+  min-width: 7rem;
+  padding: 0.55rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.2;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.postmail-form input[type="submit"] {
+  color: var(--color-on-accent);
+  background: var(--gradient-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 10px rgba(var(--color-accent-rgb), 0.35);
+}
+
+.postmail-form input[type="submit"]:hover {
+  background: var(--gradient-accent-hover, var(--color-accent));
+}
+
+.postmail-form input[type="submit"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.postmail-form input[type="reset"] {
+  color: var(--pm-tq);
+  background: #ffffff;
+  border-color: rgba(var(--pm-tq-rgb), 0.3);
+}
+
+.postmail-form input[type="reset"]:hover {
+  background: rgba(var(--pm-tq-rgb), 0.06);
+  border-color: var(--pm-tq);
+}
+
+.postmail-fallback,
+.postmail-tel {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}
+
+.postmail-tel {
+  margin-top: 0.5rem;
+}
+
+.postmail-tel strong {
+  color: var(--pm-ink);
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+
+/* メール: mailto 可。tel: リンクは掲載しない */
+.postmail-fallback a {
+  color: var(--pm-tq);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.postmail-fallback a:hover {
+  color: var(--color-link-hover);
+}
+
+@media (max-width: 480px) {
+  .postmail-head h1 {
+    font-size: clamp(1.1rem, 4.5vw, 1.45rem);
+  }
+}

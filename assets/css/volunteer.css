@@ -1,0 +1,507 @@
+/* ボランティアページ（volunteer.html）— home / srilanka トークンに準拠 */
+
+body.page-volunteer {
+  background: var(--color-bg);
+}
+
+.volunteer-main {
+  max-width: var(--content-max, 1100px);
+  margin: 0 auto;
+  padding: 0 16px calc(var(--section-space) + 1rem);
+}
+
+/* パンくず（voices ページと同系・静かに） */
+.volunteer-breadcrumb {
+  margin: 0 0 1rem;
+}
+
+.volunteer-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.volunteer-breadcrumb a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.volunteer-breadcrumb a:hover {
+  color: var(--color-link-hover);
+}
+
+.volunteer-breadcrumb li[aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.volunteer-breadcrumb li + li[aria-current="page"]::before {
+  content: "/";
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* --- ヒーロー（srilanka 系と整合） --- */
+.volunteer-hero {
+  position: relative;
+  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
+  width: 100%;
+  max-width: none;
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.volunteer-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.volunteer-hero__color {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-primary-rgb), 0.12) 0%,
+    rgba(255, 255, 255, 0.96) 55%
+  );
+  z-index: 1;
+}
+
+.volunteer-hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.volunteer-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-max, 1100px);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 1.25rem 1.5rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .volunteer-hero__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.volunteer-hero__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-heading-sub);
+}
+
+.volunteer-hero__pretitle {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.volunteer-hero h1,
+.volunteer-hero__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 3.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.volunteer-hero__lead {
+  margin: 0 0 1rem;
+  max-width: 38rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.volunteer-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.volunteer-hero__fig {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  background: var(--color-bg-elevated);
+}
+
+.volunteer-hero__fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- 目次 --- */
+.volunteer-toc {
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+  padding: 1.1rem 1.2rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-lg);
+}
+
+.volunteer-toc__h {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-heading-sub);
+}
+
+.volunteer-toc__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem 1rem;
+}
+
+@media (min-width: 560px) {
+  .volunteer-toc__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.volunteer-toc__list a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  font-size: 0.98rem;
+}
+
+/* --- セクション --- */
+.volunteer-section {
+  margin-bottom: clamp(2rem, 4.5vw, 3rem);
+  scroll-margin-top: calc(var(--header-h, 64px) + 12px);
+}
+
+.volunteer-section__h {
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.15);
+}
+
+.volunteer-section__intro {
+  margin: 0 0 1.1rem;
+  max-width: 44rem;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.volunteer-section__intro--tight {
+  margin-top: 1.25rem;
+}
+
+.volunteer-conditions {
+  margin: 0;
+  max-width: 44rem;
+  padding-left: 1.2rem;
+  line-height: 1.85;
+  font-size: 1.02rem;
+  color: var(--color-text);
+}
+
+.volunteer-conditions li {
+  margin: 0 0 0.5rem;
+}
+
+.volunteer-footnote {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.volunteer-note {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  background: rgba(var(--color-primary-rgb), 0.04);
+  border-radius: var(--radius-md);
+  border-left: 3px solid rgba(var(--color-primary-rgb), 0.3);
+}
+
+/* --- カードグリッド（メリット・役割導入） --- */
+.volunteer-card-grid {
+  display: grid;
+  gap: 1rem 1.15rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .volunteer-card-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .volunteer-card-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.volunteer-card {
+  padding: 1.15rem 1.2rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-lg);
+  min-height: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.volunteer-card__h {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.volunteer-card p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.volunteer-card p + p {
+  margin-top: 0.5rem;
+}
+
+/* --- 流れ（ステップ） --- */
+.volunteer-flow-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  counter-reset: vflow;
+}
+
+.volunteer-flow-step {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 0.6rem 0.9rem;
+  align-items: start;
+}
+
+.volunteer-flow-step::before {
+  counter-increment: vflow;
+  content: counter(vflow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.volunteer-flow-step__text {
+  margin: 0.15rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+/* --- 国別 活動カード --- */
+.volunteer-activities {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.volunteer-activity {
+  padding: 1.15rem 1.2rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+}
+
+.volunteer-activity h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.volunteer-activity__prose {
+  margin: 0 0 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.volunteer-kv {
+  margin: 0;
+  display: grid;
+  gap: 0.35rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 480px) {
+  .volunteer-kv {
+    grid-template-columns: 5.5rem 1fr;
+  }
+}
+
+.volunteer-kv dt {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-heading-sub);
+}
+
+.volunteer-kv dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* 横スクロール表（活動比較が必要な場合） */
+.volunteer-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0.75rem 0 0;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--color-bg-elevated);
+}
+
+.volunteer-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.volunteer-table th,
+.volunteer-table td {
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+
+.volunteer-table th {
+  width: 6.5rem;
+  min-width: 5.5rem;
+  font-weight: 600;
+  color: var(--color-heading-sub);
+  background: rgba(var(--color-primary-rgb), 0.04);
+}
+
+.volunteer-table tr:last-child th,
+.volunteer-table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* --- 関連リンク・CTA前 --- */
+.volunteer-related {
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  padding: 1.1rem 1.2rem;
+  background: rgba(var(--color-primary-rgb), 0.04);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+}
+
+.volunteer-related__h {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-heading-sub);
+}
+
+.volunteer-related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (min-width: 600px) {
+  .volunteer-related ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+}
+
+.volunteer-related a {
+  font-size: 0.98rem;
+}
+
+.volunteer-mid-cta {
+  margin: 2rem 0;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border-radius: var(--radius-lg);
+}
+
+.volunteer-mid-cta p {
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.page-volunteer .srilanka-cta {
+  margin-top: 0.5rem;
+}
+
+.volunteer-top-link {
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+}
