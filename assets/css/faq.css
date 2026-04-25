@@ -1,0 +1,382 @@
+/*
+ * FAQ 専用スタイル
+ * 配色: ①深い藍（基調）②本文 ③白〜極淡の生成り面
+ * ヘッダー・資料請求は home.css :root
+ */
+
+body.page-faq-theme {
+  --fq-tq: var(--color-primary);
+  --fq-tq-deep: var(--color-primary-hover);
+  --fq-tq-rgb: var(--color-primary-rgb);
+  --fq-ink: var(--color-text);
+  --fq-surface: #f0e8de;
+  --fq-white: #ffffff;
+}
+
+.page-faq {
+  padding-bottom: 3.5rem;
+  color: var(--fq-ink);
+}
+
+/* 本文内リンク */
+.page-faq .faq-accordion__body a:not(.btn) {
+  color: var(--fq-tq-deep);
+  font-weight: 500;
+}
+
+.page-faq .faq-accordion__body a:not(.btn):hover {
+  color: var(--color-link-hover);
+  text-decoration-thickness: 2px;
+}
+
+/* ----- ヒーロー風見出しエリア ----- */
+.page-faq__head {
+  padding: calc(var(--header-h) + 1.75rem) 0 2rem;
+  background: linear-gradient(180deg, var(--fq-surface) 0%, var(--fq-white) 72%);
+  border-bottom: 1px solid rgba(var(--fq-tq-rgb), 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.page-faq__head h1 {
+  display: table;
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.35rem, 2.8vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.page-faq__lead {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--fq-ink);
+}
+
+.page-faq__note {
+  margin: 0 0 1.75rem;
+  max-width: 44rem;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fq-ink);
+  background: rgba(var(--fq-tq-rgb), 0.06);
+  border-radius: var(--radius-md, 6px);
+  border-left: 3px solid var(--fq-tq);
+}
+
+/* ----- 大セクション（帯の切り替え） ----- */
+.page-faq__section {
+  margin: 0;
+  padding: 2.75rem 0 3.25rem;
+  border-bottom: 1px solid rgba(var(--fq-tq-rgb), 0.12);
+}
+
+.page-faq__section--priority {
+  background: var(--fq-white);
+}
+
+.page-faq__section--more {
+  background: var(--fq-surface);
+  padding-top: 3rem;
+  padding-bottom: 3.5rem;
+}
+
+/* 大見出し：左ルール＋下線区切り */
+.page-faq__section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.75rem;
+  padding: 0 0 0.9rem;
+  font-size: clamp(1.14rem, 2.1vw, 1.32rem);
+  font-weight: 700;
+  color: var(--fq-tq-deep);
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(var(--fq-tq-rgb), 0.2);
+}
+
+.page-faq__section > h2::before {
+  content: "";
+  flex-shrink: 0;
+  width: 4px;
+  height: 1.15em;
+  background: var(--fq-tq);
+  border-radius: 2px;
+}
+
+/* カテゴリ（中見出し） */
+.faq-category-block {
+  margin: 0 0 2.25rem;
+}
+
+.faq-category-block:last-of-type {
+  margin-bottom: 0;
+}
+
+.page-faq__section h3.faq-accordion__category {
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.65rem 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  color: var(--fq-tq-deep);
+  line-height: 1.4;
+  border-left: 3px solid var(--fq-tq);
+  background: linear-gradient(90deg, rgba(var(--fq-tq-rgb), 0.1) 0%, rgba(var(--fq-tq-rgb), 0.02) 100%);
+  border-radius: 0 6px 6px 0;
+}
+
+.page-faq__section--more h3.faq-accordion__category {
+  color: var(--fq-tq-deep);
+}
+
+.faq-accordion__stack {
+  max-width: 48rem;
+}
+
+/* スタック同士の余白（1セクション内で複数使う将来用） */
+.faq-accordion__stack + .faq-accordion__stack {
+  margin-top: 1.5rem;
+}
+
+.faq-accordion {
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ----- アイテム：左ルール＋面で単調さを減らす ----- */
+.faq-accordion__item {
+  position: relative;
+  margin: 0;
+  border: 1px solid rgba(var(--fq-tq-rgb), 0.14);
+  border-radius: 10px;
+  background: var(--fq-white);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-accordion__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: rgba(var(--fq-tq-rgb), 0.35);
+  border-radius: 10px 0 0 10px;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.faq-accordion__item:hover {
+  border-color: rgba(var(--fq-tq-rgb), 0.28);
+  box-shadow: 0 4px 20px rgba(var(--fq-tq-rgb), 0.08);
+}
+
+.faq-accordion__item:has(.faq-accordion__trigger[aria-expanded="true"]) {
+  border-color: rgba(var(--fq-tq-rgb), 0.35);
+  box-shadow: 0 6px 24px rgba(var(--fq-tq-rgb), 0.1);
+}
+
+.faq-accordion__item:has(.faq-accordion__trigger[aria-expanded="true"])::before {
+  width: 4px;
+  background: var(--fq-tq);
+}
+
+@supports not selector(:has(*)) {
+  .faq-accordion__item.is-open {
+    border-color: rgba(var(--fq-tq-rgb), 0.35);
+    box-shadow: 0 6px 24px rgba(var(--fq-tq-rgb), 0.1);
+  }
+  .faq-accordion__item.is-open::before {
+    width: 4px;
+    background: var(--fq-tq);
+  }
+}
+
+.faq-accordion__heading {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h4.faq-accordion__heading {
+  font-size: 0.98rem;
+}
+
+.faq-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 0.7rem 0.9rem 0.7rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  color: var(--fq-ink);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.faq-accordion__trigger:hover {
+  background: rgba(var(--fq-tq-rgb), 0.05);
+}
+
+.faq-accordion__trigger[aria-expanded="true"] {
+  background: rgba(var(--fq-tq-rgb), 0.08);
+}
+
+.faq-accordion__trigger:focus-visible {
+  outline: 2px solid var(--fq-tq);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.faq-accordion__label {
+  flex: 1;
+  line-height: 1.55;
+  padding: 0.15rem 0;
+}
+
+/* 開閉：円枠＋＋/×（2色目の線のみ） */
+.faq-accordion__chev {
+  flex-shrink: 0;
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1.5px solid rgba(var(--fq-tq-rgb), 0.45);
+  border-radius: 50%;
+  background: rgba(var(--fq-tq-rgb), 0.08);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-accordion__chev::before,
+.faq-accordion__chev::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 2px;
+  background: var(--fq-tq-deep);
+  border-radius: 1px;
+}
+
+.faq-accordion__chev::before {
+  transform: translate(-50%, -50%);
+}
+
+.faq-accordion__chev::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-accordion__trigger[aria-expanded="true"] .faq-accordion__chev {
+  transform: rotate(45deg);
+  background: rgba(var(--fq-tq-rgb), 0.16);
+  border-color: var(--fq-tq);
+}
+
+.faq-accordion__panel {
+  border-top: 1px solid rgba(var(--fq-tq-rgb), 0.12);
+  background: rgba(var(--fq-tq-rgb), 0.03);
+}
+
+.faq-accordion__body {
+  margin: 0;
+  padding: 1rem 1.1rem 1.2rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--fq-ink);
+}
+
+.faq-accordion__body p {
+  margin: 0 0 0.75rem;
+}
+
+.faq-accordion__body p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-cta {
+  margin: 0;
+  padding: 2.5rem 0 2.25rem;
+  text-align: center;
+  background: #e67e22;
+  color: #ffffff;
+  border-top: none;
+}
+
+.faq-cta p {
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #ffffff;
+  opacity: 0.95;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-cta .btn--accent {
+  background: #ffffff;
+  color: #e67e22;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.faq-cta .btn--accent:hover {
+  background: #fff8f1;
+  color: #c96a1c;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  filter: none;
+}
+
+.page-faq .site-footer--simple {
+  padding: 1.75rem 0 2rem;
+  border-top: 1px solid rgba(var(--fq-tq-rgb), 0.1);
+  background: var(--fq-white);
+}
+
+.page-faq .site-footer--simple a {
+  color: var(--fq-tq-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-faq .site-footer--simple a:hover {
+  color: var(--color-link-hover);
+}
+
+@media (max-width: 520px) {
+  .page-faq__section {
+    padding: 2.25rem 0 2.5rem;
+  }
+
+  .page-faq__section > h2 {
+    margin-bottom: 1.35rem;
+  }
+
+  .faq-accordion {
+    gap: 0.55rem;
+  }
+
+  .faq-accordion__trigger {
+    min-height: 48px;
+    padding-left: 0.9rem;
+  }
+}

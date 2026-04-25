@@ -1,19 +1,36 @@
-/* Be-intl.com トップ（骨組み）— project-context / ui-rules / home-page-brief 準拠 */
+/* Be-intl.com 共通レイアウト＋:root 配色 — 濃紺 / 焼けオレンジ / 補助ブルー / 生成り */
 
 :root {
-  /* 白 / オフホワイト + 深緑。アクセントは1色（テラコッタ系） */
-  --color-bg: #faf9f6;
-  --color-bg-elevated: #ffffff;
-  --color-text: #2c3330;
-  --color-text-muted: #5a635f;
-  --color-primary: #1e4d3e;
-  --color-primary-hover: #163a2f;
-  --color-accent: #b85c45;
-  --color-accent-hover: #9e4d38;
-  --color-border: #e8e5df;
-  --shadow-sm: 0 1px 2px rgba(30, 77, 62, 0.06);
-  --shadow-md: 0 12px 40px rgba(30, 77, 62, 0.12);
-  --shadow-hero: 0 24px 60px rgba(20, 40, 35, 0.18);
+  /*
+   * 留学ブランド: ①濃紺 ②補助ブルー ③焼オレ（CTA・左線等は10%前後想定）④生成り
+   * Primary #183B66 / Secondary #355C8A / Accent #E67E22 / 背景 #FFF8F1 / 本文 #222222
+   */
+  --color-bg: #fff8f1;
+  --color-bg-elevated: #fffdf8;
+  --color-surface-section: #fff8f1;
+  --color-text: #222222;
+  --color-text-muted: #4d5055;
+  --color-text-rgb: 34, 34, 34;
+  --color-primary: #183b66;
+  --color-primary-hover: #112947;
+  --color-on-primary: #ffffff;
+  --color-primary-rgb: 24, 59, 102;
+  /* 小見出し・上級テキスト（.style1 / .style3 互換含む） */
+  --color-heading-sub: #355c8a;
+  --color-secondary: #355c8a;
+  --color-link-hover: #e67e22;
+  /* CTA: 焼オレ＋白字（.btn--accent・末尾 CTA 帯） */
+  --color-accent: #e67e22;
+  --color-on-accent: #ffffff;
+  --color-accent-rgb: 230, 126, 34;
+  --color-accent-dim: #c96a1c;
+  --gradient-accent: linear-gradient(165deg, #e8883a 0%, #e67e22 48%, #d06e1a 100%);
+  --gradient-accent-hover: linear-gradient(165deg, #e67e22 0%, #d86d1a 50%, #b85c16 100%);
+  --gradient-accent-rgb: 230, 126, 34;
+  --color-border: #e4dcd2;
+  --shadow-sm: 0 1px 2px rgba(var(--color-primary-rgb), 0.1);
+  --shadow-md: 0 12px 40px rgba(var(--color-primary-rgb), 0.16);
+  --shadow-hero: 0 24px 50px rgba(var(--color-primary-rgb), 0.16);
   --radius-md: 6px;
   --radius-lg: 10px;
   --radius-xl: 16px;
@@ -21,6 +38,12 @@
   --content-max: 1100px;
   --section-space: clamp(3rem, 5vw, 4.5rem);
   --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+}
+
+/* トップ: ナビ hover はオレンジ字＋淡い地 */
+body.page-home .site-nav a:hover {
+  background: rgba(var(--color-accent-rgb), 0.1);
+  color: var(--color-link-hover);
 }
 
 *,
@@ -57,7 +80,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-link-hover);
 }
 
 :focus-visible {
@@ -103,37 +126,73 @@ a:hover {
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background 0.2s ease,
+    color 0.15s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .btn--primary {
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary);
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(30, 77, 62, 0.28);
+  box-shadow: 0 4px 16px rgba(var(--color-primary-rgb), 0.3);
 }
 
 .btn--primary:hover {
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary-hover);
-  box-shadow: 0 6px 20px rgba(30, 77, 62, 0.35);
+  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.36);
 }
 
 .btn--primary:focus-visible {
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .btn--accent {
-  color: #fff;
-  background: var(--color-accent);
+  color: var(--color-on-accent);
+  background: var(--gradient-accent);
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 18px rgba(var(--gradient-accent-rgb), 0.38);
 }
 
 .btn--accent:hover {
-  color: #fff;
-  background: var(--color-accent-hover);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+  color: var(--color-on-accent);
+  background: var(--gradient-accent-hover);
+  box-shadow: 0 6px 22px rgba(var(--gradient-accent-rgb), 0.45);
+  filter: brightness(1.02);
+}
+
+.btn--accent:focus-visible {
+  color: var(--color-on-accent);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* レガシー .style1 / .style3（旧ページのインラインと整合） */
+.style1,
+.style3 {
+  color: var(--color-secondary) !important;
+}
+
+.btn--accent:active {
+  filter: brightness(0.97);
+  box-shadow: 0 3px 12px rgba(var(--gradient-accent-rgb), 0.4);
+}
+
+/* 固定ヘッダー内の資料請求: 焼オレ CTA ＋ 極弱い紺リング */
+.site-header__cta.btn--accent {
+  box-shadow:
+    0 3px 16px rgba(var(--color-accent-rgb), 0.4),
+    0 0 0 1px rgba(var(--color-primary-rgb), 0.12);
+  font-weight: 600;
+}
+
+.site-header__cta.btn--accent:hover {
+  box-shadow:
+    0 5px 20px rgba(var(--color-accent-rgb), 0.5),
+    0 0 0 1px rgba(var(--color-primary-rgb), 0.16);
 }
 
 /* ----- ヘッダー（固定。電話番号は出さない） ----- */
@@ -144,8 +203,9 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(250, 249, 246, 0.96);
+  background: rgba(255, 248, 241, 0.97);
   border-bottom: 1px solid var(--color-border);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -167,7 +227,7 @@ a:hover {
 }
 
 .site-logo:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-link-hover);
   text-decoration: none;
 }
 
@@ -203,8 +263,8 @@ a:hover {
 }
 
 .site-nav a:hover {
-  background: rgba(30, 77, 62, 0.08);
-  color: var(--color-text);
+  background: rgba(var(--color-accent-rgb), 0.1);
+  color: var(--color-link-hover);
   text-decoration: none;
 }
 
@@ -337,7 +397,7 @@ main {
   display: flex;
   align-items: center;
   padding: calc(var(--section-space) + 0.65rem) 0;
-  background: #1a2e27;
+  background: #183b66;
   overflow: hidden;
 }
 
@@ -353,12 +413,12 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* 左は可読、右は写真の粒をほんの少しより見せる（色は既存の白・深緑系のみ） */
+  /* 左は可読、右は写真の空気。生成り〜深藍のヒント */
   background: linear-gradient(
     105deg,
-    rgba(250, 249, 245, 0.92) 0%,
-    rgba(250, 249, 245, 0.5) 34%,
-    rgba(20, 52, 44, 0.1) 100%
+    rgba(255, 248, 241, 0.95) 0%,
+    rgba(255, 248, 241, 0.56) 34%,
+    rgba(var(--color-primary-rgb), 0.16) 100%
   );
   pointer-events: none;
 }
@@ -407,7 +467,7 @@ main {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: var(--radius-xl);
-  box-shadow: 0 16px 48px rgba(20, 40, 35, 0.12), inset 3px 0 0 0 var(--color-accent);
+  box-shadow: 0 16px 48px rgba(var(--color-primary-rgb), 0.12), inset 6px 0 0 0 var(--color-accent);
   animation: hero-enter 0.65s ease-out both;
 }
 
@@ -447,7 +507,7 @@ main {
 .hero__kicker {
   margin: 0 0 0.8rem;
   font-size: 0.88rem;
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
   font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.5;
@@ -466,6 +526,16 @@ main {
   line-height: 1.28;
   color: var(--color-text);
   letter-spacing: -0.02em;
+}
+
+/* トップ FV: h1＝濃紺帯＋白字＋左 6px 焼オレ */
+body.page-home .hero h1.hero__title {
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.6rem 1.15rem 0.65rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .hero__sub {
@@ -491,12 +561,12 @@ main {
   padding: 0.32rem 0.58rem 0.36rem;
   font-size: 0.85rem;
   line-height: 1.3;
-  color: var(--color-primary);
+  color: var(--color-on-primary);
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: rgba(30, 77, 62, 0.07);
+  background: var(--color-primary);
   border-radius: 4px;
-  border: 1px solid rgba(30, 77, 62, 0.12);
+  border: 1px solid var(--color-primary-hover);
 }
 
 .hero__actions {
@@ -507,9 +577,9 @@ main {
   margin-bottom: 1.2rem;
 }
 
-.hero__actions .btn--primary {
-  /* hero 主CTA 1本 */
-  box-shadow: 0 3px 12px rgba(30, 77, 62, 0.22);
+/* ヒーロー主CTA＝資料請求（焼オレ .btn--accent） */
+.hero__actions .btn--accent {
+  box-shadow: 0 3px 16px rgba(var(--gradient-accent-rgb), 0.42);
 }
 
 .hero__tel {
@@ -529,9 +599,15 @@ main {
 
 .trust {
   position: relative;
-  padding: var(--section-space) 0;
+  margin: 1.25rem 16px 1.5rem;
+  max-width: min(calc(100% - 32px), var(--content-max));
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
   overflow: hidden;
-  background: var(--color-bg);
+  background: #fff8f1;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .trust__photo-bg {
@@ -539,7 +615,7 @@ main {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(180deg, rgba(250, 249, 246, 0.9) 0%, rgba(250, 249, 246, 0.82) 50%, rgba(250, 249, 246, 0.93) 100%),
+    linear-gradient(180deg, rgba(255, 248, 241, 0.93) 0%, rgba(255, 248, 241, 0.85) 50%, rgba(255, 248, 241, 0.95) 100%),
     /* TODO: trust-bg.jpg を Adobe Stock 版で上書き（adobe-stock-sources.txt 参照） */
     url("../images/trust-bg.jpg") center 60% / cover no-repeat;
   transform: scale(1.02);
@@ -552,12 +628,19 @@ main {
 }
 
 .trust h2 {
-  margin: 0 0 1.75rem;
+  display: table;
+  margin: 0 auto 1.75rem;
   font-size: clamp(1.25rem, 2.5vw, 1.4rem);
   font-weight: 700;
-  text-align: center;
-  color: var(--color-text);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  text-align: left;
+  text-shadow: none;
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.5rem 1.15rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .trust__grid {
@@ -581,7 +664,7 @@ main {
   display: block;
   font-size: clamp(1.5rem, 3vw, 1.85rem);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   line-height: 1.2;
   font-feature-settings: "tnum";
 }
@@ -619,31 +702,46 @@ main {
 
 .countries {
   position: relative;
-  padding: 0 0 var(--section-space);
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  margin: 0 16px 1.5rem;
+  max-width: min(calc(100% - 32px), var(--content-max));
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 24px;
+  background: #fff8f1;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
 .countries__photo-strip {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
+  margin-left: 0;
   height: min(22vh, 200px);
   min-height: 120px;
   background:
-    linear-gradient(90deg, rgba(30, 77, 62, 0.45) 0%, rgba(30, 77, 62, 0.2) 100%),
+    linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.5) 0%, rgba(var(--color-primary-rgb), 0.2) 100%),
     /* TODO: countries-strip.jpg を Adobe Stock 版で上書き */
     url("../images/countries-strip.jpg") center 45% / cover no-repeat;
   margin-bottom: var(--section-space);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 14px 14px 0 0;
 }
 
 .countries h2 {
-  margin: 0 0 0.5rem;
+  display: table;
+  margin: 0 auto 0.5rem;
   font-size: clamp(1.25rem, 2.5vw, 1.4rem);
   font-weight: 700;
-  text-align: center;
-  color: var(--color-text);
+  text-align: left;
+  text-shadow: none;
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.5rem 1.15rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .countries__intro {
@@ -674,7 +772,7 @@ main {
 
 @media (min-width: 701px) {
   .country-card:hover {
-    box-shadow: 0 16px 48px rgba(30, 77, 62, 0.18);
+    box-shadow: 0 16px 48px rgba(var(--color-primary-rgb), 0.2);
     transform: translateY(-4px);
   }
 }
@@ -682,7 +780,7 @@ main {
 .country-card__image-wrap {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: #1a1f1c;
+  background: #183b66;
   overflow: hidden;
 }
 
@@ -703,7 +801,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, transparent 0%, rgba(10, 25, 20, 0.15) 40%, rgba(10, 25, 20, 0.75) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(var(--color-primary-rgb), 0.24) 40%, rgba(10, 24, 48, 0.82) 100%);
   pointer-events: none;
 }
 
@@ -749,7 +847,7 @@ main {
   }
 }
 
-/* ----- 最終 CTA（写真を育てる＋深緑オーバーレイ） ----- */
+/* ----- 最終 CTA（焼オレ＋白字。写真は淡く） ----- */
 
 .final-cta {
   position: relative;
@@ -757,8 +855,8 @@ main {
   min-height: min(50vh, 480px);
   display: flex;
   align-items: center;
-  background: var(--color-primary);
-  color: #f5f2eb;
+  background: #e67e22;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -766,7 +864,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -804,12 +902,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    160deg,
-    rgba(20, 55, 45, 0.88) 0%,
-    rgba(30, 77, 62, 0.82) 40%,
-    rgba(10, 35, 28, 0.9) 100%
-  );
+  background: linear-gradient(160deg, rgba(230, 126, 34, 0.35) 0%, rgba(24, 59, 102, 0.22) 100%);
 }
 
 .final-cta .layout-container {
@@ -846,6 +939,17 @@ main {
 
 .final-cta__btn .btn--accent {
   min-width: 200px;
+  /* 帯と同色の単色 CTA では階調が出ないため、白ボタン＋焼オレ字 */
+  background: #ffffff;
+  color: #e67e22;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.final-cta__btn .btn--accent:hover {
+  background: #fff8f1;
+  color: #c96a1c;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  filter: none;
 }
 
 .final-cta__tel {

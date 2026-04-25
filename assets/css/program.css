@@ -1,0 +1,384 @@
+/* 料金・コース — home.css :root（深藍 --color-primary）に依存 */
+
+.page-program {
+  padding-bottom: 3rem;
+}
+
+.page-program__head {
+  padding: calc(var(--header-h) + 1.5rem) 0 1.5rem;
+  background: var(--color-bg, #fff8f1);
+  border-bottom: 1px solid var(--color-border, #e0d9cc);
+}
+
+.page-program__head h1 {
+  display: table;
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.8vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+  background: #183b66;
+  color: #ffffff;
+  border-left: 6px solid #e67e22;
+  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.page-program__lead {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text, #222222);
+}
+
+/* 全体注記 */
+.program-note {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.1rem;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  border-left: 3px solid var(--color-primary, #183b66);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text, #222222);
+}
+
+.program-note strong {
+  font-weight: 600;
+  color: var(--color-text, #222222);
+}
+
+/* 国セクション */
+.program-country {
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--color-border, #e0d9cc);
+}
+
+.program-country:nth-child(even) {
+  background: rgba(255, 248, 241, 0.85);
+}
+
+.program-country h2 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-primary, #183b66);
+}
+
+.program-country__id {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted, #5a635f);
+}
+
+.program-country__body {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text, #222222);
+  max-width: 46rem;
+}
+
+/* 価格テーブル（PC） / 行ブロック化（スマホ） */
+.program-table-wrap {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  overflow: visible;
+}
+
+.program-table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  background: #fff;
+  border: 1px solid var(--color-border, #e0d9cc);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.program-table caption {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--color-on-primary, #f5feff);
+  background: var(--color-primary, #183b66);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.program-table thead th {
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-on-primary, #f5feff);
+  background: var(--color-primary, #183b66);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  hyphens: auto;
+}
+
+.program-table td {
+  padding: 0.55rem 0.5rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border, #e0d9cc);
+  vertical-align: middle;
+}
+
+.program-table td:first-child,
+.program-table th[scope="row"] {
+  font-weight: 600;
+  color: var(--color-text, #222222);
+}
+
+/* 料金列を最も強く */
+.program-table__price {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  color: var(--color-primary, #183b66);
+  white-space: nowrap;
+}
+
+.program-footnote {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text, #222222);
+  max-width: 48rem;
+}
+
+/* 含む・含まない */
+.program-bundles {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  max-width: 50rem;
+}
+
+@media (min-width: 800px) {
+  .program-bundles {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+  }
+}
+
+.program-bundles h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-secondary, #355c8a);
+}
+
+.program-bundles h3::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-right: 0.45rem;
+  vertical-align: -0.12em;
+  background: var(--color-secondary, #355c8a);
+  border-radius: 1px;
+}
+
+.program-bundles__label {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text, #222222);
+}
+
+.program-bundles__label--spaced {
+  margin-top: 1rem;
+}
+
+.program-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text, #222222);
+}
+
+.program-list--exclude {
+  color: var(--color-text-muted, #5a635f);
+}
+
+/* 政策（変更・取消） */
+.program-policy {
+  padding: 2.25rem 0;
+  max-width: 40rem;
+}
+
+.program-policy h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-primary, #183b66);
+}
+
+.program-policy__scope {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #5a635f);
+}
+
+.program-policy h3 {
+  margin: 1.25rem 0 0.4rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-secondary, #355c8a);
+}
+
+.program-policy h3:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.program-policy p,
+.program-policy ol {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text, #222222);
+}
+
+.program-policy ol {
+  padding-left: 1.2rem;
+}
+
+.program-policy li {
+  margin: 0.4rem 0 0;
+}
+
+/* セクション末 CTA：帯＝焼オレ＋白字＋白ボタン */
+.program-cta {
+  margin: 2.5rem 0 0;
+  padding: 2.5rem 0;
+  text-align: center;
+  background: #e67e22;
+  color: #ffffff;
+  border-top: none;
+}
+
+.program-cta p {
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.program-cta .btn--accent {
+  background: #ffffff;
+  color: #e67e22;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.program-cta .btn--accent:hover {
+  background: #fff8f1;
+  color: #c96a1c;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  filter: none;
+}
+
+/* フッター簡易 */
+.site-footer--simple {
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--color-border, #e0d9cc);
+  text-align: center;
+}
+
+.site-footer--simple .layout-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.site-footer--simple a {
+  color: var(--color-text-muted, #5a635f);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* スマホ：テーブルをカード風行ブロック化 */
+@media (max-width: 767px) {
+  .program-table-wrap {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .program-table,
+  .program-table tbody,
+  .program-table tr,
+  .program-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .program-table caption {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .program-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .program-table tbody tr {
+    display: block;
+    margin: 0 0 0.9rem;
+    border: 1px solid var(--color-border, #e0d9cc);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .program-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .program-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    text-align: right;
+    padding: 0.5rem 0.75rem;
+    border-top: 1px solid var(--color-border, #e0d9cc);
+  }
+
+  .program-table td:first-child {
+    border-top: none;
+    background: rgba(var(--color-primary-rgb), 0.09);
+    font-weight: 600;
+  }
+
+  .program-table td::before {
+    content: attr(data-label);
+    flex: none;
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #5a635f);
+    max-width: 42%;
+  }
+
+  .program-table__price {
+    font-size: 1.1rem;
+  }
+}
