@@ -1,0 +1,211 @@
+/* Airbnb 風タイポ（Inter + Noto Sans JP）。配色は home.css :root のまま。@import は先頭必須 */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-sans: "Inter", "Noto Sans JP", sans-serif;
+  --type-h1: 2rem;
+  --type-title-h2: 1.5rem;
+  --type-body: 1.0625rem;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  line-height: 1.75;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 本文（p） */
+p {
+  font-size: var(--type-body);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+main li,
+.page-nepal .nepal-section li,
+.page-srilanka .srilanka-section li {
+  font-size: var(--type-body);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* 見出しブロック付近のリード（p 以外） */
+.hero__sub,
+.hero__kicker,
+.countries__intro,
+.trust__note,
+.nepal-section__intro,
+.srilanka-section__intro,
+.page-nepal__prose,
+.page-srilanka__prose,
+.page-program__lead,
+.page-faq__lead,
+.page-faq__note,
+.page-voices .voices-head__lead,
+.page-voices .voices-section__sub,
+.page-voices .voices-report-block p,
+.page-voices .legacy-taiken-note,
+.final-cta__copy,
+.final-cta__reply,
+.final-cta__tel,
+.nepal-next,
+.srilanka-next {
+  font-size: var(--type-body);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* h1：32px 相当、太め＋少し字間 */
+h1,
+.h1 {
+  font-family: var(--font-sans);
+  font-size: var(--type-h1);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  text-rendering: optimizeLegibility;
+}
+
+/* 各ページ h1：既存帯（FV・ページ冒頭）を上書き */
+body.page-home .hero h1.hero__title,
+body.page-nepal .nepal-hero h1.hero__title,
+body.page-srilanka .srilanka-hero h1.hero__title,
+.page-program__head h1,
+.page-faq__head h1 {
+  font-size: var(--type-h1);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+/* .title h2 相当：セクション主見出し（帯/カード h2。色は従来 CSS のまま） */
+.trust h2,
+.countries h2,
+.nepal-section h2.nepal-section__title,
+.nepal-section__title,
+.srilanka-section h2.srilanka-section__title,
+.srilanka-section__title,
+.program-country h2,
+.program-policy h2,
+.page-faq__section > h2,
+.page-voices .voices-section__h,
+.final-cta h2,
+.nepal-lead-to-cta,
+.srilanka-lead-to-cta,
+.page-nepal .nepal-cta .nepal-lead-to-cta,
+.page-srilanka .srilanka-cta .srilanka-lead-to-cta {
+  font-size: var(--type-title-h2);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+/* カード内・中見出し（h3 相当）：Airbnb 的に一段軽く */
+.nepal-card h3,
+.srilanka-card h3,
+.program-bundles h3,
+.program-policy h3,
+.faq-accordion__category,
+.page-voices .voice-card h3,
+.page-voices .voice-card__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+}
+
+/* 国カード上の h3 タイトル（装飾は維持） */
+.country-card__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* ボタンは読みやすさ優先（本文よりやや小さくても可） */
+.btn,
+.site-nav a,
+.site-logo {
+  font-family: var(--font-sans);
+}
+
+/* 小さな UI 文（ナビ補足・表脚注など） */
+.site-logo__sub,
+.trust__label,
+.nepal-media__caption,
+.nepal-report__figcap,
+.srilanka-media__caption,
+.srilanka-report__figcap,
+.final-cta__tel-note,
+.program-table caption {
+  font-family: var(--font-sans);
+}
+
+.faq-accordion__label {
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* 価格・数値 */
+.trust__value,
+.nepal-price__amount,
+.nepal-price__days,
+.srilanka-price__amount,
+.srilanka-price__days,
+.program-table__price {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* 超小型画面：見出しだけやや可変（はみ出し防止） */
+@media (max-width: 480px) {
+  h1:not(.voices-head__title),
+  .page-program__head h1,
+  .page-faq__head h1,
+  body.page-home .hero h1.hero__title,
+  body.page-nepal .nepal-hero h1.hero__title,
+  body.page-srilanka .srilanka-hero h1.hero__title {
+    font-size: clamp(1.5rem, 5.5vw, var(--type-h1));
+  }
+
+  .trust h2,
+  .countries h2,
+  .nepal-section h2.nepal-section__title,
+  .nepal-section__title,
+  .srilanka-section h2.srilanka-section__title,
+  .srilanka-section__title,
+  .final-cta h2,
+  .nepal-lead-to-cta,
+  .srilanka-lead-to-cta {
+    font-size: clamp(1.25rem, 4.5vw, var(--type-title-h2));
+  }
+
+  p,
+  .hero__sub,
+  .nepal-section__intro,
+  .srilanka-section__intro {
+    font-size: max(1rem, min(1.0625rem, 3.6vw + 0.5rem));
+  }
+}
+
+/* 大画面でも本文は 17px 上限（読みやすさ基準） */
+@media (min-width: 90rem) {
+  p,
+  body,
+  .hero__sub,
+  .nepal-section__intro,
+  .srilanka-section__intro {
+    font-size: 1.0625rem;
+  }
+}

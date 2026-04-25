@@ -1,54 +1,54 @@
-/* ネパール国別: レイアウト＋国ページ固有の上書き（色は :root トークンと同一パレット） */
+/* スリランカ国別: 色は :root トークン（ネパール国別ページと同一パレット） */
 
-body.page-nepal {
-  --nepal-section-y: clamp(2rem, 4vw, 2.5rem);
-  --nepal-ink: var(--color-primary);
-  --nepal-cream: var(--color-surface-section);
-  --nepal-gold: var(--color-accent);
-  --nepal-sub: var(--color-heading-sub);
-  --nepal-text: var(--color-text);
+body.page-srilanka {
+  --srilanka-section-y: clamp(2rem, 4vw, 2.5rem);
+  --srilanka-ink: var(--color-primary);
+  --srilanka-cream: var(--color-surface-section);
+  --srilanka-gold: var(--color-accent);
+  --srilanka-sub: var(--color-heading-sub);
+  --srilanka-text: var(--color-text);
 }
 
-body.page-nepal #main-content {
+body.page-srilanka #main-content {
   background: var(--color-bg);
-  padding: 0 0 var(--nepal-section-y);
+  padding: 0 0 var(--srilanka-section-y);
 }
 
 /* ---------------- FV（構造は維持）---------------- */
 
-.nepal-hero {
+.srilanka-hero {
   position: relative;
   z-index: 0;
   min-height: min(84vh, 780px);
   display: flex;
   align-items: center;
   padding: calc(clamp(3.75rem, 8vw, 5.5rem) + 0.5rem) 0;
-  margin-bottom: var(--nepal-section-y);
+  margin-bottom: var(--srilanka-section-y);
   overflow: hidden;
 }
 
-.nepal-hero__bg {
+.srilanka-hero__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
 
-.nepal-hero__color-plane {
+.srilanka-hero__color-plane {
   position: absolute;
   inset: 0;
   z-index: 0;
   background: linear-gradient(125deg, #f0ebe3 0%, #e5dfd4 50%, #dcd5c8 100%);
 }
 
-.nepal-hero__photo {
+.srilanka-hero__photo {
   position: absolute;
   inset: 0;
   z-index: 1;
   opacity: 0.28;
 }
 
-.nepal-media-slot__img {
+.srilanka-media-slot__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -56,23 +56,23 @@ body.page-nepal #main-content {
   display: block;
 }
 
-.nepal-hero__row {
+.srilanka-hero__row {
   position: relative;
   z-index: 2;
   width: 100%;
 }
 
 /* パネル: 白＋金の左装飾（アクセント色） */
-.nepal-hero__panel {
+.srilanka-hero__panel {
   box-shadow:
     0 20px 48px rgba(var(--color-primary-rgb), 0.1),
     0 1px 0 rgba(255, 255, 255, 0.92) inset,
-    inset 6px 0 0 0 var(--nepal-gold);
+    inset 6px 0 0 0 var(--srilanka-gold);
   background: var(--color-bg-elevated);
 }
 
 /* H1: メインタイトル＝紺地＋白字（.title 相当の主題は h1） */
-.nepal-hero h1.hero__title {
+.srilanka-hero h1.hero__title {
   margin: 0 0 0.9rem;
   background: var(--color-primary);
   color: var(--color-on-primary);
@@ -86,21 +86,21 @@ body.page-nepal #main-content {
   box-sizing: border-box;
 }
 
-.nepal-hero .hero__sub {
+.srilanka-hero .hero__sub {
   color: var(--color-text);
   max-width: 36rem;
 }
 
-.page-nepal__kicker {
+.page-srilanka__kicker {
   margin: 0 0 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--nepal-sub);
+  color: var(--srilanka-sub);
 }
 
 /* 小見出し色に近い: チップ */
-.page-nepal .nepal-hero .hero__chip {
+.page-srilanka .srilanka-hero .hero__chip {
   background: rgba(var(--color-primary-rgb), 0.08);
   color: var(--color-primary);
   border: 1px solid rgba(var(--color-accent-rgb), 0.45);
@@ -108,8 +108,8 @@ body.page-nepal #main-content {
 
 /* ---------------- 各 section（#FAF7F1 ＋影＋角） ---------------- */
 
-.nepal-section,
-.nepal-section.nepal-section--mute {
+.srilanka-section,
+.srilanka-section.srilanka-section--mute {
   padding: 24px;
   margin: 0 16px 1.25rem;
   background: var(--color-surface-section);
@@ -121,21 +121,21 @@ body.page-nepal #main-content {
   box-sizing: border-box;
 }
 
-.nepal-section--mute {
-  /* 旧 .nepal-section--mute の色差分は廃止（背景統一） */
+.srilanka-section--mute {
+  /* 旧 .srilanka-section--mute の色差分は廃止（背景統一） */
   background: var(--color-surface-section);
 }
 
-.nepal-section .layout-container {
+.srilanka-section .layout-container {
   padding-left: 0;
   padding-right: 0;
   max-width: 100%;
 }
 
-/* H2: 濃紺帯＋白字＋左6px 焼オレ（.title h2 相当: .nepal-section__title） */
-.nepal-section__title,
-.nepal-section h2.nepal-section__title,
-.nepal-section h2 {
+/* H2: 濃紺帯＋白字＋左6px 焼オレ（.title h2 相当: .srilanka-section__title） */
+.srilanka-section__title,
+.srilanka-section h2.srilanka-section__title,
+.srilanka-section h2 {
   margin: 0 0 1rem;
   max-width: 42rem;
   font-size: clamp(1.2rem, 2.1vw, 1.4rem);
@@ -151,7 +151,7 @@ body.page-nepal #main-content {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.nepal-section__intro {
+.srilanka-section__intro {
   margin: 0 0 1.5rem;
   max-width: 40rem;
   font-size: 1.02rem;
@@ -159,29 +159,33 @@ body.page-nepal #main-content {
   color: var(--color-text);
 }
 
-.nepal-section__intro a {
+.srilanka-section__intro a {
   color: var(--color-primary);
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.nepal-section__intro a:hover {
+.srilanka-section__intro a:hover {
   color: var(--color-link-hover);
 }
 
-.page-nepal__prose,
-.page-nepal__prose p {
+.srilanka-section__intro--flush {
+  margin-bottom: 0;
+}
+
+.page-srilanka__prose,
+.page-srilanka__prose p {
   color: var(--color-text);
 }
 
 /* ---------------- 図版（仮面の色味のみ調整、構造不変） ---------------- */
 
-.nepal-media {
+.srilanka-media {
   margin: 1.75rem 0 0;
 }
 
-.nepal-media--inline .nepal-media__canvas {
+.srilanka-media--inline .srilanka-media__canvas {
   position: relative;
   aspect-ratio: 16 / 9;
   min-height: 10.5rem;
@@ -192,14 +196,14 @@ body.page-nepal #main-content {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-.nepal-media__img {
+.srilanka-media__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.nepal-media__caption {
+.srilanka-media__caption {
   margin: 0.75rem 0 0;
   padding: 0 0.15rem;
   font-size: 0.9rem;
@@ -209,7 +213,7 @@ body.page-nepal #main-content {
 
 /* ---------------- グリッド・カード: h3 = .style1/.style3 相当 = #2F5E8A ---------------- */
 
-.nepal-grid {
+.srilanka-grid {
   display: grid;
   gap: 1.25rem;
   margin: 0;
@@ -218,12 +222,12 @@ body.page-nepal #main-content {
 }
 
 @media (min-width: 600px) {
-  .nepal-grid--2 {
+  .srilanka-grid--2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.nepal-card {
+.srilanka-card {
   margin: 0;
   padding: 1.3rem 1.25rem 1.35rem;
   background: var(--color-bg-elevated);
@@ -232,7 +236,7 @@ body.page-nepal #main-content {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
-.nepal-card h3 {
+.srilanka-card h3 {
   margin: 0 0 0.5rem;
   font-size: 1.05rem;
   font-weight: 700;
@@ -240,7 +244,7 @@ body.page-nepal #main-content {
   color: var(--color-heading-sub);
 }
 
-.nepal-card p {
+.srilanka-card p {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.8;
@@ -248,7 +252,7 @@ body.page-nepal #main-content {
 }
 
 /* スケジュール */
-.nepal-schedule {
+.srilanka-schedule {
   margin: 1.5rem 0 0;
   border: 1px solid rgba(var(--color-primary-rgb), 0.12);
   border-radius: var(--radius-md);
@@ -256,7 +260,7 @@ body.page-nepal #main-content {
   background: var(--color-bg-elevated);
 }
 
-.nepal-schedule__row {
+.srilanka-schedule__row {
   display: grid;
   grid-template-columns: 4.5rem 1fr;
   gap: 0.75rem 1rem;
@@ -267,30 +271,47 @@ body.page-nepal #main-content {
   color: var(--color-text);
 }
 
-.nepal-schedule__row:last-child {
+.srilanka-schedule__row:last-child {
   border-bottom: 0;
 }
 
-.nepal-schedule__time {
+.srilanka-schedule__time {
   font-weight: 600;
   color: var(--color-heading-sub);
 }
 
 /* 料金 */
-.nepal-price {
+.srilanka-price {
   display: grid;
   gap: 1.25rem;
   margin: 1.5rem 0 0;
 }
 
 @media (min-width: 700px) {
-  .nepal-price {
+  .srilanka-price {
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
   }
 }
 
-.nepal-price__card {
+/* 3枚ミニ価格（スリランカ専用） */
+.srilanka-price--mini {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .srilanka-price--mini {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .srilanka-price--mini {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.srilanka-price__card {
   position: relative;
   padding: 1.5rem 1.35rem 1.6rem;
   background: var(--color-bg-elevated);
@@ -299,7 +320,7 @@ body.page-nepal #main-content {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-.nepal-price__label {
+.srilanka-price__label {
   margin: 0 0 0.35rem;
   font-size: 0.8rem;
   font-weight: 600;
@@ -308,7 +329,7 @@ body.page-nepal #main-content {
   color: var(--color-heading-sub);
 }
 
-.nepal-price__days {
+.srilanka-price__days {
   margin: 0 0 0.25rem;
   font-size: 1.35rem;
   font-weight: 700;
@@ -316,7 +337,7 @@ body.page-nepal #main-content {
   color: var(--color-primary);
 }
 
-.nepal-price__amount {
+.srilanka-price__amount {
   margin: 0 0 0.5rem;
   font-size: clamp(1.75rem, 4vw, 2.1rem);
   font-weight: 700;
@@ -325,15 +346,15 @@ body.page-nepal #main-content {
   color: var(--color-primary);
 }
 
-.nepal-price__meta,
-.nepal-price__days .nepal-price__meta {
+.srilanka-price__meta,
+.srilanka-price__days .srilanka-price__meta {
   color: #555555;
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
 /* 体験者 */
-.nepal-voices {
+.srilanka-voices {
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
@@ -341,7 +362,7 @@ body.page-nepal #main-content {
   gap: 1rem;
 }
 
-.nepal-voice {
+.srilanka-voice {
   margin: 0;
   padding: 1.1rem 1.15rem;
   background: var(--color-bg-elevated);
@@ -349,8 +370,8 @@ body.page-nepal #main-content {
   border-radius: var(--radius-lg);
 }
 
-.nepal-voice blockquote,
-.nepal-voice blockquote p {
+.srilanka-voice blockquote,
+.srilanka-voice blockquote p {
   margin: 0 0 0.65rem;
   padding: 0;
   font-size: 0.98rem;
@@ -359,31 +380,30 @@ body.page-nepal #main-content {
   border: 0;
 }
 
-.nepal-voice footer {
+.srilanka-voice footer {
   font-size: 0.88rem;
   color: #555555;
 }
 
-.nepal-voice a {
+.srilanka-voice a {
   font-weight: 500;
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.nepal-voice a:hover {
+.srilanka-voice a:hover {
   color: var(--color-link-hover);
 }
 
-/* 体験談サムネ（旧ページ掲載写真）— 静かに横並び */
-.nepal-voice--with-photo {
+.srilanka-voice--with-photo {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: stretch;
 }
 
-.nepal-voice__img {
+.srilanka-voice__img {
   width: 100%;
   max-width: 12.5rem;
   height: auto;
@@ -394,40 +414,52 @@ body.page-nepal #main-content {
   flex-shrink: 0;
 }
 
-.nepal-voice__content {
+.srilanka-voice__content {
   flex: 1;
   min-width: 0;
 }
 
 @media (min-width: 32rem) {
-  .nepal-voice--with-photo {
+  .srilanka-voice--with-photo {
     flex-direction: row;
     align-items: flex-start;
   }
 
-  .nepal-voice__img {
+  .srilanka-voice__img {
     width: 8.75rem;
     max-width: 8.75rem;
   }
 }
 
-.nepal-next a {
+.srilanka-next {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.srilanka-next a {
   color: var(--color-primary);
   font-weight: 500;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
-.nepal-next a:hover {
+.srilanka-next a:hover {
   color: var(--color-link-hover);
 }
 
-.nepal-next--spaced {
+.srilanka-next--spaced {
   margin-top: 1.5rem;
 }
 
+/* セクション末の控えめ導線（本文より一段小さく） */
+.srilanka-next--quiet {
+  margin-top: 1.1rem;
+  font-size: 0.92rem;
+}
+
 /* レポート（summary 色＝小見出し扱い） */
-.nepal-report {
+.srilanka-report {
   margin: 1.25rem 0 0;
   border: 1px solid rgba(var(--color-primary-rgb), 0.12);
   border-radius: var(--radius-md);
@@ -435,7 +467,7 @@ body.page-nepal #main-content {
   overflow: hidden;
 }
 
-.nepal-report__summary {
+.srilanka-report__summary {
   list-style: none;
   display: flex;
   align-items: center;
@@ -450,16 +482,16 @@ body.page-nepal #main-content {
   user-select: none;
 }
 
-.nepal-report__summary:focus {
+.srilanka-report__summary:focus {
   outline: none;
 }
 
-.nepal-report__summary:focus-visible {
+.srilanka-report__summary:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-.nepal-report__summary::after {
+.srilanka-report__summary::after {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
@@ -470,12 +502,12 @@ body.page-nepal #main-content {
   margin-top: -0.2rem;
 }
 
-.nepal-report[open] .nepal-report__summary::after {
+.srilanka-report[open] .srilanka-report__summary::after {
   transform: rotate(225deg);
   margin-top: 0.15rem;
 }
 
-.nepal-report__body {
+.srilanka-report__body {
   padding: 0 1.1rem 1.1rem;
   font-size: 0.98rem;
   line-height: 1.85;
@@ -483,38 +515,37 @@ body.page-nepal #main-content {
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.nepal-report__body a {
+.srilanka-report__body a {
   color: var(--color-primary);
 }
 
-.nepal-report__body a:hover {
+.srilanka-report__body a:hover {
   color: var(--color-link-hover);
 }
 
-.nepal-report__body p {
+.srilanka-report__body p {
   margin: 0.75rem 0 0;
 }
 
-/* 図版なしのとき先頭 p の余白。図版ありは .nepal-report__figure + p で下へ */
-.nepal-report__body > p:first-child {
+.srilanka-report__body > p:first-child {
   margin-top: 0.85rem;
 }
 
-.nepal-report__body .nepal-report__figure + p {
+.srilanka-report__body .srilanka-report__figure + p {
   margin-top: 0.9rem;
 }
 
-.nepal-report__figure {
+.srilanka-report__figure {
   margin: 0.75rem 0 0;
   padding: 0;
   border: 0;
 }
 
-.nepal-report__body .nepal-report__figure:first-child {
+.srilanka-report__body .srilanka-report__figure:first-child {
   margin-top: 0.85rem;
 }
 
-.nepal-report__photo {
+.srilanka-report__photo {
   display: block;
   width: 100%;
   max-width: 20rem;
@@ -524,24 +555,24 @@ body.page-nepal #main-content {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.nepal-report__figcap {
+.srilanka-report__figcap {
   margin: 0.5rem 0 0;
   font-size: 0.86rem;
   line-height: 1.5;
   color: #555555;
 }
 
-.nepal-report__list {
+.srilanka-report__list {
   margin: 0.6rem 0 0;
   padding-left: 1.2rem;
 }
 
 /* ---------------- 末尾 CTA: 帯＝焼オレ＋白字（home .final-cta と整合）---------------- */
 
-.page-nepal .nepal-cta {
+.page-srilanka .srilanka-cta {
   background: var(--color-accent);
   color: var(--color-on-primary);
-  margin: var(--nepal-section-y) 16px 0;
+  margin: var(--srilanka-section-y) 16px 0;
   padding: clamp(2.5rem, 6vw, 3.5rem) 24px;
   border-radius: 14px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
@@ -550,7 +581,7 @@ body.page-nepal #main-content {
   margin-right: auto;
 }
 
-.nepal-cta__color-base {
+.srilanka-cta__color-base {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -559,49 +590,49 @@ body.page-nepal #main-content {
   pointer-events: none;
 }
 
-.page-nepal .nepal-cta {
+.page-srilanka .srilanka-cta {
   position: relative;
   overflow: hidden;
 }
 
-.page-nepal .nepal-cta .final-cta__bg {
+.page-srilanka .srilanka-cta .final-cta__bg {
   z-index: 1;
   opacity: 0.12;
 }
 
-.page-nepal .nepal-cta .final-cta__bg img {
+.page-srilanka .srilanka-cta .final-cta__bg img {
   animation: none;
   transform: none;
 }
 
-.page-nepal .nepal-cta .final-cta__overlay {
+.page-srilanka .srilanka-cta .final-cta__overlay {
   z-index: 2;
   background: linear-gradient(160deg, rgba(230, 126, 34, 0.35) 0%, rgba(24, 59, 102, 0.22) 100%);
 }
 
-.page-nepal .nepal-cta .layout-container {
+.page-srilanka .srilanka-cta .layout-container {
   z-index: 3;
   position: relative;
 }
 
-.page-nepal .nepal-cta h2,
-.page-nepal .nepal-cta .final-cta h2,
-.page-nepal .nepal-cta .nepal-lead-to-cta,
-.page-nepal .nepal-cta .final-cta__copy,
-.page-nepal .nepal-cta .final-cta__reply,
-.page-nepal .nepal-cta .final-cta__tel,
-.page-nepal .nepal-cta .final-cta__tel strong,
-.page-nepal .nepal-cta .final-cta__tel-note {
+.page-srilanka .srilanka-cta h2,
+.page-srilanka .srilanka-cta .final-cta h2,
+.page-srilanka .srilanka-cta .srilanka-lead-to-cta,
+.page-srilanka .srilanka-cta .final-cta__copy,
+.page-srilanka .srilanka-cta .final-cta__reply,
+.page-srilanka .srilanka-cta .final-cta__tel,
+.page-srilanka .srilanka-cta .final-cta__tel strong,
+.page-srilanka .srilanka-cta .final-cta__tel-note {
   color: var(--color-on-primary);
   text-shadow: none;
 }
 
-.page-nepal .nepal-cta .final-cta__reply {
+.page-srilanka .srilanka-cta .final-cta__reply {
   opacity: 0.95;
 }
 
 /* CTA 内 H2: 帯上で左ラインは白 */
-.page-nepal .nepal-cta .nepal-lead-to-cta {
+.page-srilanka .srilanka-cta .srilanka-lead-to-cta {
   border-left: 6px solid #ffffff;
   padding-left: 1rem;
   text-align: left;
@@ -611,6 +642,6 @@ body.page-nepal #main-content {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
-.page-nepal .nepal-cta .layout-container {
+.page-srilanka .srilanka-cta .layout-container {
   text-align: center;
 }

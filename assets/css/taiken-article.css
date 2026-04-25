@@ -1,0 +1,352 @@
+/* 体験談個別ページ（taikenNN.html）— home.css トークン。読み物として静かに。 */
+
+body.page-taiken-article {
+  --taiken-y: clamp(1.5rem, 3vw, 2.25rem);
+  --taiken-prose: min(100%, 40rem);
+}
+
+body.page-taiken-article #main-content {
+  background: linear-gradient(180deg, #f8f7f4 0%, #faf9f6 8%, #ffffff 28%);
+  padding: 0 0 var(--taiken-y);
+}
+
+/* ページ冒頭：srilanka 系の明るい面＋清潔感（Airbnb 風トーン） */
+.page-taiken-article .taiken-head {
+  padding: calc(var(--header-h) + 1.5rem) 0 1.75rem;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.page-taiken-article .taiken-head .layout-container {
+  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
+  margin: 0 auto;
+}
+
+.page-taiken-article .taiken-head__h1 {
+  display: table;
+  margin: 0 0 1rem;
+  max-width: 100%;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-left: 6px solid var(--color-accent);
+  padding: 0.55rem 1.2rem 0.6rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(var(--color-primary-rgb), 0.1);
+  box-sizing: border-box;
+}
+
+/* メタ行（導入情報のみ。装飾は最小） */
+.page-taiken-article .taiken-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: var(--taiken-prose);
+}
+
+.page-taiken-article .taiken-meta li {
+  margin: 0;
+}
+
+.page-taiken-article .taiken-meta strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* 本文ラッパ */
+.page-taiken-article .taiken-article {
+  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
+  margin: 0 auto;
+  padding: var(--taiken-y) 16px 0;
+}
+
+.page-taiken-article .taiken-body {
+  max-width: var(--taiken-prose);
+  font-size: max(1rem, 1.0625rem);
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+.page-taiken-article .taiken-body > p {
+  margin: 0 0 1.35em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 2枚並び（先頭ギャラリー等） */
+.page-taiken-article .taiken-fig-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin: 0 0 var(--taiken-y);
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .page-taiken-article .taiken-fig-row--2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 1.5rem;
+    align-items: start;
+  }
+}
+
+.page-taiken-article .taiken-fig-row .taiken-figure {
+  margin: 0;
+}
+
+/* 図＋隣接テキスト（旧 table レイアウトの置換） */
+.page-taiken-article .taiken-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 0 0 var(--taiken-y);
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .page-taiken-article .taiken-split--img-text {
+    grid-template-columns: minmax(0, 12rem) 1fr;
+  }
+
+  .page-taiken-article .taiken-split--text-img {
+    grid-template-columns: 1fr minmax(0, 12rem);
+  }
+}
+
+.page-taiken-article .taiken-split__text > p {
+  margin: 0 0 1.1em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.page-taiken-article .taiken-split__text > p:last-child {
+  margin-bottom: 0;
+}
+
+/* figure / 画像 */
+.page-taiken-article .taiken-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.page-taiken-article .taiken-figure img {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md, 6px);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.page-taiken-article .taiken-fig-row--2 .taiken-figure img {
+  max-width: 18rem;
+}
+
+.page-taiken-article .taiken-figure figcaption {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.page-taiken-article .taiken-figure--inline img {
+  max-width: 11.25rem;
+}
+
+@media (min-width: 720px) {
+  .page-taiken-article .taiken-split--img-text .taiken-figure img,
+  .page-taiken-article .taiken-split--text-img .taiken-figure img {
+    max-width: 11.25rem;
+  }
+}
+
+/* 国別：本文列の左罫（控えめ。読み物の軸） */
+body.page-taiken-article--srilanka .taiken-body {
+  border-left: 3px solid rgba(var(--color-primary-rgb), 0.3);
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+body.page-taiken-article--nepal .taiken-body {
+  border-left: 3px solid rgba(53, 92, 138, 0.35);
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+/* 下段：戻る＋CTA */
+.page-taiken-article .taiken-article__foot {
+  margin-top: calc(var(--taiken-y) * 1.5);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+  max-width: var(--taiken-prose);
+}
+
+.page-taiken-article .taiken-article__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .page-taiken-article .taiken-article__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.page-taiken-article .taiken-article__back {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-taiken-article .taiken-article__back:hover {
+  color: var(--color-link-hover);
+}
+
+.page-taiken-article .taiken-article__foot .btn--accent {
+  min-height: 48px;
+}
+
+/* フッタ簡易 */
+.page-taiken-article .site-footer--simple {
+  margin-top: 2.5rem;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.page-taiken-article .site-footer--simple .layout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.page-taiken-article .site-footer--simple a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-taiken-article .site-footer--simple a:hover {
+  color: var(--color-link-hover);
+}
+
+/* 先頭余白 */
+@media (max-width: 480px) {
+  .page-taiken-article .taiken-head__h1 {
+    font-size: clamp(1.05rem, 4vw, 1.35rem);
+  }
+}
+
+/* ----- 第1弾以降：旧 table 内包（.taiken-legacy）— 本文優先でレスポンシブ化 ----- */
+.page-taiken-article .taiken-body.taiken-legacy {
+  max-width: min(100%, 42rem);
+  padding: 0.25rem 0 0.5rem;
+}
+
+.page-taiken-article .taiken-legacy > table {
+  width: 100% !important;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 1.5rem;
+  background: transparent;
+}
+
+.page-taiken-article .taiken-legacy table table {
+  width: 100% !important;
+  table-layout: fixed;
+  margin-bottom: 1.25rem;
+}
+
+/* 2 セル行は幅を半々に（旧 width="200" 片寄りを解消。taiken19 の2列に近い見え方） */
+.page-taiken-article .taiken-legacy tr > td:nth-child(1):nth-last-child(2),
+.page-taiken-article .taiken-legacy tr > td:nth-child(2):last-child {
+  width: 50% !important;
+  box-sizing: border-box;
+}
+
+.page-taiken-article .taiken-legacy td {
+  vertical-align: top;
+  padding: 0.5rem 0.6rem;
+}
+
+/* 旧 HTML の width="200" 等で写真列が狭い問題を解消（taiken19 の figure と同系の見え幅に寄せる） */
+.page-taiken-article .taiken-legacy td[width] {
+  width: auto !important;
+  min-width: 0;
+}
+
+.page-taiken-article .taiken-legacy p {
+  margin: 0 0 1.15em;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.page-taiken-article .taiken-legacy .style2 {
+  font: inherit;
+  line-height: inherit;
+}
+
+/* 旧 <font> を本文トーンに近づける（装飾色は落とす） */
+.page-taiken-article .taiken-legacy font {
+  font: inherit !important;
+  line-height: inherit !important;
+  color: var(--color-text) !important;
+  font-size: inherit !important;
+}
+
+.page-taiken-article .taiken-legacy p[align="center"] font,
+.page-taiken-article .taiken-legacy td p[align="center"] font {
+  color: var(--color-text-muted) !important;
+  font-size: 0.92rem !important;
+}
+
+/* taiken19 .taiken-figure img（max 20rem）に合わせる。列幅解消後は 100% の上限が実寸を確保 */
+.page-taiken-article .taiken-legacy img {
+  display: block;
+  width: auto;
+  max-width: min(20rem, 100%);
+  height: auto;
+  margin: 0.35rem auto 0.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: content-box;
+}
+
+.page-taiken-article .taiken-legacy [height="332"] {
+  height: auto !important;
+}
+
+/* スマホ：2カラム table を積み上げ（原文の前後関係を維持） */
+@media (max-width: 720px) {
+  .page-taiken-article .taiken-legacy table,
+  .page-taiken-article .taiken-legacy tbody,
+  .page-taiken-article .taiken-legacy tr,
+  .page-taiken-article .taiken-legacy td {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box;
+  }
+}
