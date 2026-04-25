@@ -102,7 +102,8 @@
   overflow: hidden;
 }
 
-.program-table caption {
+.program-table caption,
+.program-table__caption {
   text-align: left;
   padding: 0.75rem 1rem;
   font-weight: 600;
@@ -110,6 +111,30 @@
   color: var(--color-on-primary, #f5feff);
   background: var(--color-primary, #183b66);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  /* キャプション内の国名＋補足が狭幅で不自然に折れないよう整列 */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.45rem;
+  line-height: 1.4;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.program-table__caption-main {
+  font-weight: 700;
+}
+
+/* 中幅以上：1行目に「国名 —」の区切りを保つ */
+.program-table__caption-main::after {
+  content: "—";
+  margin-left: 0.3rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.program-table__caption-sub {
+  font-weight: 600;
 }
 
 .program-table thead th {
@@ -121,7 +146,9 @@
   font-size: 0.78rem;
   letter-spacing: 0.02em;
   vertical-align: middle;
-  hyphens: auto;
+  hyphens: none;
+  word-break: keep-all;
+  line-height: 1.35;
 }
 
 .program-table td {
@@ -305,8 +332,24 @@
     width: 100%;
   }
 
-  .program-table caption {
+  .program-table caption,
+  .program-table__caption {
     border-radius: 8px 8px 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem 0;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .program-table__caption-main::after {
+    display: none;
+  }
+
+  .program-table__caption-sub {
+    font-size: 0.95em;
+    font-weight: 500;
+    opacity: 0.95;
   }
 
   .program-table thead {
@@ -336,7 +379,7 @@
   .program-table td {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     gap: 0.75rem;
     text-align: right;
     padding: 0.5rem 0.75rem;
@@ -352,11 +395,15 @@
   .program-table td::before {
     content: attr(data-label);
     flex: none;
+    min-width: 0;
     text-align: left;
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-text-muted, #5a635f);
-    max-width: 42%;
+    max-width: 46%;
+    line-height: 1.35;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .program-table__price {

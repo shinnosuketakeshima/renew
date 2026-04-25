@@ -519,6 +519,24 @@ main {
   font-weight: 400;
 }
 
+.hero__kicker a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+}
+
+.hero__kicker a:hover,
+.hero__kicker a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.hero__kicker a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .hero__title {
   margin: 0 0 0.95rem;
   font-size: clamp(1.65rem, 4.1vw, 2.2rem);
@@ -1044,4 +1062,63 @@ body.page-home .hero h1.hero__title {
 .site-footer--simple a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* 全ページ: 先頭へ戻る（長尺ページの戻りやすさ） */
+button.back-to-top {
+  --back-to-top-size: 48px;
+  position: fixed;
+  z-index: 50;
+  right: max(1rem, env(safe-area-inset-right, 0));
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0));
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05em;
+  min-width: var(--back-to-top-size);
+  min-height: var(--back-to-top-size);
+  margin: 0;
+  padding: 0.35rem 0.5rem 0.4rem;
+  font: inherit;
+  line-height: 1;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+button.back-to-top[hidden] {
+  display: none;
+}
+
+button.back-to-top .back-to-top__icon {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+button.back-to-top .back-to-top__label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+button.back-to-top:hover {
+  background: var(--color-primary-hover, #112947);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+}
+
+button.back-to-top:active {
+  transform: scale(0.98);
+}
+
+button.back-to-top:focus-visible {
+  outline: 3px solid var(--color-accent, #e67e22);
+  outline-offset: 3px;
 }
