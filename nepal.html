@@ -45,7 +45,6 @@
         <span class="site-logo__sub">アジア語学留学</span>
       </a>
       <nav class="site-nav" id="primary-nav" aria-label="主要ナビゲーション" data-nav>
-        <!-- TODO: 本番URL（/nepal/ 等）に差し替え・301 設計と合わせる -->
         <a href="srilanka.html">スリランカ</a>
         <a href="nepal.html" aria-current="page">ネパール</a>
         <a href="program.html">料金</a>
@@ -63,10 +62,6 @@
   </header>
 
   <main id="main-content">
-    <!--
-      写真差し替え想定: assets/images/nepal/hero.jpg（FV）, section-country.jpg（国セクション）, cta-bg.jpg（末尾帯・任意）
-      未配置の間は仮の src。FV は色面（.nepal-hero__color-plane）を土台にしているため薄くても可読。opacity は .nepal-hero__photo で調整可。
-    -->
     <section class="nepal-hero" id="nepal-hero" aria-labelledby="nepal-hero-heading">
       <div class="nepal-hero__bg" aria-hidden="true">
         <div class="nepal-hero__color-plane"></div>
@@ -100,22 +95,21 @@
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-country-h">ネパールという国</h2>
         <p class="nepal-section__intro">インドと中国（チベット）に挟まれた内陸国です。インド文化とチベット文化の双方の影響を受け、民族や言語、宗教の多様性が豊かな社会が広がっています。公用語のネパール語に加え、多くの方が英語を使い、日常から旅のサポートまで英語に触れやすい環境です。</p>
-        <p class="nepal-section__intro">東西に連なるヒマラヤ山脈、世界遺産の散在、高原と盆地の表情の違い——滞在の仕方に応じて、風景と文化の厚みを味わっていただけます。首都のカトマンズ周辺は、都市の活気と、すぐ近くの寺社や遺跡が共存する、歩きながら学べる土地柄です。<!-- 治安は不安をあおらない表現。詳細数値は要確認: TODO --></p>
+        <p class="nepal-section__intro">東西に連なるヒマラヤ山脈、世界遺産の散在、高原と盆地の表情の違い——滞在の仕方に応じて、風景と文化の厚みを味わっていただけます。首都のカトマンズ周辺は、都市の活気と、すぐ近くの寺社や遺跡が共存する、歩きながら学べる土地柄です。</p>
         <figure class="nepal-media nepal-media--inline" data-nepal-slot="country">
           <div class="nepal-media__canvas">
-            <!-- 旧 taiken73.html 掲載の参加者写真（生活の風景）を再利用。差替え時は掲載可否を確認。 -->
             <img
               class="nepal-media__img"
               src="fukuesama1.jpg"
               data-nepal-asset="section-country"
               width="1200"
               height="675"
-              alt="ネパール滞在中の風景（体験談掲載写真。状況に応じて差し替え）"
+              alt="ネパール滞在中の風景（体験談掲載の写真）"
               loading="lazy"
               decoding="async"
             >
           </div>
-          <figcaption class="nepal-media__caption">休日やレッスン後、現地の方と過ごしながら体験を深めていけます。写真は過去の体験談に掲載のものです。<!-- TODO: 被写体・掲載継続の最終確認 --></figcaption>
+          <figcaption class="nepal-media__caption">休日やレッスン後、現地の方と過ごしながら体験を深めていけます。写真は過去の体験談に掲載のものです。</figcaption>
         </figure>
         <p class="nepal-next"><a href="program.html#nepal">全コースの日数と料金は料金表で確認</a></p>
       </div>
@@ -132,7 +126,7 @@
           </li>
           <li class="nepal-card">
             <h3>地域とのつながり</h3>
-            <p>興味に応じて、子どもとの交流や地域活動（ボランティア）に関わることもできます。希望とスケジュールに合わせて組み合わせてください。<!-- 実施日・内容は下記「ボランティア」参照 --></p>
+            <p>興味に応じて、子どもとの交流や地域活動（ボランティア）に関わることもできます。希望とスケジュールに合わせて組み合わせてください。概要は下記「英語留学に、社会貢献をプラス」もご参照ください。</p>
           </li>
         </ul>
       </div>
@@ -151,7 +145,7 @@
     <section class="nepal-section nepal-section--mute" id="nepal-lesson" aria-labelledby="nepal-lesson-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-lesson-h">マンツーマンレッスンと、日々の流れ</h2>
-        <p class="nepal-section__intro">全コース、担当の先生との個人レッスンが基本です。滞在中の週5日、1日あたりの英語のレッスン時間の目安は4時間前後（コースにより異なります）。週のうち1日程度は、お休みや振替の扱いがある場合がございます。<!-- 週1休・振替の詳細は nlesson 等照合: TODO 公開文言最終 --></p>
+        <p class="nepal-section__intro">全コース、担当の先生との個人レッスンが基本です。滞在中の週5日、1日あたりの英語のレッスン時間の目安は4時間前後（コースにより異なります）。週のうち1日程度は、お休みや振替の扱いがある場合がございます。欠席・振替の取り扱いの詳細は、<a href="nlesson.html">レッスン日・欠席・振替</a>をご参照ください。</p>
         <p class="nepal-section__intro">下は<strong>目安</strong>の流れです。ボランティア日や、ご自身の行動範囲に応じて、前後する日もあります。</p>
         <div class="nepal-schedule" role="list">
           <div class="nepal-schedule__row" role="listitem">
@@ -160,7 +154,7 @@
           </div>
           <div class="nepal-schedule__row" role="listitem">
             <span class="nepal-schedule__time">午前</span>
-            <div>英語のマンツーマンレッスン、または活動日はボランティア等（参加する場合）<!-- 鈴木成様レポート内の流れに基づく要約。個人差あり --></div>
+            <div>英語のマンツーマンレッスン、または活動日はボランティア等（参加する場合）</div>
           </div>
           <div class="nepal-schedule__row" role="listitem">
             <span class="nepal-schedule__time">午後</span>
@@ -171,14 +165,14 @@
             <div>夕食、夜の学習枠。就寝前までに体調を整えながら、翌日の準備</div>
           </div>
         </div>
-        <p class="nepal-next"><a href="nlesson.html">欠席・振替などの扱い（既存案内）を見る</a> <!-- TODO: nlesson リニューアル後のURL差し替え --></p>
+        <p class="nepal-next"><a href="nlesson.html">欠席・振替などの扱いを見る</a></p>
       </div>
     </section>
 
     <section class="nepal-section nepal-section--mute" id="nepal-volunteer" aria-labelledby="nepal-volunteer-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-volunteer-h">英語留学に、社会貢献をプラス</h2>
-        <p class="nepal-section__intro">学校での日本語教室や、地域の活動に関わるボランティアは、希望者のみ、スケジュールに応じてお申し出いただけます。英語学習と両立しながら、少し違う角度から社会を知る導線になっています。<!-- 費用に含まない交通費等は program 参照 --></p>
+        <p class="nepal-section__intro">学校での日本語教室や、地域の活動に関わるボランティアは、希望者のみ、スケジュールに応じてお申し出いただけます。英語学習と両立しながら、少し違う角度から社会を知る導線になっています。往復の交通費など、料金に含まない部分は<a href="program.html#inclusions">料金の内訳</a>をご確認ください。</p>
         <p class="nepal-next"><a href="volunteer.html#nepal">ネパールでのボランティア例の一覧</a></p>
       </div>
     </section>
@@ -186,7 +180,7 @@
     <section class="nepal-section" id="nepal-price" aria-labelledby="nepal-price-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-price-h">短期コースの料金（例）</h2>
-        <p class="nepal-section__intro">ネパールのプログラムでは、1週間前後の参加から計画しやすい方が多い前提で、下表のとおり多様な日数をご用意しています。まず費用感を掴みたい方は、<strong>7日間</strong>と、約2週間の<strong>12日間</strong>（11泊12日）に注目しやすい内容です。<!-- 旧資料の「7日・15日」表記は、現行料金表は7・12…に準拠。15日専用コース行が追加される場合は要更新: TODO --></p>
+        <p class="nepal-section__intro">ネパールのプログラムでは、1週間前後の参加から計画しやすい方が多い前提で、下表のとおり多様な日数をご用意しています。まず費用感を掴みたい方は、<strong>7日間</strong>と、約2週間の<strong>12日間</strong>（11泊12日）に注目しやすい内容です。ほかの日数は、下のリンクから料金表をご覧ください。</p>
         <div class="nepal-price" aria-label="ネパール 短期料金の例">
           <div class="nepal-price__card">
             <p class="nepal-price__label" id="nepal-p7">1週間前後</p>
@@ -212,7 +206,7 @@
         <div class="nepal-icedc">
           <div class="nepal-icedc__text page-nepal__prose">
             <h3 class="nepal-section__subtitle" id="nepal-icedc-org">International Culture Exchange and Development Center</h3>
-            <p>現地受入団体は、International Culture Exchange and Development Center（略称 <abbr title="International Culture Exchange and Development Center">ICEDC</abbr>）です。<!-- 正式名・登記名の最終表記: TODO 事務局照合 --></p>
+            <p>現地受入団体は、International Culture Exchange and Development Center（略称 <abbr title="International Culture Exchange and Development Center">ICEDC</abbr>）です。</p>
             <p><strong>プラタープ・チャトゥクリ</strong>氏が日本語でサポートにあたります。愛知県の名城大学博士課程に留学された経験があり、日本語で気持ちを共有しやすい体制です。小さなことでも、遠慮なくご相談ください。</p>
           </div>
           <figure class="nepal-icedc__figure">
@@ -221,7 +215,7 @@
         </div>
         <h3 class="nepal-section__subtitle" id="nepal-24h-support">24時間の現地サポート（日本語可）</h3>
         <div class="page-nepal__prose">
-          <p>現地では、滞在中を通じて相談を受け付けています。体調のこと、急な予定の変更、心配事が生じたときは、一人で抱え込まず、お知らせください。<!-- 連絡手順の詳細は、出発前のご案内・現地オリエンテーションに従います: TODO --></p>
+          <p>現地では、滞在中を通じて相談を受け付けています。体調のこと、急な予定の変更、心配事が生じたときは、一人で抱え込まず、お知らせください。具体的な連絡方法は、出発前のご案内・現地オリエンテーションに従ってください。</p>
         </div>
         <div class="nepal-icedc-scenes" role="group" aria-label="カトマンズ周辺の風景（参考写真）">
           <img src="nimage11.jpg" width="180" height="130" alt="カトマンズ周辺の風景（参考）" loading="lazy" decoding="async">
@@ -234,7 +228,7 @@
     <section class="nepal-section" id="nepal-voices" aria-labelledby="nepal-voices-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-voices-h">参加者の声</h2>
-        <p class="nepal-section__intro">ネパール参加の方から頂いている、印象に残った一言を抜粋して紹介します。多様な背景の方の体験談は、<a href="voices.html">体験者の声</a>の一覧から国別にたどることもできます。<!-- 今後、カードを並べ替え・追記しやすい list 構造 --></p>
+        <p class="nepal-section__intro">ネパール参加の方から頂いている、印象に残った一言を抜粋して紹介します。多様な背景の方の体験談は、<a href="voices.html">体験者の声</a>の一覧から国別にたどることもできます。</p>
         <ul class="nepal-voices" data-nepal-voice-list>
           <li class="nepal-voice nepal-voice--with-photo">
             <img
@@ -271,14 +265,13 @@
             </div>
           </li>
         </ul>
-        <!-- 追加用テンプレ: <li class="nepal-voice">…</li> -->
       </div>
     </section>
 
     <section class="nepal-section" id="nepal-report" aria-labelledby="nepal-report-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-report-h">参加者レポート（抜粋）</h2>
-        <p class="nepal-section__intro">直近のネパール参加に基づくレポートから、1日の流れとボランティアの感想を抜粋しています。全文・写真は、公開中の各ページにまとまっています。<!-- 本文の著作・掲載期間: TODO 運用で確認 --></p>
+        <p class="nepal-section__intro">直近のネパール参加に基づくレポートから、1日の流れとボランティアの感想を抜粋しています。全文・写真は、公開中の各ページにまとまっています。</p>
         <details class="nepal-report" id="nepal-report-2025">
           <summary class="nepal-report__summary">鈴木成様（2025年7〜8月ご参加）— 1日の流れと活動</summary>
           <div class="nepal-report__body">
@@ -288,11 +281,11 @@
                 src="ogakisama8.jpg"
                 width="360"
                 height="270"
-                alt="掲載レポート内の風景（旧 report5 より）"
+                alt="掲載レポート内の風景"
                 loading="lazy"
                 decoding="async"
               >
-              <figcaption class="nepal-report__figcap">同じレポート内で公開しているスナップ。<!-- TODO: 鈴木様レポート掲載写真との対応、掲載継続の確認 --></figcaption>
+              <figcaption class="nepal-report__figcap">同じレポート内で公開しているスナップ。</figcaption>
             </figure>
             <p>起床後はホスト家族と一緒に朝食。午前は、日本語教師のボランティア。昼食のあと、マンツーマン英語のレッスン。午後は観光や、ホストの息子さんと過ごしながら街を歩き、夕食、夜の英語の時間、という日もありました。</p>
             <p>ボランティアでは、一校舎で日本の文化や漢字を扱い、生徒の皆さんと歌を分かち合ったことや、本で読んでいた方と校長先生にお会いできたことが印象深かった、とのことです。</p>
@@ -304,11 +297,9 @@
             <p>※引用は、公開ページの表現に基づく要約です。最新の原文は上記リンク先を優先します。</p>
           </div>
         </details>
-        <p class="nepal-next nepal-next--spaced">追加のレポート枠を設ける場合は、上の折りたたみと同じマークアップを複製しやすい形にしてあります。</p>
       </div>
     </section>
 
-    <!-- 統合元: knowledge.html 等。旧 id nepal-tips-* は現地生活Tips内の h4 に維持（FAQ からのリンク互換） -->
     <section class="nepal-section" id="nepal-local-info" aria-labelledby="nepal-local-info-h">
       <div class="layout-container">
         <h2 class="nepal-section__title" id="nepal-local-info-h">ネパール現地情報</h2>
@@ -336,7 +327,6 @@
     <section class="final-cta nepal-cta" id="nepal-cta" aria-labelledby="nepal-cta-h">
       <div class="nepal-cta__color-base" aria-hidden="true"></div>
       <div class="final-cta__bg" aria-hidden="true">
-        <!-- 差替え: assets/images/nepal/cta-bg.jpg へ。色面（nepal-cta__color-base）で常に情報は読める -->
         <img
           class="nepal-cta__photo"
           src="assets/images/cta-bg.jpg"

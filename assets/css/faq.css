@@ -352,16 +352,6 @@ h4.faq-accordion__heading {
   background: var(--fq-white);
 }
 
-.page-faq .site-footer--simple a {
-  color: var(--fq-tq-deep);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.page-faq .site-footer--simple a:hover {
-  color: var(--color-link-hover);
-}
-
 @media (max-width: 520px) {
   .page-faq__section {
     padding: 2.25rem 0 2.5rem;

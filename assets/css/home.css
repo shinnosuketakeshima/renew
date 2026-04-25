@@ -407,7 +407,7 @@ main {
   z-index: 0;
 }
 
-/* オーバーレイは1枚に集約。左=可読 ／ 右=写真の空気（TODO: 差し替え画像に合わせ微調整可） */
+/* オーバーレイは1枚に集約。左=可読 ／ 右=写真の空気 */
 .hero__media::after {
   content: "";
   position: absolute;
@@ -435,7 +435,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* TODO: assets/images/hero-main.jpg（Adobe Stock 上書き後）に合わせて object-position を再調整 */
+  /* ヒーロー画像差し替え時は object-position を画像に合わせて調整 */
   object-position: 50% 42%;
   z-index: 0;
   transform: scale(1.03);
@@ -616,7 +616,7 @@ body.page-home .hero h1.hero__title {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(255, 248, 241, 0.93) 0%, rgba(255, 248, 241, 0.85) 50%, rgba(255, 248, 241, 0.95) 100%),
-    /* TODO: trust-bg.jpg を Adobe Stock 版で上書き（adobe-stock-sources.txt 参照） */
+    /* trust 背景は assets/images/trust-bg.jpg */
     url("../images/trust-bg.jpg") center 60% / cover no-repeat;
   transform: scale(1.02);
   pointer-events: none;
@@ -721,7 +721,7 @@ body.page-home .hero h1.hero__title {
   min-height: 120px;
   background:
     linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.5) 0%, rgba(var(--color-primary-rgb), 0.2) 100%),
-    /* TODO: countries-strip.jpg を Adobe Stock 版で上書き */
+    /* 国セクション帯: assets/images/countries-strip.jpg */
     url("../images/countries-strip.jpg") center 45% / cover no-repeat;
   margin-bottom: var(--section-space);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
@@ -970,4 +970,67 @@ body.page-home .hero h1.hero__title {
   margin-top: 0.35rem;
   font-size: 0.9rem;
   opacity: 0.88;
+}
+
+/* ----- 簡易フッター（補助ナビ・全ページ共通） ----- */
+.site-footer--simple {
+  padding: 2.25rem 0 2.5rem;
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-elevated) 100%);
+  text-align: center;
+}
+
+.site-footer--simple .layout-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.5rem;
+  column-gap: 0;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-footer--simple a {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-md);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* 項目間：中点（最後のリンクの後は付けない） */
+.site-footer--simple a:not(:last-child)::after {
+  content: "・";
+  display: inline-block;
+  margin-left: 0.55rem;
+  color: #b8b0a6;
+  font-weight: 400;
+  font-size: 0.95em;
+  pointer-events: none;
+  vertical-align: 0.05em;
+}
+
+.site-footer--simple a:hover {
+  color: var(--color-link-hover);
+  background: rgba(var(--color-accent-rgb), 0.1);
+}
+
+.site-footer--simple a[aria-current="page"] {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.site-footer--simple a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }

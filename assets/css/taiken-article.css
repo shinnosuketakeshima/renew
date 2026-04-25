@@ -224,29 +224,9 @@ body.page-taiken-article--nepal .taiken-body {
   min-height: 48px;
 }
 
-/* フッタ簡易 */
+/* 体験談ページ：本文との区切り（配色は home.css のフッター共通） */
 .page-taiken-article .site-footer--simple {
   margin-top: 2.5rem;
-  padding: 1.5rem 0 2rem;
-  border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.page-taiken-article .site-footer--simple .layout-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-}
-
-.page-taiken-article .site-footer--simple a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.page-taiken-article .site-footer--simple a:hover {
-  color: var(--color-link-hover);
 }
 
 /* 先頭余白 */

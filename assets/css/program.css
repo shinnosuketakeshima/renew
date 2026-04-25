@@ -288,26 +288,7 @@
   filter: none;
 }
 
-/* フッター簡易 */
-.site-footer--simple {
-  padding: 1.5rem 0 2rem;
-  border-top: 1px solid var(--color-border, #e0d9cc);
-  text-align: center;
-}
-
-.site-footer--simple .layout-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 1.25rem;
-  font-size: 0.9rem;
-}
-
-.site-footer--simple a {
-  color: var(--color-text-muted, #5a635f);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
+/* フッターは home.css の .site-footer--simple を使用 */
 
 /* スマホ：テーブルをカード風行ブロック化 */
 @media (max-width: 767px) {

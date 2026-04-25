@@ -125,7 +125,7 @@ HEADER = """<!DOCTYPE html>
     <section class="voices-section" id="taiken-index" aria-labelledby="taiken-index-h">
       <div class="layout-container">
         <h2 class="voices-section__title" id="taiken-index-h">国別 一覧</h2>
-        <p class="voices-section__sub"><a href="voices.html">体験者の声</a>に掲載のない体験談も、下表から国で絞り込んで開けます。<!-- 掲載名は旧トップ面の面付に準拠。要修正は TODO 事務局 --></p>
+        <p class="voices-section__sub"><a href="voices.html">体験者の声</a>に掲載のない体験談も、下表から国で絞り込んで開けます。</p>
         <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
           <p class="voices-toolbar__label" id="taiken-filter-label">国</p>
           <div class="voices-filter" role="group" aria-labelledby="taiken-filter-label">
@@ -134,7 +134,6 @@ HEADER = """<!DOCTYPE html>
             <button type="button" class="voices-filter__btn" data-taiken-filter="nepal" aria-pressed="false">ネパール</button>
           </div>
         </div>
-        <p class="taiken-index__note" id="taiken-43-sub">体験談43（Masami Yoshida様）には、別の掲出ブロック用の<a href="taiken43.html#6months">内部リンク</a>があります。</p>
         <div class="legal-table-wrap" role="region" aria-label="体験談 一覧" tabindex="0">
           <table class="legal-table taiken-index__table" id="taiken-index-table">
             <caption class="visually-hidden">国、掲載名、各体験談ページへのリンク</caption>

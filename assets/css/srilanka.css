@@ -179,7 +179,7 @@ body.page-srilanka #main-content {
   color: var(--color-text);
 }
 
-/* ---------------- 図版（仮面の色味のみ調整、構造不変） ---------------- */
+/* ---------------- 図版（色味の調整、構造不変） ---------------- */
 
 .srilanka-media {
   margin: 1.75rem 0 0;
