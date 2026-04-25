@@ -526,6 +526,15 @@ main {
   line-height: 1.28;
   color: var(--color-text);
   letter-spacing: -0.02em;
+  /* 和文＋半角交じりでも語の途中で不自然に切れにくくする */
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 見出し内「マンツーマン」等が1語の途中（マン｜ツーマン）で改行されないようまとめる */
+.hero__title .hero__keepword {
+  white-space: nowrap;
 }
 
 /* トップ FV: h1＝濃紺帯＋白字＋左 6px 焼オレ */
@@ -567,6 +576,8 @@ body.page-home .hero h1.hero__title {
   background: var(--color-primary);
   border-radius: 4px;
   border: 1px solid var(--color-primary-hover);
+  /* 短いラベルは1行（「全コースマ↵ツーマン」等を防ぐ） */
+  white-space: nowrap;
 }
 
 .hero__actions {
