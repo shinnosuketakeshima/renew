@@ -1,6 +1,6 @@
 /**
  * 固定ヘッダー: モバイルメニュー開閉、Escape、ボタンラベル（aria 補足）
- * 使用: トップ（index.html）、test2 等 data-menu-btn / #primary-nav を持つページ
+ * 使用: トップ（index.html）、test2/ 案内ページ 等 data-menu-btn / #primary-nav を持つページ
  */
 (function () {
   'use strict';

@@ -532,7 +532,7 @@ main {
   overflow-wrap: break-word;
 }
 
-/* 見出し内「マンツーマン」等が1語の途中（マン｜ツーマン）で改行されないようまとめる */
+/* 見出し内「個人レッスン」等が不自然に改行されないようまとめる */
 .hero__title .hero__keepword {
   white-space: nowrap;
 }

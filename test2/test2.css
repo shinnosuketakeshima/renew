@@ -1,6 +1,6 @@
 /* /test2/ 専用: トップ候補の「案内層」＋モバイル補正（home.css トーンは維持） */
 
-body.page-test2 {
+body.page-site-guide {
   overflow-x: hidden;
 }
 
@@ -146,7 +146,7 @@ body.page-test2 {
   text-decoration-thickness: 1px;
 }
 
-/* ----- 5. 体験者の声（国ブロックの後＝本文としての導線） ----- */
+/* ----- 3. 体験者の声（国ブロックの後＝本文としての導線） ----- */
 
 .test2-voices {
   padding: clamp(2.5rem, 5vw, 3.5rem) 0;
@@ -179,20 +179,20 @@ body.page-test2 {
 }
 
 /* trust を「導線のあと＝中盤の信頼台」に見せる階層感 */
-body.page-test2 .trust {
+body.page-site-guide .trust {
   margin-top: 0;
 }
 
 /* ----- 下層CTA 帯: 国セクションの余白（final-cta 前） ----- */
 
-body.page-test2 .final-cta {
+body.page-site-guide .final-cta {
   margin-top: 0;
 }
 
 /* ----- 極幅で電話番号がはみ出さない（本文・帯CTA 共通） ----- */
 
-body.page-test2 .hero__tel,
-body.page-test2 .final-cta__tel {
+body.page-site-guide .hero__tel,
+body.page-site-guide .final-cta__tel {
   max-width: 100%;
   word-break: break-all;
   overflow-wrap: anywhere;
@@ -201,8 +201,8 @@ body.page-test2 .final-cta__tel {
 /* ----- 安全余白 375 / 安全域 ----- */
 
 @media (max-width: 420px) {
-  body.page-test2 .hero__panel,
-  body.page-test2 .final-cta .layout-container {
+  body.page-site-guide .hero__panel,
+  body.page-site-guide .final-cta .layout-container {
     padding-left: max(1rem, env(safe-area-inset-left, 0));
     padding-right: max(1rem, env(safe-area-inset-right, 0));
   }
