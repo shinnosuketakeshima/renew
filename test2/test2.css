@@ -1,0 +1,21 @@
+/* /test2/ 専用の軽補正（本番トップの見た目は維持） */
+
+body.page-test2 {
+  overflow-x: hidden;
+}
+
+/* 極幅で電話番号・CTA テキストがはみ出さないようにする */
+body.page-test2 .hero__tel,
+body.page-test2 .final-cta__tel {
+  max-width: 100%;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  body.page-test2 .hero__panel,
+  body.page-test2 .final-cta .layout-container {
+    padding-left: max(1rem, env(safe-area-inset-left, 0));
+    padding-right: max(1rem, env(safe-area-inset-right, 0));
+  }
+}

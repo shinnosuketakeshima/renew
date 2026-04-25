@@ -11,6 +11,8 @@
 | リポジトリ**ルート** | `*.html`（全ページ。体験談・料金・旧リンク互換用も含む） |
 | `assets/` | CSS・画像等（必須） |
 | ルート直下のメディア | 各ページ `src` で参照している `.jpg` / `.JPG` / `.gif` / `.png` 等 |
+| `test2/` | 本番トップの表示確認用（`index.html`・`test2.css`）。親の `assets/` 等を `../` で参照。運用は `docs/test2-public.ja.md` |
+| `assets/js/` | 共有 JS（例: `site-header-nav.js`）を参照するページから利用 |
 | 必要に応じて | サーバ上で従来使っている `images/` 等の**既存のフォルダ**（新サイトから参照が残っている場合） |
 
 > 実際のファイル一覧の抽出には、リポジトリルートで `.\tools\list-deploy-files.ps1` を実行し、`tools\last-deploy-list.txt` を参照できます（`docs` / `tools` 等の除外入り）。
