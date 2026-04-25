@@ -83,6 +83,65 @@ body.page-taiken-article #main-content {
   line-height: inherit;
 }
 
+/* 旧 table 一括置換: .taiken-article__blocks（1列読み＋必要時のみ2列。固定幅 table の余白を解消） */
+.page-taiken-article .taiken-body.taiken-body--blocks {
+  max-width: min(100%, 48rem);
+  width: 100%;
+}
+
+.page-taiken-article .taiken-article__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 1.85rem);
+}
+
+.page-taiken-article .taiken-block {
+  display: grid;
+  gap: 1rem 1.25rem;
+  align-items: start;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .page-taiken-article .taiken-block--image-left {
+    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  }
+
+  .page-taiken-article .taiken-block--image-right {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 13rem);
+  }
+
+  .page-taiken-article .taiken-block--split-text {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .page-taiken-article .taiken-block--image-left,
+  .page-taiken-article .taiken-block--image-right,
+  .page-taiken-article .taiken-block--split-text {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-taiken-article .taiken-figure--block {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.page-taiken-article .taiken-figure--block img {
+  max-width: min(13rem, 100%);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.page-taiken-article .taiken-block__text--col {
+  min-width: 0;
+}
+
 /* 2枚並び（先頭ギャラリー等） */
 .page-taiken-article .taiken-fig-row {
   display: grid;
@@ -238,7 +297,7 @@ body.page-taiken-article--nepal .taiken-body {
 
 /* ----- 第1弾以降：旧 table 内包（.taiken-legacy）— 本文優先でレスポンシブ化 ----- */
 .page-taiken-article .taiken-body.taiken-legacy {
-  max-width: min(100%, 42rem);
+  max-width: min(100%, 48rem);
   padding: 0.25rem 0 0.5rem;
 }
 
@@ -253,15 +312,36 @@ body.page-taiken-article--nepal .taiken-body {
 
 .page-taiken-article .taiken-legacy table table {
   width: 100% !important;
-  table-layout: fixed;
+  table-layout: auto;
   margin-bottom: 1.25rem;
 }
 
-/* 2 セル行は幅を半々に（旧 width="200" 片寄りを解消。taiken19 の2列に近い見え方） */
-.page-taiken-article .taiken-legacy tr > td:nth-child(1):nth-last-child(2),
-.page-taiken-article .taiken-legacy tr > td:nth-child(2):last-child {
-  width: 50% !important;
-  box-sizing: border-box;
+/* PC: 2 セル行は可変列（半々固定の空白を減らす。画像＋文／文＋画像を区別） */
+@media (min-width: 721px) {
+  .page-taiken-article .taiken-legacy tr:has(> td:nth-child(1)):has(> td:nth-child(2)) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 0.35rem 1.1rem;
+    align-items: start;
+  }
+
+  .page-taiken-article
+    .taiken-legacy
+    tr:has(> td:nth-child(1) img):not(:has(> td:nth-child(2) img)) {
+    grid-template-columns: minmax(0, 12.5rem) minmax(0, 1fr) !important;
+  }
+
+  .page-taiken-article
+    .taiken-legacy
+    tr:has(> td:nth-child(2) img):not(:has(> td:nth-child(1) img)) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 12.5rem) !important;
+  }
+
+  .page-taiken-article
+    .taiken-legacy
+    tr:has(> td:nth-child(1) img):has(> td:nth-child(2) img) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
 }
 
 .page-taiken-article .taiken-legacy td {
