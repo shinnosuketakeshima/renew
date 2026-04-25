@@ -1,0 +1,321 @@
+﻿@charset "UTF-8";
+
+/*------------------------------------------------------------
+	デフォルトスタイル
+------------------------------------------------------------*/
+html, body, div, span, figure, img, fieldset,
+a, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, small, strong, dl, dt, dd, ol, ul, li,
+table, caption, tbody, tfoot, thead, tr, th, td{
+	margin:0;
+	padding:0;
+	border:none;
+	outline:none;
+	font-size:1em;
+}
+
+header,hgroup,nav,article,
+section,aside,figure,footer{
+	display:block;
+}
+
+ol, ul{
+	list-style: none;  
+}
+
+html{
+    font:14px/1.3 "メイリオ", Meiryo, Osaka, "ヒラギノ角ゴ Pro W3", "ＭＳ ゴシック", Arial, Helvetica, Tahoma, sans-serif;
+}
+
+
+
+/*------------------------------------------------------------
+	レイアウト
+------------------------------------------------------------*/
+body{
+	background:#FFF;
+	width:100%;
+	color:#252525;
+}
+
+/*	リンクタグ	*/
+
+a,
+a:hover{
+	color:#F25A4F;
+	text-decoration:none;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: -18px;
+  right: 0px;
+  z-index: 1000;
+}
+
+.hamburger-button {
+  color: black; 
+  background-color: transparent; 
+  border: none;
+  font-size: 45px;
+  padding: 10px; 
+  cursor: pointer;
+}
+
+.menu-items {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.menu-items ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-items li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-items li a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+
+/*------------------------------------------------------------
+	ヘッダー
+------------------------------------------------------------*/
+header{
+	width:100%;
+	overflow:hidden;}
+
+
+/*	タイトル	*/
+#top h1{
+	background:url(img/header_bg.gif) repeat-x;
+	ackground-image:-moz-linear-gradient(top, #0093B5, #00769E);
+	background-image:-webkit-gradient(linear, center top, center bottom, from(#0093B5), to(#00769E));
+	background-image:-o-linear-gradient(top, #0093B5, #00769E);
+	background-image:linear-gradient(top, #0093B5, #00769E);
+	width:100%;
+	padding:3% 10px;
+	border-bottom:solid 1px #00355F;
+	color:#FFF;
+	text-shadow:1px 1px 1px #004673;
+}
+
+/*---------------------
+	ヘッダー画像
+--------------------*/
+p#h_image{
+	padding:0;
+	position:relative;
+}
+
+p#h_image img{
+	width:99.5%;
+	margin:auto;
+	border:solid 1px #36A0BE;}
+
+/*	ヘッダー画像内 文字	*/
+p#h_image span{
+	padding:0 10px;
+	display:block;
+	color:#FFF;
+	position:absolute;
+	z-index:2;
+	top:40%;
+}
+
+/*	ヘッダー画像下 文字	*/
+header h2{
+	padding:10px;
+	color:#0086AC;
+}
+
+header p.des{
+	padding:0 10px;
+	margin-bottom:5%;
+}
+
+
+
+/*------------------------------------------------------------
+	カテゴリ
+------------------------------------------------------------*/
+article{
+	width:100%;
+	overflow:hidden;
+}
+
+/*---------------------
+	カテゴリタイトル
+--------------------*/
+article .title h2{
+	background-image: -moz-linear-gradient(top, #3EADC6, #349DBC);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#3EADC6), to(#349DBC));
+	background-image: -o-linear-gradient(top, #3EADC6, #349DBC);
+	background-image: linear-gradient(top, #3EADC6, #349DBC);
+	padding:3% 10px;
+	margin:5% 0 0;
+	border:solid 1px #005581;
+	border-top:solid 1px #00B2D8;
+	text-shadow:1px 1px 1px #FFF;}
+
+/*---------------------
+	カテゴリボディ
+--------------------*/
+article section{
+	padding:4% 5px 4% 10px;
+}
+
+article section:nth-child(even){
+	background-image: -moz-linear-gradient(top, #FFF, #E6E6E6);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#FFF), to(#E6E6E6));
+	background-image: -o-linear-gradient(top, #FFF, #E6E6E6);
+	background-image: linear-gradient(top, #FFF, #E6E6E6);
+	border:solid 1px;
+	border-color:#FFF transparent #AEAEAE;
+}
+
+article section:nth-child(odd){
+	background-image: -moz-linear-gradient(top, #DFDFDF, #C1C1C1);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#DFDFDF), to(#C1C1C1));
+	background-image: -o-linear-gradient(top, #DFDFDF, #C1C1C1);
+	background-image: linear-gradient(top, #DFDFDF, #C1C1C1);
+	border:solid 1px;
+	border-color:#FFF transparent #929292;
+}
+
+article section a{
+	background:url(img/link_icon.png) no-repeat right center;
+	padding-right:4%;
+	display:block;
+	overflow:hidden;
+}
+
+/*	カテゴリ画像　*/
+article section a figure{
+	width:35%;
+	margin-right:10px;
+	padding:0;
+	overflow:hidden;
+
+	border:solid 1px #F25A4F;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+
+	float:left;}
+
+article section a figure img{
+	background:#F25A4F;
+	width:100%;
+	margin-bottom:-4.5%;
+
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;}
+
+@media screen and (min-width:480px) {
+	article section a figure{
+		padding-bottom:0.5%;
+	}
+}
+
+/*	カテゴリ画像の説明文字　*/
+article section a h2{
+	width:60.5%;
+	color:#0086AC;
+	float:right;
+}
+
+article section a p{
+	width:60.5%;
+	color:#1C140D;
+	float:right;
+}
+
+/*	トップに戻る　*/
+p.go_top{
+	text-align:right;}
+
+p.go_top a{
+	margin-right:5px;
+	padding:5% 15px 5% 0;
+	display:block;
+	color:#F25A4F;
+}
+
+/*------------------------------------------------------------
+	フッター
+------------------------------------------------------------*/
+/*	フリースペース　*/
+.free_space{
+	padding:3% 10px;
+	border:dotted #C1C1C1;
+	border-width:1px 0;
+}
+
+.free_space img{
+	margin:auto;
+	display:block;
+	border:solid 1px #333631;
+}
+
+/*	メニュー　*/
+footer ul{
+	padding:4% 0;
+	overflow:hidden;
+}
+
+footer ul li{
+	width:20%;
+	margin:2% 2.5% 2% 2.5%;
+	float:left;
+}
+
+footer ul li a{
+	padding:1.4em 0;
+	display:block;
+	color:#FFEBE1;
+	border:solid 1px #008BAE;
+
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	text-align:center;
+	-moz-box-shadow:0px 0px 0px 1px #252525;
+	-webkit-box-shadow:0px 0px 0px 1px #252525;
+	box-shadow:0px 0px 0px 1px #252525;
+	background-image: -moz-linear-gradient(top, #009EDB, #005D87);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#009EDB), to(#005D87));
+	background-image: -o-linear-gradient(top, #009EDB, #005D87);
+	background-image: linear-gradient(top, #009EDB, #005D87);
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+/*	コピーライト　*/
+address{
+	padding:3% 0;
+	border-top:dotted 1px #C1C1C1;
+}
+
+address p{
+	color:#0086AC;
+	font-size:0.714em;
+	text-align:center;}
+

@@ -1,0 +1,106 @@
+﻿モバイルサイトに右上の3本のメニュー（通称「ハンバーガーメニュー」）を追加する方法は、HTML、CSS、およびJavaScriptを使用して行います。以下に基本的な実装方法を示します。
+
+1. HTML構造の設定
+
+まず、HTMLにメニューアイコンとメニュー項目を作成します。
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンバーガーメニューの例</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- ハンバーガーアイコン -->
+        </div>
+    </header>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="index.htm">ホーム</a></li>
+            <li><a href="program.htm">なぜスリランカ、ネパールで英語を学ぶのか</a></li>
+            <li><a href="volunteers.htm">ボランティア</a></li>
+            <li><a href="process1.htm">ご出発までの流れ</a></li>
+            <li><a href="taiken.htm">体験者の声</a></li>
+            <li><a href="lec.htm">プチ知識講座</a></li>
+            <li><a href="qa.htm">Q&A良くあるご質問</a></li>
+            <li><a href="mailto:info@be-intl.com?Subject=留学プログラムについて&body=資料を希望します。%0D%0A〒%0D%0A住所：%0D%0A名前：">資料請求</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+</body>
+</html>
+
+2. CSSの設定
+
+次に、CSSでスタイルを設定します。メニューアイコンを表示し、クリックでメニューが表示されるようにします。
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+    text-align: left;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu {
+    display: none;
+    background-color: #333;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+3. JavaScriptの設定
+
+最後に、JavaScriptでメニューアイコンをクリックしたときにメニューが表示・非表示になるようにします。
+
+// script.js
+document.getElementById('menu-icon').addEventListener('click', function() {
+    var menu = document.getElementById('menu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+});
+
+動作説明
+
+	1.	HTML: divタグにハンバーガーメニューアイコンを配置し、navタグ内にメニュー項目をリストとして定義します。
+	2.	CSS: .menuクラスでメニューのスタイルを定義し、初期状態で非表示に設定します。
+	3.	JavaScript: アイコンをクリックしたときにメニューの表示・非表示を切り替えるスクリプトを作成します。
+
+これで、モバイルサイトに右上の3本のメニューを追加できます。必要に応じてスタイルや機能を調整して、デザインやユーザー体験を向上させてください。

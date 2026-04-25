@@ -1,0 +1,123 @@
+﻿ハンバーガーメニューをウェブサイトに追加する手順を簡単に説明し、そのコードを紹介します。初心者向けに、できるだけシンプルに書きますね。以下の手順に沿って進めてください。
+
+### 手順
+1. **HTMLにメニューを追加する**
+   まず、HTMLにメニューの構造を追加します。`<nav>` タグを使って、メニューの項目をリストにします。
+
+2. **CSSでスタイルを設定する**
+   ハンバーガーメニュー自体とメニューの見た目をCSSで調整します。最初はハンバーガーアイコンだけが表示され、クリックでメニューが展開されるようにします。
+
+3. **JavaScriptで動作を追加する**
+   JavaScriptを使って、アイコンをクリックしたときにメニューが表示されたり、隠れたりする動きを実装します。
+
+---
+
+### 1. HTML部分
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハンバーガーメニュー</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="hamburger-menu" id="hamburger-menu">
+      &#9776;
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+### 2. CSS部分 (`styles.css`)
+```css
+/* ナビゲーションバーのスタイル */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: none; /* 最初はメニューを隠す */
+  flex-direction: column;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* ハンバーガーメニューのスタイル */
+.hamburger-menu {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+  }
+ 
+  .hamburger-menu {
+    display: none; /* デスクトップサイズではハンバーガーメニューを非表示 */
+  }
+}
+```
+
+### 3. JavaScript部分 (`script.js`)
+```javascript
+// ハンバーガーメニューをクリックした時の動作
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+  const navLinks = document.getElementById('nav-links');
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = 'none';
+  } else {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+  }
+});
+```
+
+---
+
+### 詳しい手順
+
+1. **HTMLファイルにメニュー構造を追加する**  
+   `<nav>` タグの中に、ハンバーガーアイコンとメニュー項目を作成します。アイコンは `&#9776;` でハンバーガーメニューを表現できます。
+
+2. **CSSでデザインを整える**  
+   最初は `.nav-links` の `display` を `none` にしておき、ハンバーガーアイコンがクリックされたらメニューが表示されるようにします。画面幅が広い場合（デスクトップなど）では、`@media` クエリを使って通常の横並びのメニューを表示するようにします。
+
+3. **JavaScriptで動きを追加**  
+   ハンバーガーアイコンがクリックされたときに、メニューの表示と非表示を切り替える簡単なスクリプトです。
+
+---
+
+### 動作確認
+1. HTMLファイル、CSSファイル、JavaScriptファイルを作成し、すべて同じフォルダに保存します。
+2. 作成したHTMLファイルをブラウザで開いて動作を確認します。
+
+このコードを使って、初心者でも簡単にハンバーガーメニューを追加できるはずです。何か質問があれば、遠慮なく聞いてください！

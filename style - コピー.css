@@ -1,0 +1,246 @@
+/* リセットスタイル */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #000;
+  background-repeat: repeat-y;
+  background-position: center top;
+  min-width: 700px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+a:link {
+  color: #fd8839;
+}
+
+a:visited {
+  color: #396;
+}
+
+a:hover {
+  color: #ff3300;
+  background-color: #fed5ba;
+}
+
+a:active {
+  color: #fd8839;
+}
+
+.style1 {
+  color: #777777;
+  font-size: 12px;
+}
+
+.style2 {
+  color: #FF0000;
+  font-size: 12px;
+}
+
+.style-small {
+  font-size: 10px;
+}
+
+/* レイアウト */
+.page-container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+}
+
+.header-top {
+  background-image: url('images/top_0005a.jpg');
+  width: 700px;
+  height: 29px;
+  background-size: cover;
+}
+
+.header-top-content {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  height: 100%;
+}
+
+.header-links {
+  margin-left: auto;
+  padding-right: 8px;
+}
+
+.header-links a {
+  font-size: 10px;
+}
+
+.header-links a:first-child {
+  margin-right: 1em;
+}
+
+.header-bottom {
+  display: flex;
+  align-items: flex-end;
+  height: 34px;
+}
+
+.header-logo {
+  width: 249px;
+  height: 34px;
+}
+
+.main-nav {
+  display: flex;
+  height: 34px;
+  flex-grow: 1;
+}
+
+.main-nav a {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 12px;
+  line-height: 34px;
+  height: 34px;
+  color: #161573;
+}
+
+.main-nav a:nth-child(1) {
+  background-image: url('images/top_0005c.jpg');
+}
+
+.main-nav a:nth-child(2) {
+  background-image: url('images/top_0005d.jpg');
+}
+
+.main-nav a:nth-child(3) {
+  background-image: url('images/top_0005e.jpg');
+}
+
+.header-right-img {
+  width: 16px;
+  height: 34px;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+}
+
+.main-left {
+  width: 452px;
+}
+
+.main-right {
+  width: 248px;
+}
+
+.main-left-top {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-set {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav-right a {
+  height: 20px;
+  width: 248px;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.welcome-banner {
+  background-image: url('images/top_0006a.jpg');
+  height: 48px;
+  width: 248px;
+  color: #b1c8f1;
+  text-align: center;
+  line-height: 48px;
+}
+
+.middle-section {
+  display: flex;
+}
+
+.side-nav-left {
+  width: 150px;
+  background-image: url('images/menu_bk.jpg');
+  background-repeat: repeat-y;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-button {
+  width: 150px;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.menu-button:nth-child(1) { height: 44px; }
+.menu-button:nth-child(2) { height: 42px; }
+.menu-button:nth-child(3) { height: 42px; }
+.menu-button:nth-child(4) { height: 42px; }
+.menu-button:nth-child(5) { height: 42px; }
+.menu-button:nth-child(6) { height: 42px; }
+.menu-button:nth-child(7) { height: 42px; }
+.menu-button:nth-child(8) { height: 42px; }
+.menu-button:nth-child(9) { height: 42px; }
+.menu-button:nth-child(10) { height: 43px; }
+
+.content-text {
+  padding: 3px;
+  flex-grow: 1;
+}
+
+.content-text h2 {
+  font-size: 14px;
+  color: #161573;
+}
+
+.content-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-text li {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.content-text li img {
+  vertical-align: middle;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  color: #777777;
+  font-size: 10px;
+  padding-top: 15px;
+}
+.logo-image {
+  width: 289px; /* 元の画像の幅に固定 */
+  height: 63px; /* 元の画像の高さに固定 */
+}

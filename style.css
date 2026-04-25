@@ -1,0 +1,36 @@
+/*
+  Combined and cleaned styles from the original inline styles and existing style.css.
+*/
+
+/* General Link Styles */
+a:link,
+a:active {
+  color: #fd8839;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #396;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff3300;
+  text-decoration: none;
+  background-color: #fed5ba;
+}
+
+/* Text and Layout Styles from original files */
+.line-tight,
+.a { /* .a is from old inline style */
+  line-height: 120%;
+}
+
+.text-gray,
+.style2 { /* .style2 is from old inline style */
+  color: #777777;
+}
+
+.text-red {
+  color: #FF0000;
+}
