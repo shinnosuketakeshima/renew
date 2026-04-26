@@ -385,6 +385,7 @@ body.page-voices #main-content {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem 1rem;
+  margin-top: 1rem;
   margin-bottom: 1.25rem;
 }
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>体験者の声 | Beインターナショナル（スリランカ・ネパール）</title>
-  <meta name="description" content="スリランカ・ネパールに参加された方の声。年代・参加時期の目安付き。厳選した紹介、国別の一覧、短期・長期のイメージ、参加者レポート。自分に近い体験を見つけ、資料請求へ。">
+  <meta name="description" content="スリランカ・ネパールに参加された方の声。年代・参加時期の目安付き。体験談の紹介、国別の一覧、短期・長期のイメージ、参加者レポート。自分に近い体験を見つけ、資料請求へ。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/voices.html">
   <link rel="stylesheet" href="assets/css/home.css">
@@ -89,7 +89,7 @@
       <div class="layout-container">
         <h2 class="voices-page-toc__title" id="voices-page-toc-h">このページの目次</h2>
         <ol class="voices-page-toc__list">
-          <li><a href="#voices-pick-h">厳選した体験談</a></li>
+          <li><a href="#voices-pick-h">体験談</a></li>
           <li><a href="#voices-reports-h">参加者レポート</a></li>
           <li><a href="#voices-heading-srilanka">スリランカの体験談</a></li>
           <li><a href="#voices-heading-nepal">ネパールの体験談</a></li>
@@ -102,7 +102,7 @@
     </nav>
 
     <section class="voices-section" id="voices-pick" aria-labelledby="voices-pick-h">
-      <h2 class="voices-section__title" id="voices-pick-h">厳選した体験談</h2>
+      <h2 class="voices-section__title" id="voices-pick-h">体験談</h2>
       <p class="voices-section__sub">多様な方の中から、出発前のイメージづくりに役立つメッセージを集めています。年齢や参加の形はさまざま。あなたに近い人が、きっと見つかるはずです。ここにない体験談は、下の「国から選ぶ体験談」や<a href="taiken.html">体験談の一覧</a>もご利用ください。</p>
       <ul class="voices-grid voices-grid--pick" role="list">
         <li>
@@ -180,14 +180,6 @@
     <section class="voices-section" id="voices-browse" aria-labelledby="voices-browse-h">
       <h2 class="voices-section__title" id="voices-browse-h">国から選ぶ体験談</h2>
       <p class="voices-section__sub">スリランカとネパール、それぞれの声の一部を紹介します。ボタンで国の表示を切り替えたり、下の「参加日数の目安」から短期・長期のイメージに近い説明にジャンプしたりできます。この欄にない体験談は、<a href="taiken.html">体験談の一覧</a>から国名で探せます。</p>
-      <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
-        <p class="voices-toolbar__label" id="voices-filter-label">国</p>
-        <div class="voices-filter" role="group" aria-labelledby="voices-filter-label">
-          <button type="button" class="voices-filter__btn is-active" data-voice-filter="all" aria-pressed="true">すべて</button>
-          <button type="button" class="voices-filter__btn" data-voice-filter="srilanka" aria-pressed="false">スリランカ</button>
-          <button type="button" class="voices-filter__btn" data-voice-filter="nepal" aria-pressed="false">ネパール</button>
-        </div>
-      </div>
       <div class="voices-duration-guide" id="voices-duration-guide" aria-labelledby="voices-duration-guide-h">
         <h3 class="visually-hidden" id="voices-duration-guide-h">参加日数の目安</h3>
         <div class="voices-duration-guide__box" id="voices-stay-short" tabindex="-1">
@@ -197,6 +189,14 @@
         <div class="voices-duration-guide__box" id="voices-stay-long" tabindex="-1">
           <h4 class="voices-duration-guide__title">長期（おおよそ1ヶ月前後〜）の参加を考えている方へ</h4>
           <p class="voices-duration-guide__text">数週間〜数ヶ月の滞在を考えておられる場合は、<a href="program.html#srilanka">スリランカ</a>・<a href="program.html#nepal">ネパール</a>の各料金表で日数例をご確認ください。長期参加者の声もごらんください。</p>
+        </div>
+      </div>
+      <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
+        <p class="voices-toolbar__label" id="voices-filter-label">国の選択</p>
+        <div class="voices-filter" role="group" aria-labelledby="voices-filter-label">
+          <button type="button" class="voices-filter__btn is-active" data-voice-filter="all" aria-pressed="true">全て</button>
+          <button type="button" class="voices-filter__btn" data-voice-filter="srilanka" aria-pressed="false">スリランカ</button>
+          <button type="button" class="voices-filter__btn" data-voice-filter="nepal" aria-pressed="false">ネパール</button>
         </div>
       </div>
       <p class="voices-browse__country-h" id="voices-heading-srilanka" role="heading" aria-level="3">スリランカの体験談</p>
@@ -393,6 +393,24 @@
     var listSri = document.getElementById('voices-browse-list-srilanka');
     var listNep = document.getElementById('voices-browse-list-nepal');
     if (filterBtns.length && headingSri && headingNep && listSri && listNep) {
+      var cards = document.querySelectorAll('[data-voice-country]');
+
+      function syncGroupVisibility(group, heading) {
+        var hasVisibleCard = !!group.querySelector('[data-voice-country]:not([hidden])');
+        group.hidden = !hasVisibleCard;
+        heading.hidden = !hasVisibleCard;
+      }
+
+      function applyFilter(filterName) {
+        cards.forEach(function (card) {
+          var country = card.getAttribute('data-voice-country');
+          var shouldShow = filterName === 'all' || country === filterName;
+          card.hidden = !shouldShow;
+        });
+        syncGroupVisibility(listSri, headingSri);
+        syncGroupVisibility(listNep, headingNep);
+      }
+
       filterBtns.forEach(function (b) {
         b.addEventListener('click', function () {
           var f = b.getAttribute('data-voice-filter') || 'all';
@@ -401,24 +419,11 @@
             x.classList.toggle('is-active', on);
             x.setAttribute('aria-pressed', on ? 'true' : 'false');
           });
-          if (f === 'all') {
-            headingSri.hidden = false;
-            listSri.hidden = false;
-            headingNep.hidden = false;
-            listNep.hidden = false;
-          } else if (f === 'srilanka') {
-            headingSri.hidden = false;
-            listSri.hidden = false;
-            headingNep.hidden = true;
-            listNep.hidden = true;
-          } else {
-            headingSri.hidden = true;
-            listSri.hidden = true;
-            headingNep.hidden = false;
-            listNep.hidden = false;
-          }
+          applyFilter(f);
         });
       });
+
+      applyFilter('all');
     }
   })();
   </script>
