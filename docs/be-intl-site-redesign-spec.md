@@ -1110,6 +1110,18 @@ HOME
 | モバイルフレンドリー未確認 | viewportメタタグを全ページに設定。Search Consoleのモバイルユーザビリティレポートで確認 |
 | 正規URLの未統一 | wwwなしに統一（現状に合わせる）。全ページに `<link rel="canonical">` を設置 |
 
+### 10-7. 正規URL・ホスト名（canonical / 301 方針）
+
+リポジトリ直下の静的 HTML と整合させるための運用ルール。
+
+| 項目 | 方針 |
+|------|------|
+| 本番のホスト | `https://be-intl.com`（**www なし**）を正とする。 |
+| canonical | 全公開ページの `<link rel="canonical">` は上記ホスト＋パスで記述する（`http` や `www` 表記にしない）。 |
+| トップページ | ファイルが `index.html` であっても、canonical は **`https://be-intl.com/`**（末尾スラッシュのみの URL）を推奨。 |
+| `/` と `/index.html` | クローラ向けの重複回避のため、**サーバー側で一方へ 301 リダイレクト**することを推奨（Apache / nginx / ホスティングの設定）。HTML の canonical だけでは転送は行われない。 |
+| バックアップ HTML | `index-legacy.html` など、sitemap に含めないファイルは canonical をトップへ寄せるか、`noindex` を検討（公開のまま置く場合）。 |
+
 **公開前チェックリスト**
 
 | # | 確認項目 |

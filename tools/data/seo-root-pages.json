@@ -1,0 +1,27 @@
+{
+  "baseUrl": "https://be-intl.com",
+  "scope": "Repository root *.html only (docs/oldHP excluded).",
+  "auditScript": "tools/seo-audit.ps1",
+  "sitemapGenerator": "tools/generate_sitemap.py",
+  "legacyHeadInjector": "tools/seo_inject_legacy_heads.py",
+  "excludeFromSitemap": [
+    "index-legacy.html",
+    "sample.html",
+    "example.html",
+    "taiken84修正前.html",
+    "taiken63-r.html",
+    "taiken63-r_new.html",
+    "volunteers - コピー.html",
+    "back-volunteers.html"
+  ],
+  "excludeReasons": {
+    "index-legacy.html": "Legacy backup of top page; canonical duplicate risk.",
+    "sample.html": "Sample / non-production page.",
+    "example.html": "Example / non-production page.",
+    "taiken84修正前.html": "Pre-edit backup of taiken article.",
+    "taiken63-r.html": "Alternate / backup variant of taiken63.",
+    "taiken63-r_new.html": "Alternate / backup variant of taiken63.",
+    "volunteers - コピー.html": "Duplicate copy filename.",
+    "back-volunteers.html": "Legacy duplicate volunteers page."
+  }
+}
