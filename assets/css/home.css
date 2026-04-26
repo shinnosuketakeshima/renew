@@ -1122,3 +1122,110 @@ button.back-to-top:focus-visible {
   outline: 3px solid var(--color-accent, #e67e22);
   outline-offset: 3px;
 }
+
+/* ----- トップ: 専門家・メディア信頼セクション ----- */
+.countries__quote {
+  margin: 1.1rem 0 1.6rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--color-accent);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.countries__quote p {
+  margin: 0;
+}
+
+.countries__quote cite {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-style: normal;
+}
+
+.expert-media {
+  padding: var(--section-space) 0;
+  background: #fff;
+}
+
+.expert-media h2 {
+  margin: 0 0 1.2rem;
+}
+
+.expert-media__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.trust-card {
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-card__head {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.trust-card__head img {
+  width: 84px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.trust-card h3 {
+  margin: 0 0 0.2rem;
+}
+
+.trust-card__role {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.trust-card p {
+  margin: 0 0 0.8rem;
+}
+
+.trust-card a {
+  font-weight: 600;
+}
+
+.trust-card--spaced {
+  margin-top: 1rem;
+}
+
+.trust-card__banner {
+  display: inline-block;
+  margin: 0 0 0.7rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 7px;
+  background: rgba(var(--color-accent-rgb), 0.1);
+  color: var(--color-accent-dim);
+  font-weight: 700;
+}
+
+.trust-card__media-banner {
+  display: block;
+  width: min(271px, 100%);
+  height: auto;
+  margin: 0 0 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+@media (min-width: 860px) {
+  .expert-media__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
