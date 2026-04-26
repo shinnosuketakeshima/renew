@@ -588,3 +588,247 @@ body.page-voices #main-content {
     padding: 1.5rem 1.15rem 1.45rem 1.1rem;
   }
 }
+
+/* ページ冒頭の目次 */
+.voices-page-toc {
+  margin: 0 0 var(--voices-y);
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-surface-section);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
+}
+
+.voices-page-toc__title {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--voices-ink);
+  letter-spacing: 0.02em;
+}
+
+.voices-page-toc__list {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  columns: 1;
+}
+
+.voices-page-toc__list li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.voices-page-toc__list a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.voices-page-toc__list a:hover,
+.voices-page-toc__list a:focus-visible {
+  color: var(--voices-gold);
+}
+
+@media (min-width: 640px) {
+  .voices-page-toc__list {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
+
+/* 属性ラベル（年代・性別 / 国） */
+.voice-card__profile {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  line-height: 1.4;
+}
+
+/* 国見出し（本文中の疑似H3） */
+.voices-browse__country-h {
+  margin: 1.75rem 0 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--voices-ink);
+  letter-spacing: 0.02em;
+}
+
+#voices-browse-list-srilanka {
+  margin-top: 0;
+}
+
+#voices-heading-nepal {
+  margin-top: 2rem;
+}
+
+/* 参加日数の目安 */
+.voices-duration-guide {
+  margin: 1.25rem 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.voices-duration-guide__box {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: 10px;
+}
+
+.voices-duration-guide__title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--voices-ink);
+  line-height: 1.45;
+}
+
+.voices-duration-guide__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.voices-duration-guide__text a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.voices-duration-guide__text a:hover {
+  color: var(--color-link-hover);
+}
+
+/* 体験談一覧 taiken.html：現地の1日（目安）＋一覧のモバイル最適化 */
+.page-taiken-index .taiken-day {
+  margin-bottom: var(--voices-y);
+}
+
+.page-taiken-index .taiken-day__table-wrap {
+  margin: 1rem 0 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  background: var(--color-bg-elevated);
+}
+
+.page-taiken-index .taiken-day__caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 0.75rem 0.85rem 0.5rem;
+}
+
+.page-taiken-index .taiken-day__table {
+  width: 100%;
+  min-width: min(100%, 18rem);
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.page-taiken-index .taiken-day__table th,
+.page-taiken-index .taiken-day__table td {
+  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  padding: 0.65rem 0.75rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+.page-taiken-index .taiken-day__table thead th {
+  background: rgba(var(--color-primary-rgb), 0.07);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.page-taiken-index .taiken-day__table tbody th[scope="row"] {
+  width: 7.25rem;
+  min-width: 6.25rem;
+  background: var(--color-bg);
+  font-weight: 600;
+}
+
+.page-taiken-index .taiken-day__h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.page-taiken-index .taiken-day__free,
+.page-taiken-index .taiken-day__report {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 42rem;
+}
+
+.page-taiken-index .taiken-day__report {
+  margin-top: 0.85rem;
+}
+
+.page-taiken-index .legal-table {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 480px) {
+  .page-taiken-index .taiken-day__table tbody th[scope="row"] {
+    min-width: 5.5rem;
+  }
+
+  .page-taiken-index .taiken-index__cell-name {
+    white-space: normal;
+    min-width: 4.5rem;
+  }
+}
+
+.page-taiken-index .taiken-index__actions {
+  margin-top: 1.5rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
+}
+
+.page-taiken-index .taiken-index__cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 1rem 0;
+  align-items: center;
+}
+
+.page-taiken-index .taiken-index__cta-btns .btn {
+  min-height: 48px;
+}
+
+.page-taiken-index .taiken-index__faq-link {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.page-taiken-index .taiken-index__faq-link a {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-taiken-index .srilanka-cta .final-cta__copy a {
+  color: var(--color-on-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.page-taiken-index .srilanka-cta .final-cta__copy a:hover {
+  opacity: 0.92;
+}

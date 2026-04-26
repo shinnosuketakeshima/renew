@@ -678,3 +678,52 @@ body.page-nepal #main-content {
   height: auto;
   border-radius: 6px;
 }
+
+/* ページ内目次 */
+.nepal-toc {
+  margin: 0 0 var(--nepal-section-y);
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-surface-section);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
+}
+
+.nepal-toc__title {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--nepal-ink);
+  letter-spacing: 0.02em;
+}
+
+.nepal-toc__list {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--nepal-text);
+  columns: 1;
+}
+
+.nepal-toc__list li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.nepal-toc__list a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.nepal-toc__list a:hover,
+.nepal-toc__list a:focus-visible {
+  color: var(--nepal-gold);
+}
+
+@media (min-width: 640px) {
+  .nepal-toc__list {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}

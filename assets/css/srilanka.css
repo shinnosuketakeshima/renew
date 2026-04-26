@@ -965,3 +965,52 @@ body.page-srilanka #main-content {
   height: auto;
   border-radius: 8px;
 }
+
+/* ページ内目次 */
+.srilanka-toc {
+  margin: 0 0 var(--srilanka-section-y);
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-surface-section);
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
+}
+
+.srilanka-toc__title {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--srilanka-ink);
+  letter-spacing: 0.02em;
+}
+
+.srilanka-toc__list {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--srilanka-text);
+  columns: 1;
+}
+
+.srilanka-toc__list li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.srilanka-toc__list a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.srilanka-toc__list a:hover,
+.srilanka-toc__list a:focus-visible {
+  color: var(--srilanka-gold);
+}
+
+@media (min-width: 640px) {
+  .srilanka-toc__list {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
