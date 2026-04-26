@@ -10,6 +10,60 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    body.page-taiken-article--srilanka {
+      background-image: url("images/bk.gif");
+      background-repeat: repeat;
+    }
+    .container {
+      margin: 0 auto;
+      max-width: 1000px;
+      width: 95%;
+    }
+    .content-area {
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .content-area p {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+    }
+    .story-block {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin: 1.2rem 0;
+    }
+    .story-block--reverse {
+      flex-direction: row-reverse;
+    }
+    .story-block figure {
+      margin: 0;
+      flex: 0 0 180px;
+      text-align: center;
+    }
+    .story-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+    .story-block figcaption {
+      margin-top: 0.45rem;
+      color: #355c8a;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 760px) {
+      .story-block,
+      .story-block--reverse {
+        flex-direction: column;
+      }
+      .story-block figure {
+        flex-basis: auto;
+        width: 100%;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,20 +119,20 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
+      <div class="taiken-body taiken-body--blocks container">
         <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="導入">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="導入">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="KawaraisamaOkadasama.jpg" width="180" height="135" alt="同時期に参加したＹ．Ｋ様と" loading="lazy" decoding="async">
+              <img src="KawaraisamaOkadasama.jpg" alt="同時期に参加したＹ．Ｋ様と" loading="lazy" decoding="async">
               <figcaption>同時期に参加したＹ．Ｋ様と☆</figcaption>
             </figure>
-            <div class="taiken-block__text">
+            <div class="taiken-block__text content-area">
               <p class="style2">「この留学プログラムに対して、不安や困ったことは特にありませんでした。<br>
               強いて言えば、ホストファミリーと英語の先生が同じで、しかも日本語が話せたので甘えが出てしまって、日本語に頼ってしまったという位でしょうか・・・。</p>
               <p class="style2">また今回は急に、日本の青年と一緒になり低開発村及びキャンディー近くまで行きましたので、日本語でバッチリ会話してしまい・・・ついつい英語から遠ざかったという感じはありました。</p>
             </div>
           </div>
-          <div class="taiken-block" role="group" aria-label="本文">
+          <div class="taiken-block content-area" role="group" aria-label="本文">
             <div class="taiken-block__text">
               <p class="style2">この留学プログラムに決めたのは、英語の学習だけでなく、日本語ボランティアや地域ボランティアなどもあって単に観光に終わらず、その国の暮らしを実際に知ることができると思ったことです。</p>
               <p class="style2">英語のレッスンは、私がビギナー過ぎて、スピードを抑えて話してもらったのでかなり大変だったと思いますが、根気よくつきあって下さいました。実際に興味のある話題を提供してもらうと、疲れずに自然に質問なども口からでました。<br>

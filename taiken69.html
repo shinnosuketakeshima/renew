@@ -11,6 +11,22 @@
 <link href="assets/css/home.css" rel="stylesheet"/>
 <link href="assets/css/typography.css" rel="stylesheet"/>
 <link href="assets/css/taiken-article.css" rel="stylesheet"/>
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.8; }
+    .story-block { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 24px; }
+    .story-block--reverse { flex-direction: row-reverse; }
+    .story-block__figure { flex: 0 0 min(260px, 38%); margin: 0; }
+    .story-block__figure img { display: block; max-width: 100%; height: auto; }
+    .story-block__caption { margin-top: 8px; text-align: center; color: #3f3f46; font-size: 0.95rem; }
+    .story-block__text { flex: 1 1 auto; min-width: 0; }
+    .content-area p { margin: 0 0 1em; font-size: 1rem; }
+    @media (max-width: 768px) {
+      .content-area { padding: 16px; }
+      .story-block, .story-block--reverse { flex-direction: column; gap: 16px; }
+      .story-block__figure { flex-basis: auto; width: 100%; }
+    }
+  </style>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,12 +86,17 @@
 </div>
 </div>
 <article aria-labelledby="taiken-h1" class="taiken-article">
-<div class="taiken-body taiken-body--blocks">
-<div class="taiken-article__blocks"><div class="taiken-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="nhostfamily.jpg" width="180"/><figcaption><font color="#161573" size="2">ホストファミリー♪</font></figcaption></figure><div class="taiken-block__text"><p class="style2"><font size="2">「ボランティア体験など、英語学習以外のプログラムが充実していた点やホームステイができる点、自分の自由な時間が多い点などで、参加を決めました。<br/>
+<div class="taiken-body taiken-body--blocks container">
+        <div class="content-area">
+<div class="taiken-article__blocks">
+          <section class="story-block" role="group"><figure class="story-block__figure"><img alt="" decoding="async" loading="lazy" src="nhostfamily.jpg"/><figcaption>ホストファミリー♪</figcaption></figure><div class="story-block__text"><p>「ボランティア体験など、英語学習以外のプログラムが充実していた点やホームステイができる点、自分の自由な時間が多い点などで、参加を決めました。<br/>
 <br/>
   英語レッスンは、英語で考え、話す機会を多く与えてくださったので、英語に対する意欲がさらに高まり、英語力の向上につながりました。<br/>
-  全レッスン時間を目いっぱい使って、英語だけでなく、ネパールの文化・歴史についても学ぶことができました。</font></p>
-<p class="style2"><font size="2">ネパールでのホームステイは、現地の生活習慣・文化に直に触れることができたし、ホストファミリーとも本当の家族のように交流することができたので、とても貴重で刺激的な経験になりました。</font></p></div></div></div><footer class="taiken-article__foot">
+  全レッスン時間を目いっぱい使って、英語だけでなく、ネパールの文化・歴史についても学ぶことができました。</p>
+<p>ネパールでのホームステイは、現地の生活習慣・文化に直に触れることができたし、ホストファミリーとも本当の家族のように交流することができたので、とても貴重で刺激的な経験になりました。</p></div></section>
+        </div>
+        </div>
+<footer class="taiken-article__foot">
 <div class="taiken-article__actions">
 <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>
 <a class="btn btn--accent" href="postmail.html">資料請求</a>

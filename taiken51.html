@@ -10,6 +10,17 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-block { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .story-block img { display: block; max-width: 100%; height: auto; }
+    @media (min-width: 768px) {
+      .story-block { flex-direction: row; align-items: flex-start; }
+      .story-block > figure,
+      .story-block > .story-text { flex: 1; }
+    }
+  </style>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Article", "headline": "体験談：スリランカ　岡本智之様2011年8月ご参加", "inLanguage": "ja", "url": "https://be-intl.com/taiken51.html", "description": "スリランカ語学留学・ホームステイの体験談。", "isPartOf": {"@type": "WebSite", "name": "Beインターナショナル", "url": "https://be-intl.com/"}}
   </script>
@@ -44,14 +55,14 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
-        <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="導入">
+      <div class="taiken-body taiken-body--blocks container">
+        <div class="taiken-article__blocks content-area">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="導入">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="okamotosama1.jpg" width="180" height="135" alt="ホストファミリーと" loading="lazy" decoding="async">
+              <img src="okamotosama1.jpg" alt="ホストファミリーと" loading="lazy" decoding="async">
               <figcaption>ホストファミリーと♪</figcaption>
             </figure>
-            <div class="taiken-block__text">
+            <div class="taiken-block__text story-text">
               <p class="style2">「この留学プログラムを決めたのは下記の理由です。<br>
               ①スリランカに行ったことがないので<br>
               ②価格が安いため<br>
@@ -61,8 +72,8 @@
               当初はインターネットを介して探したこともあり、失礼ながら詐欺の可能性もあると思っておりましたが、頻繁にメールを頂きましたし、電話での質問にも丁寧に答えていただきました。</p>
             </div>
           </div>
-          <div class="taiken-block" role="group" aria-label="英語">
-            <div class="taiken-block__text">
+          <div class="taiken-block story-block" role="group" aria-label="英語">
+            <div class="taiken-block__text story-text">
               <p class="style2">英語教師は、とても良い先生でした。<br>
               私は以前インドにいたことがあり、インド英語に苦労した経験があるのですが、先生の英語は綺麗でしたし、わからない単語があれば、説明してくれました。</p>
               <p class="style2">宿題の量としても適切だったと思います。<br>
@@ -70,8 +81,8 @@
               （とはいえ、まだまだですが）</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="ホームステイ">
-            <div class="taiken-block__text">
+          <div class="taiken-block taiken-block--image-right story-block" role="group" aria-label="ホームステイ">
+            <div class="taiken-block__text story-text">
               <p class="style2">スリランカでのホームステイも、良かったです。<br>
               私は、ホームステイの経験がないため、内心怖がっていたのですが、日本人の受け入れ慣れしている感じがしました。</p>
               <p class="style2">お母さんも歓迎！というよりも、自然体な感じの態度も自分にあっていたように思います。<br>
@@ -83,12 +94,12 @@
               それは次回で。</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="okamotosama2.jpg" width="135" height="180" alt="ホストマザーと" loading="lazy" decoding="async">
+              <img src="okamotosama2.jpg" alt="ホストマザーと" loading="lazy" decoding="async">
               <figcaption>ホストマザーと☆</figcaption>
             </figure>
           </div>
-          <div class="taiken-block" role="group" aria-label="低開発村・印象">
-            <div class="taiken-block__text">
+          <div class="taiken-block story-block" role="group" aria-label="低開発村・印象">
+            <div class="taiken-block__text story-text">
               <p class="style2">低開発村視察は楽しかったです。<br>
               日本人の方と一緒でしたが、私は初日でしたので少し安心できたような気がします。</p>
               <p class="style2">スリランカの印象は、まず、インドと違う、と思いました。<br>
@@ -100,12 +111,12 @@
               自然はとても綺麗でした。</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="犬・まとめ">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="犬・まとめ">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="okamotosama3.jpg" width="180" height="135" alt="犬もフレンドリー" loading="lazy" decoding="async">
+              <img src="okamotosama3.jpg" alt="犬もフレンドリー" loading="lazy" decoding="async">
               <figcaption>犬もフレンドリー！</figcaption>
             </figure>
-            <div class="taiken-block__text">
+            <div class="taiken-block__text story-text">
               <p class="style2">また、スリランカへ行ってみたいです。<br>
               今回は勉強がメインでしたのであまり外出はしなかったのですが、スリランカへは再度行きたいと思います。<br>
               （スリランカのお母さんとも約束しましたし）。</p>
@@ -114,8 +125,8 @@
               したかったことは綺麗な海が見たかったです。それは次回。</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="旅の比較とお礼">
-            <div class="taiken-block__text">
+          <div class="taiken-block taiken-block--image-right story-block" role="group" aria-label="旅の比較とお礼">
+            <div class="taiken-block__text story-text">
               <p class="style2">これまでの海外旅行と比べてもとても良かったです。<br>
               ホテルの場合、現地の人と話す機会がほぼない上に、相手が何を目的にしているか疑ってしまうところがありますが、こういう形ならば相手の国を良く知れるし、しかも安全な気がします。</p>
               <p class="style2">Beインターナショナル並びに現地受入団体の対応は問題ありませんでした。<br>
@@ -124,7 +135,7 @@
               楽しい旅をありがとうございました。」</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="okamotosama2.jpg" width="180" height="135" alt="スリランカの様子" loading="lazy" decoding="async">
+              <img src="okamotosama2.jpg" alt="スリランカの様子" loading="lazy" decoding="async">
             </figure>
           </div>
         </div>

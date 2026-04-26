@@ -11,6 +11,20 @@
 <link href="assets/css/home.css" rel="stylesheet"/>
 <link href="assets/css/typography.css" rel="stylesheet"/>
 <link href="assets/css/taiken-article.css" rel="stylesheet"/>
+<style>
+  .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+  .content-area { padding: 20px; line-height: 1.6; }
+  .story-block { display: flex; gap: 1rem; align-items: flex-start; margin: 1.2rem 0; }
+  .story-block--reverse { flex-direction: row-reverse; }
+  .story-block figure { margin: 0; flex: 0 0 180px; text-align: center; }
+  .story-block img { max-width: 100%; height: auto; }
+  .story-block figcaption { margin-top: 0.35rem; color: #161573; font-size: 0.95rem; }
+  @media (max-width: 760px) {
+    .story-block,
+    .story-block--reverse { flex-direction: column; }
+    .story-block figure { flex-basis: auto; width: 100%; }
+  }
+</style>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,18 +84,19 @@
 </div>
 </div>
 <article aria-labelledby="taiken-h1" class="taiken-article">
-<div class="taiken-body taiken-body--blocks">
-<div class="taiken-article__blocks"><div class="taiken-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="SNsama2.jpg" width="135"/><figcaption><font color="#161573" size="2">巨大な葉っぱ！</font></figcaption></figure><div class="taiken-block__text"><p class="style2"><font size="2">「スリランカでボランティアをするにあたって、自分の英語力を高めたいと思い、いろいろ探していたところ、他のプログラムよりも金額が安く、学生の私でも手が届くプランだったから参加を決めました。</font></p>
-<p class="style2"><font size="2">初めてのホームステイだったのですか、あっという間の三か月でした。<br/>
+<div class="taiken-body taiken-legacy container">
+<div class="content-area">
+<div class="story-block"><figure><img alt="" decoding="async" loading="lazy" src="SNsama2.jpg"/><figcaption>巨大な葉っぱ！</figcaption></figure><div><p class="style2">「スリランカでボランティアをするにあたって、自分の英語力を高めたいと思い、いろいろ探していたところ、他のプログラムよりも金額が安く、学生の私でも手が届くプランだったから参加を決めました。</p>
+<p class="style2">初めてのホームステイだったのですか、あっという間の三か月でした。<br/>
                                         とても優しいホストファミリーに出会うことができ、毎日がとても楽しかったです。<br/>
                                         お客さんが来る日に、壁を飾ってホストマザーとケーキを作ったり、レッスン後に近所の子どもたちと遊んだり、ホストファミリーだけでなくワラカポーラの人たちも大好きになりました。<br/>
-                                        低開発村視察はこの村だけに限ったことではないのですか、スリランカでの生活経験を経て、いかに自分の生活が物によって支えられているのかを感じました。</font></p>
-</div></div><div class="taiken-block taiken-block--image-right" role="group"><div class="taiken-block__text"><p class="style2"><font size="2">二年前にもスリランカを訪れたことがあるのですが、今回の滞在では旅行とは違った目線からスリランカを見ることができました。<br/>
+                                        低開発村視察はこの村だけに限ったことではないのですか、スリランカでの生活経験を経て、いかに自分の生活が物によって支えられているのかを感じました。</p>
+</div></div><div class="story-block story-block--reverse"><div><p class="style2">二年前にもスリランカを訪れたことがあるのですが、今回の滞在では旅行とは違った目線からスリランカを見ることができました。<br/>
 観光地に行かなくても美しいものをたくさん感じることができる国だと思いました。<br/>
 前回はスリランカのホテルに滞在していたので毎日ホテルの料理や外食をしていました。<br/>
 その際私はスリランカ料理が苦手だなと思いました。<br/>
-しかし、ホームステイ先のホストマザーの料理はとてもおいしく、今回の滞在でスリランカの料理がとても好きになりました。</font></p>
-</div><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="SNsama1.jpg" width="180"/><figcaption><font color="#161573" size="2">テーミヤファミリーと♪</font></figcaption></figure></div></div><footer class="taiken-article__foot">
+しかし、ホームステイ先のホストマザーの料理はとてもおいしく、今回の滞在でスリランカの料理がとても好きになりました。</p>
+</div><figure><img alt="" decoding="async" loading="lazy" src="SNsama1.jpg"/><figcaption>テーミヤファミリーと♪</figcaption></figure></div></div><footer class="taiken-article__foot">
 <div class="taiken-article__actions">
 <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>
 <a class="btn btn--accent" href="postmail.html">資料請求</a>

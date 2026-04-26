@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-block { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+    .story-block img { max-width: 100%; height: auto; }
+    @media (max-width: 768px) {
+      .story-block { flex-direction: column; }
+    }
+  </style>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Article", "headline": "体験談：スリランカ　Ｓ. Ｍ様2012年8月ご参加", "inLanguage": "ja", "url": "https://be-intl.com/taiken57.html", "isPartOf": {"@type": "WebSite", "name": "Beインターナショナル", "url": "https://be-intl.com/"}}
   </script>
@@ -44,11 +53,11 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
-        <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="導入">
+      <div class="taiken-body taiken-body--blocks container">
+        <div class="taiken-article__blocks content-area">
+          <section class="taiken-block taiken-block--image-left story-block" role="group" aria-label="導入">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="SMsama1.jpg" width="180" height="135" alt="伝統のキャンディアンダンス" loading="lazy" decoding="async">
+              <img src="SMsama1.jpg" alt="伝統のキャンディアンダンス" loading="lazy" decoding="async">
               <figcaption>伝統のキャンディアンダンス♪</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -59,8 +68,8 @@
               <p class="style2">ホームステイでは、英語以上に素晴らしいものを得られました。<br>
               Mr &amp; Mrs. Jayawardana　夫妻には何から何までお世話になり、素晴らしい経験をさせていただきました。</p>
             </div>
-          </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="食事">
+          </section>
+          <section class="taiken-block taiken-block--image-right story-block" role="group" aria-label="食事">
             <div class="taiken-block__text">
               <p class="style2">食事も大変美味しく、辛さも日本人の食べれる範囲内にしてくださいました。<br>
               息子さんの新築のセレモニーも拝見し、ご親戚のお通夜にも連れて行っていただきました。<br>
@@ -69,20 +78,20 @@
               虫除けスプレー、蚊取り線香、痒み止めは、絶対に必要だと思いました。</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="SMsama3.jpg" width="180" height="135" alt="手で食事" loading="lazy" decoding="async">
+              <img src="SMsama3.jpg" alt="手で食事" loading="lazy" decoding="async">
               <figcaption>いつも手で食べいました☆</figcaption>
             </figure>
-          </div>
-          <div class="taiken-block" role="group" aria-label="低開発村">
+          </section>
+          <section class="taiken-block story-block" role="group" aria-label="低開発村">
             <div class="taiken-block__text">
               <p class="style2">低開発村視察は、TFGスタディツアーに途中参加でき、開発の手助けを行っていることを詳しくお聞きしました。<br>
               Ms. Manel が、最大の経験ができるように臨機応変に対応してくれ、TFGスタディツアーと日程を合わせてくれたので、予想以上の経験ができました。</p>
               <p class="style2">１０年前の高級リゾートホテル巡りも最高でしたが、今回は、自然との共存などの日常生活を味わうことができ、ホストファミリーに恵まれたおかげで、日本では味わえない経験ができました。</p>
             </div>
-          </div>
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="まとめ">
+          </section>
+          <section class="taiken-block taiken-block--image-left story-block" role="group" aria-label="まとめ">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="SMsama2.jpg" width="180" height="135" alt="昼食" loading="lazy" decoding="async">
+              <img src="SMsama2.jpg" alt="昼食" loading="lazy" decoding="async">
               <figcaption>昼食の一品・キャッサバ煮！</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -93,7 +102,7 @@
               次回はもう少し長期間で行きたいです。<br>
               ありがとうございました。」</p>
             </div>
-          </div>
+          </section>
         </div>
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">

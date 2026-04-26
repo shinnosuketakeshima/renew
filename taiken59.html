@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-block { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+    .story-block img { max-width: 100%; height: auto; }
+    @media (max-width: 768px) {
+      .story-block { flex-direction: column; }
+    }
+  </style>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Article", "headline": "体験談：スリランカ　Ｔ．Ｎ様2012年9～10月ご参加", "inLanguage": "ja", "url": "https://be-intl.com/taiken59.html", "isPartOf": {"@type": "WebSite", "name": "Beインターナショナル", "url": "https://be-intl.com/"}}
   </script>
@@ -44,11 +53,11 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
-        <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="導入">
+      <div class="taiken-body taiken-body--blocks container">
+        <div class="taiken-article__blocks content-area">
+          <section class="taiken-block taiken-block--image-left story-block" role="group" aria-label="導入">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Niimisama.jpg" width="180" height="135" alt="子供のきらきらした目" loading="lazy" decoding="async">
+              <img src="Niimisama.jpg" alt="子供のきらきらした目" loading="lazy" decoding="async">
               <figcaption>子供のキラキラな目は最高☆</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -57,8 +66,8 @@
               <p class="style2">スリランカでのホームステイは、一生の宝となりました。<br>
               ホストファミリーは、とても親切で、とっても楽しく最高の生活を送ることができました。</p>
             </div>
-          </div>
-          <div class="taiken-block" role="group" aria-label="本文">
+          </section>
+          <section class="taiken-block story-block" role="group" aria-label="本文">
             <div class="taiken-block__text">
               <p class="style2">低開発村視察は、とてもカルチャーショックを受けました。<br>
               テレビで見る現実とまったく違いました。<br>
@@ -73,7 +82,7 @@
               <p class="style2">時々日本食が恋しくなったので、インスタント味噌汁を持ってけばと良かったと思いました(笑)<br>
               ありがとうこざいました。<br>ボホマストゥティ！」</p>
             </div>
-          </div>
+          </section>
         </div>
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">

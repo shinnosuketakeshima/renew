@@ -10,6 +10,22 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.8; }
+    .story-block { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 24px; }
+    .story-block--reverse { flex-direction: row-reverse; }
+    .story-block__figure { flex: 0 0 min(260px, 38%); margin: 0; }
+    .story-block__figure img { display: block; max-width: 100%; height: auto; }
+    .story-block__caption { margin-top: 8px; text-align: center; color: #3f3f46; font-size: 0.95rem; }
+    .story-block__text { flex: 1 1 auto; min-width: 0; }
+    .content-area p { margin: 0 0 1em; font-size: 1rem; }
+    @media (max-width: 768px) {
+      .content-area { padding: 16px; }
+      .story-block, .story-block--reverse { flex-direction: column; gap: 16px; }
+      .story-block__figure { flex-basis: auto; width: 100%; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,25 +88,26 @@
     </div>
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-legacy">
-<table border="0" width="533">
-<tr>
-<td><p><span class="style2"><font size="2">「空港に着いてすぐ、逢坂さんからの直筆のお手紙をいただいて、とても安心しました。<br/>
+      <div class="taiken-body taiken-legacy container">
+        <div class="content-area">
+          <section class="story-block">
+            <div class="story-block__text">
+              <p>「空港に着いてすぐ、逢坂さんからの直筆のお手紙をいただいて、とても安心しました。<br/>
                                             私事ですが、20年前からスリランカに行くのが夢で、当時はお金のない学生で実現できなかった夢を今回叶えることができて、本当に嬉しく思っています。<br/>
-                                            このプログラムを選んだ理由は、逢坂さんの常識的な対応と、費用と期間です。</font></span></p>
-<p><span class="style2"><font size="2">マーネルとはほとんど英語で会話していましたが、いざという ときに日本語が通じるのは助かりました。<br/>
+                                            このプログラムを選んだ理由は、逢坂さんの常識的な対応と、費用と期間です。</p>
+              <p>マーネルとはほとんど英語で会話していましたが、いざという ときに日本語が通じるのは助かりました。<br/>
                                             きちんと聞こうとしてくれるので、私も遠慮なく会話ができました。<br/>ファミリーの方も面白くて、温かい印象でした。<br/>
                                             英語だけでなく、スリランカ料理やサリーの着方も教えていただきました。<br/>
                                             マーネルが日曜日にやっている日本語教室も見せていただき、若い方たちが熱心に勉強しているところが見れて感動しました。<br/>
-                                            サリーの着付けに関しては、マーネルがあまり得意でないようでしたが、隣家のブライダルの着付けをしている方のところ行き、習うことができました。<br/>ちゃんと教えなきゃ！と思ってお願いしてくれたのだと思います。</font></span></p>
-<p><span class="style2"><font size="2">本当に今回は貴重な体験ができて、このようなきっかけを作ら れている逢坂さんのお仕事も素敵だなあ思いました。<br/>
+                                            サリーの着付けに関しては、マーネルがあまり得意でないようでしたが、隣家のブライダルの着付けをしている方のところ行き、習うことができました。<br/>ちゃんと教えなきゃ！と思ってお願いしてくれたのだと思います。</p>
+              <p>本当に今回は貴重な体験ができて、このようなきっかけを作ら れている逢坂さんのお仕事も素敵だなあ思いました。<br/>
                                               また是非、スリランカや他の国にホームステイしてみたいと思います。<br/>
                                               毎日のつまらない仕事もそのために頑張れそうです。<br/>
-                                              また機会がありましたらその際は宜しくお願いします。」</font></span></p>
-<p class="style2"> </p>
-</td>
-</tr>
-</table>
+                                              また機会がありましたらその際は宜しくお願いします。」</p>
+            </div>
+          </section>
+        </div>
+
 
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">

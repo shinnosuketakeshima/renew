@@ -10,6 +10,13 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+  .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+  .content-area { padding: 20px; line-height: 1.6; }
+  .story-block { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 28px; }
+  .story-block img { max-width: 100%; height: auto; }
+  @media (max-width: 768px) { .story-block { flex-direction: column; } }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,11 +72,11 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
+      <div class="taiken-body taiken-body--blocks container content-area">
         <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="写真と導入">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="写真と導入">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Ohatasama1.jpg" width="180" height="180" alt="サリーを着た様子" loading="lazy" decoding="async">
+              <img src="Ohatasama1.jpg" alt="サリーを着た様子" loading="lazy" decoding="async">
               <figcaption>サリーを着ました(^^)</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -80,7 +87,7 @@
               <p class="style2">ネパールでのホームステイは、カトマンズの一般家庭のリアルな事情を知れて刺激的でした。ホームステイ先の家族がとても親切で、フレンドリーで楽しかったです。みんな英語が上手いので、日常会話の向上につながったと思います。バスルームや自分の部屋も広く、綺麗で快適でした。</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="食事のことと街の写真">
+          <div class="taiken-block taiken-block--image-right story-block" role="group" aria-label="食事のことと街の写真">
             <div class="taiken-block__text">
               <p class="style2">食事もおかずやカレーの種類が多いので2週間は大丈夫でした！<br>
               ゴーヤやオクラがたくさん使われてました。<br>
@@ -89,13 +96,13 @@
               一人で歩いているとよく声かけられます。</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Ohatasama5.jpg" width="135" height="180" alt="繁華街のタメル" loading="lazy" decoding="async">
+              <img src="Ohatasama5.jpg" alt="繁華街のタメル" loading="lazy" decoding="async">
               <figcaption>繁華街のタメル</figcaption>
             </figure>
           </div>
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="ボランティア">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="ボランティア">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Ohatasama4.jpg" width="180" height="135" alt="小学生に日本文化を教える様子" loading="lazy" decoding="async">
+              <img src="Ohatasama4.jpg" alt="小学生に日本文化を教える様子" loading="lazy" decoding="async">
               <figcaption>小学生に日本文化を教えました。</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -104,7 +111,7 @@
               <p class="style2">ボランティアの場所がはっきりわからず不安だったけど、サポーターのプラタップさんが自分の希望通り動いてくれて良かったです。</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="ヨガと街の様子">
+          <div class="taiken-block taiken-block--image-right story-block" role="group" aria-label="ヨガと街の様子">
             <div class="taiken-block__text">
               <p class="style2">ヨガクラスではネパール人の友達もできました。<br>
               先生は基本ネパール語で説明するけど、わからなそうな顔していたら英語で話してくれます。</p>
@@ -113,13 +120,13 @@
               ただ、思ったよりも停電が多く、夜の停電の中のレッスンは眠くなったし、大変でした…</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Ohatasama2.jpg" width="135" height="180" alt="無料ヨガクラス" loading="lazy" decoding="async">
+              <img src="Ohatasama2.jpg" alt="無料ヨガクラス" loading="lazy" decoding="async">
               <figcaption>無料ヨガクラス</figcaption>
             </figure>
           </div>
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="停電とまとめ">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="停電とまとめ">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="Ohatasama3.jpg" width="180" height="135" alt="停電時のロウソクの明かり" loading="lazy" decoding="async">
+              <img src="Ohatasama3.jpg" alt="停電時のロウソクの明かり" loading="lazy" decoding="async">
               <figcaption>停電時はロウソクを立ててレッスン継続！眠い…</figcaption>
             </figure>
             <div class="taiken-block__text">
@@ -129,11 +136,11 @@
           </div>
           <div class="taiken-fig-row taiken-fig-row--2" role="group" aria-label="観光の写真">
             <figure class="taiken-figure">
-              <img src="Ohatasama8.jpg" width="180" height="135" alt="スワヤンブナートから見たカトマンズ" loading="lazy" decoding="async">
+              <img src="Ohatasama8.jpg" alt="スワヤンブナートから見たカトマンズ" loading="lazy" decoding="async">
               <figcaption>スワヤンブナートからはカトマンズを一望できます。</figcaption>
             </figure>
             <figure class="taiken-figure">
-              <img src="Ohatasama6.jpg" width="180" height="135" alt="パシュパティナート" loading="lazy" decoding="async">
+              <img src="Ohatasama6.jpg" alt="パシュパティナート" loading="lazy" decoding="async">
               <figcaption>パシュパティナート！川では子供達が泳いでいて、すぐそばで遺体が火葬されています。</figcaption>
             </figure>
           </div>

@@ -33,6 +33,22 @@
     "url": "https://be-intl.com/"
   }
   </script>
+
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-list { display: grid; gap: 24px; }
+    .story-block { display: flex; gap: 20px; align-items: flex-start; }
+    .story-block--image-right { flex-direction: row-reverse; }
+    .story-block__text { flex: 1; min-width: 0; }
+    .story-block figure, .story-block__image { margin: 0; flex: 0 0 180px; text-align: center; }
+    .story-block img { max-width: 100%; height: auto; }
+    @media (max-width: 768px) {
+      .content-area { padding: 16px; }
+      .story-block, .story-block--image-right { flex-direction: column; }
+      .story-block figure, .story-block__image { flex-basis: auto; }
+    }
+  </style>
 </head>
 <body class="page-taiken-article page-taiken-article--srilanka">
   <a class="visually-hidden" href="#main-content">本文へスキップ</a>
@@ -72,41 +88,42 @@
     </div>
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-legacy">
-<table align="center" width="500">
-<tr>
-<td align="center"><p><img height="135" src="Shibasama1.jpg" width="180"/></p>
-<p><font color="#161573" size="2">新鮮なフルーツと野菜☆</font></p></td>
-<td><p><span class="style2"><font size="2">「日本人を宿泊させることができる環境のご家庭を紹介していただけるので、この留学プログラムに決めました。<br/>
-最初から最後まで、逢坂さんやマーネルさんが丁寧にきめ細やかな対応してくださったので、安心して向かうことができました。</font></span></p> <p> </p></td>
-</tr>
-</table>
-<table border="0">
-<tr>
-<td><p class="style2"><font size="2">
+      <div class="taiken-body taiken-body--blocks">
+        <div class="container">
+          <div class="content-area">
+            <div class="story-list">
+              <section class="story-block">
+                <div class="story-block__text">
+                  <p><img src="Shibasama1.jpg" alt=""></p>
+                  <p>新鮮なフルーツと野菜☆</p>
+                </div>
+                <div class="story-block__text"><p><span class="style2">「日本人を宿泊させることができる環境のご家庭を紹介していただけるので、この留学プログラムに決めました。<br/>
+最初から最後まで、逢坂さんやマーネルさんが丁寧にきめ細やかな対応してくださったので、安心して向かうことができました。</span></p> <p> </p></div>
+              </section>
+              <section class="story-block">
+                <div class="story-block__text"><p class="style2">
 英語レッスンは、楽しく学習することができました。<br/>
 学習方法もこちらのリクエストに柔軟に対応してくださり助かりました。<br/><br/>
 ホームステイを始めて、最初は虫の多い環境に驚きましたが、2日でなれました。<br/>
 ホストファミリーとの生活はとても素晴らしい体験となり、マーネルさんご家族と出会えて本当に良かったです。<br/><br/>低開発村視察では、スパイスや文化を知ることができ勉強になりました。<br/>
-街に行くと洋服がとても汚れるので、おしゃれな洋服は持っていかないほうが良いとおもいました。笑</font></p></td>
-<td><p align="center"><img height="194" src="Shibasama2.jpg" width="180"/></p>
-<p align="center"><font color="#161573" size="2">今日の食材♪</font></p></td>
-</tr>
-</table>
-<table border="0">
-<tr>
-<td width="150"><p class="style2"><img height="180" src="Shibasama3.jpg" width="135"/></p>
-<p align="center"><font color="#161573" size="2">出来上がり！</font></p></td>
-<td><p class="style2"><font size="2">スリランカは、想像通りに素敵な国でした。<br/>
+街に行くと洋服がとても汚れるので、おしゃれな洋服は持っていかないほうが良いとおもいました。笑</p></div>
+                <div class="story-block__text"><p align="center"><img src="Shibasama2.jpg" alt=""></p>
+<p align="center">今日の食材♪</p></div>
+              </section>
+              <section class="story-block">
+                <div class="story-block__text"><p class="style2"><img src="Shibasama3.jpg" alt=""></p>
+<p align="center">出来上がり！</p></div>
+                <div class="story-block__text"><p class="style2">スリランカは、想像通りに素敵な国でした。<br/>
 食事がとても美味しくて、早くまた食べたいです。<br/>
 またスリランカへ旅行を予定しております、また利用させていただきたいと考えております。<br/><br/>この度は色々とありがとうございました。<br/>
 大変お世話になりました。<br/>
 とても貴重な体験をさせていただきました。<br/>
 またの旅行を計画しておりますので、その際はよろしくお願いいたします。」<br/><br/>
-</font></p></td>
-</tr>
-</table>
-
+</p></div>
+              </section>
+            </div>
+          </div>
+        </div>
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
             <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>

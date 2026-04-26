@@ -33,6 +33,22 @@
     "url": "https://be-intl.com/"
   }
   </script>
+
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-list { display: grid; gap: 24px; }
+    .story-block { display: flex; gap: 20px; align-items: flex-start; }
+    .story-block--image-right { flex-direction: row-reverse; }
+    .story-block__text { flex: 1; min-width: 0; }
+    .story-block figure, .story-block__image { margin: 0; flex: 0 0 180px; text-align: center; }
+    .story-block img { max-width: 100%; height: auto; }
+    @media (max-width: 768px) {
+      .content-area { padding: 16px; }
+      .story-block, .story-block--image-right { flex-direction: column; }
+      .story-block figure, .story-block__image { flex-basis: auto; }
+    }
+  </style>
 </head>
 <body class="page-taiken-article page-taiken-article--srilanka">
   <a class="visually-hidden" href="#main-content">本文へスキップ</a>
@@ -72,20 +88,26 @@
     </div>
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-legacy">
-<table align="center" width="500">
-<tr>
-<td align="center" width="180"><p><img height="180" src="Nakagawasama1.jpg" width="135"/></p>
-<p><font color="#161573" size="2">シーギリヤロック！</font></p></td>
-<td><p><span class="style2"><font size="2">「納得のいく留学をすることができました。満足です。<br/>
+      <div class="taiken-body taiken-body--blocks">
+        <div class="container">
+          <div class="content-area">
+            <div class="story-list">
+              <section class="story-block">
+                <div class="story-block__text">
+                  <p><img src="Nakagawasama1.jpg" alt=""></p>
+                  <p>シーギリヤロック！</p>
+                </div>
+                <div class="story-block__text">
+                  <p><span class="style2">「納得のいく留学をすることができました。満足です。<br/>
 この留学プログラムの不安などは、特にありませんでした。<br/>
 マンツーマンレッスンをコストパフォーマンス良く受けられるので、参加を決めました。<br/>
 レッスンは自由にやらせてもらえたので自分のペースでできて良かったです。<br/>
-</font></span></p>
-</td>
-</tr>
-</table>
-
+</span></p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
             <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>

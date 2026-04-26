@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .story-block { display: flex; gap: 1rem; align-items: flex-start; margin: 1.2rem 0; }
+    .story-block--reverse { flex-direction: row-reverse; }
+    .story-block figure { margin: 0; flex: 0 0 180px; text-align: center; }
+    .story-block img { max-width: 100%; height: auto; }
+    .story-block figcaption { margin-top: 0.35rem; color: #161573; font-size: 0.95rem; }
+    @media (max-width: 760px) {
+      .story-block,
+      .story-block--reverse { flex-direction: column; }
+      .story-block figure { flex-basis: auto; width: 100%; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,47 +86,58 @@
     </div>
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-legacy">
-<table align="center" width="500">
-<tr>
-<td align="center"><p><img height="135" src="sutosama1.jpg" width="180"/></p>
-<p><font color="#161573" size="2">スリーパーダからのご来光！</font></p></td>
-<td><p><span class="style2"><font size="2">「参加を決めた理由は、ホームステイということで、国の状況や人々の暮らしを知ることができ、安全面でも良いと思ったからです。</font></span></p>
-<p><span class="style2"><font size="2">                                              出発前は、スリランカの状況が全くわからないため、Visaの更新、ステイ中の旅行などで多少不安がありましたが、マーネルさんが教えて下さったり、援助して下さり、滞在中に自爆テロがあったものの、いろいろな体験ができました。</font></span></p> <p> </p></td>
-</tr>
-</table>
-<table border="0">
-<tr>
-<td><p class="style2"><font size="2">また、英語のレッスンは、ニュースや日記(宿題)、興味のあることを題材に会話中心のレッスンだったので、楽しんで苦手な会話に取り組めました。<br/>
-                                        宿題も、無理せずに毎日英文を書くことができました。</font></p>
-<p class="style2"><font size="2">ホームステイは本当に素晴らしい体験ができたと思います。<br/>
-ホストファミリーには家族のように接していただき、マーネルさんのスリランカ料理が私の体に合うのか、とっても元気に過ごせました♪</font></p>
-<p class="style2"><font size="2">                                        ちょうどお正月にステイできたこと、お坊様に食事のお布施をしたこと、スリーパーダに登ったこと、地域のお祭りを見に行ったことなど、日常的に一緒に行動することで、観光旅行では体験できないスリランカ体験ができたと思います。</font></p></td>
-<td><p align="center"><img height="180" src="sutosama3.jpg" width="135"/></p>
-<p align="center"><font color="#161573" size="2">お寺を参拝☆</font></p></td>
-</tr>
-</table>
-<table border="0">
-<tr>
-<td><p class="style2"><img height="180" src="sutosama2.jpg" width="135"/></p>
-<p align="center"><font color="#161573" size="2">カシューナッツの実！</font></p></td>
-<td><p class="style2"><font size="2">日本にいると製品や商品になってしまい、どのように自分の手元に来るのか想像できませんが、特に食べ物について考えさせられました。</font></p>
-<p align="left" class="style2"><font size="2"> 東京で流行っているタピオカジュースのタピオカのお芋。<br/>
+      <div class="taiken-body taiken-legacy container">
+        <div class="content-area">
+          <div class="story-block">
+            <figure>
+              <img src="sutosama1.jpg" alt="">
+              <figcaption>スリーパーダからのご来光！</figcaption>
+            </figure>
+            <div>
+              <p><span class="style2">「参加を決めた理由は、ホームステイということで、国の状況や人々の暮らしを知ることができ、安全面でも良いと思ったからです。</span></p>
+              <p><span class="style2">                                              出発前は、スリランカの状況が全くわからないため、Visaの更新、ステイ中の旅行などで多少不安がありましたが、マーネルさんが教えて下さったり、援助して下さり、滞在中に自爆テロがあったものの、いろいろな体験ができました。</span></p>
+            </div>
+          </div>
+          <div class="story-block story-block--reverse">
+            <figure>
+              <img src="sutosama3.jpg" alt="">
+              <figcaption>お寺を参拝☆</figcaption>
+            </figure>
+            <div>
+              <p class="style2">また、英語のレッスンは、ニュースや日記(宿題)、興味のあることを題材に会話中心のレッスンだったので、楽しんで苦手な会話に取り組めました。<br/>
+                                        宿題も、無理せずに毎日英文を書くことができました。</p>
+              <p class="style2">ホームステイは本当に素晴らしい体験ができたと思います。<br/>
+ホストファミリーには家族のように接していただき、マーネルさんのスリランカ料理が私の体に合うのか、とっても元気に過ごせました♪</p>
+              <p class="style2">                                        ちょうどお正月にステイできたこと、お坊様に食事のお布施をしたこと、スリーパーダに登ったこと、地域のお祭りを見に行ったことなど、日常的に一緒に行動することで、観光旅行では体験できないスリランカ体験ができたと思います。</p>
+            </div>
+          </div>
+          <div class="story-block">
+            <figure>
+              <img src="sutosama2.jpg" alt="">
+              <figcaption>カシューナッツの実！</figcaption>
+            </figure>
+            <div>
+              <p class="style2">日本にいると製品や商品になってしまい、どのように自分の手元に来るのか想像できませんが、特に食べ物について考えさせられました。</p>
+              <p class="style2"> 東京で流行っているタピオカジュースのタピオカのお芋。<br/>
   カシューナッツの普段見るカシューナッツの状態にするまでの手間。<br/>
-  ガーデンから日常的な食事にハーブやフ ルーツ、ココナッツを料理することなど、勉強になりました。</font></p>
-<p align="left" class="style2"><font size="2">それに、今回のテロのこともありますが、スリランカの歴史的なことも含めて、多民族多言語、多文化多宗教であることを実感しました。<br/>自分を含め、日本は、多様性社会についての意識レベルがまだ低いように思います。</font></p></td>
-</tr>
-</table> <table border="0" width="100%">
-<tr>
-<td><p><span class="style2"><font size="2">日本に戻りましたが、自分自身の体験や考えの変化など、今まで以上に思うことがあったので、それを今後の生活に生かしていきたいです。<br/>
-課題も見つかり、次回のスリランカ行きまでに、すこし頑張ろうという気持ちがあります。</font></span></p>
-<p><span class="style2"><font size="2">次回行くときには、もっとスリランカについて知りたいですし、テロのため行けなかった世界遺産になっている仏教遺跡に行きたいとおもいます。<br/>
+  ガーデンから日常的な食事にハーブやフ ルーツ、ココナッツを料理することなど、勉強になりました。</p>
+              <p class="style2">それに、今回のテロのこともありますが、スリランカの歴史的なことも含めて、多民族多言語、多文化多宗教であることを実感しました。<br/>自分を含め、日本は、多様性社会についての意識レベルがまだ低いように思います。</p>
+            </div>
+          </div>
+          <div class="story-block story-block--reverse">
+            <figure>
+              <img src="sutosama4.jpg" alt="">
+              <figcaption>森の中の大仏</figcaption>
+            </figure>
+            <div>
+              <p><span class="style2">日本に戻りましたが、自分自身の体験や考えの変化など、今まで以上に思うことがあったので、それを今後の生活に生かしていきたいです。<br/>
+課題も見つかり、次回のスリランカ行きまでに、すこし頑張ろうという気持ちがあります。</span></p>
+              <p><span class="style2">次回行くときには、もっとスリランカについて知りたいですし、テロのため行けなかった世界遺産になっている仏教遺跡に行きたいとおもいます。<br/>
                                               もちろんその時に、またBeインターナショナルのホームステイプログラムでマーネルさん宅にステイしたいです。<br/>
-                                            今後ともどうぞよろしくお願致します。」</font> </span></p></td>
-<td><p align="center"><img height="135" src="sutosama4.jpg" width="180"/></p>
-<p align="center"><font color="#161573" size="2">森の中の大仏</font></p></td>
-</tr>
-</table>
+                                            今後ともどうぞよろしくお願致します。」</span></p>
+            </div>
+          </div>
+        </div>
 
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">

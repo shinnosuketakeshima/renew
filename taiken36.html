@@ -10,6 +10,17 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    body.page-taiken-article--nepal { background-image: url("images/bk.gif"); background-repeat: repeat; }
+    .container { margin: 0 auto; max-width: 1000px; width: 95%; }
+    .content-area { padding: 20px; line-height: 1.6; }
+    .content-area p { margin: 0 0 1rem; font-size: 1rem; }
+    .story-block { display: flex; gap: 1rem; align-items: flex-start; margin: 1.2rem 0; }
+    .story-block--reverse { flex-direction: row-reverse; }
+    .story-block figure { margin: 0; flex: 0 0 180px; text-align: center; }
+    .story-block img { max-width: 100%; height: auto; border-radius: 8px; display: block; }
+    @media (max-width: 760px) { .story-block, .story-block--reverse { flex-direction: column; } .story-block figure { width: 100%; flex-basis: auto; } }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,17 +76,17 @@
       </div>
     </div>
     <article class="taiken-article" aria-labelledby="taiken-h1">
-      <div class="taiken-body taiken-body--blocks">
+      <div class="taiken-body taiken-body--blocks container">
         <div class="taiken-article__blocks">
-          <div class="taiken-block taiken-block--image-left" role="group" aria-label="トレッキング">
+          <div class="taiken-block taiken-block--image-left story-block" role="group" aria-label="トレッキング">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="tabatasama1.jpg" width="180" height="135" alt="トレッキングの山の景色" loading="lazy" decoding="async">
+              <img src="tabatasama1.jpg" alt="トレッキングの山の景色" loading="lazy" decoding="async">
             </figure>
-            <div class="taiken-block__text">
+            <div class="taiken-block__text content-area">
               <p class="style2">トレッキングに行ったときの山からの景色。<br>ヒマラヤ山脈は素晴らしい！</p>
             </div>
           </div>
-          <div class="taiken-block" role="group" aria-label="本文">
+          <div class="taiken-block content-area" role="group" aria-label="本文">
             <div class="taiken-block__text">
               <p class="style2">「この留学プログラムに決めたのは、今回一緒に参加したＭ. Ｓさんに誘われたことと、ネパールに行きたいと思ったからでした。</p>
               <p class="style2">レッスンは英語の聞き取りと単語が難しく感じ、語学力がない私にとっては困難でした。<br>
@@ -89,12 +100,12 @@
               <p class="style2">また、ネパールへ行きたいと思います。<br>語学力を身につけて！」</p>
             </div>
           </div>
-          <div class="taiken-block taiken-block--image-right" role="group" aria-label="火葬">
-            <div class="taiken-block__text">
+          <div class="taiken-block taiken-block--image-right story-block story-block--reverse" role="group" aria-label="火葬">
+            <div class="taiken-block__text content-area">
               <p class="style2">滅多に見られない河の側での火葬</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
-              <img src="tabatasama2.jpg" width="180" height="135" alt="河の側の火葬" loading="lazy" decoding="async">
+              <img src="tabatasama2.jpg" alt="河の側の火葬" loading="lazy" decoding="async">
             </figure>
           </div>
         </div>

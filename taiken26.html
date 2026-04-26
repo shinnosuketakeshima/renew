@@ -11,6 +11,70 @@
 <link href="assets/css/home.css" rel="stylesheet"/>
 <link href="assets/css/typography.css" rel="stylesheet"/>
 <link href="assets/css/taiken-article.css" rel="stylesheet"/>
+<style>
+  body.page-taiken-article--nepal {
+    background-image: url("images/bk.gif");
+    background-repeat: repeat;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 95%;
+  }
+  .content-area {
+    padding: 20px;
+    line-height: 1.6;
+  }
+  .content-area p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+  .story-block {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 1.2rem 0;
+  }
+  .story-block--reverse {
+    flex-direction: row-reverse;
+  }
+  .story-block figure {
+    margin: 0;
+    flex: 0 0 180px;
+    text-align: center;
+  }
+  .story-block img,
+  .content-area figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+  .story-block figcaption {
+    margin-top: 0.45rem;
+    color: #355c8a;
+    font-size: 0.95rem;
+  }
+  .book-heading {
+    margin: 1.6rem 0 0.7rem;
+    color: #161573;
+    font-weight: 700;
+  }
+  .book-heading::before {
+    content: "■ ";
+    color: #fd8839;
+  }
+  @media (max-width: 760px) {
+    .story-block,
+    .story-block--reverse {
+      flex-direction: column;
+    }
+    .story-block figure {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
+</style>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,37 +134,44 @@
 </div>
 </div>
 <article aria-labelledby="taiken-h1" class="taiken-article">
-<div class="taiken-body taiken-body--blocks">
-<div class="taiken-article__blocks"><div class="taiken-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama3.jpg" width="180"/></figure><div class="taiken-block__text"><p class="style2"><font size="2">「１５年ほど前にネパールへ行き、もう一度行ってみたいと思っていたネパールのホームステイプログラムだったので参加しました。</font></p>
-<p class="style2"><font size="2">出発前に、夜や朝の暖房はなさそうだと分かって、寝袋や、ダウンのジャケットを持参しました。<br/>
-  夕方から朝までは寒くなかったと言えばうそになりますが持っていってよかったと思います。</font></p>
-<p class="style2"><font size="2">毎日の長時間の停電には驚きましたが慣れました。<br/>
-  人があふれる街で10ルピーの寿司づめのマイクロバスでの移動もかなりなれました。</font></p></div></div><div class="taiken-block taiken-block--image-right" role="group"><div class="taiken-block__text"><p align="left" class="style2"><font size="2">英語レッスンですが、あんなに、人間的で、熱心で、親切な先生は知りません。<br/>
-  宿題は、私にしてはまずよくやったと思います。</font></p>
-<p align="left" class="style2"><font size="2">文法、会話、発音などのレッスンの他に、自主的な活動グループの3人の生徒代表と一緒にレッスンを組んでくれたり、授業を見せてくれたり、私に紹介の場（ショートプレゼンテーション）を与えたり、家に招待してくれたり、生徒たちとのお別れ会をひらき、お土産をいくつもいただいたり、英語の授業で使ったＣＤもいただきました。<br/>
+<div class="taiken-body taiken-body--blocks container">
+<div class="content-area">
+<div class="taiken-article__blocks">
+<div class="taiken-block taiken-block--image-left story-block" role="group">
+<figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama3.jpg"/></figure>
+<div class="taiken-block__text">
+<p class="style2">「１５年ほど前にネパールへ行き、もう一度行ってみたいと思っていたネパールのホームステイプログラムだったので参加しました。</p>
+<p class="style2">出発前に、夜や朝の暖房はなさそうだと分かって、寝袋や、ダウンのジャケットを持参しました。<br/>
+  夕方から朝までは寒くなかったと言えばうそになりますが持っていってよかったと思います。</p>
+<p class="style2">毎日の長時間の停電には驚きましたが慣れました。<br/>
+  人があふれる街で10ルピーの寿司づめのマイクロバスでの移動もかなりなれました。</p></div></div><div class="taiken-block taiken-block--image-right story-block story-block--reverse" role="group"><div class="taiken-block__text"><p align="left" class="style2">英語レッスンですが、あんなに、人間的で、熱心で、親切な先生は知りません。<br/>
+  宿題は、私にしてはまずよくやったと思います。</p>
+<p align="left" class="style2">文法、会話、発音などのレッスンの他に、自主的な活動グループの3人の生徒代表と一緒にレッスンを組んでくれたり、授業を見せてくれたり、私に紹介の場（ショートプレゼンテーション）を与えたり、家に招待してくれたり、生徒たちとのお別れ会をひらき、お土産をいくつもいただいたり、英語の授業で使ったＣＤもいただきました。<br/>
   ある青年教師とも親しくなりました。<br/>
-  これは、メグ先生の思いと私の思いが一致するところがあったんだろうと思います。</font></p> </div><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama1.jpg" width="180"/><figcaption><font color="#161573" size="2">小学校で折紙を教えました！</font></figcaption></figure></div><div class="taiken-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama5.jpg" width="180"/></figure><div class="taiken-block__text"><p class="style2"><font size="2">ネパールでのホームステイは、ケサブ・ロハニさん一家は、とても親切で暖かく、また気をつかってくれました。<br/>
+  これは、メグ先生の思いと私の思いが一致するところがあったんだろうと思います。</p> </div><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama1.jpg"/><figcaption>小学校で折紙を教えました！</figcaption></figure></div><div class="taiken-block taiken-block--image-left story-block" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama5.jpg"/></figure><div class="taiken-block__text"><p class="style2">ネパールでのホームステイは、ケサブ・ロハニさん一家は、とても親切で暖かく、また気をつかってくれました。<br/>
   だんだん仲良くなって、2人の子どもは、孫みたいな感じでした。<br/>
-  一緒に見たビデオの映画もとてもよかったです。 （障害のある子どもが主人公のインド映画　そのメッセージは『みんなそれぞれがスペシャル』みんながドクターになれるわけではない）</font></p> </div></div><div class="taiken-block taiken-block--image-right" role="group"><div class="taiken-block__text"><p class="style2"><font size="2">ネパールの人育ちについては今後もウオッチングできればと思っています。</font></p>
-<p class="style2"><font size="2">パタン、バクタプル、そして市内のスワンブー・パチパスティナートなどを見て、ヒンドゥとブデズムについての興味も高まりました。</font></p>
-<p class="style2"><font size="2">バクタプルでは、現地ガイドをしてくれた学生といろんな話をしていい出会いになりました。</font></p></div><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama2.jpg" width="185"/></figure></div><div class="taiken-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama4.jpg" width="180"/></figure><div class="taiken-block__text"><p class="style2"><font size="2">現地受入団体は、教師として学校教育に長年携わってきた、各国の教育事情に関心のある私に、全力投球で、「教育を見たい」という希望にこたえてくれました。<br/>
-  今までにないような英語レッスンと４施設のオブザベーションができ、家ぐるみの歓待を受けました。</font></p>
-<p class="style2"><font size="2">                                                家庭に何度も招待してくれ奥さん赤ちゃんとも話しランチもご馳走になり土産までいただきました。<br/>
-                                              そんな経過なのでとても現地の方々に感謝しております。</font></p></div></div></div><font color="#fd8839" size="2">■</font><font color="#161573" size="2"><strong>本を出版しました！</strong></font><table border="0" width="100%">
-<tr>
-<td><img height="190" src="Eguchisama6.jpg" width="180"/></td>
-<td><p class="style2"><font size="2">長年、教育者として従事した江口千春様が　「ネパール 子どもとともに築く幸せ」　という本を出版されました。<br/><br/>
+  一緒に見たビデオの映画もとてもよかったです。 （障害のある子どもが主人公のインド映画　そのメッセージは『みんなそれぞれがスペシャル』みんながドクターになれるわけではない）</p> </div></div><div class="taiken-block taiken-block--image-right story-block story-block--reverse" role="group"><div class="taiken-block__text"><p class="style2">ネパールの人育ちについては今後もウオッチングできればと思っています。</p>
+<p class="style2">パタン、バクタプル、そして市内のスワンブー・パチパスティナートなどを見て、ヒンドゥとブデズムについての興味も高まりました。</p>
+<p class="style2">バクタプルでは、現地ガイドをしてくれた学生といろんな話をしていい出会いになりました。</p></div><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama2.jpg"/></figure></div><div class="taiken-block taiken-block--image-left story-block" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="Eguchisama4.jpg"/></figure><div class="taiken-block__text"><p class="style2">現地受入団体は、教師として学校教育に長年携わってきた、各国の教育事情に関心のある私に、全力投球で、「教育を見たい」という希望にこたえてくれました。<br/>
+  今までにないような英語レッスンと４施設のオブザベーションができ、家ぐるみの歓待を受けました。</p>
+<p class="style2">                                                家庭に何度も招待してくれ奥さん赤ちゃんとも話しランチもご馳走になり土産までいただきました。<br/>
+                                              そんな経過なのでとても現地の方々に感謝しております。</p></div></div></div>
+<p class="book-heading">本を出版しました！</p>
+<div class="story-block">
+<figure><img src="Eguchisama6.jpg" alt="江口千春様の出版書籍"/></figure>
+<div>
+<p class="style2">長年、教育者として従事した江口千春様が　「ネパール 子どもとともに築く幸せ」　という本を出版されました。<br/><br/>
                                             ネパールでのホームステイ滞在や、現地の学校を訪問し子供たちとの温かい交流を築かれた様子などがきれいな写真と共に掲載されています。<br/>
-                                            ふと忘れているぬくもりや素朴さを思い出させてくれ、人との関係性の重要性、「ともに生きる」ことを考えさせてくれる１冊です。</font></p>
-<p><a href="http://www.amazon.co.jp/%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB-%E5%AD%90%E3%81%A9%E3%82%82%E3%81%A8%E3%81%A8%E3%82%82%E3%81%AB%E7%AF%89%E3%81%8F%E5%B9%B8%E3%81%9B-%E5%AD%90%E3%81%A9%E3%82%82%E3%81%A8%E3%81%A8%E3%82%82%E3%81%AB%E7%94%9F%E3%81%8D%E3%82%8B%E5%B9%B8%E3%81%9B%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E6%B1%9F%E5%8F%A3-%E5%8D%83%E6%98%A5/dp/4780302870" target="_blank"><font color="red" size="2">「ネパール 子どもとともに築く幸せ」<br/>江口千春(著)</font><br/><font color="black" size="2">1260円</font><br/><font size="2">購入はコチラから</font></a> <br/>
-</p></td>
-</tr>
-</table><p> </p><footer class="taiken-article__foot">
+                                            ふと忘れているぬくもりや素朴さを思い出させてくれ、人との関係性の重要性、「ともに生きる」ことを考えさせてくれる１冊です。</p>
+<p><a href="http://www.amazon.co.jp/%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB-%E5%AD%90%E3%81%A9%E3%82%82%E3%81%A8%E3%81%A8%E3%82%82%E3%81%AB%E7%AF%89%E3%81%8F%E5%B9%B8%E3%81%9B-%E5%AD%90%E3%81%A9%E3%82%82%E3%81%A8%E3%81%A8%E3%82%82%E3%81%AB%E7%94%9F%E3%81%8D%E3%82%8B%E5%B9%B8%E3%81%9B%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E6%B1%9F%E5%8F%A3-%E5%8D%83%E6%98%A5/dp/4780302870" target="_blank" rel="noopener noreferrer">「ネパール 子どもとともに築く幸せ」<br/>江口千春(著)<br/>1260円<br/>購入はコチラから</a></p>
+</div>
+</div>
+<footer class="taiken-article__foot">
 <div class="taiken-article__actions">
 <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>
 <a class="btn btn--accent" href="postmail.html">資料請求</a>
 </div>
-</footer></div>
+</footer></div></div>
 </article>
 <footer class="site-footer--simple" role="contentinfo">
 <div class="layout-container">
