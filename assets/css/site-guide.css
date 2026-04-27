@@ -1,0 +1,77 @@
+/* サイト案内ページ */
+
+.page-site-guide__head {
+  padding: calc(var(--header-h) + 1.5rem) 0 1.5rem;
+  background: var(--color-bg, #fff8f1);
+  border-bottom: 1px solid var(--color-border, #e0d9cc);
+}
+
+.page-site-guide__head h1 {
+  display: table;
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.8vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-left: 6px solid var(--color-accent);
+  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.page-site-guide__lead {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+}
+
+.page-site-guide__body {
+  padding: var(--section-space) 0 calc(var(--section-space) * 1.25);
+}
+
+.site-guide-section {
+  margin-bottom: 2.25rem;
+}
+
+.site-guide-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.site-guide-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.site-guide-section p {
+  margin: 0 0 0.75rem;
+  max-width: 42rem;
+}
+
+.site-guide-section p:last-child {
+  margin-bottom: 0;
+}
+
+.site-guide-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  max-width: 40rem;
+}
+
+.site-guide-list li {
+  margin-bottom: 0.35rem;
+}
+
+.site-guide-cta {
+  margin-top: 2.5rem;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-guide-cta p {
+  margin: 0 0 1rem;
+  max-width: 40rem;
+}
