@@ -645,8 +645,8 @@ body.page-home .hero h1.hero__title {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(255, 248, 241, 0.93) 0%, rgba(255, 248, 241, 0.85) 50%, rgba(255, 248, 241, 0.95) 100%),
-    /* trust 背景は assets/images/trust-bg.jpg */
-    url("../images/trust-bg.jpg") center 60% / cover no-repeat;
+    /* trust 背景: SriLankaPhotos（ホームステイ・レッスンイメージ） */
+    url("../../SriLankaPhotos/PICT6366.JPG") center 55% / cover no-repeat;
   transform: scale(1.02);
   pointer-events: none;
 }
@@ -750,8 +750,8 @@ body.page-home .hero h1.hero__title {
   min-height: 120px;
   background:
     linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.5) 0%, rgba(var(--color-primary-rgb), 0.2) 100%),
-    /* 国セクション帯: assets/images/countries-strip.jpg */
-    url("../images/countries-strip.jpg") center 45% / cover no-repeat;
+    /* 国セクション帯: SriLankaPhotos（茶畑・体験のイメージ） */
+    url("../../SriLankaPhotos/IMGP0090.JPG") center 45% / cover no-repeat;
   margin-bottom: var(--section-space);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
   border-radius: 14px 14px 0 0;
