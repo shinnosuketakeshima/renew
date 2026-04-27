@@ -1229,3 +1229,114 @@ button.back-to-top:focus-visible {
     gap: 1.2rem;
   }
 }
+
+/* ----- トップ: 参加者の体験談ティザー（hero 直下） ----- */
+
+body.page-home .home-voices-teaser {
+  padding: clamp(2.25rem, 4.5vw, 3.25rem) 0;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-primary-rgb), 0.04) 0%,
+    var(--color-bg) 100%
+  );
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+body.page-home .home-voices-teaser__h {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.35rem, 2.3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.35;
+}
+
+body.page-home .home-voices-teaser__lede {
+  margin: 0 0 1.25rem;
+  max-width: 38rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+body.page-home .home-voices-teaser__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 0 0 1.35rem;
+}
+
+@media (min-width: 640px) {
+  body.page-home .home-voices-teaser__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+body.page-home .home-voices-teaser__card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+body.page-home .home-voices-teaser__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: rgba(var(--color-primary-rgb), 0.06);
+}
+
+body.page-home .home-voices-teaser__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+body.page-home .home-voices-teaser__body {
+  padding: 1rem 1.05rem 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+body.page-home .home-voices-teaser__meta {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.45rem;
+}
+
+body.page-home .home-voices-teaser__hook {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+body.page-home .home-voices-teaser__more {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+body.page-home .home-voices-teaser__more a {
+  text-decoration-thickness: 1px;
+}
+
+body.page-home .home-voices-teaser__action {
+  margin: 0;
+  text-align: center;
+}
+
+body.page-home .home-voices-teaser__action .btn {
+  width: 100%;
+  max-width: 22rem;
+}
