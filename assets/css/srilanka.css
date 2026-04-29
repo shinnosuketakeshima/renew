@@ -185,6 +185,10 @@ body.page-srilanka #main-content {
   margin: 1.75rem 0 0;
 }
 
+.srilanka-media--textwidth {
+  max-width: 40rem;
+}
+
 .srilanka-media--inline .srilanka-media__canvas {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -803,6 +807,14 @@ body.page-srilanka #main-content {
   border-radius: var(--radius-md);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(var(--color-primary-rgb), 0.08);
+}
+
+/* 2枚とも写真のとき：左右（または縦積み）で同じ枠サイズ（4:3・はみ出しはトリミング） */
+.srilanka-figure-pair:has(> img:nth-child(1)):has(> img:nth-child(2)) > img {
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
 }
 
 .srilanka-figure-pair__note {

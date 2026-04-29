@@ -158,6 +158,60 @@ body.page-voices #main-content {
   min-width: min(100%, 52rem);
 }
 
+/* 体験談一覧テーブル：法務テーブル由来の「沈み」を解き、白面＋軽い浮き上がり */
+.page-taiken-index .taiken-index__country-block .legal-table-wrap {
+  margin: 0.35rem 0 0;
+  background: #fff;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 1px 2px rgba(var(--color-primary-rgb), 0.04),
+    0 10px 32px rgba(var(--color-primary-rgb), 0.08);
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table thead th {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-accent-rgb), 0.16) 0%,
+    rgba(var(--color-accent-rgb), 0.24) 100%
+  );
+  font-weight: 700;
+  color: var(--color-primary);
+  border: none;
+  border-bottom: 2px solid rgba(var(--color-accent-rgb), 0.38);
+  padding: 0.85rem 1rem;
+  box-shadow: none;
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table thead th:first-child {
+  border-right: 1px solid rgba(var(--color-accent-rgb), 0.28);
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table tbody td {
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table tbody td:first-child {
+  border-right: 1px solid rgba(var(--color-primary-rgb), 0.1);
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.page-taiken-index .taiken-index__country-block .legal-table tbody tr:nth-child(even) td {
+  background: #fffdf9;
+}
+
 .page-taiken-index .taiken-index__blocks {
   display: flex;
   flex-direction: column;
@@ -180,6 +234,8 @@ body.page-voices #main-content {
   min-width: 5.5rem;
   line-height: 1.5;
   white-space: nowrap;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 .page-taiken-index .taiken-index__th-sub {
@@ -207,14 +263,22 @@ body.page-voices #main-content {
 }
 
 .page-taiken-index .taiken-index__quote-link {
-  color: inherit;
-  text-decoration: none;
-  text-underline-offset: 0.15em;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
-.page-taiken-index .taiken-index__quote-link:hover,
+.page-taiken-index .taiken-index__quote-link .taiken-index__quote-mark {
+  color: var(--color-heading-sub);
+}
+
+.page-taiken-index .taiken-index__quote-link:hover {
+  color: var(--color-link-hover);
+}
+
 .page-taiken-index .taiken-index__quote-link:focus-visible {
-  color: var(--color-primary, #183b66);
+  color: var(--color-link-hover);
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
@@ -410,20 +474,22 @@ body.page-voices #main-content {
   color: var(--color-text);
 }
 
-.voice-card__more {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-.voice-card__more a {
-  font-weight: 600;
+.voice-card__excerpt-link {
   color: var(--color-primary);
+  font-weight: inherit;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
-.voice-card__more a:hover {
+.voice-card__excerpt-link:hover {
   color: var(--color-link-hover);
+}
+
+.voice-card__excerpt-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* 絞り込み */
@@ -685,16 +751,6 @@ body.page-voices #main-content {
   }
 }
 
-/* 属性ラベル（年代・性別 / 国） */
-.voice-card__profile {
-  margin: 0 0 0.35rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--color-primary);
-  line-height: 1.4;
-}
-
 /* 国見出し（本文中の疑似H3） */
 .voices-browse__country-h {
   margin: 1.75rem 0 0.85rem;
@@ -823,11 +879,6 @@ body.page-voices #main-content {
 
 .page-taiken-index .taiken-day__report {
   margin-top: 0.85rem;
-}
-
-.page-taiken-index .legal-table {
-  font-size: 1rem;
-  line-height: 1.65;
 }
 
 @media (max-width: 480px) {
