@@ -71,11 +71,11 @@
       <div class="taiken-body">
         <div class="taiken-fig-row taiken-fig-row--2" role="group" aria-label="写真">
           <figure class="taiken-figure">
-            <img src="satotsutomusama1.jpg" alt="同時期にご参加の守屋博美様と。" width="180" height="135" loading="lazy" decoding="async">
+            <img src="satotsutomusama1.jpg" alt="同時期にご参加の守屋博美様と。" loading="lazy" decoding="async">
             <figcaption>同時期にご参加の守屋博美様と。</figcaption>
           </figure>
           <figure class="taiken-figure">
-            <img src="satotsutomusama3.jpg" alt="寺院で出会ったお母さんと娘さん。" width="180" height="135" loading="lazy" decoding="async">
+            <img src="satotsutomusama3.jpg" alt="寺院で出会ったお母さんと娘さん。" loading="lazy" decoding="async">
             <figcaption>先生と一緒に寺院観光♪</figcaption>
           </figure>
         </div>
@@ -90,7 +90,7 @@
 
         <div class="taiken-split taiken-split--img-text" role="group" aria-label="本文と写真">
           <figure class="taiken-figure taiken-figure--inline">
-            <img src="satotsutomusama8.jpg" alt="滞在先とご主人、ホームステイ先の一コマ" width="135" height="180" loading="lazy" decoding="async">
+            <img src="satotsutomusama8.jpg" alt="滞在先とご主人、ホームステイ先の一コマ" loading="lazy" decoding="async">
           </figure>
           <div class="taiken-split__text">
             <p>到着したホームステイ先のご主人は、偶然というか担当の逢坂さんの苦心の選定の結果と言うか私と同年で安心しました。</p>
@@ -104,7 +104,7 @@
             <p>日本での生活スタイルになれている若者にとってはいろいろと戸惑うこともあるかもしれませんが、私自身にとっては、有益な体験で、ファミリーとの生活は最高でした！！</p>
           </div>
           <figure class="taiken-figure taiken-figure--inline">
-            <img src="satotsutomusama2.jpg" alt="ホッパー作りを教わりました～♪" width="180" height="135" loading="lazy" decoding="async">
+            <img src="satotsutomusama2.jpg" alt="ホッパー作りを教わりました～♪" loading="lazy" decoding="async">
             <figcaption>ホッパー作りを教わりました～♪</figcaption>
           </figure>
         </div>
@@ -115,7 +115,7 @@
 
         <div class="taiken-split taiken-split--img-text" role="group" aria-label="本文と写真">
           <figure class="taiken-figure taiken-figure--inline">
-            <img src="satotsutomusama7.jpg" alt="どこか懐かしさを感じる低開発村" width="135" height="180" loading="lazy" decoding="async">
+            <img src="satotsutomusama7.jpg" alt="どこか懐かしさを感じる低開発村" loading="lazy" decoding="async">
             <figcaption>どこか懐かしさを感じる低開発村</figcaption>
           </figure>
           <div class="taiken-split__text">
@@ -130,11 +130,11 @@
 
         <div class="taiken-fig-row taiken-fig-row--2" role="group" aria-label="写真">
           <figure class="taiken-figure">
-            <img src="satotsutomusama4.jpg" alt="低開発村の小学生たち" width="180" height="135" loading="lazy" decoding="async">
+            <img src="satotsutomusama4.jpg" alt="低開発村の小学生たち" loading="lazy" decoding="async">
             <figcaption>低開発村の小学生たち</figcaption>
           </figure>
           <figure class="taiken-figure">
-            <img src="satotsutomusama5.jpg" alt="子供たちの目の輝きの素晴らしいこと！" width="180" height="135" loading="lazy" decoding="async">
+            <img src="satotsutomusama5.jpg" alt="子供たちの目の輝きの素晴らしいこと！" loading="lazy" decoding="async">
             <figcaption>輝く目と笑顔が素晴らしい子供たちと！</figcaption>
           </figure>
         </div>
@@ -163,27 +163,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

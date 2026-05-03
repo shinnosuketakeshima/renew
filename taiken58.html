@@ -159,13 +159,7 @@
       </div>
     </footer>
   </main>
-  <script>
-  (function () { var h = document.querySelector('.site-header'), b = document.querySelector('[data-menu-btn]'), n = document.getElementById('primary-nav');
-    if (h && b && n) { function o(x) { h.classList.toggle('is-menu-open', x); b.setAttribute('aria-expanded', x); }
-      b.addEventListener('click', function () { o(!h.classList.contains('is-menu-open')); });
-      n.querySelectorAll('a').forEach(function (l) { l.addEventListener('click', function () { o(false); }); });
-    } })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

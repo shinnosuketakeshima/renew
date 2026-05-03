@@ -276,16 +276,16 @@
         <p class="program-policy__scope">スリランカ・ネパールのプログラム申込に共通する取り扱いです。法的な解釈は<a href="yakkan.html">約款</a>および旅行条件書の定めに従います。</p>
 
         <h3>変更手数料</h3>
-        <p>出発日の10日前以降に、皆さまのご都合による、参加期間、出発日の変更があった際は、変更手数料1万円をBeインターナショナルに支払っていただきます。</p>
+        <p>出発日の10日前以降に、皆さまのご都合による、参加期間、出発日の変更があった際は、変更手数料10,000円をお願いしております。</p>
         <p>プログラム参加手続き後、皆さまがパスポートなどの取得に時間がかかり、予定の出発に間に合わないときや、天災地変やテロなどの不可抗力の事由によるプログラム参加が不可能となった際の変更は、変更手数料はいただきません。</p>
 
         <h3>取消料</h3>
         <ol>
-          <li>お申込後、プログラム開始日から起算して31日前までの取消キャンセル手数料は、2万円となります。</li>
-          <li>プログラム開始日から起算して30日目にあたる日以降3日前までの取消キャンセル手数料は、申込んだプログラムの金額の30%とさせていただきます。</li>
-          <li>プログラム開始日の前々日および前日の取消キャンセル手数料は申込者が申込んだプログラムの金額の40%とさせていただきます。</li>
-          <li>プログラム開始日当日の取消キャンセル手数料は、申込者が申込んだプログラムの金額の50%とさせていただきます。</li>
-          <li>無連絡不参加の際の返金は一切致しませんのご了承ください。</li>
+          <li>お申込後、プログラム開始日から起算して31日前までのキャンセル料は、20,000円となります。</li>
+          <li>プログラム開始日から起算して30日目にあたる日以降3日前までのキャンセル料は、お申込いただいたプログラム代金の30%とさせていただきます。</li>
+          <li>プログラム開始日の前々日および前日のキャンセル料は、お申込いただいたプログラム代金の40%とさせていただきます。</li>
+          <li>プログラム開始日当日のキャンセル料は、お申込いただいたプログラム代金の50%とさせていただきます。</li>
+          <li>無連絡不参加の際は、返金はいたしかねますのでご了承ください。</li>
         </ol>
       </section>
     </div>
@@ -312,26 +312,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (!header || !btn || !nav) return;
-    function setOpen(open) {
-      header.classList.toggle('is-menu-open', open);
-      btn.setAttribute('aria-expanded', open);
-    }
-    btn.addEventListener('click', function () {
-      setOpen(!header.classList.contains('is-menu-open'));
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        setOpen(false);
-      });
-    });
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

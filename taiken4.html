@@ -73,36 +73,32 @@
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
       <div class="taiken-body taiken-legacy">
-<table align="center" width="510">
+<table>
 <tr>
-<td align="center"><p><img height="125" src="satosan1.jpg" width="180"/></p>
-<p><font size="2"><span class="style2">ホストファミリーとの写真</span></font><font color="#161573" size="2"><br/>
-<br/>
-</font></p></td>
-<td align="center"><p><img height="125" src="satosan2.jpg" width="180"/></p>
-<p class="style2"><font size="2">ワヤンバ職業訓練校のボランティアに参加♪</font></p></td>
+<td><p><img src="satosan1.jpg"/></p>
+<p><span class="style2">ホストファミリーとの写真</span><br>
+</p></td>
+<td><p><img src="satosan2.jpg"/></p>
+<p class="style2">ワヤンバ職業訓練校のボランティアに参加♪</p></td>
 </tr>
 </table>
-<p class="style2"><font size="2">「いろいろとご対応ありがとうございました。お陰様でとても有意義な旅ができたと思っております。<br/>
-      この旅において、いろいろな人と出会い、文化の違いを体験し、自分なりに考えることも多かったと思います。このプログラムは値段的にリーズナブルだったことと、観光旅行は好きではないので、ホームステイやボランティア活動的な旅行をしたいと思って参加をしました。<br/>
-<br/>
+<p class="style2">「いろいろとご対応ありがとうございました。お陰様でとても有意義な旅ができたと思っております。<br/>
+      この旅において、いろいろな人と出会い、文化の違いを体験し、自分なりに考えることも多かったと思います。このプログラムは値段的にリーズナブルだったことと、観光旅行は好きではないので、ホームステイやボランティア活動的な旅行をしたいと思って参加をしました。<br>
       ホストファミリーの方々、サーンタさんはじめ皆様には、大変お世話になりました。<br/>
       今までインドやネパール等でホームステイをしましたが、スリランカでの食事は、思ったより辛(から)かったです。<br/>
       ワヤンバ職業訓練校（WTI）でのボランティアやヒッカドゥアに行ったこともあり、ホームステイ先での滞在日は少なかったのですが、楽しかったです。<br/>
-      買い物に同行したり、バスの乗り方を教えてもらったり、洗濯をしてもらったりして助かりました。<br/>
-<br/>
+      買い物に同行したり、バスの乗り方を教えてもらったり、洗濯をしてもらったりして助かりました。<br>
       スリランカは、思っていた以上に暑く、湿度がありました。<br/>
       気に入った点は、物価が安く、フルーツがおいしかったこと、気に入らなかった点は、時間にルーズなところです。列車などは朝早く起きて行ったのに１時間遅れで駅にきました。それでも乗車客からは特に不平もないようです。<br/>
       スリランカは、日本と違い時間厳守という文化ではないのでしょう。急なスコールもしばしばあり、時間通りというのが難しいのだと思いました。<br/>
-      現地の人を日本の慣習にあわせさせるのではなく、こういう文化だということで、日本人がそれにあわせるのがホームステイかと思います。<br/>
-<br/>
-      また、是非スリランカに行きたいと思います。 ワヤンバ職業訓練校（WTI）でのボランティアにもまた参加したいと思います。」</font></p>
-<table align="center" width="510">
+      現地の人を日本の慣習にあわせさせるのではなく、こういう文化だということで、日本人がそれにあわせるのがホームステイかと思います。<br>
+      また、是非スリランカに行きたいと思います。 ワヤンバ職業訓練校（WTI）でのボランティアにもまた参加したいと思います。」</p>
+<table>
 <tr>
-<td align="center"><p><img height="125" src="satosan3.jpg" width="180"/></p>
-<p class="style2"><font size="2">WTIで料理教室に参加</font></p></td>
-<td align="center"><p><img height="125" src="satosan4.jpg" width="180"/></p>
-<p class="style2"><font size="2">WTIで日本の農業について説明</font></p></td>
+<td><p><img src="satosan3.jpg"/></p>
+<p class="style2">WTIで料理教室に参加</p></td>
+<td><p><img src="satosan4.jpg"/></p>
+<p class="style2">WTIで日本の農業について説明</p></td>
 </tr>
 </table>
 
@@ -130,27 +126,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

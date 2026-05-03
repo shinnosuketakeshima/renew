@@ -83,21 +83,17 @@
           <p class="style2">「参加日時を自由に決めれることや費用の安さ、プログラムに融通がききそうなところも大きな魅力で、参加を決めました。<br/>
           参加する前は、東北部のテロ活動がホームステイ先に及ぶかが心配でした。</p>
           <p class="style2">英語レッスンは、大変丁寧でしたし、苦には感じませんでした。<br/>
-          宿題は日記だけでしたが、こなせる分量でしたし、翌日に添削もしていただきました。<br/>
-          <br/>
+          宿題は日記だけでしたが、こなせる分量でしたし、翌日に添削もしていただきました。<br>
           このプログラムに、参加してよかったと思います。<br/>
-          昼間からの暑さと蚊とは最後までお友達になれなかったけれど、他の面、たとえば食事や仏教といった異文化体験は一つ一つが新鮮で一日一日が濃密でした。<br/>
-          <br/>
+          昼間からの暑さと蚊とは最後までお友達になれなかったけれど、他の面、たとえば食事や仏教といった異文化体験は一つ一つが新鮮で一日一日が濃密でした。<br>
           ホストファミリーには、快い接待をしていただきました。<br/>
           干渉的過ぎず、自分の時間もたくさんありましたので気を使わず過ごすことができました。<br/>
           スリランカの気候が影響してでしょうか、時間はゆっくり経過し、人はユーモアがあって楽しいです。<br/>
-          年にかかわらず皆さん若いので、姉妹ができたような気がしました。<br/>
-          <br/>
+          年にかかわらず皆さん若いので、姉妹ができたような気がしました。<br>
           低開発村視察は、視察前にレッスンで低開発村のことをデスカッションをしていたので、この予習のおかげで細かいところまで見れた気がします。<br/>
           職業指導過程そのものもですが、それよりもっと関心を持ったのは、指導者とそれを習う人々の関係でした。<br/>
           視察前に幼稚園訪問がありましたが、どうも形式ばって（作られたようにぎこちなく）感じずには居られませんでした。<br/>
-          指導者の説明は普通だと思います。<br/>
-          <br/>
+          指導者の説明は普通だと思います。<br>
           スリランカは、思った以上に（アジアの国では）豊かだと思いました。<br/>
           人々は人懐っこいですし、素敵な笑顔をお持ちである。<br/>
           日本人が外国人にあんな素敵な微笑みをするのをあまり見たことがありません。</p>
@@ -150,27 +146,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

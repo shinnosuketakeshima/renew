@@ -347,7 +347,7 @@
         </tr>
         <tr>
           <td class="taiken-index__cell-name">三原規枝様</td>
-          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken22.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">英語で相手の知らないことを一から相手にわかるように説明する・・・英語能力（特に会話能力）が格段に向上したように思う。」](report3.html#1day) ■三原規枝様 [「（象に）お別れを少し離れたところから言うと、私の方を振りむいて、鼻を持ちあげ “パオーン！”</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken22.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">英語で相手の知らないことを一から相手にわかるように説明する・・・英語能力（特に会話能力）が格段に向上したように思う。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
         </tr>
         <tr>
           <td class="taiken-index__cell-name">栗田貴世様</td>
@@ -399,7 +399,7 @@
         </tr>
         <tr>
           <td class="taiken-index__cell-name">徳本雄史様</td>
-          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken7.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">このプログラムでは、他の日本人に接する機会が少ないので、英語学習の上では効率的・・・」](report2.html#report) [「津波被害の被災地や、被災地の学校を訪問して・・・」](report2.html#report2) ■徳本雄史様 [「はじめは『スリランカで！？』と思いました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken7.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">このプログラムでは、他の日本人に接する機会が少ないので、英語学習の上では効率的・・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
         </tr>
         <tr>
           <td class="taiken-index__cell-name">Ｃ. Ｋ様</td>
@@ -466,23 +466,9 @@
       </div>
     </footer>
   </main>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script>
   (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () { setOpen(false); });
-      });
-    }
     var fBtns = document.querySelectorAll('[data-taiken-filter]');
     var countryBlocks = document.querySelectorAll('.taiken-index__country-block[data-taiken-country]');
     fBtns.forEach(function (b) {
@@ -505,5 +491,3 @@
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>
-
-

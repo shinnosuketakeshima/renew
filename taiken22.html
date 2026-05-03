@@ -73,29 +73,29 @@
 
     <article class="taiken-article" aria-labelledby="taiken-h1">
       <div class="taiken-body taiken-legacy">
-<table border="0" width="530">
+<table>
 <tr>
-<td align="center" width="180"><p><img height="180" src="miharasama.jpg" width="135"/></p>
-<p><font color="#161573" size="2">鼻を持ちあげ“パオーン！”</font></p></td>
-<td><p class="style2"><font size="2">短い期間でいろいろ体験ができそうだったので参加しました。</font></p>
-<p class="style2"><font size="2">私は、英語学習がメインの目的ではなく、スリランカのことなどいろいろ知りたかったので、レッスンではディスカッション中心にしてもらい良かったと思います。</font></p>
-<p class="style2"><font size="2">ホームステイ先では、お母さんの作る食事がとてもおいしく、Manelとはたくさんの話しができました。<br/>楽しかったです。<br/>不便はありませんでした。</font></p>
-<p class="style2"><font size="2">かなり慣れた頃に帰国しないといけなかったのが残念です。</font></p></td>
+<td><p><img src="miharasama.jpg"/></p>
+<p>鼻を持ちあげ“パオーン！”</p></td>
+<td><p class="style2">短い期間でいろいろ体験ができそうだったので参加しました。</p>
+<p class="style2">私は、英語学習がメインの目的ではなく、スリランカのことなどいろいろ知りたかったので、レッスンではディスカッション中心にしてもらい良かったと思います。</p>
+<p class="style2">ホームステイ先では、お母さんの作る食事がとてもおいしく、Manelとはたくさんの話しができました。<br/>楽しかったです。<br/>不便はありませんでした。</p>
+<p class="style2">かなり慣れた頃に帰国しないといけなかったのが残念です。</p></td>
 </tr>
 </table>
-<p class="style2"><font size="2">ボランティアは象のお世話をしました。<br/>
+<p class="style2">ボランティアは象のお世話をしました。<br/>
                                         象は頭がいいとは聞いていましたが、私におしゃべりしてくれたり鼻で甘えてきてくれたりしました。<br/>
                                         さらに帰り際に、お別れを少し離れたところから言うと、私の方を振りむいて、鼻を持ちあげ“パオーン！”<br/>
                                         周りにいた人もビックリでした。<br/>
-                                        本当にかわいかったです。</font></p>
-<p class="style2"><font size="2">スリランカでは、たくさんの人と出会いました。<br/>
+                                        本当にかわいかったです。</p>
+<p class="style2">スリランカでは、たくさんの人と出会いました。<br/>
                                           親切な人、やさしい人、物知りな人、シャイな人、だまそうとする人（笑）、etc<br/>
-                                          みんな素敵な人で、大切な思い出です。</font></p>
-<p class="style2"><font size="2">スリランカに行く前はもう少しのんびりしていて、ゆっくりとした時間が流れていると思っていましたが、実際は車も多くクラクションが鳴り響いてけっこうせわしない感もありました。<br/>
+                                          みんな素敵な人で、大切な思い出です。</p>
+<p class="style2">スリランカに行く前はもう少しのんびりしていて、ゆっくりとした時間が流れていると思っていましたが、実際は車も多くクラクションが鳴り響いてけっこうせわしない感もありました。<br/>
                                           きっと10数年前まではもっともっとゆっくりとしていたのでしょうが、急な変化の途中にあるのかなぁと思いました。<br/>経済発展により得るものと失うもの、またテロや津波。<br/>
                                           今大変な時期にあるのかもしれませんが、スリランカの良いところを大切にして大事にして変化していってほしいと思いました。<br/>
-                                          そして変化はしても彼らの素ぼくさや、人なつこい笑顔、やさしさはきっと変わらないと信じています。</font></p>
-<p class="style2"><font size="2">又いつかスリランカへ行ってみたいです。<br/>今度はもう少し長く滞在してゆっくりしたいです。</font></p>
+                                          そして変化はしても彼らの素ぼくさや、人なつこい笑顔、やさしさはきっと変わらないと信じています。</p>
+<p class="style2">又いつかスリランカへ行ってみたいです。<br/>今度はもう少し長く滞在してゆっくりしたいです。</p>
 
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
@@ -121,27 +121,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

@@ -105,10 +105,10 @@
 <div class="taiken-body taiken-body--blocks">
 <div class="taiken-article__blocks container content-area"><div class="taiken-block story-block taiken-block--image-left" role="group"><figure class="taiken-figure taiken-figure--block"><img alt="" decoding="async" loading="lazy" src="NOsama1.jpg"/><figcaption>ホストファミリーと♪</figcaption></figure><div class="taiken-block__text"><p class="style2">「ホームページプログラムについての多くの情報を得ることが可能で安心できたから参加を決めました。<br/>
 特に不安などはありませんでした。</p>
-<p class="style2">レッスンでは、担当の先生から『どうしたら英語で会話が続くようになるか』今後の勉強のアドバイスいただきました。<br/>レッスンは、１週間という短いステイでしたので、時間があまり取れず、最後は消化に追われる感じになりましたが、満足しています。</p></div></div><div class="taiken-block story-block taiken-block--image-right" role="group"><div class="taiken-block__text"><div align="center">
-<p align="left" class="style2">現地では送迎はもちろんのこと、ホームステイ期間中も電話で困ったことはないか等、気を配っていただいて、大変感謝しています。<br/>
+<p class="style2">レッスンでは、担当の先生から『どうしたら英語で会話が続くようになるか』今後の勉強のアドバイスいただきました。<br/>レッスンは、１週間という短いステイでしたので、時間があまり取れず、最後は消化に追われる感じになりましたが、満足しています。</p></div></div><div class="taiken-block story-block taiken-block--image-right" role="group"><div class="taiken-block__text"><div>
+<p class="style2">現地では送迎はもちろんのこと、ホームステイ期間中も電話で困ったことはないか等、気を配っていただいて、大変感謝しています。<br/>
   逢坂さんからはメールで丁寧、迅速な対応をしていただいて大変助かりました。</p>
-<p align="left" class="style2"> 本当にいろいろとお世話になりました。<br/>
+<p class="style2"> 本当にいろいろとお世話になりました。<br/>
   貴重な経験が出来て感謝しています。<br/>
   ありがとうございました。」</p>
 </div>
@@ -133,27 +133,7 @@
       </div>
     </footer>
 </main>
-<script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+<script src="assets/js/site-header-nav.js" defer></script>
 <script defer="" src="assets/js/back-to-top.js"></script>
 </body>
 </html>

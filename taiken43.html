@@ -132,7 +132,7 @@
                                                   出国ゲートを出ると、
                                                   ホストマザーの女性が私の名前の入ったプレートを持って待っていました！<br/>
                                                   かなり感激です！<br/>なんせここで出会えなかったら、私は今晩宿無し。<br/>
-                                                  途方にくれるところですから！<br/><br/>
+                                                  途方にくれるところですから！<br>
                                                   自己紹介をし終えて、私が『お金を両替したい』と伝えると『私の住んでいる街でも両替出来るから。問題無いですよ』と。</p>
             </div>
           </section>
@@ -271,27 +271,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

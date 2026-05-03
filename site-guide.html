@@ -86,6 +86,7 @@
           <li><a href="faq.html">よくある質問</a></li>
           <li><a href="process1.html">出発までの流れ</a></li>
           <li><a href="volunteer.html">ボランティア</a></li>
+          <li><a href="about.html">会社概要</a></li>
           <li><a href="postmail.html">資料請求・お問い合わせ</a></li>
         </ul>
       </section>
@@ -129,26 +130,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (!header || !btn || !nav) return;
-    function setOpen(open) {
-      header.classList.toggle('is-menu-open', open);
-      btn.setAttribute('aria-expanded', open);
-    }
-    btn.addEventListener('click', function () {
-      setOpen(!header.classList.contains('is-menu-open'));
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        setOpen(false);
-      });
-    });
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

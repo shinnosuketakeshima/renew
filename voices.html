@@ -428,65 +428,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          setOpen(false);
-        });
-      });
-    }
-    var filterBtns = document.querySelectorAll('[data-voice-filter]');
-    var headingSri = document.getElementById('voices-heading-srilanka');
-    var headingNep = document.getElementById('voices-heading-nepal');
-    var listSri = document.getElementById('voices-browse-list-srilanka');
-    var listNep = document.getElementById('voices-browse-list-nepal');
-    if (filterBtns.length && headingSri && headingNep && listSri && listNep) {
-      var cards = document.querySelectorAll('[data-voice-country]');
-
-      function syncGroupVisibility(group, heading) {
-        var hasVisibleCard = !!group.querySelector('[data-voice-country]:not([hidden])');
-        group.hidden = !hasVisibleCard;
-        heading.hidden = !hasVisibleCard;
-      }
-
-      function applyFilter(filterName) {
-        cards.forEach(function (card) {
-          var country = card.getAttribute('data-voice-country');
-          var shouldShow = filterName === 'all' || country === filterName;
-          card.hidden = !shouldShow;
-        });
-        syncGroupVisibility(listSri, headingSri);
-        syncGroupVisibility(listNep, headingNep);
-      }
-
-      filterBtns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          var f = b.getAttribute('data-voice-filter') || 'all';
-          filterBtns.forEach(function (x) {
-            var on = x === b;
-            x.classList.toggle('is-active', on);
-            x.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-          applyFilter(f);
-        });
-      });
-
-      applyFilter('all');
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

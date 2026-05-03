@@ -236,23 +236,9 @@ FOOTER = """
       </div>
     </footer>
   </main>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script>
   (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () { setOpen(false); });
-      });
-    }
     var fBtns = document.querySelectorAll('[data-taiken-filter]');
     var countryBlocks = document.querySelectorAll('.taiken-index__country-block[data-taiken-country]');
     fBtns.forEach(function (b) {

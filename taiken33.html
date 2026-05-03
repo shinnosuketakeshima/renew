@@ -122,7 +122,7 @@
               <img src="Kurodasama.jpg" alt="スリランカ滞在中の写真" loading="lazy" decoding="async">
             </figure>
             <div class="taiken-block__text content-area">
-              <p class="style2">「この留学プログラムに対して、不安や戸惑ったことは、特にありませんでした。<br><br>
+              <p class="style2">「この留学プログラムに対して、不安や戸惑ったことは、特にありませんでした。<br>
               常にマンツーマンで英語習得ができるということ、価格、異文化（特にアジア）に触れることができることが数少ない企画であったため、参加を決めました。」</p>
             </div>
           </div>
@@ -169,25 +169,7 @@
       </div>
     </footer>
   </main>
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (header && btn && nav) {
-      function setOpen(open) {
-        header.classList.toggle('is-menu-open', open);
-        btn.setAttribute('aria-expanded', open);
-      }
-      btn.addEventListener('click', function () {
-        setOpen(!header.classList.contains('is-menu-open'));
-      });
-      nav.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () { setOpen(false); });
-      });
-    }
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

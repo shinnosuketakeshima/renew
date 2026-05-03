@@ -115,6 +115,7 @@
           <li><a href="#nepal-voices">参加者の声</a></li>
           <li><a href="#nepal-report">参加者レポート（抜粋）</a></li>
           <li><a href="#nepal-local-info">ネパール現地情報</a></li>
+          <li><a href="#nepal-language">ネパール語に触れる</a></li>
           <li><a href="#nepal-cta">資料請求・お問い合わせ</a></li>
         </ol>
       </div>
@@ -356,6 +357,88 @@
       </div>
     </section>
 
+    <section class="nepal-section" id="nepal-language" aria-labelledby="nepal-language-h">
+      <div class="layout-container">
+        <h2 class="nepal-section__title" id="nepal-language-h">ネパール語に触れる</h2>
+        <p class="nepal-section__intro">ネパールの公用語の一つ、ネパール語は日本語と語順が同じなので、日本人にとって非常に話しやすい言語です。英語と併せてネパール語の挨拶をいくつか覚えるだけで、現地での交流がより深まります。</p>
+        
+        <div class="nepal-language-table-container">
+          <table class="nepal-language-table">
+            <thead>
+              <tr>
+                <th>日本語</th>
+                <th>英語</th>
+                <th>ネパール語（読み方）</th>
+                <th>フレーズ・例文</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>こんにちは/<br>おはよう/<br>こんばんは</td>
+                <td>Hello</td>
+                <td>namasute<br>（ナマステ）</td>
+                <td>namasute.<br>（ナマステ）</td>
+              </tr>
+              <tr>
+                <td>ありがとう</td>
+                <td>Thank you</td>
+                <td>dannyabado<br>（ダンヤバード）</td>
+                <td>dannyabado.<br>（ダンヤバード）</td>
+              </tr>
+              <tr>
+                <td>私は</td>
+                <td>I</td>
+                <td>ma<br>（マ）</td>
+                <td>私はいつ訪ねましょうか？<br>ma kaile aaun?<br>（マ　カイレ　アアウン？）</td>
+              </tr>
+              <tr>
+                <td>あなたは</td>
+                <td>you</td>
+                <td>tapain<br>（タパイン）</td>
+                <td>あなたは何処に住んでいますか？<br>tapain kahan basnu huncha?<br>（タパイン　カハン　バスヌ　フンチャ？）</td>
+              </tr>
+              <tr>
+                <td>名前</td>
+                <td>name</td>
+                <td>namu<br>（ナーム）</td>
+                <td>私の名前は山田です。<br>mero namu Yamada ho.<br>（メロ　ナーム　ヤマダ　ホ）</td>
+              </tr>
+              <tr>
+                <td>これ</td>
+                <td>this</td>
+                <td>yo<br>（ヨ）</td>
+                <td>これは何ですか？<br>yo ke ho?<br>（ヨ　ケ　ホ？）</td>
+              </tr>
+              <tr>
+                <td>はい</td>
+                <td>yes</td>
+                <td>ho<br>（ホ）</td>
+                <td>はい、食べます。<br>ho kanu cha.<br>（ホ　カヌ　チャ）</td>
+              </tr>
+              <tr>
+                <td>いいえ</td>
+                <td>no</td>
+                <td>hoina<br>（ホイナ）</td>
+                <td>いいえ、あまりできません。<br>hoina usut jandaina.<br>（ホイナ　ウスツ　ジャンダイナ）</td>
+              </tr>
+              <tr>
+                <td>好き</td>
+                <td>like</td>
+                <td>manpal<br>（マンパル）</td>
+                <td>私はこれが好きです。<br>malai yo manpal cha.<br>（マライ　ヨ　マンパル　チャ）</td>
+              </tr>
+              <tr>
+                <td>良い/<br>おいしい/<br>きれい</td>
+                <td>good/<br>delicious/<br>beautiful</td>
+                <td>lamlo<br>（ラムロ）</td>
+                <td>とても良い（おいしい/きれい）です。<br>Jadai lamlo cha.<br>（ジャダイ　ラムロ　チャ）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="final-cta nepal-cta" id="nepal-cta" aria-labelledby="nepal-cta-h">
       <div class="nepal-cta__color-base" aria-hidden="true"></div>
       <div class="final-cta__bg" aria-hidden="true">
@@ -398,26 +481,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (!header || !btn || !nav) return;
-    function setOpen(open) {
-      header.classList.toggle('is-menu-open', open);
-      btn.setAttribute('aria-expanded', open);
-    }
-    btn.addEventListener('click', function () {
-      setOpen(!header.classList.contains('is-menu-open'));
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        setOpen(false);
-      });
-    });
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>

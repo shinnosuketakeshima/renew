@@ -112,15 +112,13 @@
           </div>
 
           <h2>代表者について</h2>
-          <p>代表の逢坂は、皆さまが未知なる経験の中でご自身の可能性を再発見されるよう、日々お手伝いをさせていただいております。外出していることが多いので、ご来社の際には事前にご連絡をいただけますと幸いです。</p>
+          <p>代表の逢坂は、皆さまが未知なる経験の中でご自身の可能性を再発見されるよう、日々お手伝いをさせていただいております。面談をご希望の場合はご予約をお願いいたします。</p>
           <div class="legal-article__callout">
             <p class="legal-article__callout-title">メディア掲載・対談</p>
             <p>俳優・三波豊和さんと対談した模様が、下記サイトに掲載されています。</p>
             <p><a href="https://goodpoint.biz/be-intl/" target="_blank" rel="noopener noreferrer">俳優・三波豊和さんとの対談記事（外部リンク）</a></p>
           </div>
-
-          <h2>アクセス</h2>
-          <p>京王新線「幡ヶ谷駅」より徒歩圏内です。周辺は静かな住宅街となっております。</p>
+         
         </article>
       </div>
     </div>
@@ -149,26 +147,7 @@
     </footer>
   </main>
 
-  <script>
-  (function () {
-    var header = document.querySelector('.site-header');
-    var btn = document.querySelector('[data-menu-btn]');
-    var nav = document.getElementById('primary-nav');
-    if (!header || !btn || !nav) return;
-    function setOpen(open) {
-      header.classList.toggle('is-menu-open', open);
-      btn.setAttribute('aria-expanded', open);
-    }
-    btn.addEventListener('click', function () {
-      setOpen(!header.classList.contains('is-menu-open'));
-    });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        setOpen(false);
-      });
-    });
-  })();
-  </script>
+  <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 </body>
 </html>
