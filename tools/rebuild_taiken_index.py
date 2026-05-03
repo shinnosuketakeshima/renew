@@ -214,7 +214,7 @@ FOOTER = """
         <h2 class="srilanka-lead-to-cta" id="taiken-cta-h">資料をご覧のうえ、お気軽にお問い合わせください</h2>
         <p class="final-cta__copy">国や日数、参加者の声で気になった点も、あわせてメールでお聞かせください。</p>
         <p class="final-cta__btn">
-          <a class="btn btn--accent" href="postmail.html">資料請求・お問合せはこちら</a>
+          <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
         </p>
         <p class="final-cta__tel">
           <span class="final-cta__tel-note">お電話でのご相談</span>
