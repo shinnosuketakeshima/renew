@@ -188,7 +188,7 @@ HEADER = """<!DOCTYPE html>
     <section class="voices-section" id="taiken-index" aria-labelledby="taiken-index-h">
       <div class="layout-container">
         <h2 class="voices-section__title" id="taiken-index-h">国別 一覧</h2>
-        <p class="voices-section__sub"><a href="voices.html">参加者の声</a>に掲載のない体験談も、下の一覧から国で絞り込んで開けます。</p>
+        <p class="voices-section__sub"><a href="voices.html">参加者の声</a>に掲載のない参加者の声も、下の一覧から国で絞り込んで開けます。</p>
         <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
           <p class="voices-toolbar__label" id="taiken-filter-label">国</p>
           <div class="voices-filter" role="group" aria-labelledby="taiken-filter-label">
@@ -278,3 +278,4 @@ _blocks = (
 )
 (ROOT / "taiken.html").write_text(HEADER + _blocks + FOOTER, encoding="utf-8")
 print("wrote", ROOT / "taiken.html", file=sys.stderr)
+

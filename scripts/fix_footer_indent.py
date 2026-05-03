@@ -14,3 +14,4 @@ for p in paths:
         p.write_text(t2, encoding="utf-8", newline="\n")
         count += 1
 print("fixed indent:", count)
+

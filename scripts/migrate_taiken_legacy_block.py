@@ -32,7 +32,7 @@ SHELL_HEAD = """<!DOCTYPE html>
     <div class="layout-container site-header__inner">
       <a class="site-logo" href="index.html">Beインターナショナル<span class="site-logo__sub">アジア語学留学</span></a>
       <nav class="site-nav" id="primary-nav" aria-label="主要ナビゲーション" data-nav>
-        <a href="srilanka.html">スリランカ</a><a href="nepal.html">ネパール</a><a href="program.html">料金</a><a href="voices.html">体験者の声</a><a href="faq.html">よくある質問</a>
+        <a href="srilanka.html">スリランカ</a><a href="nepal.html">ネパール</a><a href="program.html">料金</a><a href="voices.html">参加者の声</a><a href="faq.html">よくある質問</a>
       </nav>
       <div class="site-header__end">
         <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" data-menu-btn>
@@ -57,7 +57,7 @@ SHELL_HEAD = """<!DOCTYPE html>
 {inner}
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
-            <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>
+            <a class="taiken-article__back" href="voices.html">参加者の声一覧へ戻る</a>
             <a class="btn btn--accent" href="postmail.html">資料請求</a>
           </div>
         </footer>
@@ -96,14 +96,14 @@ def parse_heading(raw: str) -> tuple[str, str, str, str] | None:
     if line.startswith("スリランカ：") or line.startswith("スリランカ:"):
         country = "スリランカ"
         rest = line.split("：", 1)[1] if "：" in line else line.split(":", 1)[1]
-        h1 = f"体験談：スリランカ　{rest.strip()}"
+        h1 = f"参加者の声：スリランカ　{rest.strip()}"
     elif line.startswith("ネパール：") or line.startswith("ネパール:"):
         country = "ネパール"
         rest = line.split("：", 1)[1] if "：" in line else line.split(":", 1)[1]
-        h1 = f"体験談：ネパール　{rest.strip()}"
+        h1 = f"参加者の声：ネパール　{rest.strip()}"
     else:
         country = "スリランカ"
-        h1 = line if line.startswith("体験談") else f"体験談：{line}"
+        h1 = line if line.startswith("参加者の声") else f"参加者の声：{line}"
     cclass = "page-taiken-article--srilanka" if country == "スリランカ" else "page-taiken-article--nepal"
     pm = re.search(r"(\d{4}年[^<]*?ご参加)", line)
     if pm:
@@ -196,3 +196,4 @@ if __name__ == "__main__":
     for p in OLD.glob("taiken84*.html"):
         if "修正" in p.name:
             run_one(p.name, "taiken84修正前.html")
+

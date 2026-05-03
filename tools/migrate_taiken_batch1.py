@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-体験談（taiken）ページを新テンプレに変換。ソース: docs/oldHP/taikenN.html（なければルート）。
+参加者の声（taiken）ページを新テンプレに変換。ソース: docs/oldHP/taikenN.html（なければルート）。
 Run: python scripts/migrate_taiken_batch1.py
 """
 from __future__ import annotations
@@ -26,7 +26,7 @@ HEADER_NAV = r'''  <header class="site-header" id="top">
         <a href="srilanka.html">スリランカ</a>
         <a href="nepal.html">ネパール</a>
         <a href="program.html">料金</a>
-        <a href="voices.html">体験者の声</a>
+        <a href="voices.html">参加者の声</a>
         <a href="faq.html">よくある質問</a>
       </nav>
       <div class="site-header__end">
@@ -174,10 +174,10 @@ def build_meta(heading: str) -> tuple[str, str | None]:
 def h1_string(heading: str) -> str:
     t = re.sub(r"■■\s*", "", heading)
     t = t.replace("■■", "").strip()
-    if not t.startswith("体験談："):
-        t = f"体験談：{t}"
-    t = re.sub(r"^体験談：スリランカ：\s*", "体験談：スリランカ　", t)
-    t = re.sub(r"^体験談：ネパール：\s*", "体験談：ネパール　", t)
+    if not t.startswith("参加者の声："):
+        t = f"参加者の声：{t}"
+    t = re.sub(r"^参加者の声：スリランカ：\s*", "参加者の声：スリランカ　", t)
+    t = re.sub(r"^参加者の声：ネパール：\s*", "参加者の声：ネパール　", t)
     return t
 
 
@@ -279,7 +279,7 @@ def run():
 
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
-            <a class="taiken-article__back" href="voices.html">体験者の声一覧へ戻る</a>
+            <a class="taiken-article__back" href="voices.html">参加者の声一覧へ戻る</a>
             <a class="btn btn--accent" href="postmail.html">資料請求</a>
           </div>
         </footer>
@@ -306,3 +306,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
