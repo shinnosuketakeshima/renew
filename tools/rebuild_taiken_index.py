@@ -1,4 +1,4 @@
-# 体験談索引: 元データは docs/oldHP/taiken-legacy-root-backup.html から取得し、
+# 参加者の声索引: 元データは docs/oldHP/taiken-legacy-root-backup.html から取得し、
 # リポジトリルートの taiken.html を更新する。FTP 用ファイルではない（tools/ 配下）。
 
 import html
@@ -64,7 +64,7 @@ def _quote_cell(h: str) -> str:
     q = _quotes.get(base, "").strip()
     if not q:
         num = int(re.search(r"taiken(\d+)", h).group(1))
-        return f'          <td class="taiken-index__cell-quote"><a href="{html.escape(h)}">体験談{num}を開く</a></td>'
+        return f'          <td class="taiken-index__cell-quote"><a href="{html.escape(h)}">参加者の声{num}を開く</a></td>'
     esc = html.escape(q)
     h_esc = html.escape(h)
     return (
@@ -110,13 +110,13 @@ def _country_block(
     trs = "\n".join(_tr_row(n, h) for n, h in items)
     return f"""        <section class="taiken-index__country-block" data-taiken-country="{data_country}" aria-labelledby="{title_id}">
           <h3 class="taiken-index__country-title" id="{title_id}">{html.escape(title)}</h3>
-          <div class="legal-table-wrap" role="region" aria-label="{html.escape(region_label)}の体験談一覧" tabindex="0">
+          <div class="legal-table-wrap" role="region" aria-label="{html.escape(region_label)}の参加者の声一覧" tabindex="0">
             <table class="legal-table taiken-index__table">
-              <caption class="visually-hidden">{html.escape(region_label)}。掲載名とメッセージの抜粋。各体験談のページへリンク</caption>
+              <caption class="visually-hidden">{html.escape(region_label)}。参加者と心に残ったこと・一言メッセージ。各参加者の声のページへリンク</caption>
               <thead>
                 <tr>
-                  <th scope="col">掲載名</th>
-                  <th scope="col">メッセージ<span class="taiken-index__th-sub">（抜粋）</span></th>
+                  <th scope="col">参加者</th>
+                  <th scope="col">心に残ったこと・一言メッセージ<span class="taiken-index__th-sub">（抜粋）</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -132,8 +132,8 @@ HEADER = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>体験談の一覧 | Beインターナショナル</title>
-  <meta name="description" content="スリランカ・ネパールの体験談（体験談1〜）を国別の一覧から開けます。年代の目安は各記事をご覧ください。">
+  <title>参加者の声一覧 | Beインターナショナル</title>
+  <meta name="description" content="スリランカ・ネパールの参加者の声（参加者の声1〜）を国別の一覧から開けます。年代の目安は各記事をご覧ください。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/taiken.html">
   <link rel="stylesheet" href="assets/css/home.css">
@@ -153,7 +153,7 @@ HEADER = """<!DOCTYPE html>
         <a href="srilanka.html">スリランカ</a>
         <a href="nepal.html">ネパール</a>
         <a href="program.html">料金</a>
-        <a href="voices.html">体験者の声</a>
+        <a href="voices.html">参加者の声</a>
         <a href="faq.html">よくある質問</a>
       </nav>
       <div class="site-header__end">
@@ -174,21 +174,21 @@ HEADER = """<!DOCTYPE html>
         <nav class="voices-breadcrumb" aria-label="パンくず">
           <ol>
             <li><a href="index.html">トップ</a></li>
-            <li><a href="voices.html">体験者の声</a></li>
-            <li aria-current="page">体験談の一覧</li>
+            <li><a href="voices.html">参加者の声</a></li>
+            <li aria-current="page">参加者の声一覧</li>
           </ol>
         </nav>
         <div class="hero__panel voices-hero__panel">
-          <p class="page-voices__kicker">TAIKEN <span class="hero__kicker-sep" aria-hidden="true">|</span> 体験談の一覧</p>
-          <h1 class="hero__title" id="taiken-heading">体験談の一覧</h1>
-          <p class="hero__sub">国ごとに掲載名とメッセージの抜粋から、各体験談の本文ページへ進めます。掲出時期の目安は、各ページの表記に従います。</p>
+          <p class="page-voices__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声一覧</p>
+          <h1 class="hero__title" id="taiken-heading">参加者の声一覧</h1>
+          <h2 class="hero__sub">国ごとに参加者と心に残ったこと・一言メッセージから、各参加者の声の本文ページへ進めます。掲出時期の目安は、各ページの表記に従います。</h2>
         </div>
       </div>
     </section>
     <section class="voices-section" id="taiken-index" aria-labelledby="taiken-index-h">
       <div class="layout-container">
         <h2 class="voices-section__title" id="taiken-index-h">国別 一覧</h2>
-        <p class="voices-section__sub"><a href="voices.html">体験者の声</a>に掲載のない体験談も、下の一覧から国で絞り込んで開けます。</p>
+        <p class="voices-section__sub"><a href="voices.html">参加者の声</a>に掲載のない体験談も、下の一覧から国で絞り込んで開けます。</p>
         <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
           <p class="voices-toolbar__label" id="taiken-filter-label">国</p>
           <div class="voices-filter" role="group" aria-labelledby="taiken-filter-label">
@@ -201,7 +201,7 @@ HEADER = """<!DOCTYPE html>
 """
 FOOTER = """
         </div>
-        <p class="voices-back"><a href="voices.html">体験者の声（抜粋ページ）へ戻る</a></p>
+        <p class="voices-back"><a href="voices.html">参加者の声（抜粋ページ）へ戻る</a></p>
       </div>
     </section>
     <section class="final-cta srilanka-cta" id="taiken-cta" aria-labelledby="taiken-cta-h">
@@ -212,7 +212,7 @@ FOOTER = """
       <div class="final-cta__overlay" aria-hidden="true"></div>
       <div class="layout-container">
         <h2 class="srilanka-lead-to-cta" id="taiken-cta-h">資料をご覧のうえ、お気軽にお問い合わせください</h2>
-        <p class="final-cta__copy">国や日数、体験談で気になった点も、あわせてメールでお聞かせください。</p>
+        <p class="final-cta__copy">国や日数、参加者の声で気になった点も、あわせてメールでお聞かせください。</p>
         <p class="final-cta__btn">
           <a class="btn btn--accent" href="postmail.html">資料請求・お問合せはこちら</a>
         </p>
