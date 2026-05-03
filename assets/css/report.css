@@ -123,8 +123,21 @@ body.page-report {
 /* --- ヒーロー --- */
 .report-hero {
   padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
-  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.report-hero--index {
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
+}
+
+/* 個別レポート（report1〜5）: 参加時期の直下に目次が続くため、ヒーロー周りの余白を詰める */
+.report-hero:not(.report-hero--index) {
+  padding-bottom: clamp(0.5rem, 1.5vw, 0.85rem);
+  margin-bottom: clamp(0.65rem, 2vw, 1rem);
+}
+
+.report-hero:not(.report-hero--index) .report-hero__meta {
+  margin-bottom: 0;
 }
 
 .report-hero__grid {
@@ -396,10 +409,6 @@ body.page-report {
 /* CTA: srilanka の final-cta 相当を流用（page-report 上書きなし） */
 .page-report .srilanka-cta {
   margin-top: 0.5rem;
-}
-
-.report-top-link {
-  margin-top: 1rem;
 }
 
 /* 長文・引用ブロック用 */
