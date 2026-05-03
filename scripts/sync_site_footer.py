@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FOOTER_ITEMS = [
     ("index.html", "トップ", "index"),
     ("site-guide.html", "サイト案内", "site-guide"),
+    ("about.html", "会社概要", "about"),
     ("postmail.html", "資料請求", "postmail"),
     ("recomend.html", "推薦・メディア", "recomend"),
     ("yakkan.html", "約款", "yakkan"),
@@ -36,6 +37,7 @@ def current_key_for_path(rel: Path) -> str | None:
         return "index"
     mapping = {
         "site-guide.html": "site-guide",
+        "about.html": "about",
         "postmail.html": "postmail",
         "recomend.html": "recomend",
         "yakkan.html": "yakkan",
