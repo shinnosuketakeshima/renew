@@ -809,6 +809,13 @@ body.page-srilanka #main-content {
   border: 1px solid rgba(var(--color-primary-rgb), 0.08);
 }
 
+/* JASRI 紹介の担当者写真：本文横では大きすぎるため一段階ずつ縮めた表示幅（約 0.8×0.8） */
+.srilanka-figure-pair img.srilanka-figure-pair__img--manel {
+  width: auto;
+  max-width: min(7.2rem, 100%);
+  justify-self: start;
+}
+
 /* 2枚とも写真のとき：左右（または縦積み）で同じ枠サイズ（4:3・はみ出しはトリミング） */
 .srilanka-figure-pair:has(> img:nth-child(1)):has(> img:nth-child(2)) > img {
   max-width: none;
