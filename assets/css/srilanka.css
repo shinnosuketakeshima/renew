@@ -202,7 +202,8 @@ body.page-srilanka #main-content {
   box-shadow: none;
 }
 
-.srilanka-section .layout-container {
+.srilanka-section .layout-container,
+.srilanka-toc .layout-container {
   padding-left: 16px;
   padding-right: 16px;
   max-width: var(--content-max);
@@ -215,7 +216,6 @@ body.page-srilanka #main-content {
 .srilanka-section h2.srilanka-section__title,
 .srilanka-section h2 {
   margin: 0 0 1.25rem;
-  max-width: 42rem;
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   line-height: 1.35;
@@ -231,7 +231,6 @@ body.page-srilanka #main-content {
 
 .srilanka-section__intro {
   margin: 0 0 1.5rem;
-  max-width: 40rem;
   font-size: 1rem;
   line-height: 1.85;
   color: var(--color-text-muted);
@@ -264,7 +263,7 @@ body.page-srilanka #main-content {
 }
 
 .srilanka-media--textwidth {
-  max-width: 40rem;
+  max-width: 100%;
 }
 
 .srilanka-media--inline .srilanka-media__canvas {
@@ -441,7 +440,6 @@ body.page-srilanka #main-content {
 
 .srilanka-price-aux {
   margin: 1rem 0 0;
-  max-width: 40rem;
   font-size: 0.92rem;
   line-height: 1.75;
   color: var(--color-text-muted);
@@ -455,7 +453,6 @@ body.page-srilanka #main-content {
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
   overflow: hidden;
-  max-width: 42rem;
 }
 
 .srilanka-collapse__summary {
@@ -734,7 +731,6 @@ body.page-srilanka #main-content {
 
 .srilanka-section .srilanka-detail {
   margin-top: 1.5rem;
-  max-width: 42rem;
 }
 
 .srilanka-section .srilanka-detail h3.srilanka-detail__h {

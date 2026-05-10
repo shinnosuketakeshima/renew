@@ -19,7 +19,6 @@
 .page-legal__lead,
 .page-legal__meta {
   margin: 0 0 0.4rem;
-  max-width: var(--legal-max);
   font-size: 1rem;
   line-height: 1.7;
   color: var(--color-text-muted, #3d3d3d);
@@ -37,7 +36,6 @@
 }
 
 .legal-toc {
-  max-width: var(--legal-max);
   margin: 0 0 1.75rem;
   padding: 1rem 1.1rem 1.05rem;
   background: #fff;
@@ -205,7 +203,6 @@
 .legal-others-grid {
   display: grid;
   gap: 1.5rem;
-  max-width: var(--legal-max);
 }
 
 .legal-others-cta {

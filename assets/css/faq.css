@@ -54,7 +54,6 @@ body.page-faq-theme {
 
 .page-faq__lead {
   margin: 0;
-  max-width: 40rem;
   font-size: 1.02rem;
   line-height: 1.8;
   color: var(--fq-ink);
@@ -62,7 +61,6 @@ body.page-faq-theme {
 
 .page-faq__note {
   margin: 0 0 1.75rem;
-  max-width: 44rem;
   padding: 1rem 1.1rem;
   font-size: 0.95rem;
   line-height: 1.75;
@@ -140,7 +138,6 @@ body.page-faq-theme {
 }
 
 .faq-accordion__stack {
-  max-width: 48rem;
 }
 
 /* スタック同士の余白（1セクション内で複数使う将来用） */
@@ -149,7 +146,6 @@ body.page-faq-theme {
 }
 
 .faq-accordion {
-  max-width: 48rem;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;

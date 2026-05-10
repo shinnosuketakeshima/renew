@@ -54,13 +54,22 @@ body.page-report {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    border-left-color 0.3s ease;
+}
+
+.report-index__card--visited {
+  border-left-color: #e67e22;
 }
 
 .report-index__card:hover {
   transform: translateY(-5px);
   border-color: rgba(var(--color-primary-rgb), 0.2);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.report-index__card--visited:hover {
+  border-left-color: #e67e22 !important;
 }
 
 .report-index__card:focus-visible {

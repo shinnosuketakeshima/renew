@@ -18,6 +18,13 @@ python tools/rebuild_taiken_index.py
 
 # List files that belong in a production deploy (outputs tools/last-deploy-list.txt)
 .\tools\list-deploy-files.ps1
+
+# Generate sitemap.xml at repo root
+.\tools\generate-sitemap.ps1
+
+# Audit all root *.html for SEO issues (canonical, title, description, H1 count, img alt)
+# Exit code 1 if any ERROR-level issue is found; WARNs are non-fatal
+.\tools\seo-audit.ps1
 ```
 
 There is no build step, test suite, or linter configured.
@@ -34,6 +41,7 @@ There is no build step, test suite, or linter configured.
 | `assets/css/*.css` | Per-page stylesheets (e.g. `faq.css`, `program.css`, `voices.css`) |
 | `assets/js/site-header-nav.js` | Hamburger menu open/close, keyboard (Escape), aria-expanded |
 | `assets/js/back-to-top.js` | Back-to-top button |
+| `assets/js/faq-accordion.js` | FAQ accordion expand/collapse |
 | `assets/images/` | Shared images referenced across multiple pages |
 | `docs/be-intl-site-redesign-spec.md` | Full redesign specification — canonical authority for all product decisions |
 | `docs/oldHP/` | Original legacy site preserved as reference (not served) |
@@ -102,6 +110,18 @@ The canonical authority is `docs/be-intl-site-redesign-spec.md` and `.cursor/rul
 - No SNS/LINE integration, no multilingual pages, no meeting-booking UI, no comparison claims against Western study abroad costs.
 - Country-specific support organizations: **JASRI** for Sri Lanka, **ICEDC** for Nepal — never swap them.
 
+### Hero overlay gradient (left-side readability)
+
+The hero uses a full-bleed photo with a left-side ivory gradient overlay for text legibility:
+
+```css
+background: linear-gradient(108deg,
+  rgba(247,245,240,0.97) 0%,
+  rgba(247,245,240,0.62) 36%,
+  rgba(28,28,40,0.08) 100%
+);
+```
+
 ### Hero panel (confirmed implementation values)
 
 ```css
@@ -150,3 +170,11 @@ Key rules:
 - Numbers to carry consistently: 21 years operating, ages 13–73, 7 days from ¥92,000.
 - No "industry cheapest / No.1" claims.
 - Do not mention meeting/consultation anywhere on the site.
+
+## URL Migration
+
+Old pages must not be deleted without a 301 redirect to the new URL. This is pre-planned in the redesign spec. `taiken1.html`–`taiken84.html` redirect handling depends on server configuration — do not remove them without verifying the redirect setup.
+
+## Operational Constraints
+
+The site is maintained by a single person (the owner). Any structural change — new CSS patterns, JS components, page types — must remain simple enough for one non-developer to update. Avoid introducing abstractions or tooling dependencies that raise the maintenance bar.

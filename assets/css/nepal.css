@@ -201,7 +201,8 @@ body.page-nepal #main-content {
   box-shadow: none;
 }
 
-.nepal-section .layout-container {
+.nepal-section .layout-container,
+.nepal-toc .layout-container {
   padding-left: 16px;
   padding-right: 16px;
   max-width: var(--content-max);
@@ -214,7 +215,6 @@ body.page-nepal #main-content {
 .nepal-section h2.nepal-section__title,
 .nepal-section h2 {
   margin: 0 0 1.25rem;
-  max-width: 42rem;
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 600;
   line-height: 1.35;
@@ -230,7 +230,6 @@ body.page-nepal #main-content {
 
 .nepal-section__intro {
   margin: 0 0 1.5rem;
-  max-width: 40rem;
   font-size: 1rem;
   line-height: 1.85;
   color: var(--color-text-muted);
