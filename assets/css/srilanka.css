@@ -210,7 +210,7 @@ body.page-srilanka #main-content {
   margin-right: auto;
 }
 
-/* H2: クリーンな大見出し（バッジなし） */
+/* H2: クリーンな大見出し（バッジなし・透過背景） */
 .srilanka-section__title,
 .srilanka-section h2.srilanka-section__title,
 .srilanka-section h2 {
@@ -221,12 +221,12 @@ body.page-srilanka #main-content {
   line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--color-text);
-  background: transparent;
-  padding: 0;
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0;
-  box-shadow: none;
+  background: transparent !important;
+  padding: 0 !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .srilanka-section__intro {
@@ -728,100 +728,7 @@ body.page-srilanka #main-content {
 
 /* ================ 末尾 CTA（deep navy — home .final-cta と統一） ================ */
 
-.page-srilanka .srilanka-cta {
-  background: #1c1c28;
-  color: #f7f5f0;
-  margin: 0;
-  padding: clamp(4rem, 10vw, 6.5rem) 0;
-  border-radius: 0;
-  box-shadow: none;
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.srilanka-cta__color-base {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: #1c1c28;
-  border-radius: 0;
-  pointer-events: none;
-}
-
-.page-srilanka .srilanka-cta .final-cta__bg {
-  z-index: 1;
-  opacity: 0.38;
-}
-
-.page-srilanka .srilanka-cta .final-cta__bg img {
-  animation: none;
-  transform: none;
-}
-
-.page-srilanka .srilanka-cta .final-cta__overlay {
-  z-index: 2;
-  background: rgba(28, 28, 40, 0.60);
-}
-
-.page-srilanka .srilanka-cta .layout-container {
-  z-index: 3;
-  position: relative;
-  text-align: center;
-  max-width: 36rem;
-}
-
-.page-srilanka .srilanka-cta h2,
-.page-srilanka .srilanka-cta .srilanka-lead-to-cta,
-.page-srilanka .srilanka-cta .final-cta__copy,
-.page-srilanka .srilanka-cta .final-cta__reply,
-.page-srilanka .srilanka-cta .final-cta__tel,
-.page-srilanka .srilanka-cta .final-cta__tel strong,
-.page-srilanka .srilanka-cta .final-cta__tel-note {
-  color: #f7f5f0;
-  text-shadow: none;
-}
-
-.page-srilanka .srilanka-cta .final-cta__copy {
-  opacity: 0.80;
-}
-
-.page-srilanka .srilanka-cta .final-cta__reply {
-  opacity: 0.70;
-}
-
-.page-srilanka .srilanka-cta .final-cta__copy a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-/* CTA h2: 左ラインなし・中央揃え */
-.page-srilanka .srilanka-cta .srilanka-lead-to-cta {
-  border-left: none;
-  padding-left: 0;
-  text-align: center;
-  max-width: 36rem;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.45;
-}
-
-/* CTA ボタン: ivory 反転 */
-.page-srilanka .srilanka-cta .btn--accent {
-  background: #f7f5f0;
-  color: #1c1c28;
-  border-radius: var(--radius-md);
-}
-
-.page-srilanka .srilanka-cta .btn--accent:hover {
-  background: #ede8e0;
-  color: #0f0f1a;
-  opacity: 1;
-}
+/* 末尾 CTA：home.css の .final-cta を使用 */
 
 /* ================ 本文詳細見出し ================ */
 

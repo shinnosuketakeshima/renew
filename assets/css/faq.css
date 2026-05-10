@@ -75,7 +75,7 @@ body.page-faq-theme {
 /* ----- 大セクション（帯の切り替え） ----- */
 .page-faq__section {
   margin: 0;
-  padding: 2.75rem 0 3.25rem;
+  padding: 1.75rem 0 2.25rem;
   border-bottom: 1px solid rgba(var(--fq-tq-rgb), 0.12);
 }
 
@@ -85,8 +85,8 @@ body.page-faq-theme {
 
 .page-faq__section--more {
   background: var(--fq-surface);
-  padding-top: 3rem;
-  padding-bottom: 3.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
 }
 
 /* 大見出し：左ルール＋下線区切り */

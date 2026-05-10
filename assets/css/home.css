@@ -546,7 +546,13 @@ main {
   overflow-wrap: break-word;
 }
 
-.hero__title .hero__keepword {
+/* ユーティリティ: 特定の単語やフレーズの改行を防ぐ */
+.keepword {
+  white-space: nowrap;
+}
+
+.hero__title .hero__keepword,
+.hero__title .keepword {
   white-space: nowrap;
 }
 
@@ -862,64 +868,29 @@ body.page-home .hero h1.hero__title {
   }
 }
 
-/* ----- 最終 CTA（深紺×写真・静かな重さ） ----- */
+/* ----- 最終 CTA（アクセントオレンジ・高インパクト） ----- */
 
 .final-cta {
   position: relative;
-  padding: clamp(4rem, 10vw, 6.5rem) 0;
-  min-height: min(52vh, 500px);
-  display: flex;
-  align-items: center;
-  background: #1c1c28;
-  color: #f7f5f0;
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  background: #e67e22; /* 鮮やかなオレンジ */
+  color: #ffffff;
   overflow: hidden;
+  text-align: center;
 }
 
-.final-cta__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.38;
-  pointer-events: none;
-}
-
-.final-cta__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .final-cta__bg img {
-    animation: cta-drift 28s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes cta-drift {
-  0%   { transform: scale(1.00); }
-  100% { transform: scale(1.06); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .final-cta__bg img {
-    transform: none;
-    animation: none;
-  }
-}
-
+.final-cta__bg,
 .final-cta__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(28, 28, 40, 0.60);
+  display: none; /* 画像背景は廃止 */
 }
 
 .final-cta .layout-container {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 36rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .final-cta h2 {
@@ -927,7 +898,7 @@ body.page-home .hero h1.hero__title {
   font-size: clamp(1.25rem, 2.6vw, 1.6rem);
   font-weight: 600;
   line-height: 1.45;
-  color: #f7f5f0;
+  color: #ffffff;
   letter-spacing: -0.01em;
 }
 
@@ -935,42 +906,46 @@ body.page-home .hero h1.hero__title {
   margin: 0 0 1.75rem;
   font-size: 0.95rem;
   line-height: 1.85;
-  opacity: 0.80;
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 .final-cta__reply {
   margin: 0 0 1.5rem;
   font-size: 0.88rem;
-  opacity: 0.70;
+  color: #ffffff;
+  opacity: 0.90;
 }
 
 .final-cta__btn {
   margin-bottom: 1.75rem;
 }
 
-/* 深紺背景: ボタンは ivory 反転 */
+/* オレンジ背景: ボタンは白ベース */
 .final-cta__btn .btn--accent {
   min-width: 200px;
-  background: #f7f5f0;
-  color: #1c1c28;
+  background: #ffffff;
+  color: #e67e22;
   border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .final-cta__btn .btn--accent:hover {
-  background: #ede8e0;
-  color: #0f0f1a;
+  background: #fff8f1;
+  color: #c96a1c;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
   opacity: 1;
 }
 
 .final-cta__tel {
   margin: 0;
   font-size: 0.9rem;
-  opacity: 0.72;
+  color: #ffffff;
   line-height: 1.6;
 }
 
 .final-cta__tel strong {
-  color: #f7f5f0;
+  color: #ffffff;
   font-weight: 500;
   font-feature-settings: "tnum";
 }
@@ -979,7 +954,15 @@ body.page-home .hero h1.hero__title {
   display: block;
   margin-top: 0.35rem;
   font-size: 0.85rem;
-  opacity: 0.65;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* 以前のアクセントバリエーションは基本クラスに統合されたため削除可能だが、
+   HTML側の修正が終わるまで互換性のために残すか、一気に消すか。
+   ここではクリーンアップのため削除（または基本クラスを継承） */
+.final-cta--accent {
+  /* 基本クラスと同一のため空、または削除 */
 }
 
 /* ----- フッター（editorial: 薄い仕切り・小さな文字） ----- */
@@ -1274,9 +1257,31 @@ body.page-home .home-voices-teaser__card {
   margin: 0;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: none;
+  border-left: 4px solid #d1d5db; /* 標準のグレー差し色 */
+  border-radius: 12px; /* 12px に統一 */
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06); /* 統一の影 */
   overflow: hidden;
+  position: relative; /* stretched-link の基準 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+body.page-home .home-voices-teaser__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(var(--color-primary-rgb), 0.2);
+}
+
+/* カード全体をリンクにする */
+body.page-home .home-voices-teaser__more a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+body.page-home .home-voices-teaser__more a:hover {
+  text-decoration: underline;
 }
 
 body.page-home .home-voices-teaser__media {
@@ -1342,12 +1347,13 @@ body.page-home .home-voices-teaser__action .btn {
 .sub-hero {
   position: relative;
   z-index: 0;
-  min-height: min(50vh, 460px);
+  min-height: min(42vh, 400px); /* 高さを少し抑える */
   display: flex;
   align-items: center;
-  padding: calc(var(--header-h) + clamp(1.25rem, 3vw, 1.75rem)) 0 clamp(1.75rem, 4vw, 2.5rem);
-  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  padding: calc(var(--header-h) + clamp(0.75rem, 2vw, 1.25rem)) 0 clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
   overflow: hidden;
+  background: var(--color-bg-elevated); /* ベージュ系をベースに */
 }
 
 .sub-hero__bg {
@@ -1361,29 +1367,44 @@ body.page-home .home-voices-teaser__action .btn {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--color-bg-elevated);
+  /* サイト全体の ivory と beige に調和するグラデーション */
+  background: linear-gradient(
+    108deg,
+    var(--color-bg) 0%,
+    var(--color-bg-elevated) 100%
+  );
 }
 
 .sub-hero__row {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: border-box;
 }
 
+/* editorial パネル: home.css の .hero__panel と同一の装飾・幅に合わせる */
 .sub-hero__panel {
-  max-width: 32rem;
-  box-shadow: none;
-  background: transparent;
   position: relative;
   z-index: 2;
-  padding: 0;
-  border-radius: 0;
+  max-width: 30rem;
+  margin-right: auto;
+  padding: 1.5rem 2rem 1.75rem 1.5rem; /* 余白を少し詰める */
+  background: rgba(240, 235, 227, 0.25);
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
+  animation: hero-enter 0.7s ease-out both;
 }
 
 @media (max-width: 500px) {
@@ -1392,8 +1413,15 @@ body.page-home .home-voices-teaser__action .btn {
   }
   .sub-hero {
     min-height: 0;
-    padding: calc(var(--header-h) + 2rem) 1rem 2rem;
+    padding: calc(var(--header-h) + 1.5rem) 0 1.5rem; /* スマホも余白調整 */
   }
+}
+
+/* サブページ用ヒーロー: コンパクト（taiken.html 等で使用） */
+.sub-hero--compact {
+  min-height: 0;
+  padding: calc(var(--header-h) + clamp(0.75rem, 2vw, 1.25rem)) 0 clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
 }
 
 .sub-hero h1.hero__title {
@@ -1424,7 +1452,7 @@ body.page-home .home-voices-teaser__action .btn {
   margin: 0 0 0.75rem;
   font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
   text-transform: uppercase;
 }
