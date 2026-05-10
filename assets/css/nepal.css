@@ -1,20 +1,19 @@
-/* ネパール国別: レイアウト＋国ページ固有の上書き（色は :root トークンと同一パレット） */
+/* ネパール国別 — editorial theme（home.css の世界観に統一） */
 
 body.page-nepal {
-  --nepal-section-y: clamp(2rem, 4vw, 2.5rem);
+  --nepal-section-y: clamp(3rem, 6vw, 4.5rem);
   --nepal-ink: var(--color-primary);
-  --nepal-cream: var(--color-surface-section);
-  --nepal-gold: var(--color-accent);
-  --nepal-sub: var(--color-heading-sub);
+  --nepal-cream: var(--color-bg-elevated);
+  --nepal-sub: var(--color-text-muted);
   --nepal-text: var(--color-text);
 }
 
 body.page-nepal #main-content {
   background: var(--color-bg);
-  padding: 0 0 var(--nepal-section-y);
+  padding: 0;
 }
 
-/* ---------------- FV（構造は維持）---------------- */
+/* ================ FV ================ */
 
 .nepal-hero {
   position: relative;
@@ -23,8 +22,9 @@ body.page-nepal #main-content {
   display: flex;
   align-items: center;
   padding: calc(clamp(3.75rem, 8vw, 5.5rem) + 0.5rem) 0;
-  margin-bottom: var(--nepal-section-y);
+  margin-bottom: 0;
   overflow: hidden;
+  background: #1c1c28;
 }
 
 .nepal-hero__bg {
@@ -34,18 +34,12 @@ body.page-nepal #main-content {
   pointer-events: none;
 }
 
-.nepal-hero__color-plane {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(125deg, #f0ebe3 0%, #e5dfd4 50%, #dcd5c8 100%);
-}
-
+/* 写真: フル表示（z-index 1） */
 .nepal-hero__photo {
   position: absolute;
   inset: 0;
   z-index: 1;
-  opacity: 0.28;
+  opacity: 1;
 }
 
 .nepal-media-slot__img {
@@ -54,109 +48,192 @@ body.page-nepal #main-content {
   object-fit: cover;
   object-position: 50% 45%;
   display: block;
+  filter: brightness(1.02) saturate(0.88);
+}
+
+/* color-plane: 写真の上に重なる ivory フェード（home と同方式） */
+.nepal-hero__color-plane {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    108deg,
+    rgba(247, 245, 240, 0.97) 0%,
+    rgba(247, 245, 240, 0.62) 36%,
+    rgba(28, 28, 40, 0.08) 100%
+  );
 }
 
 .nepal-hero__row {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
 }
 
-/* パネル: 白＋金の左装飾（アクセント色） */
+/* パネル: 透明 — home / srilanka と同方式 */
 .nepal-hero__panel {
-  box-shadow:
-    0 20px 48px rgba(var(--color-primary-rgb), 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.92) inset,
-    inset 6px 0 0 0 var(--nepal-gold);
-  background: var(--color-bg-elevated);
+  background: rgba(240, 235, 227, 0.25);
+  padding: 2rem 2.25rem 2.25rem 1.75rem;
+  max-width: 32rem;
+  border-radius: 1.5rem;
+  box-shadow: none;
+  border: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
 }
 
-/* H1: メインタイトル＝紺地＋白字（.title 相当の主題は h1） */
+/* H1: boxなし・charcoal 直書き */
 .nepal-hero h1.hero__title {
   margin: 0 0 0.9rem;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  padding: 0.6rem 1rem 0.65rem;
-  border-radius: 8px;
-  font-size: clamp(1.4rem, 3.2vw, 1.75rem);
-  line-height: 1.35;
-  letter-spacing: 0.02em;
+  background: transparent;
+  color: var(--color-text);
+  padding: 0;
+  border-radius: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  box-shadow: none;
 }
 
 .nepal-hero .hero__sub {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   max-width: 36rem;
 }
 
+/* kicker: 大文字ラベル */
 .page-nepal__kicker {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--nepal-sub);
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* 小見出し色に近い: チップ */
+/* chips */
 .page-nepal .nepal-hero .hero__chip {
-  background: rgba(var(--color-primary-rgb), 0.08);
+  background: rgba(247, 245, 240, 0.85);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* ================ 目次 ================ */
+
+.nepal-toc {
+  margin: 0;
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nepal-toc__title {
+  margin: 0 0 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.nepal-toc__list {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  columns: 1;
+}
+
+.nepal-toc__list li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.nepal-toc__list a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.nepal-toc__list a:hover,
+.nepal-toc__list a:focus-visible {
   color: var(--color-primary);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.45);
 }
 
-/* ---------------- 各 section（#FAF7F1 ＋影＋角） ---------------- */
+@media (min-width: 640px) {
+  .nepal-toc__list {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
 
-.nepal-section,
-.nepal-section.nepal-section--mute {
-  padding: 24px;
-  margin: 0 16px 1.25rem;
-  background: var(--color-surface-section);
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
-  margin-left: auto;
-  margin-right: auto;
+/* ================ セクション（フルワイド・交互背景） ================ */
+
+.nepal-section {
+  padding: var(--nepal-section-y) 0;
+  margin: 0;
+  background: var(--color-bg);
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
   box-sizing: border-box;
+  border-top: 1px solid var(--color-border);
 }
 
-.nepal-section--mute {
-  /* 旧 .nepal-section--mute の色差分は廃止（背景統一） */
-  background: var(--color-surface-section);
+.nepal-section.nepal-section--mute {
+  background: var(--color-bg-elevated);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .nepal-section .layout-container {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* H2: 濃紺帯＋白字＋左6px 焼オレ（.title h2 相当: .nepal-section__title） */
+/* H2: クリーンな大見出し（バッジなし） */
 .nepal-section__title,
 .nepal-section h2.nepal-section__title,
 .nepal-section h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   max-width: 42rem;
-  font-size: clamp(1.2rem, 2.1vw, 1.4rem);
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.02em;
-  background: #183b66;
-  color: #ffffff;
-  padding: 0.5rem 1.15rem 0.55rem 0.9rem;
-  border-left: 6px solid #e67e22;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  background: transparent;
+  padding: 0;
+  border-left: none;
   border-bottom: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .nepal-section__intro {
   margin: 0 0 1.5rem;
   max-width: 40rem;
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.85;
-  color: var(--color-text);
+  color: var(--color-text-muted);
 }
 
 .nepal-section__intro a {
@@ -176,7 +253,7 @@ body.page-nepal #main-content {
 }
 
 .page-nepal__prose .nepal-section__subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
   margin: 1.5rem 0 0.5rem;
@@ -188,14 +265,14 @@ body.page-nepal #main-content {
 }
 
 .page-nepal__prose .nepal-section__h4 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text);
   margin: 1.15rem 0 0.4rem;
   line-height: 1.4;
 }
 
-/* ---------------- 図版（仮面の色味のみ調整、構造不変） ---------------- */
+/* ================ 図版 ================ */
 
 .nepal-media {
   margin: 1.75rem 0 0;
@@ -205,11 +282,11 @@ body.page-nepal #main-content {
   position: relative;
   aspect-ratio: 16 / 9;
   min-height: 10.5rem;
-  background: linear-gradient(160deg, #eee8de 0%, #d8d0c3 100%);
-  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(var(--color-accent-rgb), 0.25);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 .nepal-media__img {
@@ -222,12 +299,12 @@ body.page-nepal #main-content {
 .nepal-media__caption {
   margin: 0.75rem 0 0;
   padding: 0 0.15rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.65;
-  color: #444444;
+  color: var(--color-text-muted);
 }
 
-/* ---------------- グリッド・カード: h3 = .style1/.style3 相当 = #2F5E8A ---------------- */
+/* ================ グリッド・カード ================ */
 
 .nepal-grid {
   display: grid;
@@ -246,31 +323,32 @@ body.page-nepal #main-content {
 .nepal-card {
   margin: 0;
   padding: 1.3rem 1.25rem 1.35rem;
-  background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
 }
 
 .nepal-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.4;
-  color: var(--color-heading-sub);
+  color: var(--color-text);
 }
 
 .nepal-card p {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.8;
-  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
 }
 
-/* スケジュール */
+/* ================ スケジュール ================ */
+
 .nepal-schedule {
   margin: 1.5rem 0 0;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-bg-elevated);
@@ -281,9 +359,9 @@ body.page-nepal #main-content {
   grid-template-columns: 4.5rem 1fr;
   gap: 0.75rem 1rem;
   padding: 0.9rem 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  font-size: 0.98rem;
-  line-height: 1.65;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--color-text);
 }
 
@@ -293,10 +371,14 @@ body.page-nepal #main-content {
 
 .nepal-schedule__time {
   font-weight: 600;
-  color: var(--color-heading-sub);
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-/* 料金 */
+/* ================ 料金カード ================ */
+
 .nepal-price {
   display: grid;
   gap: 1.25rem;
@@ -314,26 +396,26 @@ body.page-nepal #main-content {
   position: relative;
   padding: 1.5rem 1.35rem 1.6rem;
   background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.35);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
 }
 
 .nepal-price__label {
   margin: 0 0 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-heading-sub);
+  color: var(--color-text-muted);
 }
 
 .nepal-price__days {
   margin: 0 0 0.25rem;
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.2;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .nepal-price__amount {
@@ -341,51 +423,52 @@ body.page-nepal #main-content {
   font-size: clamp(1.75rem, 4vw, 2.1rem);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   color: var(--color-primary);
 }
 
 .nepal-price__meta,
 .nepal-price__days .nepal-price__meta {
-  color: #555555;
-  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
   line-height: 1.6;
 }
 
-/* 体験者 */
+/* ================ 参加者の声 ================ */
+
 .nepal-voices {
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .nepal-voice {
   margin: 0;
-  padding: 1.1rem 1.15rem;
+  padding: 1.25rem;
   background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .nepal-voice blockquote,
 .nepal-voice blockquote p {
   margin: 0 0 0.65rem;
   padding: 0;
-  font-size: 0.98rem;
-  line-height: 1.85;
+  font-size: 0.95rem;
+  line-height: 1.9;
   color: var(--color-text);
   border: 0;
 }
 
 .nepal-voice footer {
-  font-size: 0.88rem;
-  color: #555555;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
 
 .nepal-voice a {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -395,7 +478,6 @@ body.page-nepal #main-content {
   color: var(--color-link-hover);
 }
 
-/* 体験談サムネ（旧ページ掲載写真）— 静かに横並び */
 .nepal-voice--with-photo {
   display: flex;
   flex-direction: column;
@@ -410,7 +492,7 @@ body.page-nepal #main-content {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  border: 1px solid var(--color-border);
   flex-shrink: 0;
 }
 
@@ -431,10 +513,18 @@ body.page-nepal #main-content {
   }
 }
 
+/* ================ 次へ導線 ================ */
+
+.nepal-next {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
 .nepal-next a {
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
@@ -446,10 +536,11 @@ body.page-nepal #main-content {
   margin-top: 1.5rem;
 }
 
-/* レポート（summary 色＝小見出し扱い） */
+/* ================ レポート ================ */
+
 .nepal-report {
   margin: 1.25rem 0 0;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
   overflow: hidden;
@@ -462,9 +553,9 @@ body.page-nepal #main-content {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-heading-sub);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
@@ -475,16 +566,16 @@ body.page-nepal #main-content {
 }
 
 .nepal-report__summary:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .nepal-report__summary::after {
   content: "";
-  width: 0.5rem;
-  height: 0.5rem;
-  border-right: 2px solid var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid var(--color-text-muted);
+  border-bottom: 1.5px solid var(--color-text-muted);
   transform: rotate(45deg);
   flex-shrink: 0;
   margin-top: -0.2rem;
@@ -497,10 +588,10 @@ body.page-nepal #main-content {
 
 .nepal-report__body {
   padding: 0 1.1rem 1.1rem;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.85;
   color: var(--color-text);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 .nepal-report__body a {
@@ -515,7 +606,6 @@ body.page-nepal #main-content {
   margin: 0.75rem 0 0;
 }
 
-/* 図版なしのとき先頭 p の余白。図版ありは .nepal-report__figure + p で下へ */
 .nepal-report__body > p:first-child {
   margin-top: 0.85rem;
 }
@@ -540,15 +630,15 @@ body.page-nepal #main-content {
   max-width: 20rem;
   height: auto;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 .nepal-report__figcap {
   margin: 0.5rem 0 0;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   line-height: 1.5;
-  color: #555555;
+  color: var(--color-text-muted);
 }
 
 .nepal-report__list {
@@ -556,37 +646,32 @@ body.page-nepal #main-content {
   padding-left: 1.2rem;
 }
 
-/* ---------------- 末尾 CTA: 帯＝焼オレ＋白字（home .final-cta と整合）---------------- */
+/* ================ 末尾 CTA（deep navy — home .final-cta と統一） ================ */
 
 .page-nepal .nepal-cta {
-  background: var(--color-accent);
-  color: var(--color-on-primary);
-  margin: var(--nepal-section-y) 16px 0;
-  padding: clamp(2.5rem, 6vw, 3.5rem) 24px;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
-  margin-left: auto;
-  margin-right: auto;
+  background: #1c1c28;
+  color: #f7f5f0;
+  margin: 0;
+  padding: clamp(4rem, 10vw, 6.5rem) 0;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .nepal-cta__color-base {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--color-accent);
-  border-radius: 14px;
+  background: #1c1c28;
+  border-radius: 0;
   pointer-events: none;
-}
-
-.page-nepal .nepal-cta {
-  position: relative;
-  overflow: hidden;
 }
 
 .page-nepal .nepal-cta .final-cta__bg {
   z-index: 1;
-  opacity: 0.12;
+  opacity: 0.38;
 }
 
 .page-nepal .nepal-cta .final-cta__bg img {
@@ -596,46 +681,69 @@ body.page-nepal #main-content {
 
 .page-nepal .nepal-cta .final-cta__overlay {
   z-index: 2;
-  background: linear-gradient(160deg, rgba(230, 126, 34, 0.35) 0%, rgba(24, 59, 102, 0.22) 100%);
+  background: rgba(28, 28, 40, 0.60);
 }
 
 .page-nepal .nepal-cta .layout-container {
   z-index: 3;
   position: relative;
+  text-align: center;
+  max-width: 36rem;
 }
 
 .page-nepal .nepal-cta h2,
-.page-nepal .nepal-cta .final-cta h2,
 .page-nepal .nepal-cta .nepal-lead-to-cta,
 .page-nepal .nepal-cta .final-cta__copy,
 .page-nepal .nepal-cta .final-cta__reply,
 .page-nepal .nepal-cta .final-cta__tel,
 .page-nepal .nepal-cta .final-cta__tel strong,
 .page-nepal .nepal-cta .final-cta__tel-note {
-  color: var(--color-on-primary);
+  color: #f7f5f0;
   text-shadow: none;
 }
 
-.page-nepal .nepal-cta .final-cta__reply {
-  opacity: 0.95;
+.page-nepal .nepal-cta .final-cta__copy {
+  opacity: 0.80;
 }
 
-/* CTA 内 H2: 帯上で左ラインは白 */
+.page-nepal .nepal-cta .final-cta__reply {
+  opacity: 0.70;
+}
+
+.page-nepal .nepal-cta .final-cta__copy a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* CTA h2: 左ラインなし・中央揃え */
 .page-nepal .nepal-cta .nepal-lead-to-cta {
-  border-left: 6px solid #ffffff;
-  padding-left: 1rem;
-  text-align: left;
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
 }
 
-.page-nepal .nepal-cta .layout-container {
-  text-align: center;
+/* CTA ボタン: ivory 反転 */
+.page-nepal .nepal-cta .btn--accent {
+  background: #f7f5f0;
+  color: #1c1c28;
+  border-radius: var(--radius-md);
 }
 
-/* ---------------- 現地受入（ICEDC）: 本文＋ポートレート ---------------- */
+.page-nepal .nepal-cta .btn--accent:hover {
+  background: #ede8e0;
+  color: #0f0f1a;
+  opacity: 1;
+}
+
+/* ================ ICEDC（現地受入）================ */
 
 .nepal-icedc {
   display: grid;
@@ -660,8 +768,9 @@ body.page-nepal #main-content {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  border: 1px solid var(--color-border);
 }
 
 .nepal-icedc-scenes {
@@ -676,88 +785,40 @@ body.page-nepal #main-content {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
 
-/* ページ内目次 */
-.nepal-toc {
-  margin: 0 0 var(--nepal-section-y);
-  padding: 1.25rem 0 1.35rem;
-  background: var(--color-surface-section);
-  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
-}
-
-.nepal-toc__title {
-  margin: 0 0 0.85rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--nepal-ink);
-  letter-spacing: 0.02em;
-}
-
-.nepal-toc__list {
-  margin: 0;
-  padding-left: 1.35rem;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--nepal-text);
-  columns: 1;
-}
-
-.nepal-toc__list li {
-  break-inside: avoid;
-  padding-bottom: 0.2rem;
-}
-
-.nepal-toc__list a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.nepal-toc__list a:hover,
-.nepal-toc__list a:focus-visible {
-  color: var(--nepal-gold);
-}
-
-  @media (min-width: 640px) {
-    .nepal-toc__list {
-      columns: 2;
-      column-gap: 2rem;
-    }
-  }
-
-/* ---------------- 言語テーブル ---------------- */
+/* ================ 言語テーブル ================ */
 
 .nepal-language-table-container {
   margin: 1.5rem 0 0;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border-radius: 10px;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
-  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
 }
 
 .nepal-language-table {
   width: 100%;
   min-width: 42rem;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .nepal-language-table th,
 .nepal-language-table td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
 
 .nepal-language-table th {
-  background: rgba(var(--color-primary-rgb), 0.04);
-  font-weight: 700;
-  color: var(--color-primary);
+  background: var(--color-bg-elevated);
+  font-weight: 600;
+  color: var(--color-text);
   white-space: nowrap;
 }
 
@@ -766,6 +827,6 @@ body.page-nepal #main-content {
 }
 
 .nepal-language-table td:nth-child(3) {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-primary);
 }

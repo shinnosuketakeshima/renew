@@ -1,20 +1,19 @@
-/* スリランカ国別: 色は :root トークン（ネパール国別ページと同一パレット） */
+/* スリランカ国別 — editorial theme（home.css の世界観に統一） */
 
 body.page-srilanka {
-  --srilanka-section-y: clamp(2rem, 4vw, 2.5rem);
+  --srilanka-section-y: clamp(3rem, 6vw, 4.5rem);
   --srilanka-ink: var(--color-primary);
-  --srilanka-cream: var(--color-surface-section);
-  --srilanka-gold: var(--color-accent);
-  --srilanka-sub: var(--color-heading-sub);
+  --srilanka-cream: var(--color-bg-elevated);
+  --srilanka-sub: var(--color-text-muted);
   --srilanka-text: var(--color-text);
 }
 
 body.page-srilanka #main-content {
   background: var(--color-bg);
-  padding: 0 0 var(--srilanka-section-y);
+  padding: 0;
 }
 
-/* ---------------- FV（構造は維持）---------------- */
+/* ================ FV ================ */
 
 .srilanka-hero {
   position: relative;
@@ -23,8 +22,9 @@ body.page-srilanka #main-content {
   display: flex;
   align-items: center;
   padding: calc(clamp(3.75rem, 8vw, 5.5rem) + 0.5rem) 0;
-  margin-bottom: var(--srilanka-section-y);
+  margin-bottom: 0;
   overflow: hidden;
+  background: #1c1c28;
 }
 
 .srilanka-hero__bg {
@@ -34,18 +34,12 @@ body.page-srilanka #main-content {
   pointer-events: none;
 }
 
-.srilanka-hero__color-plane {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(125deg, #f0ebe3 0%, #e5dfd4 50%, #dcd5c8 100%);
-}
-
+/* 写真: フル表示（z-index 1） */
 .srilanka-hero__photo {
   position: absolute;
   inset: 0;
   z-index: 1;
-  opacity: 0.28;
+  opacity: 1;
 }
 
 .srilanka-media-slot__img {
@@ -54,109 +48,193 @@ body.page-srilanka #main-content {
   object-fit: cover;
   object-position: 50% 45%;
   display: block;
+  filter: brightness(1.02) saturate(0.88);
+}
+
+/* color-plane: 写真の上に重なる ivory フェード（home と同方式） */
+.srilanka-hero__color-plane {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    108deg,
+    rgba(247, 245, 240, 0.97) 0%,
+    rgba(247, 245, 240, 0.62) 36%,
+    rgba(28, 28, 40, 0.08) 100%
+  );
 }
 
 .srilanka-hero__row {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
 }
 
-/* パネル: 白＋金の左装飾（アクセント色） */
+/* パネル: 透明 — テキストが ivory overlay に直接乗る（home と同方式） */
 .srilanka-hero__panel {
-  box-shadow:
-    0 20px 48px rgba(var(--color-primary-rgb), 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.92) inset,
-    inset 6px 0 0 0 var(--srilanka-gold);
-  background: var(--color-bg-elevated);
+  background: rgba(240, 235, 227, 0.25);
+  padding: 2rem 2.25rem 2.25rem 1.75rem;
+  max-width: 32rem;
+  border-radius: 1.5rem;
+  box-shadow: none;
+  border: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  /* ふちをなめらかにフェード */
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
 }
 
-/* H1: メインタイトル＝紺地＋白字（.title 相当の主題は h1） */
+/* H1: boxなし・charcoal 直書き */
 .srilanka-hero h1.hero__title {
   margin: 0 0 0.9rem;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  padding: 0.6rem 1rem 0.65rem;
-  border-radius: 8px;
-  font-size: clamp(1.4rem, 3.2vw, 1.75rem);
-  line-height: 1.35;
-  letter-spacing: 0.02em;
+  background: transparent;
+  color: var(--color-text);
+  padding: 0;
+  border-radius: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  box-shadow: none;
 }
 
 .srilanka-hero .hero__sub {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   max-width: 36rem;
 }
 
+/* kicker: 大文字ラベル */
 .page-srilanka__kicker {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--srilanka-sub);
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* 小見出し色に近い: チップ */
+/* chips */
 .page-srilanka .srilanka-hero .hero__chip {
-  background: rgba(var(--color-primary-rgb), 0.08);
+  background: rgba(247, 245, 240, 0.85);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* ================ 目次 ================ */
+
+.srilanka-toc {
+  margin: 0;
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.srilanka-toc__title {
+  margin: 0 0 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.srilanka-toc__list {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  columns: 1;
+}
+
+.srilanka-toc__list li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.srilanka-toc__list a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.srilanka-toc__list a:hover,
+.srilanka-toc__list a:focus-visible {
   color: var(--color-primary);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.45);
 }
 
-/* ---------------- 各 section（#FAF7F1 ＋影＋角） ---------------- */
+@media (min-width: 640px) {
+  .srilanka-toc__list {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
 
-.srilanka-section,
-.srilanka-section.srilanka-section--mute {
-  padding: 24px;
-  margin: 0 16px 1.25rem;
-  background: var(--color-surface-section);
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
-  margin-left: auto;
-  margin-right: auto;
+/* ================ セクション（フルワイド・交互背景） ================ */
+
+.srilanka-section {
+  padding: var(--srilanka-section-y) 0;
+  margin: 0;
+  background: var(--color-bg);
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
   box-sizing: border-box;
+  border-top: 1px solid var(--color-border);
 }
 
-.srilanka-section--mute {
-  /* 旧 .srilanka-section--mute の色差分は廃止（背景統一） */
-  background: var(--color-surface-section);
+.srilanka-section.srilanka-section--mute {
+  background: var(--color-bg-elevated);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .srilanka-section .layout-container {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* H2: 濃紺帯＋白字＋左6px 焼オレ（.title h2 相当: .srilanka-section__title） */
+/* H2: クリーンな大見出し（バッジなし） */
 .srilanka-section__title,
 .srilanka-section h2.srilanka-section__title,
 .srilanka-section h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   max-width: 42rem;
-  font-size: clamp(1.2rem, 2.1vw, 1.4rem);
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.02em;
-  background: #183b66;
-  color: #ffffff;
-  padding: 0.5rem 1.15rem 0.55rem 0.9rem;
-  border-left: 6px solid #e67e22;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  background: transparent;
+  padding: 0;
+  border-left: none;
   border-bottom: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .srilanka-section__intro {
   margin: 0 0 1.5rem;
   max-width: 40rem;
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.85;
-  color: var(--color-text);
+  color: var(--color-text-muted);
 }
 
 .srilanka-section__intro a {
@@ -179,7 +257,7 @@ body.page-srilanka #main-content {
   color: var(--color-text);
 }
 
-/* ---------------- 図版（色味の調整、構造不変） ---------------- */
+/* ================ 図版 ================ */
 
 .srilanka-media {
   margin: 1.75rem 0 0;
@@ -193,11 +271,11 @@ body.page-srilanka #main-content {
   position: relative;
   aspect-ratio: 16 / 9;
   min-height: 10.5rem;
-  background: linear-gradient(160deg, #eee8de 0%, #d8d0c3 100%);
-  border-radius: var(--radius-lg);
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(var(--color-accent-rgb), 0.25);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 .srilanka-media__img {
@@ -210,12 +288,12 @@ body.page-srilanka #main-content {
 .srilanka-media__caption {
   margin: 0.75rem 0 0;
   padding: 0 0.15rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.65;
-  color: #444444;
+  color: var(--color-text-muted);
 }
 
-/* ---------------- グリッド・カード: h3 = .style1/.style3 相当 = #2F5E8A ---------------- */
+/* ================ グリッド・カード ================ */
 
 .srilanka-grid {
   display: grid;
@@ -234,31 +312,32 @@ body.page-srilanka #main-content {
 .srilanka-card {
   margin: 0;
   padding: 1.3rem 1.25rem 1.35rem;
-  background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
 }
 
 .srilanka-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.4;
-  color: var(--color-heading-sub);
+  color: var(--color-text);
 }
 
 .srilanka-card p {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.8;
-  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
 }
 
-/* スケジュール */
+/* ================ スケジュール ================ */
+
 .srilanka-schedule {
   margin: 1.5rem 0 0;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-bg-elevated);
@@ -269,9 +348,9 @@ body.page-srilanka #main-content {
   grid-template-columns: 4.5rem 1fr;
   gap: 0.75rem 1rem;
   padding: 0.9rem 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  font-size: 0.98rem;
-  line-height: 1.65;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--color-text);
 }
 
@@ -281,10 +360,14 @@ body.page-srilanka #main-content {
 
 .srilanka-schedule__time {
   font-weight: 600;
-  color: var(--color-heading-sub);
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-/* 料金 */
+/* ================ 料金カード ================ */
+
 .srilanka-price {
   display: grid;
   gap: 1.25rem;
@@ -298,7 +381,6 @@ body.page-srilanka #main-content {
   }
 }
 
-/* 3枚ミニ価格（スリランカ専用） */
 .srilanka-price--mini {
   grid-template-columns: 1fr;
 }
@@ -319,26 +401,26 @@ body.page-srilanka #main-content {
   position: relative;
   padding: 1.5rem 1.35rem 1.6rem;
   background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.35);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
 }
 
 .srilanka-price__label {
   margin: 0 0 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-heading-sub);
+  color: var(--color-text-muted);
 }
 
 .srilanka-price__days {
   margin: 0 0 0.25rem;
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.2;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .srilanka-price__amount {
@@ -346,29 +428,30 @@ body.page-srilanka #main-content {
   font-size: clamp(1.75rem, 4vw, 2.1rem);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   color: var(--color-primary);
 }
 
 .srilanka-price__meta,
 .srilanka-price__days .srilanka-price__meta {
-  color: #555555;
-  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
   line-height: 1.6;
 }
 
 .srilanka-price-aux {
-  margin: 0.5rem 0 0;
+  margin: 1rem 0 0;
   max-width: 40rem;
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
 }
 
-/* 折りたたみ（料金内訳・レッスン詳細） */
+/* ================ 折りたたみ（料金内訳・レッスン詳細） ================ */
+
 .srilanka-collapse {
   margin: 1.5rem 0 0;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
   overflow: hidden;
@@ -382,25 +465,25 @@ body.page-srilanka #main-content {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-heading-sub);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
 }
 
 .srilanka-collapse__summary:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .srilanka-collapse__summary::after {
   content: "";
-  width: 0.5rem;
-  height: 0.5rem;
-  border-right: 2px solid var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid var(--color-text-muted);
+  border-bottom: 1.5px solid var(--color-text-muted);
   transform: rotate(45deg);
   flex-shrink: 0;
   margin-top: -0.2rem;
@@ -413,7 +496,7 @@ body.page-srilanka #main-content {
 
 .srilanka-collapse__body {
   padding: 0 1.1rem 1.1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 .srilanka-collapse--itemize .srilanka-inclusions {
@@ -426,40 +509,41 @@ body.page-srilanka #main-content {
   padding-top: 0;
 }
 
-/* 体験者 */
+/* ================ 参加者の声 ================ */
+
 .srilanka-voices {
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .srilanka-voice {
   margin: 0;
-  padding: 1.1rem 1.15rem;
+  padding: 1.25rem 1.25rem;
   background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .srilanka-voice blockquote,
 .srilanka-voice blockquote p {
   margin: 0 0 0.65rem;
   padding: 0;
-  font-size: 0.98rem;
-  line-height: 1.85;
+  font-size: 0.95rem;
+  line-height: 1.9;
   color: var(--color-text);
   border: 0;
 }
 
 .srilanka-voice footer {
-  font-size: 0.88rem;
-  color: #555555;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
 
 .srilanka-voice a {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -483,7 +567,7 @@ body.page-srilanka #main-content {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  border: 1px solid var(--color-border);
   flex-shrink: 0;
 }
 
@@ -504,14 +588,16 @@ body.page-srilanka #main-content {
   }
 }
 
+/* ================ 次へ導線 ================ */
+
 .srilanka-next {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
 }
 
 .srilanka-next a {
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -525,16 +611,16 @@ body.page-srilanka #main-content {
   margin-top: 1.5rem;
 }
 
-/* セクション末の控えめ導線（本文より一段小さく） */
 .srilanka-next--quiet {
   margin-top: 1.1rem;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
-/* レポート（summary 色＝小見出し扱い） */
+/* ================ レポート ================ */
+
 .srilanka-report {
   margin: 1.25rem 0 0;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
   overflow: hidden;
@@ -547,9 +633,9 @@ body.page-srilanka #main-content {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-heading-sub);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
@@ -560,16 +646,16 @@ body.page-srilanka #main-content {
 }
 
 .srilanka-report__summary:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .srilanka-report__summary::after {
   content: "";
-  width: 0.5rem;
-  height: 0.5rem;
-  border-right: 2px solid var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid var(--color-text-muted);
+  border-bottom: 1.5px solid var(--color-text-muted);
   transform: rotate(45deg);
   flex-shrink: 0;
   margin-top: -0.2rem;
@@ -582,10 +668,10 @@ body.page-srilanka #main-content {
 
 .srilanka-report__body {
   padding: 0 1.1rem 1.1rem;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.85;
   color: var(--color-text);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 .srilanka-report__body a {
@@ -624,15 +710,15 @@ body.page-srilanka #main-content {
   max-width: 20rem;
   height: auto;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 .srilanka-report__figcap {
   margin: 0.5rem 0 0;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   line-height: 1.5;
-  color: #555555;
+  color: var(--color-text-muted);
 }
 
 .srilanka-report__list {
@@ -640,37 +726,32 @@ body.page-srilanka #main-content {
   padding-left: 1.2rem;
 }
 
-/* ---------------- 末尾 CTA: 帯＝焼オレ＋白字（home .final-cta と整合）---------------- */
+/* ================ 末尾 CTA（deep navy — home .final-cta と統一） ================ */
 
 .page-srilanka .srilanka-cta {
-  background: var(--color-accent);
-  color: var(--color-on-primary);
-  margin: var(--srilanka-section-y) 16px 0;
-  padding: clamp(2.5rem, 6vw, 3.5rem) 24px;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  max-width: min(calc(100% - 32px), var(--content-max, 1100px));
-  margin-left: auto;
-  margin-right: auto;
+  background: #1c1c28;
+  color: #f7f5f0;
+  margin: 0;
+  padding: clamp(4rem, 10vw, 6.5rem) 0;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .srilanka-cta__color-base {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--color-accent);
-  border-radius: 14px;
+  background: #1c1c28;
+  border-radius: 0;
   pointer-events: none;
-}
-
-.page-srilanka .srilanka-cta {
-  position: relative;
-  overflow: hidden;
 }
 
 .page-srilanka .srilanka-cta .final-cta__bg {
   z-index: 1;
-  opacity: 0.12;
+  opacity: 0.38;
 }
 
 .page-srilanka .srilanka-cta .final-cta__bg img {
@@ -680,28 +761,33 @@ body.page-srilanka #main-content {
 
 .page-srilanka .srilanka-cta .final-cta__overlay {
   z-index: 2;
-  background: linear-gradient(160deg, rgba(230, 126, 34, 0.35) 0%, rgba(24, 59, 102, 0.22) 100%);
+  background: rgba(28, 28, 40, 0.60);
 }
 
 .page-srilanka .srilanka-cta .layout-container {
   z-index: 3;
   position: relative;
+  text-align: center;
+  max-width: 36rem;
 }
 
 .page-srilanka .srilanka-cta h2,
-.page-srilanka .srilanka-cta .final-cta h2,
 .page-srilanka .srilanka-cta .srilanka-lead-to-cta,
 .page-srilanka .srilanka-cta .final-cta__copy,
 .page-srilanka .srilanka-cta .final-cta__reply,
 .page-srilanka .srilanka-cta .final-cta__tel,
 .page-srilanka .srilanka-cta .final-cta__tel strong,
 .page-srilanka .srilanka-cta .final-cta__tel-note {
-  color: var(--color-on-primary);
+  color: #f7f5f0;
   text-shadow: none;
 }
 
+.page-srilanka .srilanka-cta .final-cta__copy {
+  opacity: 0.80;
+}
+
 .page-srilanka .srilanka-cta .final-cta__reply {
-  opacity: 0.95;
+  opacity: 0.70;
 }
 
 .page-srilanka .srilanka-cta .final-cta__copy a {
@@ -710,22 +796,35 @@ body.page-srilanka #main-content {
   text-underline-offset: 0.2em;
 }
 
-/* CTA 内 H2: 帯上で左ラインは白 */
+/* CTA h2: 左ラインなし・中央揃え */
 .page-srilanka .srilanka-cta .srilanka-lead-to-cta {
-  border-left: 6px solid #ffffff;
-  padding-left: 1rem;
-  text-align: left;
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
 }
 
-.page-srilanka .srilanka-cta .layout-container {
-  text-align: center;
+/* CTA ボタン: ivory 反転 */
+.page-srilanka .srilanka-cta .btn--accent {
+  background: #f7f5f0;
+  color: #1c1c28;
+  border-radius: var(--radius-md);
 }
 
-/* homestay / lesson / 到着 等：旧下位ページから統合した本文（#srilanka- に data-source を HTML コメントで明示） */
+.page-srilanka .srilanka-cta .btn--accent:hover {
+  background: #ede8e0;
+  color: #0f0f1a;
+  opacity: 1;
+}
+
+/* ================ 本文詳細見出し ================ */
+
 .srilanka-section .srilanka-detail {
   margin-top: 1.5rem;
   max-width: 42rem;
@@ -733,44 +832,41 @@ body.page-srilanka #main-content {
 
 .srilanka-section .srilanka-detail h3.srilanka-detail__h {
   margin: 1.75rem 0 0.65rem;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.4;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
+  color: var(--color-text);
+  letter-spacing: 0em;
   padding-top: 0.25rem;
-  border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-top: 1px solid var(--color-border);
 }
 
-/* 小見出し（h3 配下。例: 食事 → 食卓のマナー、滞在の安心 → 津波） */
 .srilanka-section .srilanka-detail h4.srilanka-detail__h {
   margin: 1.1rem 0 0.5rem;
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 600;
   line-height: 1.45;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
+  color: var(--color-text);
+  letter-spacing: 0em;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(var(--color-primary-rgb), 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* さらに一段弱い小見出し（h4 配下: 食卓のマナー など） */
 .srilanka-section .srilanka-detail h5.srilanka-detail__h {
   margin: 0.75rem 0 0.4rem;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.5;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
+  color: var(--color-text);
+  letter-spacing: 0em;
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(var(--color-primary-rgb), 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-/* 「ホームステイ先の例（参考）」直後の h4 だけ、区切りを弱めて本文が途切れないよう見せる */
 #srilanka-hs-example + p + h4.srilanka-detail__h {
   margin-top: 0.9rem;
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(var(--color-primary-rgb), 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .srilanka-section .srilanka-detail h3.srilanka-detail__h:first-child,
@@ -783,6 +879,8 @@ body.page-srilanka #main-content {
 .srilanka-section .srilanka-detail .page-srilanka__prose {
   margin: 0 0 0.9rem;
 }
+
+/* ================ 写真ペア ================ */
 
 .srilanka-figure-pair,
 .srilanka-figure-trio {
@@ -805,18 +903,16 @@ body.page-srilanka #main-content {
   max-width: 24rem;
   height: auto;
   border-radius: var(--radius-md);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(var(--color-primary-rgb), 0.08);
+  box-shadow: none;
+  border: 1px solid var(--color-border);
 }
 
-/* JASRI 紹介の担当者写真：本文横では大きすぎるため一段階ずつ縮めた表示幅（約 0.8×0.8） */
 .srilanka-figure-pair img.srilanka-figure-pair__img--manel {
   width: auto;
   max-width: min(7.2rem, 100%);
   justify-self: start;
 }
 
-/* 2枚とも写真のとき：左右（または縦積み）で同じ枠サイズ（4:3・はみ出しはトリミング） */
 .srilanka-figure-pair:has(> img:nth-child(1)):has(> img:nth-child(2)) > img {
   max-width: none;
   aspect-ratio: 4 / 3;
@@ -826,13 +922,139 @@ body.page-srilanka #main-content {
 
 .srilanka-figure-pair__note {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.55;
   color: var(--color-text-muted);
   align-self: center;
 }
 
-/* 旧URL用スタブ（homestay.html 等） */
+/* ================ 内訳 ================ */
+
+.srilanka-inclusions {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1rem 0 0;
+}
+
+@media (min-width: 600px) {
+  .srilanka-inclusions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.srilanka-inclusions__box {
+  padding: 1rem 1.1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.srilanka-inclusions__box h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.srilanka-inclusions__box ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+}
+
+/* ================ 言語テーブル ================ */
+
+.srilanka-language-table-container {
+  margin: 1.5rem 0 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.srilanka-language-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.srilanka-language-table th,
+.srilanka-language-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.srilanka-language-table th {
+  background: var(--color-bg-elevated);
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.srilanka-language-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.srilanka-language-table td:nth-child(3) {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.srilanka-section__intro--small {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* ================ その他 ================ */
+
+.srilanka-price-notes {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  max-width: 42rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.srilanka-table-wrap {
+  margin: 1rem 0 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.srilanka-table-wrap table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.srilanka-table-wrap th,
+.srilanka-table-wrap td {
+  padding: 0.5rem 0.6rem;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.srilanka-table-wrap th {
+  background: var(--color-bg-elevated);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
 .srilanka-legacy-stub {
   padding: clamp(2rem, 5vw, 3rem) 1rem;
   max-width: 40rem;
@@ -849,85 +1071,12 @@ body.page-srilanka #main-content {
 .srilanka-todo {
   margin: 1rem 0;
   padding: 0.85rem 1rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.7;
   color: var(--color-text-muted);
-  background: rgba(var(--color-accent-rgb), 0.1);
-  border-left: 3px solid var(--color-accent);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
-.srilanka-price-notes {
-  margin: 0.5rem 0 0;
-  padding-left: 1.2rem;
-  max-width: 42rem;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--color-text-muted);
-}
-
-.srilanka-table-wrap {
-  margin: 1rem 0 1.25rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100%;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
-  border-radius: var(--radius-md);
-  background: #fff;
-}
-
-.srilanka-table-wrap table {
-  width: 100%;
-  min-width: 36rem;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.srilanka-table-wrap th,
-.srilanka-table-wrap td {
-  padding: 0.5rem 0.6rem;
-  text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  vertical-align: middle;
-}
-
-.srilanka-table-wrap th {
-  background: rgba(var(--color-primary-rgb), 0.08);
-  font-weight: 600;
-  color: var(--color-heading-sub);
-}
-
-.srilanka-inclusions {
-  display: grid;
-  gap: 1.25rem;
-  margin: 1rem 0 0;
-}
-
-@media (min-width: 600px) {
-  .srilanka-inclusions {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.srilanka-inclusions__box {
-  padding: 1rem 1.1rem;
   background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
-  border-radius: 10px;
-}
-
-.srilanka-inclusions__box h3 {
-  margin: 0 0 0.65rem;
-  font-size: 1rem;
-  color: var(--color-primary);
-}
-
-.srilanka-inclusions__box ul {
-  margin: 0;
-  padding-left: 1.2rem;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: var(--color-text);
+  border-left: 2px solid var(--color-border);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 .srilanka-teacher {
@@ -937,16 +1086,16 @@ body.page-srilanka #main-content {
   margin: 1rem 0;
   padding: 1rem 1.1rem;
   background: var(--color-bg-elevated);
-  border-radius: 10px;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
 
 .srilanka-teacher ul {
   margin: 0.35rem 0 0;
   padding-left: 1.2rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.75;
-  color: var(--color-text);
+  color: var(--color-text-muted);
 }
 
 @media (min-width: 560px) {
@@ -958,126 +1107,23 @@ body.page-srilanka #main-content {
 
 .srilanka-teacher__name {
   margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.35;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
-.srilanka-teacher__img {
+.srilanka-teacher__img,
+.srilanka-teacher__photo img {
+  display: block;
   flex-shrink: 0;
   max-width: 7.5rem;
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
 .srilanka-teacher__photo {
   margin: 0;
   flex-shrink: 0;
-}
-
-.srilanka-teacher__photo img {
-  display: block;
-  max-width: 7.5rem;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* ページ内目次 */
-.srilanka-toc {
-  margin: 0 0 var(--srilanka-section-y);
-  padding: 1.25rem 0 1.35rem;
-  background: var(--color-surface-section);
-  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
-}
-
-.srilanka-toc__title {
-  margin: 0 0 0.85rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--srilanka-ink);
-  letter-spacing: 0.02em;
-}
-
-.srilanka-toc__list {
-  margin: 0;
-  padding-left: 1.35rem;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--srilanka-text);
-  columns: 1;
-}
-
-.srilanka-toc__list li {
-  break-inside: avoid;
-  padding-bottom: 0.2rem;
-}
-
-.srilanka-toc__list a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.srilanka-toc__list a:hover,
-.srilanka-toc__list a:focus-visible {
-  color: var(--srilanka-gold);
-}
-
-  @media (min-width: 640px) {
-    .srilanka-toc__list {
-      columns: 2;
-      column-gap: 2rem;
-    }
-  }
-
-/* ---------------- 言語テーブル ---------------- */
-
-.srilanka-language-table-container {
-  margin: 1.5rem 0 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 10px;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.12);
-  background: #fff;
-}
-
-.srilanka-language-table {
-  width: 100%;
-  min-width: 42rem;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.srilanka-language-table th,
-.srilanka-language-table td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  vertical-align: top;
-}
-
-.srilanka-language-table th {
-  background: rgba(var(--color-primary-rgb), 0.04);
-  font-weight: 700;
-  color: var(--color-primary);
-  white-space: nowrap;
-}
-
-.srilanka-language-table tr:last-child td {
-  border-bottom: 0;
-}
-
-.srilanka-language-table td:nth-child(3) {
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-.srilanka-section__intro--small {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
 }

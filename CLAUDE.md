@@ -61,13 +61,19 @@ Individual experience articles live at `taiken1.html`–`taiken84.html` in the r
 
 All design tokens live in `:root` inside `assets/css/home.css`:
 
-- `--color-primary: #183b66` (dark navy)
-- `--color-accent: #e67e22` (burnt orange — CTAs and highlights only)
-- `--color-bg: #fff8f1` (off-white)
-- `--color-text: #222222`
-- `--content-max: 1100px`
-- `--header-h: 64px`
-- `--font-sans: "Inter", "Noto Sans JP", sans-serif`
+| Token | Value | Role |
+|-------|-------|------|
+| `--color-bg` | `#f7f5f0` | warm ivory — main background |
+| `--color-bg-elevated` | `#f0ebe3` | muted beige — alternating section background |
+| `--color-text` | `#2a2724` | charcoal — body copy |
+| `--color-text-muted` | `#7a746c` | warm grey — sub-text, labels |
+| `--color-primary` | `#1c1c28` | deep navy — CTAs, links, primary UI |
+| `--color-border` | `#e0d8ce` | warm border |
+| `--radius-md` | `2px` | near-square corners (editorial) |
+| `--section-space` | `clamp(4rem, 7vw, 6rem)` | generous whitespace between sections |
+| `--content-max` | `1100px` | max content width |
+| `--header-h` | `60px` | fixed header height |
+| `--font-sans` | `"Inter", "Noto Sans JP", sans-serif` | |
 
 Every page includes `assets/css/home.css` + `assets/css/typography.css` + its own per-page stylesheet.
 
@@ -96,14 +102,37 @@ The canonical authority is `docs/be-intl-site-redesign-spec.md` and `.cursor/rul
 - No SNS/LINE integration, no multilingual pages, no meeting-booking UI, no comparison claims against Western study abroad costs.
 - Country-specific support organizations: **JASRI** for Sri Lanka, **ICEDC** for Nepal — never swap them.
 
+### Hero panel (confirmed implementation values)
+
+```css
+background: rgba(240, 235, 227, 0.25);  /* beige 25% opacity */
+padding: 2rem 2.25rem 2.25rem 1.75rem;
+border-radius: 1.5rem;
+backdrop-filter: none;                   /* interior photo shows through unblurred */
+mask-image: radial-gradient(
+  ellipse 90% 88% at 46% 50%,
+  black 52%,        /* solid readable zone */
+  transparent 100%  /* soft edge fade */
+);
+```
+
+- `backdrop-filter` is intentionally absent — the photo shows through the beige at full clarity inside the panel.
+- Edge softness comes from `mask-image` only.
+- `white-space: nowrap` on `.hero__kicker` and `.page-srilanka__kicker` prevents single trailing characters from wrapping.
+
 ### UI tone (current active rule)
 
-The site uses an **Airbnb-style light UI**, not the earlier dark-green direction. Key points:
-- White/off-white base; thin grey borders; minimal shadows.
-- One accent color (`--color-accent` orange) for CTAs only.
-- No gradients on UI elements; no vivid multi-color sections.
-- Body text ≥ 16px; generous line-height.
-- Buttons ≥ 48px tall; no "こちら" / "クリック" button labels.
+The site uses a **boutique travel magazine / editorial / quiet luxury** aesthetic. The goal is to convey not "travel" but *"entering someone else's everyday life"*.
+
+Key rules:
+- **Hero**: full-bleed photo, text overlays directly on an ivory gradient — no white floating panel box.
+- **Section headings**: clean typography only. No navy box + orange left-border badge style.
+- **Buttons**: flat deep navy (`#1c1c28`), no gradients, no box-shadow. On dark backgrounds use ivory-reversed button.
+- **Cards**: `1px solid var(--color-border)` only, no box-shadow. Hover = opacity or image scale (no `translateY`).
+- **Border-radius**: 2–3px (near-square, editorial).
+- **Sections**: full-width backgrounds alternating ivory / muted beige. No card-style side-margin containers.
+- Body text ≥ 16px; generous line-height; generous whitespace between sections.
+- No orange (`#e67e22`), no Zoom-blue (`#183b66`), no gradients, no glassmorphism.
 - Every section ends with: testimonial excerpt → relevant FAQ → CTA bar.
 
 ### SEO requirements

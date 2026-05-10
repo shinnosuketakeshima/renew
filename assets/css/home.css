@@ -10,7 +10,7 @@
   --color-bg-elevated: #f0ebe3;
   --color-surface-section: #ede8e0;
   --color-text: #2a2724;
-  --color-text-muted: #7a746c;
+  --color-text-muted: #5c5650;
   --color-text-rgb: 42, 39, 36;
   --color-primary: #1c1c28;
   --color-primary-hover: #0f0f1a;
@@ -447,19 +447,29 @@ main {
   width: 100%;
 }
 
-/* editorial パネル: 透明 — テキストが ivory overlay に直接乗る */
+/* editorial パネル: 30% ベージュ・背後ぼかし・ふちフェード */
 .hero__panel {
   position: relative;
   z-index: 2;
   max-width: 30rem;
   margin-right: auto;
-  padding: 0;
-  background: transparent;
+  padding: 2rem 2.25rem 2.25rem 1.75rem;
+  background: rgba(240, 235, 227, 0.25);
   border: none;
-  border-radius: 0;
+  border-radius: 1.5rem;
   box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 88% at 46% 50%,
+    black 52%,
+    transparent 100%
+  );
   animation: hero-enter 0.7s ease-out both;
 }
 
@@ -498,6 +508,7 @@ main {
   letter-spacing: 0.12em;
   line-height: 1.5;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .hero__kicker-sep {
