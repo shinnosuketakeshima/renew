@@ -3,6 +3,11 @@
   --legal-max: 45rem;
 }
 
+/* living-basics のヒーロー高さを他サブページと統一 */
+.page-living-basics .sub-hero {
+  height: min(42vh, 400px);
+}
+
 .page-legal__head {
   padding: 2.25rem 0 1.5rem;
   background: var(--color-bg-mute, #f7f6f2);

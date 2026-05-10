@@ -1398,11 +1398,10 @@ body.page-home .home-voices-teaser__action .btn {
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* サイト全体の ivory と beige に調和するグラデーション */
   background: linear-gradient(
     108deg,
-    var(--color-bg) 0%,
-    var(--color-bg-elevated) 100%
+    #e8e3d8 0%,
+    #d9d0c2 100%
   );
 }
 

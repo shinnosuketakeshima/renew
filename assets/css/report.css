@@ -14,7 +14,6 @@ body.page-report {
 }
 
 .report-index__intro {
-  max-width: 40rem;
   margin: 0 0 2rem;
   font-size: 1.02rem;
   line-height: 1.8;
@@ -288,7 +287,6 @@ body.page-report {
 }
 
 .report-prose {
-  max-width: 42rem;
   font-size: 1.02rem;
   line-height: 1.85;
   color: var(--color-text);
@@ -417,7 +415,6 @@ body.page-report {
 
 /* 長文・引用ブロック用 */
 .report-prose--wide {
-  max-width: 48rem;
 }
 
 .report-lead-row {
