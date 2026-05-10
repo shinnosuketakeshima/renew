@@ -1218,6 +1218,28 @@ body.page-home .home-voices-teaser {
   border-bottom: 1px solid var(--color-border);
 }
 
+body.page-home .home-reports {
+  padding: var(--section-space) 0;
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border);
+}
+
+body.page-home .home-reports__h {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+body.page-home .home-reports__lede {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
 body.page-home .home-voices-teaser__h {
   margin: 0 0 0.5rem;
   font-size: clamp(1.25rem, 2.3vw, 1.5rem);

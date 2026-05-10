@@ -311,11 +311,20 @@ h4.faq-accordion__heading {
 
 .faq-cta {
   margin: 0;
-  padding: 2.5rem 0 2.25rem;
+  padding: clamp(3rem, 8vw, 5rem) 0;
   text-align: center;
   background: #e67e22;
   color: #ffffff;
   border-top: none;
+}
+
+.faq-cta h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .faq-cta p {
