@@ -18,7 +18,7 @@
 </script>
 
 </head>
-<body>
+<body class="page-recommend">
   <a class="visually-hidden" href="#main-content">本文へスキップ</a>
 
   <header class="site-header" id="top">
@@ -31,7 +31,6 @@
         <a href="srilanka.html">スリランカ</a>
         <a href="nepal.html">ネパール</a>
         <a href="program.html">料金</a>
-        <a href="recomend.html" aria-current="page">推薦・メディア</a>
         <a href="voices.html">参加者の声</a>
         <a href="living-basics.html">現地生活の基礎知識</a>
         <a href="faq.html">よくある質問</a>
@@ -47,10 +46,16 @@
   </header>
 
   <main id="main-content">
-    <section class="trust" aria-labelledby="recommendation-heading">
-      <div class="layout-container trust__content">
-        <h1 id="recommendation-heading">推薦・メディア</h1>
-        <p class="trust__note">語学学習の合理性と、運営の信頼性について、専門家推薦と第三者メディア取材の両面からご紹介します。</p>
+    <section class="sub-hero" aria-labelledby="recommendation-heading">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
+      </div>
+      <div class="layout-container sub-hero__row">
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">MEDIA <span class="hero__kicker-sep" aria-hidden="true">|</span> 推薦・メディア</p>
+          <h1 class="hero__title" id="recommendation-heading">推薦・メディア</h1>
+          <p class="hero__sub">語学学習の合理性と、運営の信頼性について、専門家推薦と第三者メディア取材の両面からご紹介します。</p>
+        </div>
       </div>
     </section>
 
@@ -88,12 +93,16 @@
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="final-cta-heading">
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
       <div class="layout-container">
         <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
-        <p class="final-cta__copy">留学先の比較、費用、滞在の不安など、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
         <p class="final-cta__btn">
           <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
+        </p>
+        <p class="final-cta__tel">
+          <span class="final-cta__tel-note">お電話でのご相談</span>
+          <strong>03-6770-6191</strong>
         </p>
       </div>
     </section>
@@ -115,6 +124,7 @@
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/card-visited.js" defer></script>
 </body>
 </html>
 

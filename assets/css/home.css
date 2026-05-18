@@ -866,12 +866,12 @@ body.page-home .hero h1.hero__title {
   }
 }
 
-/* ----- 最終 CTA（アクセントオレンジ・高インパクト） ----- */
+/* ----- 最終 CTA（オレンジ帯・電話案内・白反転ボタン） ----- */
 
 .final-cta {
   position: relative;
   padding: clamp(3rem, 8vw, 5rem) 0;
-  background: #e67e22; /* 鮮やかなオレンジ */
+  background: #e67e22;
   color: #ffffff;
   overflow: hidden;
   text-align: center;
@@ -908,18 +908,29 @@ body.page-home .hero h1.hero__title {
   opacity: 0.95;
 }
 
+.final-cta__copy a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.final-cta__copy a:hover {
+  opacity: 0.88;
+}
+
 .final-cta__reply {
   margin: 0 0 1.5rem;
   font-size: 0.88rem;
   color: #ffffff;
-  opacity: 0.90;
+  opacity: 0.9;
 }
 
 .final-cta__btn {
   margin-bottom: 1.75rem;
 }
 
-/* オレンジ背景: ボタンは白ベース */
+/* オレンジ帯: ボタンは白ベース */
 .final-cta__btn .btn--accent {
   min-width: 200px;
   background: #ffffff;

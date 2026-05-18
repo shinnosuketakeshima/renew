@@ -8,8 +8,8 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/site-guide.html">
   <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/css/site-guide.css">
   <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/site-guide.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,12 +68,18 @@
   </header>
 
   <main id="main-content">
-    <div class="page-site-guide__head">
-      <div class="layout-container">
-        <h1>サイト案内</h1>
-        <p class="page-site-guide__lead">当サイトの主なページへのリンクです。目的の情報に迷わずたどり着けるよう、用途別に整理しています。</p>
+    <section class="sub-hero" aria-labelledby="site-guide-h1">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
       </div>
-    </div>
+      <div class="layout-container sub-hero__row">
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">SITE <span class="hero__kicker-sep" aria-hidden="true">|</span> サイト案内</p>
+          <h1 class="hero__title" id="site-guide-h1">サイト案内</h1>
+          <p class="hero__sub">当サイトの主なページへのリンクです。目的の情報に迷わずたどり着けるよう、用途別に整理しています。</p>
+        </div>
+      </div>
+    </section>
 
     <div class="layout-container page-site-guide__body">
       <section class="site-guide-section" id="guide-main" aria-labelledby="guide-main-h">
@@ -96,8 +102,8 @@
       <section class="site-guide-section" id="guide-voices-reports" aria-labelledby="guide-voices-reports-h">
         <h2 id="guide-voices-reports-h">参加者の声・レポート</h2>
         <ul class="site-guide-list">
-          <li><a href="taiken.html">参加者の声インデックス</a>（掲載一覧）</li>
-          <li><a href="report.html">参加者レポートの一覧</a></li>
+          <li><a href="taiken.html">参加者の声一覧</a></li>
+          <li><a href="report.html">参加者レポート一覧</a></li>
         </ul>
       </section>
 
@@ -111,11 +117,21 @@
         </ul>
       </section>
 
-      <div class="site-guide-cta">
-        <p>個別の参加者の声ページは件数が多いため、まずは <a href="taiken.html">参加者の声インデックス</a> や <a href="voices.html">参加者の声</a> からお探しください。</p>
-        <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせ</a>
-      </div>
     </div>
+
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
+      <div class="layout-container">
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
+        <p class="final-cta__btn">
+          <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
+        </p>
+        <p class="final-cta__tel">
+          <span class="final-cta__tel-note">お電話でのご相談</span>
+          <strong>03-6770-6191</strong>
+        </p>
+      </div>
+    </section>
 
     <footer class="site-footer--simple" role="contentinfo">
       <div class="layout-container">
@@ -134,5 +150,6 @@
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/card-visited.js" defer></script>
 </body>
 </html>

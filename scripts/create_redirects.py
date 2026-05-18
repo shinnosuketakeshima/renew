@@ -14,7 +14,7 @@ REDIRECTS = {
     "nhomestay.html": "nepal.html#nepal-homestay",
     "village.html": "srilanka.html#srilanka-village",
     "security.html": "srilanka.html#srilanka-safety",
-    "nsecurity.html": "nepal.html#nepal-local-safety",
+    "nsecurity.html": "nepal.html#nepal-homestay-h",
     "sinhara.html": "srilanka.html#srilanka-language",
     "nepallg.html": "nepal.html#nepal-language",
     "knowledge.html": "faq.html#knowledge-moved",

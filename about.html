@@ -8,8 +8,8 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/about.html">
   <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/css/legal.css">
   <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/legal.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,12 +71,18 @@
   </header>
 
   <main id="main-content">
-    <div class="page-legal__head">
-      <div class="layout-container">
-        <h1>会社概要</h1>
-        <p class="page-legal__lead">Beインターナショナルは、アジア（スリランカ・ネパール）でのホームステイとマンツーマンの英語レッスンを組み合わせた、独自の語学留学プログラムを提供しています。2004年の設立以来、一人ひとりに寄り添った誠実なサポートを大切にしています。</p>
+    <section class="sub-hero" aria-labelledby="about-h1">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
       </div>
-    </div>
+      <div class="layout-container sub-hero__row">
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">ABOUT <span class="hero__kicker-sep" aria-hidden="true">|</span> 会社概要</p>
+          <h1 class="hero__title" id="about-h1">会社概要</h1>
+          <p class="hero__sub">Beインターナショナルは、アジア（スリランカ・ネパール）でのホームステイとマンツーマンの英語レッスンを組み合わせた、独自の語学留学プログラムを提供しています。2004年の設立以来、一人ひとりに寄り添った誠実なサポートを大切にしています。</p>
+        </div>
+      </div>
+    </section>
 
     <div class="page-legal__body">
       <div class="layout-container legal-others-grid">
@@ -123,20 +129,24 @@
           </div>
           <div class="legal-article__callout">
             <p class="legal-article__callout-title">メディア掲載・対談</p>
-            <p>俳優・三波豊和さんと対談した模様が、下記サイトに掲載されています。</p>
-            <p><a href="https://goodpoint.biz/be-intl/" target="_blank" rel="noopener noreferrer">俳優・三波豊和さんとの対談記事（外部リンク）</a></p>
+            <p><a href="https://goodpoint.biz/be-intl/" target="_blank" rel="noopener noreferrer">俳優・三波豊和さんと対談した模様</a>が、掲載されています。</p>
           </div>
          
         </article>
       </div>
     </div>
 
-    <section class="legal-others-cta legal-others-cta--dual">
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
       <div class="layout-container">
-        <p class="legal-others-cta__intro">プログラムの詳細や、自分に合ったプランのご相談など、お気軽にお問い合わせください。</p>
-        <div class="legal-others-cta__buttons">
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
+        <p class="final-cta__btn">
           <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
-        </div>
+        </p>
+        <p class="final-cta__tel">
+          <span class="final-cta__tel-note">お電話でのご相談</span>
+          <strong>03-6770-6191</strong>
+        </p>
       </div>
     </section>
 
@@ -157,5 +167,6 @@
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/card-visited.js" defer></script>
 </body>
 </html>

@@ -54,12 +54,18 @@
   </header>
 
   <main id="main-content">
-    <div class="page-legal__head">
-      <div class="layout-container">
-        <h1 id="others-h1">航空券・保険・入国手続</h1>
-        <p class="page-legal__lead">航空券の手配と海外旅行保険の加入、旅券の残存期間やビザ等の入国手続の確認は、<strong>お客さまご自身</strong>で行ってください。当社にて手続を代行することはできません。手続の種類は国や時期で変わるため、<strong>出発前に必ず、公式の案内をあらためてご確認</strong>ください。以下は、多くの方に共通する手順の目安です。迷った点は、資料請求の際にお気軽にお問い合わせください。</p>
+    <section class="sub-hero" aria-labelledby="others-h1">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
       </div>
-    </div>
+      <div class="layout-container sub-hero__row">
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">TRAVEL <span class="hero__kicker-sep" aria-hidden="true">|</span> 航空券・保険・入国手続</p>
+          <h1 class="hero__title" id="others-h1">航空券・保険・入国手続</h1>
+          <p class="hero__sub">航空券の手配と海外旅行保険の加入、旅券の残存期間やビザ等の入国手続の確認は、<strong>お客さまご自身</strong>で行ってください。当社にて手続を代行することはできません。手続の種類は国や時期で変わるため、<strong>出発前に必ず、公式の案内をあらためてご確認</strong>ください。以下は、多くの方に共通する手順の目安です。迷った点は、資料請求の際にお気軽にお問い合わせください。</p>
+        </div>
+      </div>
+    </section>
 
     <div class="page-legal__body">
       <div class="layout-container legal-others-grid">
@@ -163,10 +169,10 @@
       </div>
     </div>
 
-    <section class="final-cta" id="others-cta" aria-labelledby="others-cta-h">
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
       <div class="layout-container">
-        <h2 id="others-cta-h">まずは資料請求で、詳細をご確認ください</h2>
-        <p class="final-cta__copy">手続の全体像を押さえたら、<a href="process1.html">出発までの流れ</a>（持ち物の目安を含みます）も合わせてご覧ください。ご不明点はお気軽にお問い合わせください。</p>
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
         <p class="final-cta__btn">
           <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
         </p>
@@ -187,12 +193,13 @@
         <a href="yakkan.html">約款</a>
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="program.html">料金</a>
-        <a href="others.html">航空券・保険</a>
+        <a href="others.html" aria-current="page">航空券・保険</a>
       </div>
     </footer>
   </main>
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/card-visited.js" defer></script>
 </body>
 </html>

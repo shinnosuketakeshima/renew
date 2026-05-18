@@ -183,6 +183,18 @@ body.page-voices #main-content {
   text-underline-offset: 0.2em;
 }
 
+.page-taiken-index .taiken-index__quote-link:visited {
+  color: #e67e22;
+}
+
+.page-taiken-index .taiken-index__quote-link:visited .taiken-index__quote-mark {
+  color: #e67e22;
+}
+
+.page-taiken-index .taiken-index__table a:visited {
+  color: #e67e22;
+}
+
 .page-taiken-index .taiken-index__quote-link .taiken-index__quote-mark {
   color: var(--color-heading-sub);
 }

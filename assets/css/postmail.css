@@ -1,54 +1,15 @@
-/* 資料請求（postmail.html）— FAQ / 国別と同系トークン。フォームは postmail.cgi 用 name を維持。 */
+/* 資料請求（postmail.html）— home.css トークン・.sub-hero 系の冒頭。フォームは postmail.cgi 用 name を維持。 */
 
 body.page-postmail {
   --pm-ink: var(--color-text);
   --pm-tq: var(--color-primary);
   --pm-tq-rgb: var(--color-primary-rgb);
-  --pm-surface: #f0e8de;
 }
 
-body.page-postmail #main-content {
-  background: var(--color-bg);
-  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-.postmail-head {
-  padding: calc(var(--header-h) + 1.75rem) 0 2rem;
-  background: linear-gradient(180deg, var(--pm-surface) 0%, #ffffff 72%);
-  border-bottom: 1px solid rgba(var(--pm-tq-rgb), 0.18);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-}
-
-.postmail-head .layout-container,
 .postmail-content .layout-container {
   max-width: min(calc(100% - 32px), 40rem);
   margin-left: auto;
   margin-right: auto;
-}
-
-.postmail-head h1 {
-  display: table;
-  margin: 0 0 0.65rem;
-  max-width: 100%;
-  font-size: clamp(1.35rem, 2.8vw, 1.65rem);
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-  background: #183b66;
-  color: #ffffff;
-  border-left: 6px solid #e67e22;
-  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  box-sizing: border-box;
-}
-
-.postmail-lead {
-  margin: 0 0 0.5rem;
-  max-width: 40rem;
-  font-size: 1.02rem;
-  line-height: 1.8;
-  color: var(--pm-ink);
 }
 
 .postmail-reply {
@@ -74,7 +35,7 @@ body.page-postmail #main-content {
   line-height: 1.75;
   color: var(--pm-ink);
   background: rgba(var(--pm-tq-rgb), 0.06);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md);
   border-left: 3px solid var(--pm-tq);
 }
 
@@ -146,10 +107,10 @@ body.page-postmail #main-content {
   color: var(--pm-ink);
   background: #ffffff;
   border: 1px solid rgba(var(--pm-tq-rgb), 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 0.6rem 0.75rem;
   min-height: 48px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -172,8 +133,8 @@ body.page-postmail #main-content {
 .postmail-form textarea:focus,
 .postmail-form select:focus {
   outline: none;
-  border-color: rgba(var(--color-accent-rgb), 0.75);
-  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.2);
+  border-color: var(--pm-tq);
+  box-shadow: 0 0 0 3px rgba(var(--pm-tq-rgb), 0.2);
 }
 
 /* ラジオ: 大きめタップ領域 */
@@ -235,30 +196,32 @@ body.page-postmail #main-content {
   min-height: 48px;
   min-width: 7rem;
   padding: 0.55rem 1.4rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   font-family: inherit;
   line-height: 1.2;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   border: 1px solid transparent;
   box-sizing: border-box;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
 .postmail-form input[type="submit"] {
-  color: var(--color-on-accent);
-  background: var(--gradient-accent);
-  border-color: var(--color-accent);
-  box-shadow: 0 2px 10px rgba(var(--color-accent-rgb), 0.35);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 .postmail-form input[type="submit"]:hover {
-  background: var(--gradient-accent-hover, var(--color-accent));
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .postmail-form input[type="submit"]:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -305,7 +268,7 @@ body.page-postmail #main-content {
 }
 
 @media (max-width: 480px) {
-  .postmail-head h1 {
-    font-size: clamp(1.1rem, 4.5vw, 1.45rem);
+  .page-postmail .sub-hero h1.hero__title {
+    font-size: clamp(1.35rem, 4.5vw, 1.75rem);
   }
 }

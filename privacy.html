@@ -69,15 +69,21 @@
   </header>
 
   <main id="main-content">
-    <div class="page-legal__head">
-      <div class="layout-container">
-        <h1 id="privacy-h1">プライバシーポリシー</h1>
-        <p class="page-legal__lead">
-          Beインターナショナル（以下「当社」）は、個人情報の保護に関する法律（以下「法」）その他の関係法令及び、個人情報保護委員会のガイドライン等の趣旨に従い、お客さま等の個人情報を、次のとおり、適法かつ公正な手段により取得し、利用目的の範囲内で適正に取り扱います。
-        </p>
-        <p class="page-legal__meta">制定・最終改定日：<time datetime="2026-04-25">2026年4月25日</time></p>
+    <section class="sub-hero" aria-labelledby="privacy-h1">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
       </div>
-    </div>
+      <div class="layout-container sub-hero__row">
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">PRIVACY <span class="hero__kicker-sep" aria-hidden="true">|</span> プライバシーポリシー</p>
+          <h1 class="hero__title" id="privacy-h1">プライバシーポリシー</h1>
+          <p class="hero__sub">
+            Beインターナショナル（以下「当社」）は、個人情報の保護に関する法律（以下「法」）その他の関係法令及び、個人情報保護委員会のガイドライン等の趣旨に従い、お客さま等の個人情報を、次のとおり、適法かつ公正な手段により取得し、利用目的の範囲内で適正に取り扱います。
+          </p>
+          <p class="hero__sub page-legal__meta">制定・最終改定日：<time datetime="2026-04-25">2026年4月25日</time></p>
+        </div>
+      </div>
+    </section>
 
     <div class="page-legal__body">
       <div class="layout-container">
@@ -143,9 +149,17 @@
       </div>
     </div>
 
-    <section class="legal-others-cta" aria-label="資料請求">
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
       <div class="layout-container">
-        <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせ</a>
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
+        <p class="final-cta__btn">
+          <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
+        </p>
+        <p class="final-cta__tel">
+          <span class="final-cta__tel-note">お電話でのご相談</span>
+          <strong>03-6770-6191</strong>
+        </p>
       </div>
     </section>
 
@@ -166,6 +180,7 @@
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
+  <script src="assets/js/card-visited.js" defer></script>
 </body>
 
 </html>

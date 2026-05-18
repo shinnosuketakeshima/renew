@@ -1,31 +1,4 @@
-/* サイト案内ページ */
-
-.page-site-guide__head {
-  padding: calc(var(--header-h) + 1.5rem) 0 1.5rem;
-  background: var(--color-bg, #fff8f1);
-  border-bottom: 1px solid var(--color-border, #e0d9cc);
-}
-
-.page-site-guide__head h1 {
-  display: table;
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.35rem, 2.8vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.35;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  border-left: 6px solid var(--color-accent);
-  padding: 0.5rem 1.1rem 0.55rem 0.9rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.page-site-guide__lead {
-  margin: 0;
-  max-width: 42rem;
-  font-size: 1.0625rem;
-  color: var(--color-text-muted);
-}
+/* サイト案内ページ — 冒頭ヒーローは home.css の .sub-hero（site-guide.html） */
 
 .page-site-guide__body {
   padding: var(--section-space) 0 calc(var(--section-space) * 1.25);

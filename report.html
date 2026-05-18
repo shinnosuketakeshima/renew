@@ -55,7 +55,8 @@
     </div>
   </header>
 
-  <main id="main-content" class="report-main">
+  <main id="main-content">
+    <div class="report-main">
     <header class="report-hero report-hero--index" aria-labelledby="index-h1">
       <div class="report-hero__grid">
         <div>
@@ -104,21 +105,21 @@
     <div class="report-links" id="report-related" style="margin-top:2.5rem">
       <p><a href="taiken.html">参加者の声</a>（参加者の声一覧）</p>
     </div>
-  </main>
-
-  <section class="final-cta srilanka-cta" id="report-cta" aria-labelledby="report-cta-h">
-    <div class="layout-container">
-      <h2 class="srilanka-lead-to-cta" id="report-cta-h">まずは資料で全体像をご確認ください</h2>
-      <p class="final-cta__copy">日数や費用、まだ比較検討の段階でしたら、資料にまとまった案内をお送りします。</p>
-      <p class="final-cta__btn">
-        <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
-      </p>
-      <p class="final-cta__tel">
-        <span class="final-cta__tel-note">お電話でのご相談</span>
-        <strong>03-6770-6191</strong>
-      </p>
     </div>
-  </section>
+
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
+      <div class="layout-container">
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
+        <p class="final-cta__btn">
+          <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
+        </p>
+        <p class="final-cta__tel">
+          <span class="final-cta__tel-note">お電話でのご相談</span>
+          <strong>03-6770-6191</strong>
+        </p>
+      </div>
+    </section>
 
     <footer class="site-footer--simple" role="contentinfo">
       <div class="layout-container">
@@ -133,6 +134,7 @@
         <a href="others.html">航空券・保険</a>
       </div>
     </footer>
+  </main>
 
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>

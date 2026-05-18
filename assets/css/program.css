@@ -214,7 +214,7 @@
   margin: 0.4rem 0 0;
 }
 
-/* セクション末 CTA：帯＝焼オレ＋白字＋白ボタン */
+/* セクション末 CTA：オレンジ帯（home .final-cta と同系） */
 .program-cta {
   margin: 2.5rem 0 0;
   padding: clamp(3rem, 8vw, 5rem) 0;

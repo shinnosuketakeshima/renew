@@ -142,18 +142,35 @@ mask-image: radial-gradient(
 
 ### UI tone (current active rule)
 
-The site uses a **boutique travel magazine / editorial / quiet luxury** aesthetic. The goal is to convey not "travel" but *"entering someone else's everyday life"*.
+The site uses a **boutique travel magazine / editorial / quiet luxury** aesthetic. The goal is to convey not "travel" but *"entering someone else's everyday life"*. **When in doubt, choose the quieter, more trustworthy option.** Show with whitespace and photos, not with busy UI.
 
 Key rules:
 - **Hero**: full-bleed photo, text overlays directly on an ivory gradient — no white floating panel box.
-- **Section headings**: clean typography only. No navy box + orange left-border badge style.
-- **Buttons**: flat deep navy (`#1c1c28`), no gradients, no box-shadow. On dark backgrounds use ivory-reversed button.
+- **Section headings**: clean typography only. No navy box + orange left-border badge style. Do not use `display: table` to capsulize headings. Do not add decorative backgrounds or shadows to headings.
+- **Two heading types**: label/kicker (`0.75rem / uppercase / letter-spacing: 0.12em / color: --color-text-muted`) and large heading (`clamp(1.4rem, 2.8vw, 1.75rem) / font-weight: 600 / letter-spacing: -0.01em`).
+- **Buttons**: flat deep navy (`#1c1c28`), no gradients, no box-shadow. On dark backgrounds use ivory-reversed button (bg `#f7f5f0` / text `#1c1c28`). Height ≥ 48px; label must contain an action verb — no "こちら" or "クリック". One strong CTA per section.
 - **Cards**: `1px solid var(--color-border)` only, no box-shadow. Hover = opacity or image scale (no `translateY`).
 - **Border-radius**: 2–3px (near-square, editorial).
-- **Sections**: full-width backgrounds alternating ivory / muted beige. No card-style side-margin containers.
-- Body text ≥ 16px; generous line-height; generous whitespace between sections.
+- **Sections**: full-width backgrounds alternating ivory / muted beige. No card-style side-margin containers. Content width controlled by inner `.layout-container` (max-width 1100px).
+- **Header**: fixed, `background: rgba(247, 245, 240, 0.97)` + thin bottom border. Nav hover = underline only (no background chip). "資料請求" always visible. No phone number.
+- Body text ≥ 16px; generous line-height (≥ 1.75); generous whitespace between sections.
 - No orange (`#e67e22`), no Zoom-blue (`#183b66`), no gradients, no glassmorphism.
 - Every section ends with: testimonial excerpt → relevant FAQ → CTA bar.
+
+### Typography letter-spacing
+
+| Element | letter-spacing |
+|---------|---------------|
+| h1 | `-0.02em` |
+| h2 | `-0.01em` |
+| kicker / label / uppercase | `0.08em–0.12em` |
+
+### Photos
+
+- Preferred: lesson scenes, homestay interiors, local nature, life-as-lived authenticity.
+- Prioritize images where a solo woman aged 30–40 can picture herself.
+- Do not mix Sri Lanka and Nepal photos on the same page.
+- Subtle saturation reduction is acceptable: `filter: saturate(0.88)`. No heavy filters or staged stock-photo feel.
 
 ### SEO requirements
 
@@ -165,11 +182,23 @@ Key rules:
 
 ### Content rules
 
-- Nepal is not a downgrade of Sri Lanka — lead with Himalayas, culture, volunteering.
-- Primary target: women aged 30–40, solo travellers.
+- Nepal is not a downgrade of Sri Lanka — lead with Himalayas, culture, volunteering. **Do not mention comparative weaknesses** (e.g., "no ocean").
+- Primary target: women aged 30–40, solo travellers (life transitions — career change, etc.). Address: safety, total cost, homestay environment, anxiety about solo travel.
 - Numbers to carry consistently: 21 years operating, ages 13–73, 7 days from ¥92,000.
+- Business targets: 20 participants/year (Sri Lanka 8, Nepal 12) — Nepal growth is a priority, which is why Nepal content must be strong.
 - No "industry cheapest / No.1" claims.
 - Do not mention meeting/consultation anywhere on the site.
+- Every page must have a clear inquiry (資料請求) call-to-action.
+
+### Mobile
+
+- 1-column layout on mobile; left/right margin ≥ 16px; body text ≥ 16px on mobile.
+- Tap targets ≥ 44px.
+- Tables: horizontal scroll or card conversion where needed.
+
+## Deployment
+
+Files are uploaded via FTP directly to the server's document root. The deploy scope is documented in `docs/DEPLOY-FTP.ja.md`. Use `.\tools\list-deploy-files.ps1` to generate the current candidate list before each upload. `docs/`, `tools/`, `.cursor/`, `.git/`, and `README.md` are never uploaded.
 
 ## URL Migration
 
