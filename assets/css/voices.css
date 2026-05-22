@@ -297,7 +297,7 @@ body.page-voices #main-content {
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 768px) {
   .voices-grid--pick {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -824,12 +824,10 @@ body.page-voices #main-content {
 .page-taiken-index .srilanka-cta .final-cta__copy a:hover {
   opacity: 0.92;
 }
-_copy a {
+
+.final-cta__copy a {
   color: var(--color-on-primary);
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
 
-.page-taiken-index .srilanka-cta .final-cta__copy a:hover {
-  opacity: 0.92;
-}

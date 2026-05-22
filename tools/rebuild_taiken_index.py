@@ -110,7 +110,7 @@ def _country_block(
     trs = "\n".join(_tr_row(n, h) for n, h in items)
     return f"""        <section class="taiken-index__country-block" data-taiken-country="{data_country}" aria-labelledby="{title_id}">
           <h3 class="taiken-index__country-title" id="{title_id}">{html.escape(title)}</h3>
-          <div class="legal-table-wrap" role="region" aria-label="{html.escape(region_label)}の参加者の声一覧" tabindex="0">
+          <div class="legal-table-wrap" role="region" aria-label="{html.escape(region_label)}の参加者の声（全件）" tabindex="0">
             <table class="legal-table taiken-index__table">
               <caption class="visually-hidden">{html.escape(region_label)}。参加者と心に残ったこと・一言メッセージ。各参加者の声のページへリンク</caption>
               <thead>
@@ -132,7 +132,7 @@ HEADER = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>参加者の声一覧 | Beインターナショナル</title>
+  <title>参加者の声（全件） | Beインターナショナル</title>
   <meta name="description" content="スリランカ・ネパールの参加者の声（参加者の声1〜）を国別の一覧から開けます。年代の目安は各記事をご覧ください。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/taiken.html">
@@ -175,12 +175,12 @@ HEADER = """<!DOCTYPE html>
           <ol>
             <li><a href="index.html">トップ</a></li>
             <li><a href="voices.html">参加者の声</a></li>
-            <li aria-current="page">参加者の声一覧</li>
+            <li aria-current="page">参加者の声（全件）</li>
           </ol>
         </nav>
         <div class="hero__panel voices-hero__panel">
-          <p class="page-voices__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声一覧</p>
-          <h1 class="hero__title" id="taiken-heading">参加者の声一覧</h1>
+          <p class="page-voices__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声（全件）</p>
+          <h1 class="hero__title" id="taiken-heading">参加者の声（全件）</h1>
           <h2 class="hero__sub">国ごとに参加者と心に残ったこと・一言メッセージから、各参加者の声の本文ページへ進めます。掲出時期の目安は、各ページの表記に従います。</h2>
         </div>
       </div>
