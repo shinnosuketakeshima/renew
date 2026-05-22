@@ -25,6 +25,7 @@ for block in t.split("<tr>")[1:]:
     if not mname:
         mname = re.search(r"style5[^>]*>([^<]+)</", block)
     name = mname.group(1).strip() if mname else ""
+    name = name.replace("様", "さま")
     rows.append((name, href))
 seen: set[str] = set()
 out: list[tuple[str, str]] = []
