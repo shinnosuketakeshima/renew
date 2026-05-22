@@ -5,8 +5,7 @@ body.page-taiken-article {
 }
 
 body.page-taiken-article #main-content {
-  background: linear-gradient(180deg, #f8f7f4 0%, #faf9f6 8%, #ffffff 28%);
-  padding: 0 0 var(--taiken-y);
+  background: linear-gradient(180deg, #f8f7f4 0%, #faf9f6 8%, var(--color-bg) 28%);
 }
 
 /* ページ冒頭：srilanka 系の明るい面＋清潔感（Airbnb 風トーン） */
@@ -194,15 +193,20 @@ body.page-taiken-article #main-content {
   text-align: center;
 }
 
-.page-taiken-article .taiken-figure img {
+.page-taiken-article .taiken-figure img,
+.page-taiken-article .story-block img {
   display: block;
   width: 100%;
   max-width: 20rem;
   height: auto;
   margin: 0 auto;
-  border-radius: var(--radius-md, 6px);
+  border-radius: 12px;
   border: 1px solid rgba(var(--color-primary-rgb), 0.1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.page-taiken-article .taiken-body img {
+  border-radius: 12px;
 }
 
 .page-taiken-article .taiken-fig-row--2 .taiken-figure img {
@@ -280,7 +284,6 @@ body.page-taiken-article--nepal .taiken-body {
 
 /* 体験談ページ：本文との区切り（配色は home.css のフッター共通） */
 .page-taiken-article .site-footer--simple {
-  margin-top: 2.5rem;
 }
 
 /* 先頭余白 */
