@@ -171,13 +171,6 @@ HEADER = """<!DOCTYPE html>
         <div class="sub-hero__color-plane"></div>
       </div>
       <div class="layout-container sub-hero__row">
-        <nav class="voices-breadcrumb" aria-label="パンくず">
-          <ol>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="voices.html">参加者の声</a></li>
-            <li aria-current="page">参加者の声（全件）</li>
-          </ol>
-        </nav>
         <div class="sub-hero__panel">
           <p class="sub-hero__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声（全件）</p>
           <h1 class="hero__title" id="taiken-heading">参加者の声（全件）</h1>
