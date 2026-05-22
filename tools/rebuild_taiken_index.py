@@ -166,11 +166,11 @@ HEADER = """<!DOCTYPE html>
     </div>
   </header>
   <main id="main-content">
-    <section class="voices-hero voices-hero--compact" id="taiken-hero" aria-labelledby="taiken-heading">
-      <div class="voices-hero__bg" aria-hidden="true">
-        <div class="voices-hero__color-plane"></div>
+    <section class="sub-hero" id="taiken-hero" aria-labelledby="taiken-heading">
+      <div class="sub-hero__bg" aria-hidden="true">
+        <div class="sub-hero__color-plane"></div>
       </div>
-      <div class="layout-container voices-hero__row">
+      <div class="layout-container sub-hero__row">
         <nav class="voices-breadcrumb" aria-label="パンくず">
           <ol>
             <li><a href="index.html">トップ</a></li>
@@ -178,10 +178,10 @@ HEADER = """<!DOCTYPE html>
             <li aria-current="page">参加者の声（全件）</li>
           </ol>
         </nav>
-        <div class="hero__panel voices-hero__panel">
-          <p class="page-voices__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声（全件）</p>
+        <div class="sub-hero__panel">
+          <p class="sub-hero__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 参加者の声（全件）</p>
           <h1 class="hero__title" id="taiken-heading">参加者の声（全件）</h1>
-          <h2 class="hero__sub">国ごとに参加者と心に残ったこと・一言メッセージから、各参加者の声の本文ページへ進めます。掲出時期の目安は、各ページの表記に従います。</h2>
+          <p class="hero__sub">国ごとに参加者と心に残ったこと・一言メッセージから、各参加者の声の本文ページへ進めます。掲出時期の目安は、各ページの表記に従います。</p>
         </div>
       </div>
     </section>
@@ -201,18 +201,13 @@ HEADER = """<!DOCTYPE html>
 """
 FOOTER = """
         </div>
-        <p class="voices-back"><a href="voices.html">参加者の声（抜粋ページ）へ戻る</a></p>
+        <p class="voices-back"><a href="voices.html">参加者の声（ピックアップ）へ戻る</a></p>
       </div>
     </section>
-    <section class="final-cta srilanka-cta" id="taiken-cta" aria-labelledby="taiken-cta-h">
-      <div class="srilanka-cta__color-base" aria-hidden="true"></div>
-      <div class="final-cta__bg" aria-hidden="true">
-        <img src="assets/images/cta-bg.jpg" width="1200" height="600" alt="" decoding="async">
-      </div>
-      <div class="final-cta__overlay" aria-hidden="true"></div>
+    <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
       <div class="layout-container">
-        <h2 class="srilanka-lead-to-cta" id="taiken-cta-h">資料をご覧のうえ、お気軽にお問い合わせください</h2>
-        <p class="final-cta__copy">国や日数、参加者の声で気になった点も、あわせてメールでお聞かせください。</p>
+        <h2 id="final-cta-heading">まずは気軽にご相談ください</h2>
+        <!--<p class="final-cta__copy">料金のこと、国の違いなど、<span class="keepword">資料とあわせて丁寧にご案内します。</span></p>-->
         <p class="final-cta__btn">
           <a class="btn btn--accent" href="postmail.html">資料請求・お問い合わせはこちら</a>
         </p>
