@@ -1,11 +1,58 @@
+# OS
 Thumbs.db
 Desktop.ini
 .DS_Store
 
+# IDE / エディタ
+.cursor/
+.vscode/
+
+# Git
+.git/
+
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
 
-# 体験談索引再生成の中間ファイル（rebuild_taiken_index.py）
+# ツール・開発ファイル
 tools/_taiken_index.tsv
 tools/last-deploy-list.txt
+tools/test_postmail_live.py
+tools/postmail-test-output.txt
+tools/live-postmail-form.html
+docs/
+scripts/
+src/
+test2/
+*.md
+CLAUDE.md
+GEMINI.md
+
+# ドキュメント・参考資料
+README.md
+docs/
+docs/oldHP/
+docs/EDIT-POINTS.txt
+
+# ローカル設定
+.claude/settings.local.json
+.cursor/rules/
+.cursor/skills/
+
+# FTP ログ
+WS_FTP.LOG
+
+# 画像素材・リソース
+Adobe_stock/
+SriLankaPhotos/
+assets/images/adobe-stock-sources.txt
+
+# CGI 関連（postmail システム）は別途管理
+# lib/ - 含める（CGI 依存）
+# tmpl/ - 含める（CGI テンプレート）
+# data/ - 含めない（ログ・セッション自動生成）
+data/log.cgi
+data/ses.cgi
+data/WS_FTP.LOG
