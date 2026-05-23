@@ -487,3 +487,17 @@ body.page-taiken-article--nepal .taiken-body {
   width: 100%;
   max-width: 13rem;
 }
+
+/* 縦長・横長が混在する旧写真（taiken38 等）：3:2 への強制クロップをしない */
+.page-taiken-article.page-taiken-blocks-natural .taiken-article__blocks .taiken-figure img,
+.page-taiken-article.page-taiken-blocks-natural .taiken-article__blocks .taiken-figure--block img {
+  aspect-ratio: auto;
+  object-fit: unset;
+  width: auto;
+  max-width: min(13rem, 100%);
+  height: auto;
+}
+
+.page-taiken-article.page-taiken-blocks-natural .taiken-figure--landscape img {
+  max-width: min(18rem, 100%);
+}

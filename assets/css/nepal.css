@@ -376,6 +376,78 @@ body.page-nepal #main-content {
   text-transform: uppercase;
 }
 
+/* ================ 折りたたみ（レッスン詳細） ================ */
+
+.nepal-collapse {
+  margin: 1.5rem 0 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.nepal-collapse__summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.nepal-collapse__summary::-webkit-details-marker {
+  display: none;
+}
+
+.nepal-collapse__summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.nepal-collapse__summary::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid var(--color-text-muted);
+  border-bottom: 1.5px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-top: -0.2rem;
+}
+
+.nepal-collapse[open] .nepal-collapse__summary::after {
+  transform: rotate(225deg);
+  margin-top: 0.15rem;
+}
+
+.nepal-collapse__body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.nepal-section .nepal-collapse .nepal-detail h3.nepal-detail__h:first-child {
+  border-top: 0;
+  margin-top: 0.5rem;
+  padding-top: 0;
+}
+
+.nepal-section .nepal-detail h3.nepal-detail__h {
+  margin: 1.75rem 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  letter-spacing: 0em;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
 /* ================ 料金カード ================ */
 
 .nepal-price {
@@ -708,7 +780,7 @@ body.page-nepal #main-content {
 
 .nepal-language-table {
   width: 100%;
-  min-width: 42rem;
+  min-width: 28rem;
   border-collapse: collapse;
   font-size: 0.92rem;
 }
@@ -732,7 +804,13 @@ body.page-nepal #main-content {
   border-bottom: 0;
 }
 
+.nepal-language-table td:nth-child(2) {
+  font-family: "Noto Sans Devanagari", "Mangal", "Nirmala UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
 .nepal-language-table td:nth-child(3) {
-  font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
+  white-space: nowrap;
 }
