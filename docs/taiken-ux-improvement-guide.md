@@ -222,53 +222,50 @@ taiken18.html に適用した UX改善手法を、他の taiken ページに段�
 
 ---
 
-## 自動化の可能性
+## 自動化の可能性と制限
 
 ### 段階1 の一部自動化
 
-**パラグラフ分割は正規表現で部分的に自動化可能：**
+**推奨ツール:** `tools/apply_taiken_ux_improvements.py`
 
-```python
-import re
+#### 使用方法
 
-# タイケン文字列を最大 100文字で分割
-def split_long_paragraphs(html):
-    # <p class="style2">...</p> をマッチ
-    def split_paragraph(match):
-        text = match.group(1)
-        # 句点（。）で分割
-        sentences = text.split('。')
-        
-        chunks = []
-        current = ""
-        for sent in sentences:
-            if len(current) + len(sent) > 100:
-                if current:
-                    chunks.append(current + '。')
-                current = sent
-            else:
-                current += sent
-        if current:
-            chunks.append(current + '。')
-        
-        # <p class="taiken-short-para"> で再度ラップ
-        result = ''.join(
-            f'<p class="taiken-short-para">{chunk}</p>\n'
-            for chunk in chunks if chunk.strip()
-        )
-        return result
-    
-    return re.sub(
-        r'<p class="style2">(.*?)</p>',
-        split_paragraph,
-        html,
-        flags=re.DOTALL
-    )
+```bash
+# 変更内容を確認（ドライラン）
+python tools/apply_taiken_ux_improvements.py --validate taiken3.html taiken4.html
+
+# 実際に適用
+python tools/apply_taiken_ux_improvements.py taiken3.html taiken4.html
+
+# すべてのタイケンファイルに適用
+python tools/apply_taiken_ux_improvements.py --all
 ```
 
-**手作業が必要な部分：**
-- Alt テキスト（写真コンテキストが必要）
-- figcaption の内容（段落との整合性）
+#### 機能
+
+- ✓ 段落分割（句点で自動分割、~80-100文字に調整）
+- ✓ `.taiken-short-para` クラス追加
+- ✓ 空の figcaption 検出
+- ✓ 手作業が必要な箇所をレポート
+
+#### 自動化の制限
+
+**注意:** 一部の taiken ファイルは HTML 構造が複雑で、正規表現による自動処理に向きません：
+
+- `<span class="style2">` が `<div>` の中にネストされている
+- `<br/>` タグが複数行にまたがっているケース
+- 閉じ忘れた `</p>` や `</div>` タグ
+
+**推奨アプローチ（ハイブリッド）:**
+
+1. `--validate` で変更内容を確認
+2. HTML 構造が単純な場合のみ自動適用
+3. 複雑な構造の場合は手作業で対応
+4. 自動適用後も必ずブラウザで視認確認
+
+**手作業が必須な部分：**
+- Alt テキスト（写真コンテキストの理解が必要）
+- figcaption の内容（文脈との整合性）
 - .taiken-highlight の配置（感情的ピークの判定）
 
 ---
