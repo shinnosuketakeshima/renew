@@ -279,7 +279,7 @@ def run():
 
         <footer class="taiken-article__foot">
           <div class="taiken-article__actions">
-            <a class="taiken-article__back" href="taiken.html">参加者の声（全件）</a>
+            <a class="taiken-article__back" href="voices.html">参加者の声</a>
           </div>
         </footer>
       </div>

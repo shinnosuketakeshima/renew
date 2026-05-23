@@ -4,42 +4,12 @@ body.page-flow {
   background: var(--color-bg);
 }
 
+body.page-flow #main-content {
+  padding: 0;
+}
+
 .flow-main {
-  max-width: var(--content-max, 1100px);
-  margin: 0 auto;
-  padding: 0 16px calc(var(--section-space) + 1rem);
-}
-
-/* --- ヒーロー --- */
-.flow-hero {
-  padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(1.25rem, 3vw, 2rem);
-  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
-}
-
-.flow-hero__kicker {
-  margin: 0 0 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-heading-sub);
-}
-
-.flow-hero__title {
-  margin: 0 0 0.65rem;
-  font-size: clamp(1.45rem, 3.2vw, 1.9rem);
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--color-primary);
-}
-
-.flow-hero__lead {
-  margin: 0;
-  max-width: 40rem;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--color-text);
+  padding-bottom: calc(var(--section-space) + 1rem);
 }
 
 /* --- 目次（任意） --- */
@@ -217,7 +187,20 @@ body.page-flow {
 
 .flow-top-link {
   margin: 1.5rem 0 0;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.flow-top-link a {
+  color: var(--color-primary);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.flow-top-link a:hover {
+  color: var(--color-link-hover);
 }
 
 .page-flow .srilanka-cta {

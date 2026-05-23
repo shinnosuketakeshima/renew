@@ -162,6 +162,12 @@ body.page-voices #main-content {
   max-width: 36rem;
 }
 
+.page-taiken-index .taiken-index__quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
 .page-taiken-index .taiken-index__quote {
   margin: 0;
   padding: 0;
@@ -229,6 +235,34 @@ body.page-voices #main-content {
   box-shadow: none;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* ピックアップ直後の一覧：セクション padding の二重で間延びしないよう調整 */
+.page-voices #voices-hero.sub-hero {
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.page-voices #voices-pick.voices-section {
+  padding-top: clamp(0.75rem, 2vw, 1.25rem);
+  padding-bottom: clamp(0.35rem, 1vw, 0.65rem);
+}
+
+.page-voices #voices-browse.voices-section {
+  padding-top: clamp(1rem, 2vw, 1.35rem);
+  padding-bottom: var(--voices-y);
+}
+
+.page-voices #voices-browse .voices-faq-hint {
+  margin-bottom: 0.75rem;
+}
+
+.page-voices #voices-browse .voices-toolbar {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.page-voices #voices-browse .taiken-index__blocks {
+  gap: 1.25rem;
 }
 
 .voices-section .layout-container,

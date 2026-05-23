@@ -3,7 +3,19 @@
     "allow": [
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(Start-Process *)",
+      "PowerShell(Start-Process \"http://localhost:8000/taiken18.html\")",
+      "Bash(Get-Content \"D:\\\\github\\\\renew\\\\taiken84.html\")",
+      "Bash(Measure-Object -Line)",
+      "Bash(Get-ChildItem D:\\\\github\\\\renew\\\\taiken*.html)",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(Sort-Object)",
+      "Bash(python *)",
+      "Bash(git checkout *)",
+      "Bash(curl -s http://localhost:8000/taiken18.html)",
+      "Bash(tee /tmp/taiken_validation_report.txt)",
+      "Bash(grep \"^taiken.*\\\\.html$\")"
     ]
   }
 }

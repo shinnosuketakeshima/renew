@@ -10,6 +10,31 @@ This is a full redesign of **be-intl.com** (Beインターナショナル), a Ja
 
 **Not uploaded to production:** `docs/`, `tools/`, `.cursor/`, `.git/`, `README.md`.
 
+## Business Context
+
+**Annual targets:** 20 participants/year total (8 Sri Lanka, 12 Nepal). Nepal growth is a strategic priority.  
+**Monthly inquiry target:** ~11 inquiries/month (measured by 資料請求 submissions).  
+**Key insight:** Increasing inquiry volume is the priority before optimizing conversion rate.
+
+## Target Audience
+
+**Primary (main site axis):** Women aged 30–40, solo travelers. Often at life transitions (career change, sabbatical, divorce, etc.). Primary concerns: safety, total cost, homestay environment, anxiety about solo travel.
+
+**Secondary:** University students/20s, seniors, high-schoolers + parents, volunteer-motivated travelers. Site structure must favor primary audience, but secondary targets are welcome.
+
+**Photos & voice:** Prioritize imagery where a solo woman aged 30–40 can picture herself. Avoid exclusively young/group/couple scenarios.
+
+## Reference Hierarchy & Decision-Making
+
+When in doubt, follow this priority order:
+
+1. **`docs/be-intl-site-redesign-spec.md`** — canonical authority for all product decisions, design specifications, and feature scope.
+2. **`.cursor/rules/project-context.mdc`** — secondary reference for business context, operational rules, and implementation guidance.
+3. **Existing code** — follow the spec; only preserve existing code if it serves live-site stability (postmail system, course data, testimonials, pricing).
+4. **Never change** (see below).
+
+When spec conflicts with existing code, follow the spec — **except** for the non-negotiable constraints listed below.
+
 ## Key Commands
 
 ```powershell
@@ -25,6 +50,24 @@ python tools/rebuild_taiken_index.py
 # Audit all root *.html for SEO issues (canonical, title, description, H1 count, img alt)
 # Exit code 1 if any ERROR-level issue is found; WARNs are non-fatal
 .\tools\seo-audit.ps1
+```
+
+### Pre-Deploy Checklist
+
+Before uploading to production:
+
+```powershell
+# 1. Audit SEO — must return exit code 0 for ERROR-level issues
+.\tools\seo-audit.ps1
+
+# 2. List files to deploy — review tools/last-deploy-list.txt for unintended files
+.\tools\list-deploy-files.ps1
+
+# 3. Verify in browser (mobile + desktop):
+#    - All CTAs link to postmail.html or postmail form works if embedded
+#    - No broken links, images, or resource loads
+#    - Header, footer, nav work on small/large screens
+#    - Testimonials, pricing, forms render correctly
 ```
 
 There is no build step, test suite, or linter configured.
@@ -102,13 +145,14 @@ Every page replicates the same header and footer HTML. There is no server-side i
 
 ## Design and Content Rules
 
-The canonical authority is `docs/be-intl-site-redesign-spec.md` and `.cursor/rules/project-context.mdc`. When the spec conflicts with existing code, **follow the spec**.
-
 ### Hard constraints — never change
 
-- The `postmail` form system: do not replace with another product; do not add or remove form fields; do not add `tel:` links.
-- No SNS/LINE integration, no multilingual pages, no meeting-booking UI, no comparison claims against Western study abroad costs.
-- Country-specific support organizations: **JASRI** for Sri Lanka, **ICEDC** for Nepal — never swap them.
+These are non-negotiable for business, legal, or operational reasons:
+
+- **Form system**: Continue using `postmail`. Do not replace with another product. Do not add, remove, or rename form fields. Do not add `tel:` links (phone numbers only in footer text if present). Form labels must go above their input fields.
+- **Organization references**: **JASRI** for Sri Lanka only; **ICEDC** for Nepal only. Never swap them. This is tied to actual partnerships and cannot change.
+- **Prohibited features**: No SNS/LINE integration, no multilingual pages, no meeting-booking or consultation UI, no cost comparisons against Western study-abroad agencies, no "industry cheapest / No.1" claims.
+- **Live-site data**: Do not remove or significantly thin out testimonials, pricing tables, course options, or participant reports (taiken pages) — these are core trust assets.
 
 ### Hero overlay gradient (left-side readability)
 
@@ -184,17 +228,52 @@ Key rules:
 
 - Nepal is not a downgrade of Sri Lanka — lead with Himalayas, culture, volunteering. **Do not mention comparative weaknesses** (e.g., "no ocean").
 - Primary target: women aged 30–40, solo travellers (life transitions — career change, etc.). Address: safety, total cost, homestay environment, anxiety about solo travel.
+- Secondary targets: university students/20s, seniors, high-schoolers with parents, volunteer-motivated travellers. The site's main axis stays aligned to the primary target.
 - Numbers to carry consistently: 21 years operating, ages 13–73, 7 days from ¥92,000.
 - Business targets: 20 participants/year (Sri Lanka 8, Nepal 12) — Nepal growth is a priority, which is why Nepal content must be strong.
 - No "industry cheapest / No.1" claims.
 - Do not mention meeting/consultation anywhere on the site.
 - Every page must have a clear inquiry (資料請求) call-to-action.
 
+### Core strengths — never diminish
+
+- **Testimonials** (体験者の声): the primary trust asset — never cut or thin out.
+- **Price transparency**: fee table and cost breakdown must remain complete.
+- **Course duration flexibility**: the wide range of duration options is a differentiator — preserve it.
+- **Volunteer component**: unique differentiator for Nepal — keep it prominent.
+- **Participant reports** (taiken pages): real-life evidence of the program — treat as valuable content, not legacy clutter.
+
+### Accessibility
+
+- Contrast must meet WCAG AA (deep navy on ivory satisfies this).
+- All interactive elements must be keyboard-operable.
+- Heading hierarchy H1→H2→H3 — never skip levels or use headings for decoration.
+
 ### Mobile
 
 - 1-column layout on mobile; left/right margin ≥ 16px; body text ≥ 16px on mobile.
 - Tap targets ≥ 44px.
 - Tables: horizontal scroll or card conversion where needed.
+
+## Implementation Priority Order
+
+When planning work on multiple pages, prioritize in this order (later items depend on earlier ones):
+
+1. **Top page** (`index.html`) + **shared header/footer** (`site-header-nav.js`, common footer)
+2. **Country pages**: `srilanka.html`, then `nepal.html` (Nepal content strength is a priority)
+3. **Program/pricing page** (`program.html`)
+4. **Testimonials/voices** (`voices.html` + voice cards across all pages)
+5. **FAQ** (`faq.html`), flow (`process1.html`), volunteer (`volunteer.html`), about (`about.html`)
+6. **Footer-only pages** (privacy, links, etc.) + SEO tuning
+
+### Completion Criteria
+
+- Site is readable and fully functional on mobile (tested in browser, not just responsive view).
+- Main nav is clear and simple; 資料請求 is always accessible.
+- Every page has a clear inquiry call-to-action (resources request link/button).
+- Testimonials and pricing are visible and compelling.
+- Nepal content is not positioned as a downgrade — unique strengths are clear.
+- Single-person maintenance is viable (no complex tooling, no CMS, no abstraction layers required for content updates).
 
 ## Deployment
 
@@ -207,3 +286,11 @@ Old pages must not be deleted without a 301 redirect to the new URL. This is pre
 ## Operational Constraints
 
 The site is maintained by a single person (the owner). Any structural change — new CSS patterns, JS components, page types — must remain simple enough for one non-developer to update. Avoid introducing abstractions or tooling dependencies that raise the maintenance bar.
+
+## Working Style
+
+- Before updating a page, confirm: purpose, target user, primary CTA, required sections.
+- Change one page or one component at a time — not multiple pages in one pass.
+- Before any large change, list what will be modified as a short bullet summary.
+- If you want to add something not in the spec, propose it separately rather than implementing it unilaterally.
+- When creating new UI patterns, first check whether an existing pattern in `home.css` / `index.html` can be reused or extended.

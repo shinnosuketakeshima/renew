@@ -4,10 +4,13 @@ body.page-volunteer {
   background: var(--color-bg);
 }
 
-.volunteer-main {
-  max-width: var(--content-max, 1100px);
-  margin: 0 auto;
-  padding: 0 16px calc(var(--section-space) + 1rem);
+body.page-volunteer #main-content {
+  background: var(--color-bg);
+  padding: 0;
+}
+
+.volunteer-page__body {
+  padding-bottom: var(--section-space);
 }
 
 /* パンくず（voices ページと同系・静かに） */
@@ -223,7 +226,6 @@ body.page-volunteer {
 
 .volunteer-section__intro {
   margin: 0 0 1.1rem;
-  max-width: 44rem;
   font-size: 1.02rem;
   line-height: 1.85;
   color: var(--color-text);
@@ -235,7 +237,6 @@ body.page-volunteer {
 
 .volunteer-conditions {
   margin: 0;
-  max-width: 44rem;
   padding-left: 1.2rem;
   line-height: 1.85;
   font-size: 1.02rem;
@@ -271,16 +272,28 @@ body.page-volunteer {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 600px) {
-  .volunteer-card-grid--2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.volunteer-card-grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
 
-@media (min-width: 900px) {
+.volunteer-card-grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+}
+
+@media (min-width: 68rem) {
   .volunteer-card-grid--3 {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* 日本語本文：語の途中での折り返しを避ける */
+.volunteer-section__intro,
+.volunteer-card p,
+.volunteer-conditions li,
+.volunteer-activity__prose {
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .volunteer-card {

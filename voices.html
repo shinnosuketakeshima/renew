@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/voices.css">
+  <link rel="stylesheet" href="assets/css/legal.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +40,7 @@
   }
   </script>
 </head>
-<body class="page-voices">
+<body class="page-voices page-taiken-index">
   <a class="visually-hidden" href="#main-content">本文へスキップ</a>
 
   <header class="site-header" id="top">
@@ -51,6 +52,7 @@
       <nav class="site-nav" id="primary-nav" aria-label="主要ナビゲーション" data-nav>
         <a href="srilanka.html">スリランカ</a>
         <a href="nepal.html">ネパール</a>
+        <a href="volunteer.html">ボランティア</a>
         <a href="program.html">料金</a>
         <a href="voices.html" aria-current="page">参加者の声</a>
         <a href="living-basics.html">現地生活の基礎知識</a>
@@ -75,18 +77,13 @@
         <div class="sub-hero__panel">
           <p class="sub-hero__kicker">VOICES <span class="hero__kicker-sep" aria-hidden="true">|</span> 実際に参加した人の感想</p>
           <h1 class="hero__title" id="voices-heading">参加者の声</h1>
-          <p class="hero__sub">参加された方の声の一部を、各参加者ページに掲載している体験談から抜粋してご紹介しています。
-年齢や参加スタイルはさまざまです。出発前のイメージづくりの参考にしてください。</p>
+          <p class="hero__sub">さまざまな参加者の中から、出発前のイメージづくりに役立つメッセージをご紹介いたします。 年齢や参加スタイルはさまざま。あなたに近い体験談も、きっと見つかるはずです。</p>
         </div>
       </div>
     </section>
 
-
-    <section class="voices-section" id="voices-pick" aria-labelledby="voices-pick-h">
+    <section class="voices-section" id="voices-pick" aria-label="参加者の声（ピックアップ）">
       <div class="layout-container">
-        <h2 class="voices-section__title" id="voices-pick-h">参加者の声（ピックアップ）</h2>
-        <p class="voices-section__sub">さまざまな参加者の中から、出発前のイメージづくりに役立つメッセージをご紹介いたします。
-年齢や参加スタイルはさまざま。あなたに近い体験談も、きっと見つかるはずです。ここにない参加者の声は、<a href="taiken.html">参加者の声（全件）</a>をご覧ください。</p>
         <ul class="voices-grid voices-grid--pick" role="list">
           <li>
             <article class="voice-card voice-card--featured voice-card--srilanka">
@@ -170,195 +167,399 @@
       </div>
     </section>
 
-    <section class="voices-section" id="voices-browse" aria-labelledby="voices-browse-h">
+    <section class="voices-section" id="voices-browse" aria-labelledby="voices-filter-label">
       <div class="layout-container">
-        <h2 class="voices-section__title" id="voices-browse-h">ふたつの国からの声</h2>
-        <p class="voices-section__sub">スリランカとネパール、それぞれの声の一部を紹介します。ボタンで国の表示を切り替えできます。この欄にない参加者の声は、<a href="taiken.html">参加者の声（全件）</a>をご覧いただけます。</p>
         <p class="voices-faq-hint">費用・安全・一人参加などは<a href="faq.html#faq-priority">よくある質問</a>へ、暮らしや注意点は<a href="living-basics.html">現地生活の基礎知識</a>をご覧ください。</p>
         <div class="voices-toolbar" role="toolbar" aria-label="国の絞り込み">
           <p class="voices-toolbar__label" id="voices-filter-label">国の選択</p>
           <div class="voices-filter" role="group" aria-labelledby="voices-filter-label">
-            <button type="button" class="voices-filter__btn is-active" data-voice-filter="all" aria-pressed="true">全て</button>
-            <button type="button" class="voices-filter__btn" data-voice-filter="srilanka" aria-pressed="false">スリランカ</button>
-            <button type="button" class="voices-filter__btn" data-voice-filter="nepal" aria-pressed="false">ネパール</button>
+            <button type="button" class="voices-filter__btn is-active" data-taiken-filter="all" aria-pressed="true">全て</button>
+            <button type="button" class="voices-filter__btn" data-taiken-filter="srilanka" aria-pressed="false">スリランカ</button>
+            <button type="button" class="voices-filter__btn" data-taiken-filter="nepal" aria-pressed="false">ネパール</button>
           </div>
         </div>
-        <p class="voices-browse__country-h" id="voices-heading-srilanka" role="heading" aria-level="3">スリランカの参加者の声</p>
-        <ul class="voices-grid voices-browse__list" id="voices-browse-list-srilanka" data-voice-browse="srilanka" role="list">
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="tokimatsusama8.jpg" width="400" height="300" alt="時松宏実さまの参加者の声に掲載の写真（スリランカ・ホームステイ先）" decoding="async" loading="lazy">
+        <div class="taiken-index__blocks" id="taiken-index-blocks">
+        <section class="taiken-index__country-block" data-taiken-country="nepal" aria-labelledby="taiken-country-nepal">
+          <h3 class="taiken-index__country-title" id="taiken-country-nepal">ネパール</h3>
+          <div class="legal-table-wrap" role="region" aria-label="ネパールの参加者の声" tabindex="0">
+            <table class="legal-table taiken-index__table">
+              <caption class="visually-hidden">ネパール。参加者と心に残ったこと・一言メッセージ。各参加者の声のページへリンク</caption>
+              <thead>
+                <tr>
+                  <th scope="col">参加者</th>
+                  <th scope="col">心に残ったこと・一言メッセージ<span class="taiken-index__th-sub">（抜粋）</span></th>
+                </tr>
+              </thead>
+              <tbody>
+        <tr>
+          <td class="taiken-index__cell-name">鈴木成さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken82.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">念願叶って訪れた『クラーク記念ヒマラヤ小学校』では、日本語教師として教壇にも立たせていただきました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">福江瑠衣さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken73.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ネパールでの生活は、全てが違っていて、毎日が刺激的でした。 毎日想像以上のことが起こり、一瞬一瞬が私にとって素晴らしい経験となりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">川島美穂さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken69.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">食事も毎回とてもおいしく、日本食が恋しくなることはありませんでした。 ネパールでもう一つの家族を見つけたような気分です。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">大畑佳子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken56.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">個人旅行ではできない小学校でのボランティアやホームステイでの家族との交流、ヨガクラスは、初めてで、何もかも楽しかったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｒ. Ｄさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken46.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホストファミリーから『家族のように思って』と言われ、本当に家族のように接してくれました。別れがつらくて、今思い出しても泣けます。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｍ. Ｓさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken37.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ネパールでのホームステイは、素晴らしくて、感動して、最後は涙涙の別れでした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｎ. Ｔさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken36.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">私の年齢（５６歳）になって、ホームステイは、皆びっくり驚いてます。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｍ. Ｍさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken27.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ネパールの現状をほんの一部ですが実際に見ることができ、多くのことを学べました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">江口千春さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken26.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ケサブ・ロハニさん一家は、とても親切で暖かく、また気をつかってくれました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">高橋法子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken9.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">最初は初めてのことで不安でしたがやっぱり思い切ってやってみて良かった・・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+              </tbody>
+            </table>
               </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">時松 宏実 さま</h3>
-              <p class="voice-card__meta">2019年6〜8月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken77.html">「ホストファミリーは、本当の家族のように接してくれ、まるで実家にいる時のようにリラックスすることができました。」</a></p>
+        </section>
+        <section class="taiken-index__country-block" data-taiken-country="srilanka" aria-labelledby="taiken-country-srilanka">
+          <h3 class="taiken-index__country-title" id="taiken-country-srilanka">スリランカ</h3>
+          <div class="legal-table-wrap" role="region" aria-label="スリランカの参加者の声" tabindex="0">
+            <table class="legal-table taiken-index__table">
+              <caption class="visually-hidden">スリランカ。参加者と心に残ったこと・一言メッセージ。各参加者の声のページへリンク</caption>
+              <thead>
+                <tr>
+                  <th scope="col">参加者</th>
+                  <th scope="col">心に残ったこと・一言メッセージ<span class="taiken-index__th-sub">（抜粋）</span></th>
+                </tr>
+              </thead>
+              <tbody>
+        <tr>
+          <td class="taiken-index__cell-name">Ｕ.Ｓさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken84.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">レッスンでは、スリランカ文化、スリランカ社会についてディスカッションをしました。現地の方に聞くからこそ心に残る話です。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">宍戸亮太さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken83.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">英語の授業は私が今まで体験してきた学校や塾の英語の授業とは全く異なり、スピーキングがメインの授業でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">柴めぐみさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken81.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">英語レッスンは、楽しく学習することができました。低開発村視察では、スパイスや文化を知ることができ勉強になりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">石田智子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken80.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカでのホームステイの経験は、Awesome！！！の一言につきます。本当に本当にスペシャルな時間でした！！！</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｙ. Ｋさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken79.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">私は今回、博士号を取得予定の大学の下見を兼ねて、シンハラ語を修得しようと思い、２回目の参加となりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">仲川涼介さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken78.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">目標にしていた『英語で日常会話ができるようになる』『発音の機構を理解する』『TOEICで800点を超える』も全て達成できたので満足です。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">時松宏実さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken77.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホストファミリーは、本当の家族のように接してくれ、まるで実家にいる時のようにリラックスすることができました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">須藤恵さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken76.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホストファミリーには家族のように接していただき、マーネルさんのスリランカ料理が私の体に合うのか、とっても元気に過ごせました♪</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">清水さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken75.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">今まで私は英語が大嫌いでした。しかし、今回このプログラムに参加して学習したことで英語を学ぶことがとても楽しいと感じました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">大垣孝さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken74.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">今後このような経験ができる機会は少ないと思うので、本当にいい経験ができたと思います。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">青野有利香さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken72.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホストファミリーにもいろんなことを経験させてもらい、想像以上に快適な生活と美味しいご飯に恵まれました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">元村智恵子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken71.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">生活に触れることができたこと、現地の方々と触れ合えたことは、他の観光ツアーでは体験できないかなと思います。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｏ. Ｍさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken70.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカでのホームステイは、楽しかった！の一言につきます。本当によく笑いました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">吉川香織さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken68.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">アメリカとセブ島に留学したことがあり、さらに日本人の少ない環境で英語を学びたいと思いスリランカに決めました。一対一の授業はやはり英語力がのびます。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">鈴木敦さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken67.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">マーネル先生には、英会話はもちろん、食事、旅行のアドバイス等あらゆる点において気を使って頂き、満足しています。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｓ. Iさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken66.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ファミリーの方も面白くて、温かい印象でした。英語だけでなく、スリランカ料理やサリーの着方もおしえ頂きました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">内田育広さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken65.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">身の危険を感じたことは一度もなく、ワラカポラという田舎町だったこともあるのでしょうか、治安が良かったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">谷口生さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken64.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">一人旅の場合は話し相手がいなくて辛い思いをすることもあるのですが、ホームステイだと『とにかく話さないといけない』という気持ちになれるので、今まで体験したことがない感覚でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ａ．Ｉさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken63.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">マンツーマンの英語学習を格安で受けれたのでとても良かったです。 授業の質も普通の語学学校より私は満足感を感じました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">石川学さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken62.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイではレッスン以外も英語を話す機会が多いので、使う単語などが違ってくるなと勉強になりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">宇都喬之さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken61.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホストファミリーのみなさんもこちらが恐縮してしまうくらい親切で、また必ず再会したいと思える出会いでした。トラブルもなく、気持ちよく生活させていただきました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">安齋萌さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken60.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">以前、ロシアに１週間行ったことがありましたが、ロシアや日本と比べるとスリランカはとにかく生活の中心に『自然』があると思いました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｔ. Ｎさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken59.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカでのホームステイは、一生の宝となりました。 今では、スリランカは僕の第二の母国となりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｔ. Ｆさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken58.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">They lived with nature and sustained abundant gifts from nature.</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｓ. Ｍさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken57.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイでは、英語以上に素晴らしいものを得られました。一般的な海外旅行とは全く別の楽しさがありました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">百武郁子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken55.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">The Delft Island was a tiny bleak island. On the Delft Island, there are Navy bases and several tiny fishermen’s hamlets.</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">えみさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken54.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイ先が想像以上に居心地の良いお家で、自宅にいるよりゆったりしていました。お風呂やトイレも清潔でストレスは全くありません。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｔ. Ｆさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken53.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカの親切な人達や美しい自然の中での生活。今まで行ったどの国よりも素晴らしかったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">沼田めぐみさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken52.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">今までで一番印象に残った国です。英会話に料理に観光に、楽しいことづくしの最高の２週間でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">岡本智之さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken51.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">これまでの海外旅行と比べてもとても良かったです。 こういう形ならば相手の国を良く知れるし、しかも安全な気がします。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">石津敬子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken50.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">私は40代で、初めてのホームステイデビューでしたが、ステイ先は、とても日本人を受け入れ慣れていたので、全く問題はありませんでした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">久佐賀真理さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken49.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">自分の人生にとって扉が開いたような気がします。想像以上に内容の濃い1週間でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">米澤出さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken48.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイは、最高でした。今でも思い出すとホームステイ先に帰りたくなります。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｙ. Ｔさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken47.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ツアーなどでは味わえないまた違うスリランカの文化を学ぶことができ、楽しくて本当に帰るのが嫌でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｎ. Ｏさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken45.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカでは家族ぐるみで受け入れてもらい、他の国で体験できなかった家族の絆の大切さを学びました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Masami Yoshidaさま</td>
+          <td class="taiken-index__cell-quote">
+            <div class="taiken-index__quotes">
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken43.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">いかにもアジア！という雑踏と灼熱さと熱気に圧倒されまくり。こういう活気がある国の勢いは、今の日本には無いなぁ～と実感。</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken43.html#6months"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">私は、1年前は全く英語を話せなかった。 でも、スリランカへ渡ってから10ヵ月後、インド資本の会社のスタッフとして、インドで働いています！</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">細田三枝子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken42.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">低開発村視察は、５０年前にタイムスリップしたように、車の騒音も無く、道路は未舗装。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">鈴木珠巴さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken40.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">低開発村視察は、村の方々の目の輝きの美しさと、バイタリティーに感動しました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">加藤夏樹さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken39.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカの低開発村の人たちとの交流や話を聞くことができ、よりスリランカを理解できたかな、と感じました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">北見静英奈さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken38.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">最終日に、家族と別れて日本に帰る時に僕は号泣してしまいました。今までこんなふうに泣いたことはありません。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">麻生美華さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken35.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">今までは欧米の３カ国でホームステイをしたことがあるのですが、スリランカのホームステイは全く別物でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">楊麗莉さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken34.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">食生活は断然健康的でおいしい！！ ひとり旅では知りえない面が学べました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">黒田貴広さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken33.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">常にマンツーマンで英語習得ができるということ、価格、異文化（特にアジア）に触れることができることが数少ない企画であったため、参加を決めました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｋ. Ｏさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken32.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">低開発村視察は普段知ることのできないことを見たり聞いたり、良い体験ができました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｙ. Ｋさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken31.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">あれほど親切な人々が貧困に耐えながらも懸命に生きている、それでも医療の問題などにより苦しんでいるという状況から…</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｍ. Ｔさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken30.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイのママが英語教師のせいか発音はすごくきれいで３人の子供たちも英語がペラペラでした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｒ. Ｋさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken29.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">私はスリランカで、絶対変わらないであろう私のマインドが１８０度変わりました（良い方に）。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">後藤美幸さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken28.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">お母さんとマーネルさん、そしてディル君と私の4人でモデル農場で一泊し、ウシやブタ、ヤギにも触り、最高のリラックスタイムも貰いました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">小林さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken25.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカでのホームステイは、想像よりも快適で、何でもあるし、全てが新鮮で楽しくてしょうがなかったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">山口裕子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken24.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">低開発村視察は、最初『面倒なプログラムで参加しなくてはいけないの？』と思ってましたがこれが一番良かったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">齋藤碧さま</td>
+          <td class="taiken-index__cell-quote">
+            <div class="taiken-index__quotes">
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken23.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">低開発村では、スリランカの人々のホスピタリティーを強く実感しました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="report3.html#1day"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">英語で相手の知らないことを一から相手にわかるように説明する・・・英語能力（特に会話能力）が格段に向上したように思う。</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">三原規枝さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken22.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">（象に）お別れを少し離れたところから言うと、私の方を振りむいて、鼻を持ちあげ “パオーン！”</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">栗田貴世さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken21.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">自然と共に暮らすということ、村の人々は毎日の生活を日々楽しんでいるさまに感じました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">野尻翠さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken20.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">ホームステイを通して、スリランカでの人との関わりの強さを知ることができました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">佐藤仂さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken19.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">輝く目と笑顔で帰ってこれたことは、まるで宝くじに当たったような気分です。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">大塚美紀子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken18.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">世界には色々な生き方がある素敵な人がたくさんいるんだと目の覚める思いでした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">下條好絵さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken17.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">出会った人達が本当にピュアで手つかずの自然を感じにまたスリランカを訪問したい。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｔ．Ｒさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken16.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">スリランカの人は気持ちが熱くて、自分の文化に自信を持っていてすごい。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">石川典子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken15.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">なんと優しく心地良い国なのか！ 私はいつも深呼吸している感じでした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">野田翔子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken14.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">いごこちがよくて仲良くなれたと思うし、もっといたかったです。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">重森翔さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken41.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">オーストラリアでホームステイをしたことがありますが、ここまで親密になれたのも、多くのことを学べたのも、スリランカだけかと思います。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">山中美樹さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken13.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">貧困とは何か、豊かさとは何か、様々なことを学び、考えさせられた。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">吉崎尚史さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken12.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">行ってみて感じたのは『のんびりとしたとても良い雰囲気の国』</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">藤原恵梨菜さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken11.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">アメリカやカナダなどに語学研修に行くよりも、学べることがあると思います。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">清水美奈子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken10.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">普通の旅行では味わえない１歩踏み込んだ体験がしてみたかった・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">松本直素さま</td>
+          <td class="taiken-index__cell-quote">
+            <div class="taiken-index__quotes">
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="report2.html#report"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">このプログラムでは、他の日本人に接する機会が少ないので、英語学習の上では効率的・・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+              <blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="report2.html#report2"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">津波被害の被災地や、被災地の学校を訪問して・・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">徳本雄史さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken7.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">はじめは『スリランカで！？』と思いました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">Ｃ. Ｋさま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken6.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">短い期間にこんなに中身の詰まった体験が出来嬉しく思っています。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">伊東愛さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken5.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">とっても刺激的で勉強になりました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">佐藤晴也さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken4.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">いろいろな人と出会い、文化の違いを体験し、自分なりに考えることも多かった・・・</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">高月美香さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken3.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">象のお世話をするボランティアができました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">菅沼さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken2.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">全てが新鮮で驚きの毎日でした。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+        <tr>
+          <td class="taiken-index__cell-name">金子さま</td>
+          <td class="taiken-index__cell-quote"><blockquote class="taiken-index__quote"><a class="taiken-index__quote-link" href="taiken1.html"><span class="taiken-index__quote-mark">「</span><span class="taiken-index__quote-text">日本の家庭では味わうことのできない経験ができました。</span><span class="taiken-index__quote-mark">」</span></a></blockquote></td>
+        </tr>
+              </tbody>
+            </table>
               </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="SNsama2.jpg" width="400" height="300" alt="清水さまの参加者の声に掲載の写真（スリランカ）" decoding="async" loading="lazy">
+        </section>
+
               </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">清水 さま</h3>
-              <p class="voice-card__meta">2018年11～2019年1月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken75.html">「今まで私は英語が大嫌いでした。しかし、今回このプログラムに参加して学習したことで英語を学ぶことがとても楽しいと感じました。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="aonosama1.jpg" width="400" height="300" alt="青野有利香さまの参加者の声に掲載の写真（スリランカ）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">青野 有利香 さま</h3>
-              <p class="voice-card__meta">2018年9〜10月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken72.html">「ホストファミリーにもいろんなことを経験させてもらい、想像以上に快適な生活と美味しいご飯に恵まれました。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="ogakisama1.jpg" width="400" height="300" alt="大垣孝さまの参加者の声に掲載の写真（スリランカ・シナモン畑）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">大垣 孝 さま</h3>
-              <p class="voice-card__meta">2018年2〜3月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken74.html">「今後このような経験ができる機会は少ないと思うので、本当にいい経験ができたと思います。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="OMsama.jpg" width="400" height="300" alt="Ｏ.Ｍさまの参加者の声に掲載の写真（スリランカ）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">Ｏ.Ｍ さま</h3>
-              <p class="voice-card__meta">2017年10月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken70.html">「スリランカでのホームステイは、楽しかった！の一言につきます。本当によく笑いました。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--srilanka" data-voice-country="srilanka">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="taniguchisama1.jpg" width="400" height="300" alt="谷口生さまの参加者の声に掲載の写真（スリランカ）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">スリランカ</p>
-              <h3 class="voice-card__name">谷口 生 さま</h3>
-              <p class="voice-card__meta">2014年9月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken64.html">「一人旅の場合は話し相手がいなくて辛い思いをすることもあるのですが、ホームステイだと『とにかく話さないといけない』という気持ちになれるので、今まで体験したことがない感覚でした。」</a></p>
-              </div>
-            </article>
-          </li>
-        </ul>
-        <p class="voices-browse__country-h" id="voices-heading-nepal" role="heading" aria-level="3">ネパールの参加者の声</p>
-        <ul class="voices-grid voices-browse__list" id="voices-browse-list-nepal" data-voice-browse="nepal" role="list">
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="tabatasama1.jpg" width="400" height="300" alt="Ｎ.Ｔさまの参加者の声に掲載の写真（ネパール・トレッキング）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">Ｎ.Ｔ さま</h3>
-              <p class="voice-card__meta">2009年8月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken36.html">「私の年齢（５６歳）になって、ホームステイは、皆びっくり驚いてます。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media voice-card__media--contain">
-                <img class="voice-card__img" src="Ohatasama4.jpg" width="400" height="300" alt="大畑佳子さまの参加者の声に掲載の写真（ネパール・ボランティアの様子）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">大畑 佳子 さま</h3>
-              <p class="voice-card__meta">2012年7〜8月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken56.html">「個人旅行ではできない小学校でのボランティアやホームステイでの家族との交流、ヨガクラスは、初めてで、何もかも楽しかったです。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="RDsama2.jpg" width="400" height="300" alt="Ｒ.Ｄさまの参加者の声に掲載の写真（ネパール）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">Ｒ.Ｄ さま</h3>
-              <p class="voice-card__meta">2010年9月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken46.html">「ホストファミリーから『家族のように思って』と言われ、本当に家族のように接してくれました。別れがつらくて、今思い出しても泣けます。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="satomidorisama1.jpg" width="400" height="300" alt="Ｍ.Ｓさまの参加者の声に掲載の写真（ネパール）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">Ｍ.Ｓ さま</h3>
-              <p class="voice-card__meta">2009年8月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken37.html">「ネパールでのホームステイは、素晴らしくて、感動して、最後は涙涙の別れでした。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media voice-card__media--contain">
-                <img class="voice-card__img" src="Muranosama3.jpg" width="400" height="300" alt="Ｍ.Ｍさまの参加者の声に掲載の写真（ネパール・ホストファミリー）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">Ｍ.Ｍ さま</h3>
-              <p class="voice-card__meta">2008年6〜7月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken27.html">「ネパールの現状をほんの一部ですが実際に見ることができ、多くのことを学べました。」</a></p>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="voice-card voice-card--nepal" data-voice-country="nepal">
-              <div class="voice-card__media">
-                <img class="voice-card__img" src="takahashisan1.jpg" width="400" height="300" alt="高橋法子さまの参加者の声に掲載の写真（ネパール）" decoding="async" loading="lazy">
-              </div>
-              <div class="voice-card__body">
-              <p class="voice-card__tag">ネパール</p>
-              <h3 class="voice-card__name">高橋 法子 さま</h3>
-              <p class="voice-card__meta">2005年9月ご参加</p>
-              <p class="voice-card__excerpt"><a class="voice-card__excerpt-link" href="taiken9.html">「最初は初めてのことで不安でしたがやっぱり思い切ってやってみて良かった・・・」</a></p>
-              </div>
-            </article>
-          </li>
-        </ul>
-        
-        <div class="voices-index-cta" style="margin-top: 4rem; text-align: center; padding: 3rem 1.5rem; background: #fff; border-radius: 12px; border: 1px solid rgba(var(--color-primary-rgb), 0.1); box-shadow: 0 10px 40px rgba(0,0,0,0.04); display: flex; flex-direction: column; align-items: center;">
-          <h3 style="margin: 0 0 1rem; font-size: 1.25rem; font-weight: 700; color: var(--color-primary);">もっと多くの体験談を見る</h3>
-          <p style="margin: 0 0 2rem; font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-            Beインターナショナルでは、2004年の設立以来、<br class="mobile-only">
-            多くの方々の「一歩踏み出した」ストーリーを掲載しています。
-          </p>
-          <a class="btn btn--accent" href="taiken.html" style="min-width: 20rem; padding: 1.1rem 2rem; font-size: 1.1rem; justify-content: center; display: inline-flex;">
-            参加者の声（全件）はこちら
-          </a>
-          <p style="margin: 1.5rem 0 0; font-size: 0.9rem; color: var(--color-text-muted);">
-            国、年代、滞在期間などで絞り込んで探せます。
-          </p>
-        </div>
       </div>
     </section>
 
@@ -394,24 +595,20 @@
   <script src="assets/js/site-header-nav.js" defer></script>
   <script>
   (function () {
-    var fBtns = document.querySelectorAll('[data-voice-filter]');
-    var countryLists = {
-      'srilanka': { list: document.getElementById('voices-browse-list-srilanka'), head: document.getElementById('voices-heading-srilanka') },
-      'nepal': { list: document.getElementById('voices-browse-list-nepal'), head: document.getElementById('voices-heading-nepal') }
-    };
+    var fBtns = document.querySelectorAll('[data-taiken-filter]');
+    var countryBlocks = document.querySelectorAll('.taiken-index__country-block[data-taiken-country]');
     fBtns.forEach(function (b) {
       b.addEventListener('click', function () {
-        var f = b.getAttribute('data-voice-filter') || 'all';
+        var f = b.getAttribute('data-taiken-filter') || 'all';
         fBtns.forEach(function (x) {
           var on = x === b;
           x.classList.toggle('is-active', on);
           x.setAttribute('aria-pressed', on ? 'true' : 'false');
         });
-        Object.keys(countryLists).forEach(function (c) {
+        countryBlocks.forEach(function (block) {
+          var c = block.getAttribute('data-taiken-country');
           var show = f === 'all' || c === f;
-          var group = countryLists[c];
-          if (group.list) group.list.hidden = !show;
-          if (group.head) group.head.hidden = !show;
+          block.hidden = !show;
         });
       });
     });

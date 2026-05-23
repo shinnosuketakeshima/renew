@@ -274,6 +274,7 @@ body.page-report {
   margin: 0;
   box-shadow: none;
   border: 0;
+  max-width: 12rem;
 }
 
 .report-prose--muted {
@@ -283,6 +284,31 @@ body.page-report {
 
 .report-mosaic--spaced {
   margin-top: 1.5rem;
+}
+
+/* report2 末尾：病院訪問（写真＋本文を2段で並べる） */
+.report-hospital-visits {
+  margin: 0.75rem 0 1rem;
+}
+
+.report-hospital-visits .report-lead-row {
+  margin-bottom: 0.85rem;
+}
+
+.report-hospital-visits .report-lead-row:last-child {
+  margin-bottom: 0;
+}
+
+.report-hospital-visits .report-prose--muted p {
+  margin-bottom: 0.65rem;
+}
+
+.report-hospital-visits .report-prose--muted p:last-child {
+  margin-bottom: 0;
+}
+
+.report-hospital-visits + .report-prose {
+  margin-top: 0;
 }
 
 .report-prose {
@@ -426,6 +452,9 @@ body.page-report {
 @media (min-width: 640px) {
   .report-lead-row {
     grid-template-columns: minmax(0, 1fr) minmax(10rem, 12rem);
+  }
+  .report-lead-row--img-left {
+    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
   }
 }
 
