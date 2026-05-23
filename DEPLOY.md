@@ -10,7 +10,7 @@
 ### HTML ページ（ルート）
 ```
 index.html
-postmail.html
+postmail.html              (フォーム自体）
 srilanka.html
 nepal.html
 about.html
@@ -25,7 +25,6 @@ privacy.html        (プライバシーポリシー・フッター)
 links.html          (リンク集・フッター)
 others.html         (航空券・保険・フッター)
 site-guide.html     (サイト案内・フッター)
-postmail.html       (資料請求フォーム)
 
 # 体験記事（個別ページ）
 taiken1.html ~ taiken84.html
@@ -55,23 +54,25 @@ assets/js/
   └── card-visited.js    (訪問済みカード)
 ```
 
-### CGI / サーバーサイドシステム
+### CGI / サーバーサイドシステム（postmail/ フォルダ内）
 ```
-postmail.cgi        (フォーム処理メインスクリプト)
-init.cgi            (postmail 設定ファイル)
-check.cgi           (インストール確認スクリプト)
-
-lib/                (CGI 依存モジュール)
-  ├── CGI/
-  ├── Jcode/
-  └── Unicode/
-
-tmpl/               (postmail のテンプレート)
-  ├── conf.html     (確認画面)
-  ├── thanks.html   (完了画面)
-  ├── error.html    (エラー画面)
-  ├── mail.txt      (管理者宛メール)
-  └── reply.txt     (自動返信メール)
+postmail/           (CGI システム全体をこのフォルダに集約)
+  ├── postmail.cgi        (フォーム処理メインスクリプト)
+  ├── init.cgi            (postmail 設定ファイル)
+  ├── check.cgi           (インストール確認スクリプト)
+  ├── lib/                (CGI 依存モジュール)
+  │   ├── CGI/
+  │   ├── Jcode/
+  │   └── Unicode/
+  ├── tmpl/               (postmail のテンプレート)
+  │   ├── conf.html       (確認画面)
+  │   ├── thanks.html     (完了画面)
+  │   ├── error.html      (エラー画面)
+  │   ├── mail.txt        (管理者宛メール)
+  │   └── reply.txt       (自動返信メール)
+  └── data/               (ログ・セッション - 自動生成)
+      ├── log.cgi
+      └── ses.cgi
 ```
 
 ### その他必須ファイル
@@ -187,12 +188,12 @@ conf.html           (ルートの旧ファイル)
 ## 重要な注意
 
 ### lib/ と tmpl/ について
-- **lib/** と **tmpl/** は CGI システムの必須ディレクトリです
-- 本番サーバーで CGI が正常に動作するためには両方必須です
-- アップロード時に忘れずに含めてください
+- **lib/** と **tmpl/** は `postmail/` フォルダ内にあります
+- 本番サーバーでも **postmail/ ディレクトリ全体** をアップロードしてください
+- CGI が正常に動作するためには両方必須です
 
 ### data/ ディレクトリについて
-- **アップロード不要** です
+- **postmail/data/** フォルダも一緒にアップロード してください
 - サーバーが自動生成するログ・セッションファイルを置く場所です
 - サーバー側で以下の権限を設定してください：
   - パーミッション: `755` (CGI スクリプトから書き込み可能)

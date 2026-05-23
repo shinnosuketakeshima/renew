@@ -15,7 +15,12 @@
       "Bash(git checkout *)",
       "Bash(curl -s http://localhost:8000/taiken18.html)",
       "Bash(tee /tmp/taiken_validation_report.txt)",
-      "Bash(grep \"^taiken.*\\\\.html$\")"
+      "Bash(grep \"^taiken.*\\\\.html$\")",
+      "Bash(Test-Path *)",
+      "Bash(python -m http.server 8000)",
+      "Read(//tmp/**)",
+      "Bash(pwsh tools/seo-audit.ps1)",
+      "Bash(echo \"Exit code: $?\")"
     ]
   }
 }

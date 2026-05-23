@@ -30,22 +30,23 @@ docs/                   ❌ アップロード不要（ドキュメント）
   ├── EDIT-POINTS.txt
   └── DEPLOY-FTP.ja.md
 
-lib/                    ✅ アップロード必須（CGI 依存）
-  ├── CGI/
-  ├── Jcode/
-  └── Unicode/
-
-scripts/                ❌ アップロード不要（開発用）
-src/                    ❌ アップロード不要（開発用）
-test2/                  ❌ アップロード不要（テスト用）
-
-tmpl/                   ✅ アップロード必須（CGI テンプレート）
-  ├── conf.html         ✅ 確認画面
-  ├── thanks.html       ✅ 完了画面
-  ├── error.html        ✅ エラー画面
-  ├── mail.txt          ✅ 管理者宛メール
-  ├── reply.txt         ✅ 自動返信
-  └── WS_FTP.LOG        ❌ FTP ログ
+postmail/               ✅ アップロード必須（CGI システム全体）
+  ├── postmail.cgi      ✅ フォーム処理スクリプト
+  ├── init.cgi          ✅ 設定ファイル
+  ├── check.cgi         ✅ 診断スクリプト
+  ├── lib/              ✅ CGI 依存モジュール
+  │   ├── CGI/
+  │   ├── Jcode/
+  │   └── Unicode/
+  ├── tmpl/             ✅ CGI テンプレート
+  │   ├── conf.html     ✅ 確認画面
+  │   ├── thanks.html   ✅ 完了画面
+  │   ├── error.html    ✅ エラー画面
+  │   ├── mail.txt      ✅ メールテンプレート
+  │   └── reply.txt     ✅ 自動返信テンプレート
+  └── data/             ✅ ログ・セッション（自動生成）
+      ├── log.cgi
+      └── ses.cgi
 
 tools/                  ❌ アップロード不要（開発・メンテナンス用）
   ├── test_postmail_live.py
@@ -114,21 +115,22 @@ WS_FTP.LOG             ❌ アップロード不要（FTP ログ）
 
 ### これらはアップロードしてください ✅
 - `assets/` ディレクトリ内の **すべてのファイル**
-- `lib/` ディレクトリ内の **すべてのファイル**（CGI 依存）
-- `tmpl/` ディレクトリ内の **すべてのファイル**（CGI テンプレート）
+- `postmail/` ディレクトリ内の **すべてのファイル・フォルダ**
+  - `postmail/postmail.cgi`, `postmail/init.cgi`, `postmail/check.cgi`
+  - `postmail/lib/` （CGI 依存モジュール）
+  - `postmail/tmpl/` （テンプレート）
+  - `postmail/data/` （ログ・セッションディレクトリ）
 - ルートの `*.html`（taiken1.html ~ taiken84.html を含む）
 - ルートの `*.jpg`, `*.JPG`, `*.gif`（画像）
-- `postmail.cgi`, `init.cgi`, `check.cgi`
 - `robots.txt`, `sitemap.xml`
 
 ### これらはアップロードしないでください ❌
 - `.git/`, `.cursor/`, `.claude/` などのドットフォルダ
 - `docs/`, `tools/`, `scripts/`, `src/`, `test2/`
-- `data/` ディレクトリ（ログ・セッションは自動生成）
 - `Adobe_stock/`, `SriLankaPhotos/`
 - `*.md`, `CLAUDE.md`, `DEPLOY.md` などのドキュメント
 - `WS_FTP.LOG` や他の FTP ログ
-- 旧ファイル（`conf.html` ルート版、`style.css` ルート版など）
+- 旧ファイル（`style.css` ルート版など）
 
 ---
 
@@ -151,16 +153,18 @@ FTP クライアント（FileZilla など）で、以下のディレクトリ・
 ```
 /
 ├── assets/              ← ディレクトリ全体
-├── lib/                 ← ディレクトリ全体
-├── tmpl/                ← ディレクトリ全体
+├── postmail/            ← ディレクトリ全体（CGI システム）
+│   ├── postmail.cgi
+│   ├── init.cgi
+│   ├── check.cgi
+│   ├── lib/
+│   ├── tmpl/
+│   └── data/
 ├── index.html
 ├── postmail.html
 ├── srilanka.html
 ├── nepal.html
 ├── ... (その他ページ HTML)
-├── postmail.cgi
-├── init.cgi
-├── check.cgi
 ├── robots.txt
 ├── sitemap.xml
 └── (すべての .jpg, .JPG, .gif)
@@ -170,13 +174,17 @@ FTP クライアント（FileZilla など）で、以下のディレクトリ・
 
 ## 重要な注意
 
-### CGI システム
-- **`lib/`** と **`tmpl/`** は必ず一緒にアップロードしてください
-- どちらか一方だけでは CGI が正常に動作しません
+### postmail/ ディレクトリ全体が必須
+- **postmail/** ディレクトリ内のすべてのファイル・フォルダをアップロードしてください
+- 以下を含む：
+  - `postmail.cgi`, `init.cgi`, `check.cgi`
+  - `lib/` - CGI 依存モジュール
+  - `tmpl/` - テンプレート（HTML・メール）
+  - `data/` - ログ・セッション用（自動生成）
 
-### data/ ディレクトリ
-- アップロード**不要**です
-- サーバーが自動生成するため、本番サーバーでディレクトリを作成してください
+### data/ ディレクトリについて
+- ローカルからのアップロード不要です（`log.cgi`, `ses.cgi` は本番で自動生成）
+- ただしディレクトリ自体は作成・維持してください
 - パーミッション設定：**755** 以上の書き込み権限が必要
 
 ### ファイルアップロードモード
