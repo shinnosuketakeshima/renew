@@ -10,6 +10,65 @@
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/taiken-article.css">
+  <style>
+    /* taiken18 スマホ最適化改善 */
+    .page-taiken-article.page-taiken-article--srilanka .taiken-article__blocks > div {
+      margin-bottom: 2.5rem;
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-article__blocks > div p {
+      margin-bottom: 1.2em;
+      line-height: 1.95;
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-highlight {
+      background: rgba(240, 235, 227, 0.5);
+      padding: 1.5rem 1.5rem 1.5rem 1rem;
+      border-left: 3px solid var(--color-primary);
+      margin: 2rem 0;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: var(--color-text);
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-fig-row {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-block {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-figure figcaption {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .page-taiken-article.page-taiken-article--srilanka .taiken-short-para {
+      margin-bottom: 1.5em;
+    }
+
+    @media (max-width: 639px) {
+      .page-taiken-article.page-taiken-article--srilanka .taiken-article__blocks > div {
+        margin-bottom: 2rem;
+      }
+
+      .page-taiken-article.page-taiken-article--srilanka .taiken-article__blocks > div p {
+        line-height: 1.9;
+        margin-bottom: 1.1em;
+      }
+
+      .page-taiken-article.page-taiken-article--srilanka .taiken-highlight {
+        padding: 1.25rem 1.25rem 1.25rem 0.85rem;
+        margin: 1.75rem 0;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -91,32 +150,35 @@
 
           <!-- 2. Text block -->
           <div>
-            <p>「今回の旅では、アジアの国で一般の方々と触れ合いを持ちたかったのですが、英語が苦手なため一人では限界があり、ホームステイしながら英語レッスンできるのは理想的でした。また、今回参加できませんでしたが、実費だけで参加できるボランティアプログラムが豊富にあるのも、意欲を感じ信頼できると感じました。</p>
-            <p>現地では、マーネルさんに日々の生活や観光の計画まで、私のわがままに臨機応変に対応して頂き、何不自由なく過ごすことができました。</p>
+            <p class="taiken-short-para">「今回の旅では、アジアの国で一般の方々と触れ合いを持ちたかったのですが、英語が苦手なため一人では限界があり、ホームステイしながら英語レッスンできるのは理想的でした。</p>
+            <p class="taiken-short-para">また、今回参加できませんでしたが、実費だけで参加できるボランティアプログラムが豊富にあるのも、意欲を感じ信頼できると感じました。</p>
+            <p class="taiken-short-para">現地では、マーネルさんに日々の生活や観光の計画まで、私のわがままに臨機応変に対応して頂き、何不自由なく過ごすことができました。</p>
           </div>
 
           <!-- 3. Image left + text right -->
           <div class="taiken-block taiken-block--image-left">
             <figure class="taiken-figure taiken-figure--block">
-              <img src="otsukasama5.jpg" alt="健康的なスパイシーカレー作り♪" loading="lazy">
+              <img src="otsukasama5.jpg" alt="ホームステイでカレー作り体験" loading="lazy">
               <figcaption>健康的なスパイシーカレー作り♪</figcaption>
             </figure>
             <div>
-              <p>ホームステイでは、ご家族の方が常に私の健康状態を気にしてくださり、一日何種類ものカレーを食べ、日本よりも健康に過ごせました。カレーの辛さは頼まなくても調節してくれました。</p>
-              <p>また、スリランカならではの食材、薬など、買い物をしながら紹介してくれました。</p>
+              <p class="taiken-short-para">ホームステイでは、ご家族の方が常に私の健康状態を気にしてくださり、一日何種類ものカレーを食べ、日本よりも健康に過ごせました。</p>
+              <p class="taiken-short-para">カレーの辛さは頼まなくても調節してくれました。また、スリランカならではの食材、薬など、買い物をしながら紹介してくれました。</p>
             </div>
           </div>
 
           <!-- 4. Text block -->
           <div>
-            <p>スリランカでは、人との距離が近い気がします。初対面や年齢が離れていると、日本では遠慮するところがありますが、スリランカでは人もナチュラルで、人見知りな私も驚くほど自然にいられました。そして、細やかな気遣いは日本人に似ていると思います。</p>
+            <p class="taiken-short-para">スリランカでは、人との距離が近い気がします。</p>
+            <p class="taiken-short-para">初対面や年齢が離れていると、日本では遠慮するところがありますが、スリランカでは人もナチュラルで、人見知りな私も驚くほど自然にいられました。</p>
+            <p class="taiken-short-para">そして、細やかな気遣いは日本人に似ていると思います。</p>
           </div>
 
           <!-- 5. Text left + image right -->
           <div class="taiken-block taiken-block--image-right">
             <div>
-              <p>レッスンは 私のスピードに合わせてもらえ、レッスン以外にもご家族の方とたくさん英語でお話でき、短期間でしたが確実にリスニング力がつきました。</p>
-              <p>宿題も無理のないよう考慮して頂き、空いた時間に英語の児童書などを貸してもらえました。</p>
+              <p class="taiken-short-para">レッスンは 私のスピードに合わせてもらえ、レッスン以外にもご家族の方とたくさん英語でお話でき、短期間でしたが確実にリスニング力がつきました。</p>
+              <p class="taiken-short-para">宿題も無理のないよう考慮して頂き、空いた時間に英語の児童書などを貸してもらえました。</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
               <img src="otsukasama4.jpg" alt="ステイ先のテラスで英語レッスン♪" loading="lazy">
@@ -126,8 +188,11 @@
 
           <!-- 6. Text block -->
           <div>
-            <p>会話は、お互いの国のことから個人的なことまで楽しく発展しました。心に残っているのは、スリランカの人は精神の強さを重視していることです。外国の方とこれ程長時間話し合う機会はなかなか得られないと思います。個人的な理解を通して学ぶことができるのも、このプログラムならではだと思います。</p>
-            <p>低開発村視察では、ＴＦＧスタッフの方々と、職業訓練校の卒業生の家を何軒か訪問しました。訓練を受けた後に事業を苦労して起こし、村の人々をも豊かにするため奮闘する姿に、意欲とアイデアさえあれば変わることができるのだなと勇気付けられました。</p>
+            <p class="taiken-short-para">会話は、お互いの国のことから個人的なことまで楽しく発展しました。</p>
+            <div class="taiken-highlight">心に残っているのは、スリランカの人は精神の強さを重視していることです。</div>
+            <p class="taiken-short-para">外国の方とこれ程長時間話し合う機会はなかなか得られないと思います。個人的な理解を通して学ぶことができるのも、このプログラムならではだと思います。</p>
+            <p class="taiken-short-para">低開発村視察では、ＴＦＧスタッフの方々と、職業訓練校の卒業生の家を何軒か訪問しました。</p>
+            <p class="taiken-short-para">訓練を受けた後に事業を苦労して起こし、村の人々をも豊かにするため奮闘する姿に、意欲とアイデアさえあれば変わることができるのだなと勇気付けられました。</p>
           </div>
 
           <!-- 7. Two-photo row -->
@@ -144,7 +209,7 @@
 
           <!-- 8. Text block -->
           <div>
-            <p>また、このような活動を始め、労を惜しまず生き生きと指導しておられるTFGの皆さんに、大変感銘を受けました。</p>
+            <p class="taiken-short-para">また、このような活動を始め、労を惜しまず生き生きと指導しておられるTFGの皆さんに、大変感銘を受けました。</p>
           </div>
 
           <!-- 9. Image left + text right -->
@@ -154,14 +219,15 @@
               <figcaption>ゾウに一人乗りしちゃった♪</figcaption>
             </figure>
             <div>
-              <p>旅行前はスリランカのことをほとんど知らなかったのですが、たくさんの観光地があります。無理を言って、一日でサファリや世界遺産に行かせてもらいました。</p>
+              <p class="taiken-short-para">旅行前はスリランカのことをほとんど知らなかったのですが、たくさんの観光地があります。無理を言って、一日でサファリや世界遺産に行かせてもらいました。</p>
             </div>
           </div>
 
           <!-- 10. Text left + image right -->
           <div class="taiken-block taiken-block--image-right">
             <div>
-              <p>野生の象は迫力がありましたが時々人を襲うこともあるそうで、生き物を大切にする反面の苦労があるとは意外でした。普通の観光旅行では得られないような出会い、経験を通して、予想以上にスリランカの現状や人々の考え方を知る事が出来ました。</p>
+              <p class="taiken-short-para">野生の象は迫力がありましたが時々人を襲うこともあるそうで、生き物を大切にする反面の苦労があるとは意外でした。</p>
+              <p class="taiken-short-para">普通の観光旅行では得られないような出会い、経験を通して、予想以上にスリランカの現状や人々の考え方を知る事が出来ました。</p>
             </div>
             <figure class="taiken-figure taiken-figure--block">
               <img src="otsukasama7.jpg" alt="野生のゾウの群れは驚きの迫力！" loading="lazy">
@@ -171,8 +237,9 @@
 
           <!-- 11. Text block -->
           <div>
-            <p>何より、善意に生き、人のために喜んで行動する、本当に素晴らしい方々と出会えたことが貴重な財産です。世界には色々な生き方がある、素敵な人がたくさんいるんだと、目の覚める思いでした。</p>
-            <p>日本での限られた生活では決してできない出会いの機会を与えてくださった逢坂さんに、とても感謝しています。」</p>
+            <p class="taiken-short-para">何より、善意に生き、人のために喜んで行動する、本当に素晴らしい方々と出会えたことが貴重な財産です。</p>
+            <div class="taiken-highlight">世界には色々な生き方がある、素敵な人がたくさんいるんだと、目の覚める思いでした。</div>
+            <p class="taiken-short-para">日本での限られた生活では決してできない出会いの機会を与えてくださった逢坂さんに、とても感謝しています。」</p>
           </div>
 
           <!-- 12. Two-photo row -->
