@@ -90,6 +90,24 @@ body.page-taiken-article #main-content {
   gap: clamp(1.25rem, 2.5vw, 1.85rem);
 }
 
+/* .taiken-body--blocks 本文：縦の間隔を詰める（body に .page-taiken-blocks-compact） */
+.page-taiken-article.page-taiken-blocks-compact .taiken-article__blocks {
+  gap: 0.7rem;
+}
+
+.page-taiken-article.page-taiken-blocks-compact .taiken-block {
+  gap: 0.65rem 1rem;
+}
+
+.page-taiken-article.page-taiken-blocks-compact .taiken-block__text p,
+.page-taiken-article.page-taiken-blocks-compact .content-area p {
+  margin-bottom: 0.5em;
+}
+
+.page-taiken-article.page-taiken-blocks-compact .story-block {
+  margin: 0;
+}
+
 .page-taiken-article .taiken-block {
   display: grid;
   gap: 1rem 1.25rem;
@@ -156,6 +174,14 @@ body.page-taiken-article #main-content {
 
 .page-taiken-article .taiken-fig-row .taiken-figure {
   margin: 0;
+}
+
+.page-taiken-article .taiken-fig-row__shared-caption {
+  margin: 0.5rem 0 var(--taiken-y);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 /* 図＋隣接テキスト（旧 table レイアウトの置換） */
@@ -390,8 +416,45 @@ body.page-taiken-article--nepal .taiken-body {
   box-sizing: content-box;
 }
 
+/* 写真列：キャプションを画像の下中央に */
+.page-taiken-article .taiken-legacy td:has(img) {
+  text-align: center;
+}
+
+.page-taiken-article .taiken-legacy td:has(img) p,
+.page-taiken-article .taiken-legacy td:has(img) .style2,
+.page-taiken-article .taiken-legacy td:has(img) span.style2 {
+  text-align: center;
+}
+
 .page-taiken-article .taiken-legacy [height="332"] {
   height: auto !important;
+}
+
+/* 旧 table 本文：縦の間隔を詰める（対象ページの body に .page-taiken-legacy-compact を付与） */
+.page-taiken-article.page-taiken-legacy-compact .taiken-legacy > table,
+.page-taiken-article.page-taiken-legacy-compact .taiken-legacy table table {
+  margin-bottom: 0.4rem;
+}
+
+.page-taiken-article.page-taiken-legacy-compact .taiken-legacy p {
+  margin-bottom: 0.5em;
+}
+
+.page-taiken-article.page-taiken-legacy-compact .taiken-legacy td {
+  padding: 0.1rem 0.35rem;
+}
+
+.page-taiken-article.page-taiken-legacy-compact .taiken-legacy img {
+  margin: 0 auto 0.15rem;
+}
+
+@media (min-width: 721px) {
+  .page-taiken-article.page-taiken-legacy-compact
+    .taiken-legacy
+    tr:has(> td:nth-child(1)):has(> td:nth-child(2)) {
+    gap: 0.35rem 0.85rem;
+  }
 }
 
 /* スマホ：2カラム table を積み上げ（原文の前後関係を維持） */
@@ -406,4 +469,21 @@ body.page-taiken-article--nepal .taiken-body {
     height: auto !important;
     box-sizing: border-box;
   }
+}
+
+/* taiken-article__blocks 内での写真・余白の統一 */
+.page-taiken-article .taiken-article__blocks {
+  gap: 1rem;
+}
+
+.page-taiken-article .taiken-article__blocks > .taiken-fig-row {
+  margin-bottom: 0;
+}
+
+.page-taiken-article .taiken-article__blocks .taiken-figure img,
+.page-taiken-article .taiken-article__blocks .taiken-figure--block img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  width: 100%;
+  max-width: 13rem;
 }
