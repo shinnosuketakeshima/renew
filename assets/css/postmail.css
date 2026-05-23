@@ -267,6 +267,87 @@ body.page-postmail {
   color: var(--color-link-hover);
 }
 
+/* 確認画面：入力内容を表示 */
+.postmail-form fieldset p {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--pm-ink);
+  background: #ffffff;
+  border: 1px solid rgba(var(--pm-tq-rgb), 0.15);
+  border-radius: var(--radius-md);
+  word-break: break-word;
+}
+
+/* 完了画面：メッセージ */
+.postmail-thanks {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--pm-ink);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.postmail-thanks p {
+  margin: 0 0 1rem;
+}
+
+.postmail-thanks p:last-of-type {
+  margin-bottom: 1.25rem;
+}
+
+.postmail-thanks p a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* エラー画面：エラーメッセージ */
+.postmail-errors {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: #8b2b1b;
+  background: rgba(200, 80, 50, 0.08);
+  border: 1px solid rgba(200, 80, 50, 0.15);
+  border-radius: var(--radius-md);
+}
+
+.postmail-errors p {
+  margin: 0 0 0.75rem;
+}
+
+.postmail-errors p:last-child {
+  margin-bottom: 0;
+}
+
+.postmail-error-key {
+  font-weight: 600;
+  color: #8b2b1b;
+}
+
+.postmail-error-msg {
+  color: #8b2b1b;
+}
+
+.postmail-back {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.postmail-back:hover {
+  color: var(--color-link-hover);
+}
+
 @media (max-width: 480px) {
   .page-postmail .sub-hero h1.hero__title {
     font-size: clamp(1.35rem, 4.5vw, 1.75rem);
