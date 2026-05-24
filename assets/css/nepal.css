@@ -814,3 +814,20 @@ body.page-nepal #main-content {
   color: var(--color-text-muted);
   white-space: nowrap;
 }
+
+/* 参加者の声：詳細リンク */
+.nepal-voice__links {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.nepal-voice__links a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.nepal-voice__links a:hover {
+  opacity: 0.8;
+}
