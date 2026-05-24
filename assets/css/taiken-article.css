@@ -60,6 +60,23 @@ body.page-taiken-article #main-content {
   font-weight: 600;
 }
 
+.page-taiken-article .taiken-head__jump {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.page-taiken-article .taiken-head__jump a {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.page-taiken-article .taiken-head__jump a:hover {
+  color: var(--color-link-hover);
+}
+
 /* 本文ラッパ */
 .page-taiken-article .taiken-article {
   max-width: min(calc(100% - 32px), var(--content-max, 1100px));
@@ -149,6 +166,7 @@ body.page-taiken-article #main-content {
   width: 100%;
   height: auto;
   margin: 0 auto;
+  object-position: top center;
 }
 
 .page-taiken-article .taiken-block__text--col {
@@ -471,6 +489,21 @@ body.page-taiken-article--nepal .taiken-body {
   }
 }
 
+/* 体験談本文内の続編見出し（例: taiken43 #6months） */
+.page-taiken-article .taiken-article__h2 {
+  margin: 2.75rem 0 1.25rem;
+  padding-top: 0.25rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.page-taiken-article .taiken-article__blocks > .taiken-block:first-child .taiken-article__h2 {
+  margin-top: 0;
+}
+
 /* taiken-article__blocks 内での写真・余白の統一 */
 .page-taiken-article .taiken-article__blocks {
   gap: 1rem;
@@ -500,4 +533,12 @@ body.page-taiken-article--nepal .taiken-body {
 
 .page-taiken-article.page-taiken-blocks-natural .taiken-figure--landscape img {
   max-width: min(18rem, 100%);
+}
+
+/* 縦長写真（ポートレート） */
+.page-taiken-article .taiken-article__blocks .taiken-figure--portrait img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  width: 100%;
+  max-width: 9rem;
 }

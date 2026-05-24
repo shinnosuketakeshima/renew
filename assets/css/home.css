@@ -48,6 +48,35 @@ body.page-home .site-nav a:hover {
   text-underline-offset: 0.3em;
 }
 
+/* トップ: CTA・上へ — 暖色の茶系（ivory 背景と同系統） */
+body.page-home {
+  --color-home-cta-bg: #6b5f52;
+  --color-home-cta-hover: #7d6f62;
+}
+
+body.page-home .site-header__cta.btn--accent,
+body.page-home .hero__actions .btn--accent,
+body.page-home button.back-to-top {
+  background: var(--color-home-cta-bg);
+  color: var(--color-on-primary);
+  box-shadow: none;
+}
+
+body.page-home .site-header__cta.btn--accent:hover,
+body.page-home .hero__actions .btn--accent:hover,
+body.page-home button.back-to-top:hover {
+  background: var(--color-home-cta-hover);
+  color: var(--color-on-primary);
+  opacity: 1;
+}
+
+body.page-home .site-header__cta.btn--accent:focus-visible,
+body.page-home .hero__actions .btn--accent:focus-visible,
+body.page-home button.back-to-top:focus-visible {
+  color: var(--color-on-primary);
+  outline-color: #5c5248;
+}
+
 *,
 *::before,
 *::after {
@@ -930,7 +959,7 @@ body.page-home .hero h1.hero__title {
   margin-bottom: 1.75rem;
 }
 
-/* オレンジ帯: ボタンは白ベース */
+/* 最終 CTA 帯のボタン（トップ以外は従来の白反転） */
 .final-cta__btn .btn--accent {
   min-width: 200px;
   background: #ffffff;

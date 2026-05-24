@@ -75,7 +75,7 @@ $subject = $subject_prefix . $user_name;
 // 送信元(From)はサーバーのドメインに合わせるのが一般的（なりすまし判定回避）
 // 返信先(Reply-To)にユーザーのアドレスを設定
 $from_email = 'info@be-intl.com'; 
-$headers = "From: " . mb_encode_header("Beインターナショナル") . " <{$from_email}>\r\n";
+$headers = "From: " . mb_encode_mimeheader("Beインターナショナル") . " <{$from_email}>\r\n";
 if (!empty($user_email)) {
     $headers .= "Reply-To: {$user_email}\r\n";
 }
@@ -97,7 +97,7 @@ if ($result && !empty($user_email)) {
 }
 
 if ($result) {
-    header("Location: " . $thanks_page);
+    header("Location: https://be-intl.com/test/thanks.html");
     exit;
 } else {
     echo "メールの送信に失敗しました。システム管理者へお問い合わせください。";
