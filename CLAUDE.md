@@ -143,6 +143,25 @@ Every page replicates the same header and footer HTML. There is no server-side i
 
 `site-header-nav.js` is loaded on every page that has a hamburger menu.
 
+### postmail system (CGI contact form)
+
+The contact form runs on Perl CGI. The `postmail/` directory must be uploaded in its entirety:
+
+| Location | Role |
+|---|---|
+| `postmail/postmail.cgi` | Main form handler |
+| `postmail/init.cgi` | Configuration |
+| `postmail/check.cgi` | CGI self-diagnostic (access `/check.cgi` to verify execution) |
+| `postmail/lib/` | Perl module dependencies (CGI/, Jcode/, Unicode/) |
+| `postmail/tmpl/conf.html` | Confirmation page |
+| `postmail/tmpl/thanks.html` | Thank-you page |
+| `postmail/tmpl/error.html` | Error page |
+| `postmail/tmpl/mail.txt` | Admin notification email template |
+| `postmail/tmpl/reply.txt` | Auto-reply email template |
+| `postmail/data/` | Auto-generated log/session files (server-side, do not overwrite) |
+
+The form action in `postmail.html` is `action="./postmail.cgi"` (root-relative). Do not change this path.
+
 ## Design and Content Rules
 
 ### Hard constraints — never change
@@ -150,7 +169,7 @@ Every page replicates the same header and footer HTML. There is no server-side i
 These are non-negotiable for business, legal, or operational reasons:
 
 - **Form system**: Continue using `postmail`. Do not replace with another product. Do not add, remove, or rename form fields. Do not add `tel:` links (phone numbers only in footer text if present). Form labels must go above their input fields.
-- **Organization references**: **JASRI** for Sri Lanka only; **ICEDC** for Nepal only. Never swap them. This is tied to actual partnerships and cannot change.
+- **Organization references**: **JASRI** for Sri Lanka only; **ICEDC** for Nepal only. Never swap them. This is tied to actual partnerships and cannot change. Service-level statements (e.g., "24-hour Japanese support") may be used for both countries, but organization names and location facts must be country-specific.
 - **Prohibited features**: No SNS/LINE integration, no multilingual pages, no meeting-booking or consultation UI, no cost comparisons against Western study-abroad agencies, no "industry cheapest / No.1" claims.
 - **Live-site data**: Do not remove or significantly thin out testimonials, pricing tables, course options, or participant reports (taiken pages) — these are core trust assets.
 
@@ -278,6 +297,8 @@ When planning work on multiple pages, prioritize in this order (later items depe
 ## Deployment
 
 Files are uploaded via FTP directly to the server's document root. The deploy scope is documented in `docs/DEPLOY-FTP.ja.md`. Use `.\tools\list-deploy-files.ps1` to generate the current candidate list before each upload. `docs/`, `tools/`, `.cursor/`, `.git/`, and `README.md` are never uploaded.
+
+**CGI-specific requirements:** Upload `*.cgi` files in **binary mode** (not text mode). After upload, set permissions to **755** via FTP client (e.g., FileZilla → right-click → File permissions). Verify CGI is executing by visiting `https://be-intl.com/check.cgi` — a diagnostic page should appear (not raw Perl source). A 500 error usually means a wrong Perl shebang path (`#!/usr/local/bin/perl`); a text display means permissions are not set to 755.
 
 ## URL Migration
 
