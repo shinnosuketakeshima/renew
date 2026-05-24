@@ -865,3 +865,45 @@ body.page-voices #main-content {
   text-underline-offset: 0.18em;
 }
 
+/* voices.html 固有ボタン色 */
+body.page-voices .site-header__cta.btn--accent {
+  background: #8b4513;
+  color: #f2f2f2;
+  transition: background 0.2s ease, color 0.15s ease;
+}
+
+body.page-voices .site-header__cta.btn--accent:hover {
+  background: #a35218;
+  color: #f2f2f2;
+  opacity: 1;
+}
+
+body.page-voices .voices-filter__btn {
+  background: #edeae6;
+  color: #4a3f35;
+  border-color: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.page-voices .voices-filter__btn:hover {
+  background: #c8a97e;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.page-voices .voices-filter__btn.is-active {
+  background: #d4b483;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.page-voices .voices-filter__btn.is-active:hover {
+  background: #c8a97e;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.page-voices .voices-filter__btn:focus-visible {
+  outline-color: #d4b483;
+}
+

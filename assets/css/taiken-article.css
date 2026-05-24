@@ -29,8 +29,8 @@ body.page-taiken-article #main-content {
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.02em;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: #8b4513;
+  color: #f2f2f2;
   border-left: 6px solid var(--color-accent);
   padding: 0.55rem 1.2rem 0.6rem 1rem;
   border-radius: 12px;
@@ -519,6 +519,13 @@ body.page-taiken-article--nepal .taiken-body {
   object-fit: cover;
   width: 100%;
   max-width: 13rem;
+}
+
+/* 縦向き写真 */
+.page-taiken-article .taiken-article__blocks .taiken-figure--portrait img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
 }
 
 /* 縦長・横長が混在する旧写真（taiken38 等）：3:2 への強制クロップをしない */

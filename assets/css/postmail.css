@@ -209,19 +209,19 @@ body.page-postmail {
 }
 
 .postmail-form input[type="submit"] {
-  color: var(--color-on-primary);
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  color: #f2f2f2;
+  background: #8b4513;
+  border-color: #8b4513;
   box-shadow: none;
 }
 
 .postmail-form input[type="submit"]:hover {
-  background: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
+  background: #a35218;
+  border-color: #a35218;
 }
 
 .postmail-form input[type="submit"]:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid #8b4513;
   outline-offset: 2px;
 }
 
@@ -346,6 +346,16 @@ body.page-postmail {
 
 .postmail-back:hover {
   color: var(--color-link-hover);
+}
+
+.postmail-thanks .btn--accent {
+  background: #8b4513;
+  color: #f2f2f2;
+}
+
+.postmail-thanks .btn--accent:hover {
+  background: #a35218;
+  color: #f2f2f2;
 }
 
 @media (max-width: 480px) {

@@ -9,9 +9,9 @@ $to = 'info@be-intl.com';
 // メールの件名
 $subject_prefix = '【資料請求・お問い合わせ】';
 // 完了後のリダイレクト先
-$thanks_page = 'thanks.html';
+// $thanks_page = 'thanks.html';
 // エラー時の戻り先
-$error_page = 'postmail.html';
+$error_page = 'https://be-intl.com/test/postmail.html';
 
 // 文字コード設定
 mb_language("Japanese");
