@@ -87,7 +87,7 @@
         <p class="postmail-notice" role="note"><span class="postmail-req" aria-hidden="true">＊</span>印の項目は必須です。お手数ですがご入力ください。</p>
 
         <form class="postmail-form" id="postmail-form" action="mail.php" method="post">
-          <input type="hidden" name="need" value="name email email2 郵便番号 ご住所１">
+          <input type="hidden" name="need" value="name email email2 郵便番号 ご住所１ ご住所２">
           <input type="hidden" name="match" value="email email2">
           <input type="hidden" name="sort" value="留学資料 name ふりがな お客様属性 学校名 郵便番号 ご住所１ ご住所２ 携帯電話番号 お電話番号 FAX番号 email お問合わせ内容">
 
@@ -184,7 +184,7 @@
           </fieldset>
 
           <fieldset>
-            <label class="postmail-label" for="postmail-addr2">ご住所２（以降の住所）</label>
+            <label class="postmail-label" for="postmail-addr2">ご住所２（以降の住所）<span class="postmail-req" aria-label="必須">＊</span></label>
             <p class="postmail-hint" id="addr2-hint">番地・建物名は省略せずにご記入ください。</p>
             <textarea name="ご住所２" id="postmail-addr2" rows="4" aria-describedby="addr2-hint"></textarea>
           </fieldset>
@@ -213,7 +213,7 @@
               </div>
               <div>
                 <label class="postmail-label postmail-label--tight" for="postmail-email2">確認のため再入力<span class="postmail-req" aria-label="必須">＊</span></label>
-                <input type="text" name="email2" id="postmail-email2" maxlength="60" inputmode="email" autocomplete="off">
+                <input type="text" name="email2" id="postmail-email2" maxlength="60" inputmode="email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly');">
               </div>
             </div>
             <p class="postmail-hint">同じ内容を2回、半角でご入力ください。</p>

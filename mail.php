@@ -13,9 +13,9 @@ $thanks_page = 'thanks.html';
 // エラー時の戻り先
 $error_page = 'postmail.html';
 
-// 文字コード設定
-mb_language("Japanese");
-mb_internal_encoding("UTF-8");
+// 文字コード設定（フォームは UTF-8。uni で mb_send_mail の JIS 変換を避ける）
+mb_language('uni');
+mb_internal_encoding('UTF-8');
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: " . $error_page);
@@ -74,13 +74,15 @@ $subject = $subject_prefix . $user_name;
 
 // 送信元(From)はサーバーのドメインに合わせるのが一般的（なりすまし判定回避）
 // 返信先(Reply-To)にユーザーのアドレスを設定
-$from_email = 'info@be-intl.com'; 
-$headers = "From: " . mb_encode_mimeheader("Beインターナショナル") . " <{$from_email}>\r\n";
+$from_email = 'info@be-intl.com';
+$headers = 'From: ' . mb_encode_mimeheader('Beインターナショナル', 'UTF-8', 'B') . " <{$from_email}>\r\n";
 if (!empty($user_email)) {
     $headers .= "Reply-To: {$user_email}\r\n";
 }
+$headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+$headers .= "Content-Transfer-Encoding: 8bit\r\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
 $result = mb_send_mail($to, $subject, $body, $headers);
 
