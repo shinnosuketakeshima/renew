@@ -9,9 +9,9 @@ $to = 'info@be-intl.com';
 // メールの件名
 $subject_prefix = '【資料請求・お問い合わせ】';
 // 完了後のリダイレクト先
-// $thanks_page = 'thanks.html';
+$thanks_page = 'thanks.html';
 // エラー時の戻り先
-$error_page = 'https://be-intl.com/test/postmail.html';
+$error_page = 'postmail.html';
 
 // 文字コード設定
 mb_language("Japanese");
@@ -79,7 +79,8 @@ $headers = "From: " . mb_encode_mimeheader("Beインターナショナル") . " 
 if (!empty($user_email)) {
     $headers .= "Reply-To: {$user_email}\r\n";
 }
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 $result = mb_send_mail($to, $subject, $body, $headers);
 
@@ -90,14 +91,17 @@ if ($result && !empty($user_email)) {
     $reply_body .= "この度は、資料請求・お問い合わせをいただき、誠にありがとうございます。\n";
     $reply_body .= "以下の内容で承りました。\n\n";
     $reply_body .= $body;
-    $reply_body .= "\n後ほど担当者よりご連絡させていただきますので、今しばらくお待ちください。\n";
+    $reply_body .= "\n資料をご希望の方には、お送りさせていただきます。\n";
+    $reply_body .= "\nお問い合わせの場合は、確認でき次第に返信させていただきます。\n";
+    $reply_body .= "\n\n";
+    $reply_body .= "\n３日間経っても何も連絡がなかった場合は、何らかの理由でメールが送信されなかった可能性があります。その際には、再度送信いただきますよう、よろしくお願い致します。\n";
     $reply_body .= "\n---\nBeインターナショナル\nURL: https://be-intl.com/\nEmail: info@be-intl.com";
     
     mb_send_mail($user_email, $reply_subject, $reply_body, $headers);
 }
 
 if ($result) {
-    header("Location: https://be-intl.com/test/thanks.html");
+    header("Location: " . $thanks_page);
     exit;
 } else {
     echo "メールの送信に失敗しました。システム管理者へお問い合わせください。";
