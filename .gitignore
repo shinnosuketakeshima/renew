@@ -44,10 +44,11 @@ docs/EDIT-POINTS.txt
 # FTP ログ
 WS_FTP.LOG
 
-# 画像素材・リソース
-Adobe_stock/
+# 画像素材・リソース（FTP 不要・作業用）
+Nepal_photos/
 SriLankaPhotos/
 assets/images/adobe-stock-sources.txt
+FILE-GUIDE.txt
 
 # CGI 関連（postmail システム）は別途管理
 # lib/ - 含める（CGI 依存）

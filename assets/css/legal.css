@@ -35,39 +35,9 @@
   padding: 1.25rem 0 2rem;
 }
 
-.legal-toc {
-  margin: 0 0 1.75rem;
-  padding: 1rem 1.1rem 1.05rem;
-  background: #fff;
-  border: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.12);
-  border-radius: 4px;
-}
+/* 目次: home.css の .page-toc .page-toc--inset（srilanka-toc 基準） */
 
-.legal-toc h2 {
-  margin: 0 0 0.65rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-primary, #2d4a3e);
-}
-
-.legal-toc ol {
-  margin: 0;
-  padding-left: 1.25rem;
-  line-height: 1.65;
-}
-
-.legal-toc a {
-  color: var(--color-text, #2c2c2c);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.legal-toc a:hover,
-.legal-toc a:focus-visible {
-  color: var(--color-primary, #2d4a3e);
-}
-
-.legal-article h2 {
+.legal-article h2:not(.page-toc__title) {
   margin: 2.25rem 0 0.9rem;
   font-size: 1.2rem;
   font-weight: 700;
@@ -77,7 +47,7 @@
   border-top: 1px solid rgba(var(--color-primary-rgb, 45, 74, 62), 0.12);
 }
 
-.legal-article h2:first-of-type,
+.legal-article h2:not(.page-toc__title):first-of-type,
 .legal-article > h2.legal-article__h2--first {
   border-top: 0;
   margin-top: 0;

@@ -169,6 +169,81 @@ a:hover {
   padding-right: 16px;
 }
 
+/* ----- ページ内目次（srilanka-toc / nepal-toc 基準・全下層ページ共通） ----- */
+
+.page-toc {
+  margin: 0;
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-toc .layout-container {
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-toc--inset,
+.legal-toc {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
+}
+
+.page-toc__title,
+.legal-toc > h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.page-toc__list,
+.legal-toc ol {
+  margin: 0;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  columns: 1;
+}
+
+.page-toc__list li,
+.legal-toc ol li {
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
+}
+
+.page-toc__list a,
+.legal-toc a {
+  color: var(--color-text-muted);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.page-toc__list a:hover,
+.page-toc__list a:focus-visible,
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .page-toc__list,
+  .legal-toc ol {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
+
 /* ----- ボタン（高さ 48px 以上・フラット） ----- */
 
 .btn {
@@ -909,21 +984,40 @@ body.page-home .hero h1.hero__title {
 .country-card__body {
   padding: 1.35rem 1.35rem 1.5rem;
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-content: start;
+  min-height: 0;
 }
 
-.country-card p {
+.country-card__body > p:not(.country-card__action) {
   margin: 0 0 1.25rem;
   font-size: 0.93rem;
   color: var(--color-text-muted);
   line-height: 1.85;
-  flex: 1;
+  min-height: 0;
 }
 
-.country-card__cta {
-  margin-top: auto;
-  align-self: flex-start;
+/*
+ * ボタン行：flex 子 + text-align は iOS Safari で左寄せのままになることがある。
+ * grid の justify-self + ボタン自身の margin-inline: auto で中央寄せ（全画面幅共通）。
+ */
+body.page-home .country-card__action {
+  margin: 0;
+  padding: 0;
+  justify-self: center; /* 親が grid のとき */
+  align-self: center; /* 親が flex のとき（古い CSS が残っている場合の保険） */
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+body.page-home .country-card__action .country-card__cta {
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: min(22rem, 100%);
+  margin-inline: auto;
 }
 
 @media (max-width: 700px) {

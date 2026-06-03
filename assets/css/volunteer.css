@@ -171,43 +171,7 @@ body.page-volunteer #main-content {
 }
 
 /* --- 目次 --- */
-.volunteer-toc {
-  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
-  padding: 1.1rem 1.2rem;
-  background: var(--color-bg-elevated);
-  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
-  border-radius: var(--radius-lg);
-}
-
-.volunteer-toc__h {
-  margin: 0 0 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-heading-sub);
-}
-
-.volunteer-toc__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem 1rem;
-}
-
-@media (min-width: 560px) {
-  .volunteer-toc__list {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-
-.volunteer-toc__list a {
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  font-size: 0.98rem;
-}
+/* 目次: home.css の .page-toc（srilanka-toc 基準） */
 
 /* --- セクション --- */
 .volunteer-section {

@@ -2,6 +2,12 @@
 
 body.page-taiken-article {
   --taiken-y: clamp(1.5rem, 3vw, 2.25rem);
+  /* 写真の見え方（全 taiken ページ共通） */
+  --taiken-photo-landscape-max: 16rem;
+  --taiken-photo-portrait-max: 10.5rem;
+  --taiken-photo-col: 16rem;
+  --taiken-photo-pair-max: 34rem;
+  --taiken-photo-radius: 12px;
 }
 
 body.page-taiken-article #main-content {
@@ -132,11 +138,11 @@ body.page-taiken-article #main-content {
 
 @media (min-width: 640px) {
   .page-taiken-article .taiken-block--image-left {
-    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, var(--taiken-photo-col)) minmax(0, 1fr);
   }
 
   .page-taiken-article .taiken-block--image-right {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 13rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--taiken-photo-col));
   }
 
   .page-taiken-article .taiken-block--split-text {
@@ -160,9 +166,6 @@ body.page-taiken-article #main-content {
 }
 
 .page-taiken-article .taiken-figure--block img {
-  max-width: min(13rem, 100%);
-  width: 100%;
-  height: auto;
   margin: 0 auto;
   object-position: top center;
 }
@@ -211,11 +214,11 @@ body.page-taiken-article #main-content {
 
 @media (min-width: 720px) {
   .page-taiken-article .taiken-split--img-text {
-    grid-template-columns: minmax(0, 12rem) 1fr;
+    grid-template-columns: minmax(0, var(--taiken-photo-col)) 1fr;
   }
 
   .page-taiken-article .taiken-split--text-img {
-    grid-template-columns: 1fr minmax(0, 12rem);
+    grid-template-columns: 1fr minmax(0, var(--taiken-photo-col));
   }
 }
 
@@ -229,33 +232,56 @@ body.page-taiken-article #main-content {
   margin-bottom: 0;
 }
 
-/* figure / 画像 */
+/* figure / 画像（サイズは --taiken-photo-* で全ページ統一） */
 .page-taiken-article .taiken-figure {
   margin: 0;
   text-align: center;
 }
 
 .page-taiken-article .taiken-figure img,
-.page-taiken-article .story-block img {
+.page-taiken-article .story-block img,
+.page-taiken-article .image-row img,
+.page-taiken-article .story-gallery-row img {
   display: block;
   width: 100%;
-  max-width: 20rem;
+  max-width: var(--taiken-photo-landscape-max);
   height: auto;
   margin: 0 auto;
-  border-radius: 12px;
-  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border-radius: var(--taiken-photo-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page-taiken-article .taiken-figure--portrait img,
+.page-taiken-article .story-block .taiken-figure--portrait img {
+  max-width: var(--taiken-photo-portrait-max);
+}
+
+.page-taiken-article .taiken-figure--landscape img {
+  max-width: var(--taiken-photo-landscape-max);
 }
 
 .page-taiken-article .taiken-body img {
-  border-radius: 12px;
+  border-radius: var(--taiken-photo-radius);
+}
+
+.page-taiken-article .taiken-fig-row--2 {
+  max-width: min(var(--taiken-photo-pair-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page-taiken-article .taiken-fig-row--2 .taiken-figure img {
-  max-width: 18rem;
+  max-width: 100%;
+  width: 100%;
 }
 
-.page-taiken-article .taiken-figure figcaption {
+.page-taiken-article .taiken-figure figcaption,
+.page-taiken-article .story-block figcaption,
+.page-taiken-article .image-row figcaption,
+.page-taiken-article .image-row-caption {
   margin: 0.6rem 0 0;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -263,14 +289,76 @@ body.page-taiken-article #main-content {
   text-align: center;
 }
 
-.page-taiken-article .taiken-figure--inline img {
-  max-width: 11.25rem;
+/* 旧リファクタ用 story-block / image-row（インライン style より優先） */
+.page-taiken-article .story-block {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 1.2rem 0;
 }
 
-@media (min-width: 720px) {
-  .page-taiken-article .taiken-split--img-text .taiken-figure img,
-  .page-taiken-article .taiken-split--text-img .taiken-figure img {
-    max-width: 11.25rem;
+.page-taiken-article .story-block--reverse {
+  flex-direction: row-reverse;
+}
+
+.page-taiken-article .story-block figure,
+.page-taiken-article .image-row figure {
+  margin: 0;
+  flex: 0 0 var(--taiken-photo-col);
+  max-width: 100%;
+  min-width: 0;
+  text-align: center;
+}
+
+.page-taiken-article .story-block .taiken-figure--portrait,
+.page-taiken-article .story-block figure.taiken-figure--portrait {
+  flex-basis: var(--taiken-photo-portrait-max);
+}
+
+.page-taiken-article .image-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.25rem;
+  margin: 1.2rem auto;
+  max-width: min(var(--taiken-photo-pair-max), 100%);
+  justify-items: center;
+}
+
+@media (min-width: 520px) {
+  .page-taiken-article .image-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-taiken-article .image-row figure {
+    width: 100%;
+    flex: none;
+  }
+}
+
+.page-taiken-article .story-gallery-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.25rem;
+  margin: 0 auto 1.2rem;
+  max-width: min(var(--taiken-photo-pair-max), 100%);
+}
+
+@media (min-width: 520px) {
+  .page-taiken-article .story-gallery-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .page-taiken-article .story-block,
+  .page-taiken-article .story-block--reverse {
+    flex-direction: column;
+  }
+
+  .page-taiken-article .story-block figure,
+  .page-taiken-article .image-row figure {
+    flex-basis: auto;
+    width: 100%;
   }
 }
 
@@ -367,13 +455,13 @@ body.page-taiken-article--nepal .taiken-body {
   .page-taiken-article
     .taiken-legacy
     tr:has(> td:nth-child(1) img):not(:has(> td:nth-child(2) img)) {
-    grid-template-columns: minmax(0, 12.5rem) minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, var(--taiken-photo-col)) minmax(0, 1fr) !important;
   }
 
   .page-taiken-article
     .taiken-legacy
     tr:has(> td:nth-child(2) img):not(:has(> td:nth-child(1) img)) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 12.5rem) !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--taiken-photo-col)) !important;
   }
 
   .page-taiken-article
@@ -419,17 +507,17 @@ body.page-taiken-article--nepal .taiken-body {
   font-size: 0.92rem !important;
 }
 
-/* taiken19 .taiken-figure img（max 20rem）に合わせる。列幅解消後は 100% の上限が実寸を確保 */
 .page-taiken-article .taiken-legacy img {
   display: block;
   width: auto;
-  max-width: min(20rem, 100%);
+  max-width: min(var(--taiken-photo-landscape-max), 100%);
   height: auto;
   margin: 0.35rem auto 0.6rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  box-sizing: content-box;
+  border-radius: var(--taiken-photo-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+  box-sizing: border-box;
+  object-fit: contain;
 }
 
 /* 写真列：キャプションを画像の下中央に */
@@ -511,39 +599,16 @@ body.page-taiken-article--nepal .taiken-body {
   margin-bottom: 0;
 }
 
-.page-taiken-article .taiken-article__blocks .taiken-figure img,
+/* blocks 内の写真も共通トークン（上の .taiken-figure img ルールを継承） */
 .page-taiken-article .taiken-article__blocks .taiken-figure--block img {
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
   width: 100%;
-  max-width: 13rem;
+  max-width: var(--taiken-photo-landscape-max);
 }
 
-/* 縦向き写真 */
 .page-taiken-article .taiken-article__blocks .taiken-figure--portrait img {
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  object-position: center top;
+  max-width: var(--taiken-photo-portrait-max);
 }
 
-/* 縦長・横長が混在する旧写真（taiken38 等）：3:2 への強制クロップをしない */
-.page-taiken-article.page-taiken-blocks-natural .taiken-article__blocks .taiken-figure img,
-.page-taiken-article.page-taiken-blocks-natural .taiken-article__blocks .taiken-figure--block img {
-  aspect-ratio: auto;
-  object-fit: unset;
-  width: auto;
-  max-width: min(13rem, 100%);
-  height: auto;
-}
-
-.page-taiken-article.page-taiken-blocks-natural .taiken-figure--landscape img {
-  max-width: min(18rem, 100%);
-}
-
-/* 縦長写真（ポートレート） */
-.page-taiken-article .taiken-article__blocks .taiken-figure--portrait img {
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  width: 100%;
-  max-width: 9rem;
+.page-taiken-article .taiken-article__blocks .taiken-figure--landscape img {
+  max-width: var(--taiken-photo-landscape-max);
 }
