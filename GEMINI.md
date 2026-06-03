@@ -16,8 +16,9 @@
 - **共通ヘッダー・フッター:** 全ページでHTMLを複製（サーバーサイドインクルードなし）。
 - **フォームシステム:** 既存の `postmail` システムを維持。フィールドの増減や `tel:` リンクの追加は禁止。
 - **SNS連携:** LINEやSNSのボタン配置、外部埋め込みは行わない。
-- **UIトーン:** 「旅」よりも「誰かの日常にお邪魔する」感覚。清潔感のある、静かで贅沢な（Quiet Luxury）エディトリアルデザイン。
-- **SEO:** 各ページに固有の `<title>`, `<meta name="description">`, `<link rel="canonical">` を設定し、JSON-LD（Organization, FAQPage等）を配置する。
+- **UIトーン:** 「旅」よりも「誰かの日常にお邪魔する」感覚。清潔感のある、静かで贅沢な（Quiet Luxury）エディトリアルデザイン。CTAボタンは原則「資料請求・お問合せはこちら」に統一。
+- **SEO / Core Web Vitals:** 各ページに固有の `<title>`, `<meta name="description">`, `<link rel="canonical">` を設定。構造化データは `TravelAgency`（企業情報）、`BreadcrumbList`（パンくず）、`Article`（体験談等）、`Review`（評価・抜粋）、`ItemList`（一覧）などの JSON-LD を厳密に配置する。画像（JPEG/PNG等）は WebP へ一括変換し、CLS対策のため実寸の `width`/`height` 属性を必ず明記する。フォントは非同期（`media="print"` 方式）で読み込む。
+- **体験談の属性表記デザイン:** `taiken1〜84.html` のH1見出しや、`voices.html` の参加者一覧テーブルにおいて、参加者の「属性（年代・性別など）」を表記する際は、名前部分（ゴシック体）とは区別し、小さめの明朝体（`font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif;`）で表示すること。このため専用クラス（`.taiken-head__attr`, `.taiken-index__attr`）を使用する。
 - **カードデザインの統一:** サイト内のカード型要素（体験談、抜粋等）は、以下のスタイルで統一する。
     - **角丸:** 12px (`var(--radius-lg)` 相当)
     - **左の差し色:** 4px のボーダー (`border-left`)。色は主張しすぎないグレー（`#d1d5db` や `rgba(var(--color-primary-rgb), 0.2)`）を基本とする。
@@ -27,6 +28,9 @@
 ```powershell
 # 体験談インデックス (taiken.html) の再生成
 python tools/rebuild_taiken_index.py
+
+# 画像を一括でWebPに変換するスクリプト（※元画像と同階層に生成）
+python tools/convert_to_webp.py
 
 # 本番デプロイ対象ファイルのリスト出力 (tools/last-deploy-list.txt)
 .\tools\list-deploy-files.ps1
