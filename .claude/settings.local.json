@@ -20,7 +20,8 @@
       "Bash(python -m http.server 8000)",
       "Read(//tmp/**)",
       "Bash(pwsh tools/seo-audit.ps1)",
-      "Bash(echo \"Exit code: $?\")"
+      "Bash(echo \"Exit code: $?\")",
+      "PowerShell(cd \"D:\\\\github\\\\renew\"; .\\\\tools\\\\seo-audit.ps1 2>&1 | Where-Object { $_ -match 'ERROR|exit' } | Select-Object -First 10)"
     ]
   }
 }
