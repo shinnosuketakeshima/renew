@@ -1159,13 +1159,13 @@ body.page-home .country-card__action .country-card__cta {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.3rem;
+  font-size: 0.75rem;
   line-height: 1.75;
   color: var(--color-text-muted);
 }
 
 .breadcrumb-nav__list li {
-  font-size: 0.3rem;
+  font-size: 0.75rem;
 }
 
 .breadcrumb-nav__list li + li::before {
