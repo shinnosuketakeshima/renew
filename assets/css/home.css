@@ -1159,7 +1159,7 @@ body.page-home .country-card__action .country-card__cta {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.65rem;
+  font-size: 0.3rem;
   line-height: 1.75;
   color: var(--color-text-muted);
 }
