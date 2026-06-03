@@ -1164,6 +1164,10 @@ body.page-home .country-card__action .country-card__cta {
   color: var(--color-text-muted);
 }
 
+.breadcrumb-nav__list li {
+  font-size: 0.3rem;
+}
+
 .breadcrumb-nav__list li + li::before {
   content: "›";
   margin: 0 0.4em;
