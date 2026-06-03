@@ -1,5 +1,6 @@
-/* Airbnb 風タイポ（Inter + Noto Sans JP）。配色は home.css :root のまま。@import は先頭必須 */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+/* Airbnb 風タイポ（Inter + Noto Sans JP）。配色は home.css :root のまま。 */
+/* フォントは各ページの HTML <head> で非同期ロード（preconnect + media="print" 方式）。
+   @import はレンダリングをブロックするため使用しない。 */
 
 :root {
   --font-sans: "Inter", "Noto Sans JP", sans-serif;

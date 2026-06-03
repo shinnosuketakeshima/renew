@@ -12,7 +12,9 @@
     "taiken63-r.html",
     "taiken63-r_new.html",
     "volunteers - コピー.html",
-    "back-volunteers.html"
+    "back-volunteers.html",
+    "thanks.html",
+    "conf.html"
   ],
   "excludeReasons": {
     "index-legacy.html": "Legacy backup of top page; canonical duplicate risk.",
@@ -22,6 +24,31 @@
     "taiken63-r.html": "Alternate / backup variant of taiken63.",
     "taiken63-r_new.html": "Alternate / backup variant of taiken63.",
     "volunteers - コピー.html": "Duplicate copy filename.",
-    "back-volunteers.html": "Legacy duplicate volunteers page."
-  }
+    "back-volunteers.html": "Legacy duplicate volunteers page.",
+    "thanks.html": "Form completion page; noindex, should not appear in sitemap.",
+    "conf.html": "Legacy postmail confirmation page; noindex, should not appear in sitemap."
+  },
+  "priorities": {
+    "index.html":    { "priority": "1.0", "changefreq": "weekly" },
+    "srilanka.html": { "priority": "0.9", "changefreq": "monthly" },
+    "nepal.html":    { "priority": "0.9", "changefreq": "monthly" },
+    "program.html":  { "priority": "0.8", "changefreq": "monthly" },
+    "voices.html":   { "priority": "0.8", "changefreq": "monthly" },
+    "faq.html":      { "priority": "0.8", "changefreq": "monthly" },
+    "volunteer.html":  { "priority": "0.7", "changefreq": "monthly" },
+    "postmail.html":   { "priority": "0.7", "changefreq": "monthly" },
+    "about.html":      { "priority": "0.6", "changefreq": "yearly" },
+    "process1.html":   { "priority": "0.6", "changefreq": "monthly" },
+    "living-basics.html":          { "priority": "0.6", "changefreq": "monthly" },
+    "english-lesson-syllabus.html":{ "priority": "0.6", "changefreq": "monthly" },
+    "yakkan.html":   { "priority": "0.4", "changefreq": "yearly" },
+    "privacy.html":  { "priority": "0.4", "changefreq": "yearly" },
+    "others.html":   { "priority": "0.4", "changefreq": "yearly" },
+    "site-guide.html": { "priority": "0.4", "changefreq": "yearly" },
+    "recomend.html": { "priority": "0.5", "changefreq": "monthly" }
+  },
+  "defaultPriority": "0.5",
+  "defaultChangefreq": "monthly",
+  "taikenPriority": "0.5",
+  "taikenChangefreq": "yearly"
 }

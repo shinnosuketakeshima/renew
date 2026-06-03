@@ -81,14 +81,29 @@ There is no build step, test suite, or linter configured.
 | `index.html` and other root `*.html` | Production pages |
 | `assets/css/home.css` | Global CSS: CSS custom properties (design tokens), layout, common components |
 | `assets/css/typography.css` | Font imports (Inter + Noto Sans JP via Google Fonts) and type scale |
-| `assets/css/*.css` | Per-page stylesheets (e.g. `faq.css`, `program.css`, `voices.css`) |
+| `assets/css/srilanka.css` / `nepal.css` | Country-page styles |
+| `assets/css/program.css` | Pricing / course page |
+| `assets/css/voices.css` | Testimonials index |
+| `assets/css/faq.css` | FAQ accordion page |
+| `assets/css/volunteer.css` | Volunteer page |
+| `assets/css/flow.css` | `process1.html` — departure flow |
+| `assets/css/postmail.css` | Contact form page |
+| `assets/css/legal.css` | `yakkan.html`, `privacy.html`, `others.html` |
+| `assets/css/report.css` | Participant report list (`voices.html` sub-list) |
+| `assets/css/site-guide.css` | Internal site guide / about pages |
+| `assets/css/taiken-article.css` | Individual experience articles (`taiken1.html`–`taiken84.html`) |
 | `assets/js/site-header-nav.js` | Hamburger menu open/close, keyboard (Escape), aria-expanded |
 | `assets/js/back-to-top.js` | Back-to-top button |
 | `assets/js/faq-accordion.js` | FAQ accordion expand/collapse |
+| `assets/js/card-visited.js` | Marks `.voice-card`, `.home-voices-teaser__card`, `.report-index__card` as visited via localStorage |
 | `assets/images/` | Shared images referenced across multiple pages |
 | `docs/be-intl-site-redesign-spec.md` | Full redesign specification — canonical authority for all product decisions |
 | `docs/oldHP/` | Original legacy site preserved as reference (not served) |
-| `tools/` | Maintenance scripts |
+| `tools/` | Maintenance scripts (see below) |
+
+The `tools/` directory contains two kinds of scripts:
+- **Routine tools** (documented above): `rebuild_taiken_index.py`, `list-deploy-files.ps1`, `generate-sitemap.ps1`, `seo-audit.ps1`
+- **One-time migration scripts** (do not re-run without reviewing): `migrate_taiken_batch1.py`, `convert_taiken_*.py`, `fix_taiken*.py`, `patch_legacy_*.py`, `seo_inject_*.py`, `normalize_footer_block.py`, `restore_taiken_blocks_from_oldhp.py`, etc. These were used during the taiken page migration and should not be run routinely.
 
 ### Page-to-URL mapping (new site structure)
 
