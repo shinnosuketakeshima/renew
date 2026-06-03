@@ -612,3 +612,11 @@ body.page-taiken-article--nepal .taiken-body {
 .page-taiken-article .taiken-article__blocks .taiken-figure--landscape img {
   max-width: var(--taiken-photo-landscape-max);
 }
+
+/* 属性表記（H1） */
+.taiken-head__attr {
+  font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif;
+  font-size: 0.75em;
+  font-weight: 400;
+  margin-left: 0.5em;
+}
