@@ -1146,9 +1146,9 @@ body.page-home .country-card__action .country-card__cta {
 
 /* ----- パンくずリスト ----- */
 .breadcrumb-nav {
-  padding: 0.55rem 0;
+  padding: 1.25rem 0 1.35rem;
+  background: var(--color-bg-elevated);
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-bg);
 }
 
 .breadcrumb-nav__list {
@@ -1159,27 +1159,27 @@ body.page-home .country-card__action .country-card__cta {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
   color: var(--color-text-muted);
-  letter-spacing: 0.02em;
 }
 
 .breadcrumb-nav__list li + li::before {
   content: "›";
   margin: 0 0.4em;
   color: var(--color-border);
-  font-size: 1em;
-  line-height: 1;
 }
 
 .breadcrumb-nav__list a {
   color: var(--color-text-muted);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
-.breadcrumb-nav__list a:hover {
+.breadcrumb-nav__list a:hover,
+.breadcrumb-nav__list a:focus-visible {
   color: var(--color-primary);
-  text-decoration: underline;
 }
 
 .breadcrumb-nav__list [aria-current="page"] {
