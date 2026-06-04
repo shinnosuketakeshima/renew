@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -48,7 +48,43 @@
       text-align: center;
     }
     .story-block {
+      display: block;
       margin: 1.2rem 0;
+    }
+    .story-block figure {
+      margin: 0 auto 1rem;
+      width: fit-content;
+      text-align: center;
+    }
+    .story-block img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .story-block figcaption {
+      margin-top: 0.45rem;
+      color: #355c8a;
+      font-size: 0.95rem;
+    }
+    .story-gallery-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 0 auto 1.2rem;
+      max-width: 36rem;
+    }
+    .story-gallery-row figure {
+      margin: 0;
+      text-align: center;
+    }
+    @media (max-width: 760px) {
+      .story-block figure {
+        width: 100%;
+      }
+      .story-gallery-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -165,7 +201,7 @@
   <main id="main-content">
     <div class="taiken-head">
       <div class="layout-container">
-        <h1 class="taiken-head__h1" id="taiken-h1">菅沼さま <span class="taiken-head__attr">30代女性</span></h1>
+        <h1 class="taiken-head__h1" id="taiken-h1">菅沼さま<span class="taiken-head__attr">（30代女性）</span></h1>
         <ul class="taiken-meta">
           <li><strong>参加国</strong>：スリランカ</li>
           <li><strong>参加時期</strong>：2004年8月ご参加</li>
@@ -177,16 +213,19 @@
       <div class="taiken-body taiken-legacy container">
         <div class="content-area">
           <section class="story-block">
-            <div class="taiken-fig-row taiken-fig-row--2" role="group" aria-label="写真">
-              <figure class="taiken-figure taiken-figure--block">
-                <img src="suganumasama1.webp" width="620" height="435" alt="ホストファミリーとパチリ☆" loading="lazy" decoding="async">
+            <div class="story-gallery-row">
+              <figure>
+                <img src="suganumasama1.webp" width="600" height="402" alt="ホストファミリーとパチリ☆" loading="lazy" decoding="async">
                 <figcaption>ホストファミリーとパチリ☆</figcaption>
               </figure>
-              <figure class="taiken-figure taiken-figure--block">
-                <img src="suganumasama4.webp" width="620" height="465" alt="帰国されてたクマーラ先生に低開発村を案内して頂きました。" loading="lazy" decoding="async">
+              <figure>
+                <img src="suganumasama4.webp" width="600" height="402" alt="帰国されてたクマーラ先生に低開発村を案内して頂きました。" loading="lazy" decoding="async">
                 <figcaption>帰国されてたクマーラ先生に低開発村を案内して頂きました。</figcaption>
               </figure>
             </div>
+          </section>
+
+          <section class="story-block">
             <div>
               <p>「Thank you for offrering me this amazing tour. I enjoyed a lot. <br>
               今回は、現地の方々と交流できる点、スリランカの生活、文化について直に学べる点、英語が学べる点などから、参加を決めました。<br>
@@ -208,21 +247,7 @@
               コロンボで買い物をした時、『スリランカはどう？また来て！』と言われました。<br>
               人々が温かくて、表情豊かで、本当にいい国でした。<br>
               ガンパハでは、日本人が珍しいのか、よくじーっと見られました・・・</p>
-            </div>
-          </section>
 
-          <section class="story-block">
-            <div class="taiken-fig-row taiken-fig-row--2" role="group" aria-label="写真">
-              <figure class="taiken-figure taiken-figure--block">
-                <img src="suganumasama2.webp" width="620" height="465" alt="結婚式のパーティです♪" loading="lazy" decoding="async">
-                <figcaption>結婚式のパーティです♪</figcaption>
-              </figure>
-              <figure class="taiken-figure taiken-figure--block">
-                <img src="suganumasama3.webp" width="620" height="465" alt="インド洋をバックに撮りました。" loading="lazy" decoding="async">
-                <figcaption>インド洋をバックに撮りました。</figcaption>
-              </figure>
-            </div>
-            <div>
               <p>スリランカはイギリス文化の影響を受けており、クリケットが盛んで、英語に関しても米語というよりは、どちらかといえばクイーンズイングリッ シュに近いと思いました。<br>
               是非、またスリランカへ行きたいと思います。<br>
               今回は、英語の授業がちょっと多く感じたので、自由時間がもう少しあれば、このプログラムをまた利用したいです。</p>
@@ -232,15 +257,28 @@
               その他、現地でよく聞かれたのが宗教です。religionという単語と仏教、キリスト教などについて少しは、知識があると良いかと思います。」</p>
             </div>
           </section>
+
+          <section class="story-block">
+            <div class="story-gallery-row">
+              <figure>
+                <img src="suganumasama2.webp" width="600" height="402" alt="結婚式のパーティです♪" loading="lazy" decoding="async">
+                <figcaption>結婚式のパーティです♪</figcaption>
+              </figure>
+              <figure>
+                <img src="suganumasama3.webp" width="600" height="402" alt="インド洋をバックに撮りました。" loading="lazy" decoding="async">
+                <figcaption>インド洋をバックに撮りました。</figcaption>
+              </figure>
+            </div>
+          </section>
         </div>
 
-        <footer class="taiken-article__foot">
-          <div class="taiken-article__actions">
-            <a class="taiken-article__back" href="voices.html">参加者の声</a>
-            
-          </div>
-        </footer>
+        
       </div>
+      <footer class="taiken-article__foot">
+        <div class="taiken-article__actions">
+          <a class="taiken-article__back" href="voices.html">参加者の声</a>
+        </div>
+      </footer>
     </article>
 
     <section class="final-cta final-cta--accent" id="final-cta" aria-labelledby="final-cta-heading">
@@ -256,6 +294,11 @@
 
   <footer class="site-footer--simple" role="contentinfo">
       <div class="layout-container">
+        <address class="site-footer__nap">
+          <span class="site-footer__nap-name">運営会社：Beインターナショナル（Be International）</span>
+          〒151-0072 東京都渋谷区幡ヶ谷1-23-19 サンハイムミヤタ2F<br>
+          TEL: 03-6770-6191　E-mail: <a href="mailto:info@be-intl.com">info@be-intl.com</a>
+        </address>
         <a href="index.html">トップ</a>
         <a href="site-guide.html">サイト案内</a>
         <a href="about.html">会社概要</a>
@@ -273,5 +316,8 @@
   <script src="assets/js/card-visited.js" defer></script>
 </body>
 </html>
+
+
+
 
 

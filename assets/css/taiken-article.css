@@ -613,6 +613,16 @@ body.page-taiken-article--nepal .taiken-body {
   max-width: var(--taiken-photo-landscape-max);
 }
 
+/* 本文ブロック内の横長写真（縦長ファイルでも横枠で表示） */
+.page-taiken-article .taiken-block .taiken-figure--landscape.taiken-figure--block img {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* 属性表記（H1） */
 .taiken-head__attr {
   font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif;

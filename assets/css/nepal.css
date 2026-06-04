@@ -480,6 +480,33 @@ body.page-nepal #main-content {
   border-top: 1px solid var(--color-border);
 }
 
+.nepal-section .nepal-detail h4.nepal-detail__h {
+  margin: 1.1rem 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text);
+  letter-spacing: 0em;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+#nepal-hs-example + p + h4.nepal-detail__h {
+  margin-top: 0.9rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.nepal-section .nepal-detail h3.nepal-detail__h:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.nepal-section .nepal-detail {
+  margin-top: 1.5rem;
+}
+
 /* ================ 料金カード ================ */
 
 .nepal-price {
@@ -776,6 +803,7 @@ body.page-nepal #main-content {
 
 .nepal-icedc__portrait {
   display: block;
+  width: min(12.5rem, 100%);
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
@@ -783,20 +811,36 @@ body.page-nepal #main-content {
   border: 1px solid var(--color-border);
 }
 
+@media (min-width: 640px) {
+  .nepal-icedc__portrait {
+    width: min(14.5rem, 100%);
+  }
+}
+
 .nepal-icedc-scenes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem 1rem;
   margin: 1.25rem 0 0;
+  max-width: 100%;
+}
+
+@media (min-width: 520px) {
+  .nepal-icedc-scenes {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .nepal-icedc-scenes img {
   display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
+  aspect-ratio: 180 / 130;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ================ 言語テーブル ================ */
