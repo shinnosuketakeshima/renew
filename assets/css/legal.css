@@ -82,6 +82,19 @@
   margin-bottom: 0.35rem;
 }
 
+.legal-article ol.legal-article__ol--paren {
+  list-style: none;
+  counter-reset: legal-paren;
+}
+
+.legal-article ol.legal-article__ol--paren > li {
+  counter-increment: legal-paren;
+}
+
+.legal-article ol.legal-article__ol--paren > li::before {
+  content: "（" counter(legal-paren) "）";
+}
+
 .legal-article__note {
   font-size: 0.95rem;
   line-height: 1.7;
