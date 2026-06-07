@@ -494,3 +494,197 @@ body.page-report {
   color: var(--color-text-muted);
   text-align: center;
 }
+
+/* --- 留学コラム --- */
+.page-column,
+.page-columns {
+  --column-font: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+}
+
+.page-column .report-main,
+.page-column .breadcrumb-nav,
+.page-columns .report-main,
+.page-columns .breadcrumb-nav {
+  font-family: var(--column-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-column .report-hero,
+.page-columns .report-hero {
+  padding-bottom: clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+  border-bottom: none;
+}
+
+.page-column .report-hero__kicker,
+.page-columns .report-hero__kicker {
+  font-family: var(--font-sans, "Noto Sans JP", sans-serif);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--color-text-muted);
+}
+
+.page-column .report-hero__title,
+.page-columns .report-hero__title {
+  font-weight: 600;
+  font-size: clamp(1.28rem, 3vw, 1.55rem);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.page-column .report-hero__meta,
+.page-columns .report-hero__meta {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.page-column .report-toc {
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: 0 0 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed rgba(var(--color-primary-rgb), 0.18);
+  border-radius: 0;
+  font-family: var(--font-sans, "Noto Sans JP", sans-serif);
+}
+
+.page-column .report-toc__h {
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.page-column .report-toc__list a {
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.page-column .report-toc__list a:hover {
+  text-decoration: underline;
+}
+
+.page-column .column-prose {
+  max-width: 42rem;
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: #3f444c;
+  letter-spacing: 0.02em;
+}
+
+.page-column .column-prose p {
+  margin-bottom: 1.15rem;
+}
+
+.page-column .column-prose a {
+  font-weight: 500;
+}
+
+.page-column .column-prose .report-section__h {
+  margin-top: clamp(2rem, 3.5vw, 2.5rem);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  font-family: var(--font-sans, "Noto Sans JP", sans-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: #4a5058;
+}
+
+.page-column .column-prose .report-section__h:first-of-type {
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.page-column .column-lead {
+  font-size: 1.06rem;
+  line-height: 2.1;
+  color: #3d4349;
+}
+
+.page-column .column-back {
+  max-width: 42rem;
+  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+  font-size: 0.92rem;
+}
+
+.page-column .column-back a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.page-column .column-back a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.page-columns .report-index__intro {
+  max-width: 42rem;
+  font-size: 1rem;
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  color: #3f444c;
+}
+
+.page-columns .column-index__country-h {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: #4a5058;
+  border-bottom: 1px dashed rgba(var(--color-primary-rgb), 0.18);
+}
+
+.page-columns .column-index__note {
+  font-size: 0.96rem;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+.page-columns .report-index__card-k {
+  font-family: var(--font-sans, "Noto Sans JP", sans-serif);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.page-columns .report-index__card-t {
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  text-wrap: pretty;
+}
+
+.page-columns .report-index__card-s {
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
+.column-index-section {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+}
+
+.column-index-section:first-of-type {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.column-index__country-h {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.15);
+}
+
+.column-index__note {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}

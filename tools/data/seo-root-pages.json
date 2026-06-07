@@ -40,6 +40,8 @@
     "about.html":      { "priority": "0.6", "changefreq": "yearly" },
     "process1.html":   { "priority": "0.6", "changefreq": "monthly" },
     "living-basics.html":          { "priority": "0.6", "changefreq": "monthly" },
+    "columns.html":                { "priority": "0.7", "changefreq": "monthly" },
+    "column-nepal-english.html":   { "priority": "0.7", "changefreq": "yearly" },
     "english-lesson-syllabus.html":{ "priority": "0.6", "changefreq": "monthly" },
     "yakkan.html":   { "priority": "0.4", "changefreq": "yearly" },
     "privacy.html":  { "priority": "0.4", "changefreq": "yearly" },

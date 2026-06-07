@@ -56,12 +56,7 @@ body.page-nepal #main-content {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    108deg,
-    rgba(247, 245, 240, 0.97) 0%,
-    rgba(247, 245, 240, 0.62) 36%,
-    rgba(28, 28, 40, 0.08) 100%
-  );
+  background: var(--hero-ivory-overlay);
 }
 
 .nepal-hero__row {
@@ -72,7 +67,7 @@ body.page-nepal #main-content {
 
 /* パネル: 透明 — home / srilanka と同方式 */
 .nepal-hero__panel {
-  background: rgba(240, 235, 227, 0.25);
+  background: var(--hero-panel-bg);
   padding: 2rem 2.25rem 2.25rem 1.75rem;
   max-width: 32rem;
   border-radius: 1.5rem;
@@ -109,7 +104,6 @@ body.page-nepal #main-content {
 }
 
 .nepal-hero .hero__sub {
-  color: var(--color-text-muted);
   max-width: 36rem;
 }
 
