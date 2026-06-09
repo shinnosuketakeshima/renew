@@ -19,7 +19,7 @@
     });
   }
 
-  ['.voice-card', '.home-voices-teaser__card', '.report-index__card'].forEach(function (sel) {
+  ['.voice-card', '.home-voices-teaser__card', '.report-index__card', '.column-index__card'].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(initCard);
   });
 })();
