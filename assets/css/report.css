@@ -502,9 +502,7 @@ body.page-report {
 }
 
 .page-column .report-main,
-.page-column .breadcrumb-nav,
-.page-columns .report-main,
-.page-columns .breadcrumb-nav {
+.page-columns .report-main {
   font-family: var(--column-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -756,6 +754,19 @@ body.page-report {
   background: #e8ecef;
 }
 
+.column-index__card--srilanka .column-index__card-media {
+  background: var(--color-text);
+}
+
+.column-index__card--srilanka .column-index__card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(26, 22, 18, 0.04) 0%, rgba(26, 22, 18, 0.16) 100%);
+  pointer-events: none;
+}
+
 .column-index__card-img {
   display: block;
   width: 100%;
@@ -764,12 +775,18 @@ body.page-report {
   transition: transform 0.4s ease;
 }
 
+.column-index__card--srilanka .column-index__card-img {
+  filter: brightness(0.94) contrast(1.10) saturate(1.08);
+  object-position: center 42%;
+}
+
 .column-index__card:hover .column-index__card-img {
   transform: scale(1.04);
 }
 
 .column-index__card-badge {
   position: absolute;
+  z-index: 2;
   top: 0.65rem;
   left: 0.65rem;
   padding: 0.2rem 0.55rem;
