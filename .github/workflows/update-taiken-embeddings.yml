@@ -1,0 +1,56 @@
+name: Update Taiken Embeddings
+
+on:
+  push:
+    paths:
+      - 'taiken[0-9]*.html'
+    branches:
+      - main
+
+jobs:
+  vectorize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-vectorize.txt
+
+      - name: Detect changed taiken file
+        id: detect
+        run: |
+          CHANGED=$(git diff HEAD~1 --name-only | grep -E 'taiken[0-9]+\.html' | head -1)
+          if [ ! -z "$CHANGED" ]; then
+            NUM=$(echo $CHANGED | grep -oE '[0-9]+' | head -1)
+            echo "TAIKEN_NUMBER=$NUM" >> $GITHUB_OUTPUT
+            echo "Changed file: taiken${NUM}.html"
+          else
+            echo "No taiken file detected"
+          fi
+
+      - name: Run vectorization
+        if: steps.detect.outputs.TAIKEN_NUMBER
+        run: |
+          python tools/vectorize_taiken.py --taiken-number ${{ steps.detect.outputs.TAIKEN_NUMBER }}
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Notify on success
+        if: steps.detect.outputs.TAIKEN_NUMBER
+        run: |
+          echo "✅ Taiken ${{ steps.detect.outputs.TAIKEN_NUMBER }} vectorized and uploaded."
+
+      - name: Notify if no file detected
+        if: !steps.detect.outputs.TAIKEN_NUMBER
+        run: |
+          echo "⏭️  No taiken file change detected. Skipping vectorization."
