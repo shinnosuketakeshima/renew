@@ -195,6 +195,8 @@ serve(async (req: Request) => {
       );
     }
 
+    console.log(`[chat_question] ${new Date().toISOString()} | ${question}`);
+
     // 1. Embed the question
     const questionEmbedding = await embedText(question);
 
