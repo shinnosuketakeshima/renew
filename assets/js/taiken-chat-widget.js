@@ -7,7 +7,7 @@ class TaikenChatWidget {
   constructor(options = {}) {
     this.isOpen = false;
     this.messages = [];
-    this.apiUrl = options.apiUrl || "/functions/v1/taiken-chat";
+    this.apiUrl = options.apiUrl || "https://oeqohmudfaisdnsikziy.supabase.co/functions/v1/taiken-chat";
     this.isLoading = false;
 
     // Example prompts (in Japanese)
@@ -120,7 +120,10 @@ class TaikenChatWidget {
     try {
       const response = await fetch(this.apiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lcW9obXVkZmFpc2Ruc2lreml5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjY4ODEsImV4cCI6MjA5NjcwMjg4MX0.cfTJEJHOUmQVrizBwismc2AsXZ4d0L5-Nwhoesm_jx4"
+        },
         body: JSON.stringify({ question: text })
       });
 

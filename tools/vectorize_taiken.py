@@ -205,7 +205,7 @@ def embed_text(text: str) -> List[float]:
     """
     Generate embedding using Google Generative AI.
 
-    Uses the embedding-001 model which returns 1536-dimensional vectors.
+    Uses the gemini-embedding-001 model which returns 1536-dimensional vectors.
 
     Args:
         text: Text to embed (title + body combined)
@@ -221,9 +221,10 @@ def embed_text(text: str) -> List[float]:
 
     try:
         result = genai.embed_content(
-            model="models/embedding-001",
+            model="models/gemini-embedding-001",
             content=text,
-            task_type="RETRIEVAL_DOCUMENT"
+            task_type="RETRIEVAL_DOCUMENT",
+            output_dimensionality=1536
         )
         return result["embedding"]
     except Exception as e:

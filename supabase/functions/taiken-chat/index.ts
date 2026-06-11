@@ -108,8 +108,8 @@ function createLLMProvider(): LLMProvider {
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const supabase = createClient(
-  Deno.env.get("SUPABASE_URL") || "",
-  Deno.env.get("SUPABASE_ANON_KEY") || ""
+  Deno.env.get("SUPABASE_URL") || "https://oeqohmudfaisdnsikziy.supabase.co",
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lcW9obXVkZmFpc2Ruc2lreml5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTEyNjg4MSwiZXhwIjoyMDk2NzAyODgxfQ.UlS4fJWmZuRV2z_f3A90-ioT3mUwmtDJiAHHSk3Y0qA"
 );
 
 // Embed text using Google Generative AI
@@ -118,14 +118,15 @@ async function embedText(text: string): Promise<number[]> {
   if (!apiKey) throw new Error("Missing GOOGLE_API_KEY");
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${apiKey}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "models/embedding-001",
+        model: "models/gemini-embedding-001",
         content: { parts: [{ text }] },
-        taskType: "RETRIEVAL_QUERY"
+        taskType: "RETRIEVAL_QUERY",
+        outputDimensionality: 1536
       })
     }
   );
@@ -154,16 +155,33 @@ async function searchTaiken(embedding: number[], matchCount: number = 5, thresho
   return data || [];
 }
 
+// CORS headers
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
 // Main handler
 serve(async (req: Request) => {
+  // Handle CORS preflight
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
+  }
+
   try {
+    console.log("Function invoked");
+    console.log("SUPABASE_URL:", Deno.env.get("SUPABASE_URL") ? "set" : "not set");
+    console.log("SUPABASE_SERVICE_ROLE_KEY:", Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ? "set" : "not set");
+    console.log("GOOGLE_API_KEY:", Deno.env.get("GOOGLE_API_KEY") ? "set" : "not set");
+
     // Parse request
     const { question } = await req.json();
 
     if (!question) {
       return new Response(
         JSON.stringify({ error: "Missing 'question' field" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
@@ -179,7 +197,7 @@ serve(async (req: Request) => {
           answer: "関連する体験が見つかりませんでした。別の質問をお試しください。",
           sources: []
         }),
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
@@ -216,14 +234,22 @@ Keep responses to 2-3 paragraphs.`;
 
     return new Response(
       JSON.stringify({ answer, sources }),
-      { headers: { "Content-Type": "application/json" } }
+      { headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
 
   } catch (error) {
-    console.error(error);
+    console.error("Error:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return new Response(
-      JSON.stringify({ error: error.message }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      JSON.stringify({
+        error: errorMessage,
+        debug: {
+          hasSupabaseUrl: !!Deno.env.get("SUPABASE_URL"),
+          hasServiceRoleKey: !!Deno.env.get("SUPABASE_SERVICE_ROLE_KEY"),
+          hasGoogleKey: !!Deno.env.get("GOOGLE_API_KEY")
+        }
+      }),
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 });
