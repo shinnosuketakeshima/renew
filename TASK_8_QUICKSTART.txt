@@ -1,0 +1,197 @@
+================================================================================
+TASK 8 QUICKSTART: Deploy taiken-chat Edge Function
+================================================================================
+
+STATUS: Ready for Deployment
+LOCATION: supabase/functions/taiken-chat/
+DOCUMENTATION: See TASK_8_DEPLOYMENT_GUIDE.txt for full instructions
+
+================================================================================
+ONE-MINUTE DEPLOYMENT CHECKLIST
+================================================================================
+
+Before you start:
+  [ ] Supabase CLI installed (npm install -g supabase)
+  [ ] Google API Key with Generative AI enabled
+  [ ] Supabase project URL and Anon Key ready
+  [ ] Task 4 completed (taiken_experiences table populated)
+
+Deployment command sequence:
+  1. supabase login
+  2. supabase link --project-ref your-project-ref
+  3. (Go to Supabase Dashboard > Project Settings > Functions)
+  4. Add these 4 secrets:
+     - SUPABASE_URL
+     - SUPABASE_ANON_KEY
+     - GOOGLE_API_KEY
+     - LLM_PROVIDER=gemini
+  5. (In Supabase SQL Editor) Run migration:
+     supabase/migrations/20260611_create_match_taiken_experiences.sql
+  6. supabase functions deploy taiken-chat
+  7. Test with curl (see TESTING SECTION below)
+
+Expected output from deploy:
+  ✓ Function deployed successfully
+    Endpoint: https://your-project.supabase.co/functions/v1/taiken-chat
+
+================================================================================
+QUICK TESTING
+================================================================================
+
+Test your deployed function:
+
+curl -X POST https://your-project.supabase.co/functions/v1/taiken-chat \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-anon-key" \
+  -d '{"question": "スリランカでの安全性について"}'
+
+Expected response:
+{
+  "answer": "...",
+  "sources": [{"title": "...", "number": 1, ...}]
+}
+
+If you get no sources: Run python tools/vectorize_taiken.py first
+
+================================================================================
+KEY FILES
+================================================================================
+
+Edge Function Implementation:
+  - supabase/functions/taiken-chat/index.ts
+
+Database RPC Function:
+  - supabase/migrations/20260611_create_match_taiken_experiences.sql
+
+Tests:
+  - supabase/functions/taiken-chat/test.ts
+
+Full Documentation:
+  - TASK_8_DEPLOYMENT_GUIDE.txt (detailed)
+  - TASK_8_COMPLETION_SUMMARY.txt (overview)
+
+================================================================================
+ENVIRONMENT VARIABLES
+================================================================================
+
+Required for Supabase Function (set in Project Settings > Functions):
+
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key-value
+GOOGLE_API_KEY=your-google-api-key
+LLM_PROVIDER=gemini
+
+Optional:
+DEEPSEEK_API_KEY=... (only if using DeepSeek instead of Gemini)
+
+================================================================================
+API ENDPOINT AFTER DEPLOYMENT
+================================================================================
+
+URL: https://your-project.supabase.co/functions/v1/taiken-chat
+Method: POST
+Content-Type: application/json
+
+Request:
+{
+  "question": "Your question in Japanese"
+}
+
+Response (Success):
+{
+  "answer": "Generated response",
+  "sources": [
+    {
+      "title": "...",
+      "number": 1,
+      "url": "/taiken1.html",
+      "excerpt": "...",
+      "country": "Sri Lanka",
+      "age": 35,
+      "year": 2024,
+      "similarity": 0.85
+    }
+  ]
+}
+
+Response (No Results):
+{
+  "answer": "関連する体験が見つかりませんでした...",
+  "sources": []
+}
+
+Response (Error):
+{
+  "error": "Error message"
+}
+
+================================================================================
+COMMON ISSUES & FIXES
+================================================================================
+
+Deployment fails:
+  → supabase login && supabase link --project-ref your-ref
+
+401 Unauthorized when testing:
+  → Check anon key in Authorization header (Project Settings > API)
+
+500 Internal Server Error:
+  → Verify all 4 secrets set in Supabase dashboard
+
+"No matching experiences found":
+  → Run: python tools/vectorize_taiken.py
+  → Verify: SELECT COUNT(*) FROM taiken_experiences; (in SQL Editor)
+
+Embedding API error:
+  → Create/update Google API Key
+  → Enable Generative AI API in Google Cloud Console
+
+================================================================================
+WHAT THE FUNCTION DOES
+================================================================================
+
+1. Takes a question in Japanese
+2. Converts it to a vector (embedding)
+3. Searches taiken_experiences table for similar experiences
+4. Builds context from top 5 matches
+5. Generates a response using Google Gemini or DeepSeek
+6. Returns answer + source citations
+
+Response time: 3-6 seconds (normal for AI generation)
+
+================================================================================
+ARCHITECTURE
+================================================================================
+
+RAG Pipeline:
+  Question
+    ↓
+  [Embed via Google Generative AI] → 1536-dim vector
+    ↓
+  [Search via Supabase pgvector RPC] → Top 5 matches (cosine similarity)
+    ↓
+  [Build context from results]
+    ↓
+  [Generate response via LLM] → Gemini or DeepSeek
+    ↓
+  [Return answer + sources]
+
+Performance:
+  - Embedding: ~500ms
+  - Search: ~100ms
+  - LLM generation: 2-5 seconds
+  - Total: 3-6 seconds
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Install Supabase CLI if needed
+2. Follow deployment commands above
+3. Test endpoint with curl
+4. Monitor function logs in Supabase dashboard
+5. Commit: git commit --allow-empty -m "deploy: taiken-chat to Supabase"
+
+For detailed instructions, see TASK_8_DEPLOYMENT_GUIDE.txt
+
+================================================================================
