@@ -12,11 +12,11 @@ class TaikenChatWidget {
 
     // Example prompts (in Japanese)
     this.examplePrompts = [
-      "📍 スリランカの安全性",
-      "💰 費用について",
-      "👥 一人参加の不安",
-      "🏡 ホームステイの環境",
-      "📚 英語レッスンについて"
+      "スリランカの安全性",
+      "ネパールの安全性",
+      "英語レッスンについて",
+      "ホームステイの環境",
+      "費用について"
     ];
 
     this.init();
