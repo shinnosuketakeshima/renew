@@ -29,6 +29,7 @@ test2/
 *.md
 CLAUDE.md
 GEMINI.md
+DEPLOY-GUIDE.md
 
 # ドキュメント・参考資料
 README.md
@@ -40,6 +41,10 @@ docs/EDIT-POINTS.txt
 .claude/settings.local.json
 .cursor/rules/
 .cursor/skills/
+
+# Environment variables (never commit)
+.env
+.env.local
 
 # FTP ログ
 WS_FTP.LOG
