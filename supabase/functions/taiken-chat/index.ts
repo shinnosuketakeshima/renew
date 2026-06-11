@@ -104,18 +104,123 @@ function createLLMProvider(): LLMProvider {
   throw new Error(`Unknown LLM provider: ${providerName}`);
 }
 
-// Main handler (stub - placeholder for now)
+// Supabase client initialization
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const supabase = createClient(
+  Deno.env.get("SUPABASE_URL") || "",
+  Deno.env.get("SUPABASE_ANON_KEY") || ""
+);
+
+// Embed text using Google Generative AI
+async function embedText(text: string): Promise<number[]> {
+  const apiKey = Deno.env.get("GOOGLE_API_KEY");
+  if (!apiKey) throw new Error("Missing GOOGLE_API_KEY");
+
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent?key=${apiKey}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "models/embedding-001",
+        content: { parts: [{ text }] },
+        taskType: "RETRIEVAL_QUERY"
+      })
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Embedding API error: ${error}`);
+  }
+
+  const json = await response.json();
+  return json.embedding.values;
+}
+
+// Search for similar taiken experiences
+async function searchTaiken(embedding: number[], matchCount: number = 5, threshold: number = 0.6) {
+  const { data, error } = await supabase.rpc(
+    "match_taiken_experiences",
+    {
+      query_embedding: embedding,
+      match_count: matchCount,
+      match_threshold: threshold
+    }
+  );
+
+  if (error) throw new Error(`Search error: ${error.message}`);
+  return data || [];
+}
+
+// Main handler
 serve(async (req: Request) => {
   try {
-    const llm = createLLMProvider();
+    // Parse request
+    const { question } = await req.json();
 
-    // TODO: Implement chat handler with vector search (Task 7)
+    if (!question) {
+      return new Response(
+        JSON.stringify({ error: "Missing 'question' field" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // 1. Embed the question
+    const questionEmbedding = await embedText(question);
+
+    // 2. Search for similar experiences
+    const results = await searchTaiken(questionEmbedding, 5, 0.6);
+
+    if (results.length === 0) {
+      return new Response(
+        JSON.stringify({
+          answer: "関連する体験が見つかりませんでした。別の質問をお試しください。",
+          sources: []
+        }),
+        { headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // 3. Build context from results
+    const context = results
+      .map((r: any) => {
+        return `【${r.title}】\n年: ${r.year}, 国: ${r.country}, 年齢: ${r.age}歳\n\n${r.body.substring(0, 500)}...`;
+      })
+      .join("\n\n---\n\n");
+
+    // 4. Generate response using LLM
+    const llm = createLLMProvider();
+    const systemPrompt = `You are a helpful assistant answering questions about study abroad experiences.
+Always cite the sources from the experiences.
+Respond in Japanese.
+Be encouraging and authentic.
+Keep responses to 2-3 paragraphs.`;
+
+    const userMessage = `質問: ${question}\n\nコンテキスト:\n${context}`;
+
+    const answer = await llm.chat(systemPrompt, userMessage);
+
+    // 5. Format sources
+    const sources = results.map((r: any) => ({
+      title: r.title,
+      number: r.taiken_number,
+      url: `/taiken${r.taiken_number}.html`,
+      excerpt: r.body.substring(0, 200),
+      country: r.country,
+      age: r.age,
+      year: r.year,
+      similarity: r.similarity
+    }));
 
     return new Response(
-      JSON.stringify({ message: "Chat API ready for vector search integration" }),
+      JSON.stringify({ answer, sources }),
       { headers: { "Content-Type": "application/json" } }
     );
+
   } catch (error) {
+    console.error(error);
     return new Response(
       JSON.stringify({ error: error.message }),
       { status: 500, headers: { "Content-Type": "application/json" } }
