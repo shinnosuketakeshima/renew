@@ -4,7 +4,7 @@
 
 #taiken-chat-widget {
   position: fixed;
-  bottom: 20px;
+  bottom: 84px;
   right: 20px;
   font-family: var(--font-sans, "Inter", "Noto Sans JP", sans-serif);
   z-index: 9999;
@@ -291,7 +291,35 @@
   background: var(--color-text-muted, #7a746c);
 }
 
+/* ローディングアニメーション */
+.taiken-chat__loading {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.taiken-chat__loading span {
+  width: 6px;
+  height: 6px;
+  background: var(--color-text-muted, #7a746c);
+  border-radius: 50%;
+  animation: taiken-bounce 1.2s ease-in-out infinite;
+}
+
+.taiken-chat__loading span:nth-child(2) { animation-delay: 0.2s; }
+.taiken-chat__loading span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes taiken-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1);   opacity: 1;   }
+}
+
 @media (max-width: 480px) {
+  #taiken-chat-widget {
+    bottom: 74px;
+  }
+
   .taiken-chat__container {
     width: calc(100vw - 40px);
     height: 70vh;

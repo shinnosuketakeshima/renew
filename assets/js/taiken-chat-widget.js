@@ -94,6 +94,9 @@ class TaikenChatWidget {
     if (container) {
       container.style.display = "flex";
       this.isOpen = true;
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'chat_open', { event_category: 'chat' });
+      }
     }
   }
 
@@ -110,12 +113,21 @@ class TaikenChatWidget {
 
     this.addMessageToUI("user", text);
 
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'chat_question', {
+        event_category: 'chat',
+        event_label: text.substring(0, 50)
+      });
+    }
+
     const input = document.querySelector(".taiken-chat__input input");
     if (input) input.value = "";
 
     this.isLoading = true;
     const sendBtn = document.querySelector(".taiken-chat__input button");
     if (sendBtn) sendBtn.disabled = true;
+
+    const loadingEl = this.addLoadingIndicator();
 
     try {
       const response = await fetch(this.apiUrl, {
@@ -132,14 +144,26 @@ class TaikenChatWidget {
       }
 
       const { answer, sources } = await response.json();
+      loadingEl.remove();
       this.addMessageToUI("assistant", answer, sources);
     } catch (error) {
       console.error("Chat error:", error);
+      loadingEl.remove();
       this.addMessageToUI("error", "申し訳ありません。エラーが発生しました。もう一度お試しください。");
     } finally {
       this.isLoading = false;
       if (sendBtn) sendBtn.disabled = false;
     }
+  }
+
+  addLoadingIndicator() {
+    const contentEl = document.querySelector(".taiken-chat__content");
+    const el = document.createElement("div");
+    el.className = "taiken-chat__message taiken-chat__message--assistant";
+    el.innerHTML = `<div class="taiken-chat__loading"><span></span><span></span><span></span></div>`;
+    contentEl.appendChild(el);
+    el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return el;
   }
 
   addMessageToUI(role, content, sources = []) {
@@ -163,8 +187,8 @@ class TaikenChatWidget {
           <div class="taiken-chat__source">
             <strong>${this.escapeHtml(source.title)}</strong>
             <p>${this.escapeHtml(source.excerpt)}...</p>
-            <small>${source.country} / ${source.age}歳 / ${source.year}年</small>
-            <a href="${source.url}" target="_blank" rel="noopener noreferrer">詳しく読む →</a>
+            <small>${source.country}${source.age ? ' / ' + source.age + '歳' : ''}${source.year ? ' / ' + source.year + '年' : ''}</small>
+            <a href="${source.url}" target="_blank" rel="noopener noreferrer" data-chat-source="${this.escapeHtml(source.title)}">詳しく読む →</a>
           </div>
         `;
       });
@@ -176,7 +200,7 @@ class TaikenChatWidget {
     }
 
     contentEl.appendChild(msg);
-    contentEl.scrollTop = contentEl.scrollHeight;
+    msg.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     this.messages.push({ role, content });
   }
