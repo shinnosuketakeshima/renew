@@ -22,10 +22,29 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize Supabase client
+
+def _is_valid_credential(val: Optional[str]) -> bool:
+    """Check if credential looks like a real value (not placeholder)."""
+    if not val:
+        return False
+    val_lower = val.lower()
+    # Reject obvious placeholders
+    return not any([
+        "your-" in val_lower,
+        "placeholder" in val_lower,
+        val_lower.startswith("https://your"),
+        "example" in val_lower
+    ])
+
+
+# Initialize Supabase client only if credentials are valid
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY) if SUPABASE_URL and SUPABASE_KEY else None
+
+if _is_valid_credential(SUPABASE_URL) and _is_valid_credential(SUPABASE_KEY):
+    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+else:
+    supabase: Client = None  # Will be set later if credentials are valid
 
 # Initialize Google Generative AI for embeddings
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -208,7 +227,7 @@ def embed_text(text: str) -> List[float]:
         )
         return result["embedding"]
     except Exception as e:
-        print(f"✗ Error embedding text: {e}")
+        print(f"[ERROR] Error embedding text: {e}")
         raise
 
 
@@ -234,7 +253,7 @@ def crawl_taiken_pages(taiken_number: Optional[int] = None) -> List[Dict]:
         path = Path(f"taiken{num}.html")
 
         if not path.exists():
-            print(f"⚠️  taiken{num} not found, skipping")
+            print(f"[WARN] taiken{num} not found, skipping")
             continue
 
         try:
@@ -243,10 +262,10 @@ def crawl_taiken_pages(taiken_number: Optional[int] = None) -> List[Dict]:
 
             metadata = extract_taiken_metadata(html, num)
             results.append(metadata)
-            print(f"✓ Extracted taiken{num}")
+            print(f"[OK] Extracted taiken{num}")
 
         except Exception as e:
-            print(f"✗ Error processing taiken{num}: {e}")
+            print(f"[ERROR] Error processing taiken{num}: {e}")
             continue
 
     return results
@@ -293,10 +312,10 @@ def vectorize_and_upload(experiences: List[Dict]):
                 "embedding": embedding
             }).execute()
 
-            print("✓")
+            print("[OK]")
 
         except Exception as e:
-            print(f"✗ Error: {e}")
+            print(f"[ERROR] Error: {e}")
             continue
 
 
@@ -318,11 +337,15 @@ def main():
     args = parser.parse_args()
 
     # Validate environment variables
-    if not SUPABASE_URL or not SUPABASE_KEY or not GOOGLE_API_KEY:
-        print("Error: Missing environment variables")
-        print("  SUPABASE_URL: " + ("✓" if SUPABASE_URL else "✗"))
-        print("  SUPABASE_SERVICE_ROLE_KEY: " + ("✓" if SUPABASE_KEY else "✗"))
-        print("  GOOGLE_API_KEY: " + ("✓" if GOOGLE_API_KEY else "✗"))
+    url_valid = _is_valid_credential(SUPABASE_URL)
+    key_valid = _is_valid_credential(SUPABASE_KEY)
+    google_valid = _is_valid_credential(GOOGLE_API_KEY)
+
+    if not url_valid or not key_valid or not google_valid:
+        print("Error: Missing or invalid environment variables")
+        print("  SUPABASE_URL: " + ("OK" if url_valid else "MISSING/INVALID"))
+        print("  SUPABASE_SERVICE_ROLE_KEY: " + ("OK" if key_valid else "MISSING/INVALID"))
+        print("  GOOGLE_API_KEY: " + ("OK" if google_valid else "MISSING/INVALID"))
         exit(1)
 
     # Determine which pages to crawl
@@ -335,11 +358,11 @@ def main():
         print("No pages found to process.")
         exit(1)
 
-    print(f"\n📊 Found {len(experiences)} page(s) to vectorize")
-    print(f"\n🚀 Vectorizing and uploading to Supabase...")
+    print(f"\nFound {len(experiences)} page(s) to vectorize")
+    print(f"\nVectorizing and uploading to Supabase...")
     vectorize_and_upload(experiences)
 
-    print(f"\n✅ Done! {len(experiences)} page(s) processed.")
+    print(f"\nDone! {len(experiences)} page(s) processed.")
 
 
 if __name__ == "__main__":
