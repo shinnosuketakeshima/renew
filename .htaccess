@@ -1,0 +1,11 @@
+# be-intl.com — URL正規化
+# /index.html へのアクセスをトップ（/）へ301リダイレクトし、SEO評価を1つに集約する
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # /index.html および /index.html?query → /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+</IfModule>

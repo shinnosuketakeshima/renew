@@ -1,24 +1,27 @@
 ﻿be-intl.com デプロイ対象サマリー
-生成: 2026-05-31 23:58
+生成: 2026-06-12 00:05
 
-FTP アップロード対象: 666 ファイル → tools/last-deploy-list.txt
-作業用（不要）      : 5883 ファイル → tools/local-only-list.txt
+FTP アップロード対象: 1038 ファイル → tools/last-deploy-list.txt
+作業用（不要）      : 7921 ファイル → tools/local-only-list.txt
 
 --- アップロード対象（フォルダ別 上位）---
-  (ルートのファイル)              633 件
-  assets                   33 件
+  (ルートのファイル)              993 件
+  assets                   38 件
+  supabase                  6 件
+  m                         1 件
 
 --- アップロード不要（フォルダ別 上位）---
-  .git                   4669 件
-  docs                   1045 件
-  SriLankaPhotos           93 件
-  tools                    36 件
-  (ルートのファイル)               15 件
-  Nepal_photos             10 件
+  .git                   6584 件
+  docs                   1046 件
+  SriLankaPhotos          151 件
+  tools                    83 件
+  Nepal_photos             25 件
+  (ルートのファイル)               16 件
   scripts                   7 件
   .cursor                   3 件
   test2                     3 件
   .claude                   1 件
+  .github                   1 件
   assets                    1 件
 
 詳細: docs/DEPLOY-FILES.ja.md / ルート FILE-GUIDE.txt

@@ -1,19 +1,43 @@
 (function () {
   'use strict';
 
+  var GA_LEAD_KEY = 'ga_lead_sent';
+
   function sendEvent(name, params) {
     if (typeof window.gtag !== 'function') return;
-    window.gtag('event', name, params);
+    window.gtag('event', name, params || {});
   }
 
-  // 資料請求CTAボタン クリック
+  function isThanksPage() {
+    return /thanks\.html$/i.test(location.pathname) || /\/thanks\/?$/i.test(location.pathname);
+  }
+
+  // 送信完了ページ（キーイベント: generate_lead）
+  if (isThanksPage()) {
+    if (!sessionStorage.getItem(GA_LEAD_KEY)) {
+      sessionStorage.setItem(GA_LEAD_KEY, '1');
+      sendEvent('generate_lead', {
+        method: 'postmail',
+        page_location: location.href
+      });
+    }
+  }
+
+  // 資料請求CTAボタン クリック（キーイベント: cta_click）
   document.addEventListener('click', function (e) {
-    var el = e.target.closest('a.btn--accent, a[href="postmail.html"], a[href*="postmail"]');
+    var el = e.target.closest(
+      'a.site-header__cta, a.btn--accent[href*="postmail"], a[href="postmail.html"], a[href$="/postmail.html"]'
+    );
     if (!el) return;
+
+    var href = el.getAttribute('href') || '';
+    if (href.indexOf('postmail') === -1 && !el.classList.contains('site-header__cta')) return;
+    if (/postmail\.html$/i.test(location.pathname) && href.indexOf('postmail') !== -1) return;
+
     sendEvent('cta_click', {
-      event_category: 'conversion',
-      event_label: el.textContent.trim().substring(0, 50),
-      link_url: el.href
+      link_text: (el.textContent || '').trim().substring(0, 50),
+      link_url: el.href,
+      page_location: location.href
     });
   });
 
@@ -22,8 +46,7 @@
     var el = e.target.closest('.site-nav a');
     if (!el) return;
     sendEvent('nav_click', {
-      event_category: 'navigation',
-      event_label: el.textContent.trim(),
+      link_text: (el.textContent || '').trim(),
       link_url: el.href
     });
   });
@@ -33,8 +56,8 @@
     var el = e.target.closest('a[href^="http"]');
     if (!el || el.hostname === location.hostname) return;
     sendEvent('click', {
-      event_category: 'outbound',
-      event_label: el.href,
+      link_url: el.href,
+      outbound: true,
       transport_type: 'beacon'
     });
   });
@@ -48,9 +71,7 @@
       if (!reached[m] && pct >= m) {
         reached[m] = true;
         sendEvent('scroll_depth', {
-          event_category: 'engagement',
-          event_label: m + '%',
-          value: m
+          percent_scrolled: m
         });
       }
     });
@@ -61,20 +82,8 @@
     var el = e.target.closest('a[data-chat-source]');
     if (!el) return;
     sendEvent('chat_source_click', {
-      event_category: 'chat',
-      event_label: el.getAttribute('data-chat-source').substring(0, 100),
+      chat_source: el.getAttribute('data-chat-source').substring(0, 100),
       link_url: el.href
     });
   });
-
-  // 資料請求フォーム 送信（postmail.html）
-  var form = document.querySelector('form.postmail-form, form[action*="postmail"]');
-  if (form) {
-    form.addEventListener('submit', function () {
-      sendEvent('generate_lead', {
-        event_category: 'conversion',
-        event_label: 'postmail_form_submit'
-      });
-    });
-  }
 })();
