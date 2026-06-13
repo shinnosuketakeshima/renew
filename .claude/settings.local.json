@@ -21,7 +21,20 @@
       "Read(//tmp/**)",
       "Bash(pwsh tools/seo-audit.ps1)",
       "Bash(echo \"Exit code: $?\")",
-      "PowerShell(cd \"D:\\\\github\\\\renew\"; .\\\\tools\\\\seo-audit.ps1 2>&1 | Where-Object { $_ -match 'ERROR|exit' } | Select-Object -First 10)"
+      "PowerShell(cd \"D:\\\\github\\\\renew\"; .\\\\tools\\\\seo-audit.ps1 2>&1 | Where-Object { $_ -match 'ERROR|exit' } | Select-Object -First 10)",
+      "Bash(gh pr *)",
+      "PowerShell(gh pr *)",
+      "PowerShell(winget install *)",
+      "PowerShell(gh *)",
+      "Bash(git pull *)",
+      "PowerShell(curl *)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"cd 'D:\\\\github\\\\renew'; python -m http.server 8765\" -WindowStyle Normal)",
+      "PowerShell(Start-Sleep -Seconds 2; Start-Process \"http://localhost:8765/index.html\")",
+      "PowerShell(Start-Process \"http://localhost:8765/index.html\")",
+      "PowerShell(supabase *)",
+      "PowerShell(npm install *)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"cd 'D:\\\\github\\\\renew'; python -m http.server 8765\")",
+      "PowerShell(supabase functions *)"
     ]
   }
 }
