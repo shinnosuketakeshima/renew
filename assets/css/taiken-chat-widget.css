@@ -108,15 +108,7 @@
 }
 
 .taiken-chat__welcome {
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.taiken-chat__welcome p {
-  margin: 0 0 1rem 0;
-  font-size: 1rem;
-  color: var(--color-text, #2a2724);
-  font-weight: 500;
+  padding: 0.25rem 0 0;
 }
 
 .taiken-chat__examples {
@@ -166,6 +158,27 @@
   color: var(--color-text, #2a2724);
   align-self: flex-start;
   max-width: 100%;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+.taiken-chat__answer p {
+  margin: 0 0 0.625rem 0;
+}
+
+.taiken-chat__answer p:last-child {
+  margin-bottom: 0;
+}
+
+.taiken-chat__link {
+  color: var(--color-primary, #1c1c28);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+
+.taiken-chat__link:hover {
+  opacity: 0.85;
 }
 
 .taiken-chat__message--error {
@@ -230,10 +243,23 @@
 
 .taiken-chat__input {
   border-top: 1px solid var(--color-border, #e0d8ce);
-  padding: 1rem;
+  padding: 0.875rem 1rem 1rem;
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   flex-shrink: 0;
+}
+
+.taiken-chat__input-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #7a746c);
+  line-height: 1.45;
+}
+
+.taiken-chat__input-row {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .taiken-chat__input input {
@@ -246,6 +272,11 @@
   color: var(--color-text, #2a2724);
   background: var(--color-bg, #f7f5f0);
   transition: border-color 0.2s;
+}
+
+.taiken-chat__input input::placeholder {
+  color: var(--color-text-muted, #7a746c);
+  opacity: 0.85;
 }
 
 .taiken-chat__input input:focus {

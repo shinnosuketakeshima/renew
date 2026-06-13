@@ -316,6 +316,26 @@ a:hover {
   outline-offset: 2px;
 }
 
+.btn--outline {
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+
+.btn--outline:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(247, 245, 240, 0.6);
+  opacity: 1;
+}
+
+.btn--outline:focus-visible {
+  color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* レガシー .style1 / .style3 */
 .style1,
 .style3 {
@@ -780,8 +800,24 @@ body.page-nepal .nepal-hero .hero__sub {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem 1.25rem;
+  gap: 0.75rem 1rem;
   margin-bottom: 1.4rem;
+}
+
+body.page-home .hero__actions .btn--outline {
+  min-height: 44px;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-color: rgba(42, 39, 36, 0.28);
+  color: var(--color-text);
+}
+
+body.page-home .hero__actions .btn--outline:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background: rgba(247, 245, 240, 0.72);
 }
 
 .hero__tel {
