@@ -268,6 +268,24 @@ serve(async (req: Request) => {
       similarity: r.similarity,
     }));
 
+    // Log conversation asynchronously (non-blocking)
+    const ipAddress = req.headers.get("x-forwarded-for") || req.headers.get("cf-connecting-ip") || "unknown";
+    const userAgent = req.headers.get("user-agent") || "unknown";
+    const taikenNumbers = results.map((r) => r.taiken_number);
+
+    supabase
+      .from("chat_conversations")
+      .insert({
+        question,
+        answer,
+        sources,
+        matched_taiken_numbers: taikenNumbers,
+        ip_address: ipAddress,
+        user_agent: userAgent,
+      })
+      .then(() => console.log(`[chat_logged] question: ${question.substring(0, 50)}`))
+      .catch((err) => console.error(`[chat_log_error] ${err.message}`));
+
     return new Response(
       JSON.stringify({ answer, sources }),
       { headers: { "Content-Type": "application/json", ...headers } },
