@@ -218,13 +218,19 @@ serve(async (req: Request) => {
   }
 
   try {
-    const { question } = await req.json();
+    const body = await req.json();
+    let question = body.question;
 
     if (!question) {
       return new Response(
         JSON.stringify({ error: "Missing 'question' field" }),
         { status: 400, headers: { "Content-Type": "application/json", ...headers } },
       );
+    }
+
+    // Ensure UTF-8 encoding (fix for potential encoding issues)
+    if (typeof question === "string") {
+      question = new TextDecoder("utf-8").decode(new TextEncoder().encode(question));
     }
 
     console.log(`[chat_question] ${new Date().toISOString()} | ${question}`);
