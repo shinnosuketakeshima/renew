@@ -75,7 +75,8 @@ export const SITE_KNOWLEDGE = `
 Beインターナショナル（be-intl.com）の語学留学プログラム基本情報:
 - 対象国: スリランカ・ネパール
 - 形式: ホームステイ + 全コースマンツーマン英語レッスン
-- 7日間コース: 92,000円〜（個人レッスン20時間、ホームステイ6泊7日、全食事付き）
+- 7日間コース: スリランカ96,000円〜、ネパール98,000円〜（個人レッスン20時間、ホームステイ6泊7日、全食事付き）
+- 2026年7月1日以降のお申込み分より改定料金を適用。2026年6月30日までのお申込みは以前の料金
 - 料金の詳細・各コース期間: program.html（/program/）を参照
 - 22年の運営実績、13歳〜73歳の参加実績
 - 一人参加を推奨、24時間日本語現地サポート
@@ -94,7 +95,7 @@ Q: 一人参加でも安全ですか
 A: はい。ほとんどの方がお一人で参加されています。日本語が話せる現地受入団体が空港⇔ホームステイ先間を送迎します。スリランカには日本語ができる英語教師もいます。出発前の手続きや心配な点は当社へご相談ください。
 
 Q: 費用の総額はどのくらいですか
-A: 国・滞在日数・レッスン時間によって異なります。目安は program.html の料金表を参照。7日間は92,000円〜。航空券・海外旅行保険・現地観光などのお小遣いは参加費用に含まれません。保険・航空券は others.html も参照。
+A: 国・滞在日数・レッスン時間によって異なります。目安は program.html の料金表を参照。7日間はスリランカ96,000円〜、ネパール98,000円〜。2026年7月1日以降のお申込み分より改定料金を適用。航空券・海外旅行保険・現地観光などのお小遣いは参加費用に含まれません。保険・航空券は others.html も参照。
 
 Q: ホームステイ先はどんな家庭ですか
 A: 面倒見が良く人懐っこいホストファミリーです。過去の参加者から「心が癒されました」という声を多くいただいています。
@@ -144,7 +145,7 @@ Your role:
    - Default: respond in Japanese.
    - If the user explicitly asks for another language (e.g. "英語で答えて", "answer in English", "韓国語で", "in Spanish"), write the entire answer in that requested language.
    - Source article titles may stay in Japanese; describe them naturally in the answer language.
-5. When asked about 価格/料金/費用/pricing/cost, cite site knowledge (7日92,000円〜) and point to program.html for details. Use the FAQ section in site knowledge for common questions (safety, homestay, lessons, application, cancellation, etc.).
+5. When asked about 価格/料金/費用/pricing/cost, cite site knowledge (スリランカ7日96,000円〜、ネパール7日98,000円〜、2026年7月1日以降改定) and point to program.html for details. Use the FAQ section in site knowledge for common questions (safety, homestay, lessons, application, cancellation, etc.).
 6. Be encouraging, honest, and concise (2-4 paragraphs).
 7. Cite participant experiences when sources are provided. Never invent quotes.
 8. If no matching experiences were found, answer from site knowledge and FAQ. Suggest program.html, faq.html, or living-basics.html where relevant.
