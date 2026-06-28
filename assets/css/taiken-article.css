@@ -623,6 +623,28 @@ body.page-taiken-article--nepal .taiken-body {
   object-position: center;
 }
 
+/* taiken44：写真幅を統一（旧サイト相当の 180px 基準） */
+.page-taiken-article.page-taiken-taiken44 {
+  --taiken-photo-col: 11.25rem;
+  --taiken-photo-landscape-max: 11.25rem;
+  --taiken-photo-portrait-max: 11.25rem;
+}
+
+.page-taiken-article.page-taiken-taiken44 .taiken-block .taiken-figure--block img {
+  width: 11.25rem;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: unset;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page-taiken-article.page-taiken-taiken44 .taiken-block .taiken-figure--landscape.taiken-figure--block img,
+.page-taiken-article.page-taiken-taiken44 .taiken-block .taiken-figure--portrait.taiken-figure--block img {
+  aspect-ratio: unset;
+  object-fit: contain;
+}
+
 /* 属性表記（H1） */
 .taiken-head__attr {
   font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif;
