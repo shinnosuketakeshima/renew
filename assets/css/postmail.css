@@ -173,6 +173,89 @@ body.page-postmail {
   width: 100%;
 }
 
+.postmail-confirm {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.35rem 1.35rem;
+  background: rgba(247, 245, 240, 0.9);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.postmail-confirm__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--pm-ink);
+}
+
+.postmail-confirm__lead {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.postmail-confirm__summary {
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.postmail-confirm__row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.5rem 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.postmail-confirm__row:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.postmail-confirm__row dt {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.postmail-confirm__row dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--pm-ink);
+  word-break: break-all;
+}
+
+.postmail-confirm__back {
+  min-height: 48px;
+  min-width: 7rem;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-family: inherit;
+  line-height: 1.2;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--pm-tq);
+  background: #ffffff;
+  border: 1px solid rgba(var(--pm-tq-rgb), 0.3);
+  box-sizing: border-box;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.postmail-confirm__back:hover {
+  background: rgba(var(--pm-tq-rgb), 0.06);
+  border-color: var(--pm-tq);
+}
+
+.postmail-confirm__back:focus-visible {
+  outline: 2px solid #8b4513;
+  outline-offset: 2px;
+}
+
 .postmail-actions {
   display: flex;
   flex-wrap: wrap;
@@ -183,7 +266,8 @@ body.page-postmail {
 }
 
 .postmail-form input[type="submit"],
-.postmail-form input[type="reset"] {
+.postmail-form input[type="reset"],
+.postmail-form .postmail-submit {
   min-height: 48px;
   min-width: 7rem;
   padding: 0.55rem 1.4rem;
@@ -199,19 +283,22 @@ body.page-postmail {
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
-.postmail-form input[type="submit"] {
+.postmail-form input[type="submit"],
+.postmail-form .postmail-submit {
   color: #f2f2f2;
   background: #8b4513;
   border-color: #8b4513;
   box-shadow: none;
 }
 
-.postmail-form input[type="submit"]:hover {
+.postmail-form input[type="submit"]:hover,
+.postmail-form .postmail-submit:hover {
   background: #a35218;
   border-color: #a35218;
 }
 
-.postmail-form input[type="submit"]:focus-visible {
+.postmail-form input[type="submit"]:focus-visible,
+.postmail-form .postmail-submit:focus-visible {
   outline: 2px solid #8b4513;
   outline-offset: 2px;
 }

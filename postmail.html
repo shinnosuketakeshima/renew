@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/home.css?v=20260628a">
   <link rel="stylesheet" href="assets/css/typography.css?v=20260628a">
-  <link rel="stylesheet" href="assets/css/postmail.css?v=20260628a">
+  <link rel="stylesheet" href="assets/css/postmail.css?v=20260628b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -249,9 +249,28 @@
             <textarea name="お問合わせ内容" id="postmail-body" rows="7"></textarea>
           </fieldset>
 
-          <div class="postmail-actions">
-            <input type="submit" value="送信する">
+          <div class="postmail-actions" id="postmail-actions-initial">
+            <input type="submit" class="postmail-submit" id="postmail-submit-btn" value="送信する">
             <input type="reset" value="リセット">
+          </div>
+
+          <div class="postmail-confirm" id="postmail-confirm" hidden>
+            <h2 class="postmail-confirm__title">送信内容の確認</h2>
+            <p class="postmail-confirm__lead">以下のメールアドレスで送信します。内容をご確認ください。</p>
+            <dl class="postmail-confirm__summary">
+              <div class="postmail-confirm__row">
+                <dt>お名前</dt>
+                <dd id="postmail-confirm-name"></dd>
+              </div>
+              <div class="postmail-confirm__row">
+                <dt>E-mail</dt>
+                <dd id="postmail-confirm-email"></dd>
+              </div>
+            </dl>
+            <div class="postmail-actions">
+              <button type="submit" class="postmail-submit" id="postmail-confirm-send">この内容で送信する</button>
+              <button type="button" class="postmail-confirm__back" id="postmail-confirm-back">入力に戻る</button>
+            </div>
           </div>
         </form>
 
@@ -292,7 +311,7 @@
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
   <script src="assets/js/card-visited.js" defer></script>
-  <script src="assets/js/postmail-form.js?v=20260628a" defer></script>
+  <script src="assets/js/postmail-form.js?v=20260628b" defer></script>
   <script src="assets/js/analytics.js?v=20260628a" defer></script>
   <link rel="stylesheet" href="assets/css/taiken-chat-widget.css?v=20260613h">
   <script src="assets/js/taiken-chat-widget.js?v=20260613h"></script>
