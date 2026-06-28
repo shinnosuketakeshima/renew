@@ -86,4 +86,15 @@
       link_url: el.href
     });
   });
+
+  // コラム・関連ページ導線 クリック
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('.column-index__related a, .home-columns__card-link');
+    if (!el) return;
+    sendEvent('related_page_click', {
+      link_text: (el.textContent || '').trim().substring(0, 50),
+      link_url: el.href,
+      page_location: location.href
+    });
+  });
 })();

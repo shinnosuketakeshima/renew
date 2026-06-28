@@ -46,6 +46,14 @@ if (!empty($data['match'])) {
     }
 }
 
+// メール形式の簡易チェック
+if (!empty($data['email'])) {
+    $email = trim($data['email']);
+    if (strpos($email, '@') === false || strpos($email, '.', strpos($email, '@')) === false) {
+        $errors[] = "E-mailアドレスの形式が正しくありません。";
+    }
+}
+
 // エラーがある場合はJavaScriptで通知して戻る
 if (!empty($errors)) {
     echo "<script>alert('" . implode("\\n", $errors) . "'); history.back();</script>";

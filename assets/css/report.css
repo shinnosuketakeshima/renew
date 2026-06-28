@@ -712,9 +712,28 @@ body.page-report {
   }
 }
 
+.column-index__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.column-index__related {
+  margin: 0;
+  margin-top: auto;
+}
+
+.column-index__related .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
 .column-index__card {
   display: flex;
   flex-direction: column;
+  flex: 1;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -846,6 +865,7 @@ body.page-report {
 
 .column-index__card-s {
   margin: 0;
+  margin-top: auto;
   font-size: 0.9rem;
   line-height: 1.75;
   letter-spacing: 0.02em;

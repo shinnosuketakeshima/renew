@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="assets/css/home.css?v=20260613e">
+  <link rel="stylesheet" href="assets/css/home.css?v=20260628a">
   <link rel="stylesheet" href="assets/css/typography.css?v=20260603">
   <link rel="stylesheet" href="assets/css/report.css?v=20260603">
   <script type="application/ld+json">
@@ -110,14 +110,14 @@
 
   <main id="main-content">
     <section class="hero" id="hero" aria-labelledby="hero-heading">
-      <div class="hero__media" aria-hidden="true">
+      <div class="hero__media">
         <div class="hero__image-clip">
           <img
             class="hero__image"
             src="SriLankaPhotos/CoconutP1011106.webp"
             width="1200"
             height="800"
-            alt=""
+            alt="スリランカのヤシの木"
             fetchpriority="high"
             loading="eager"
             decoding="async"
@@ -134,6 +134,8 @@
             <li class="hero__chip">運営22年</li>
             <li class="hero__chip">全コース個人レッスン</li>
             <li class="hero__chip">一人参加歓迎</li>
+            <li><a class="hero__chip" href="program.html">スリランカ 7日間 96,000円〜</a></li>
+            <li><a class="hero__chip" href="program.html">ネパール 7日間 98,000円〜</a></li>
           </ul>
           <div class="hero__actions">
             <a class="btn btn--accent" href="postmail.html">資料請求・お問合せはこちら</a>
@@ -344,12 +346,28 @@
     <section class="home-columns" id="home-columns" aria-labelledby="home-columns-heading">
       <div class="layout-container">
         <p class="home-columns__label" id="home-columns-label">コラム</p>
-        <h2 class="home-columns__title" id="home-columns-heading">
-          <a href="column-nepal-english.html">ネパールの子どもたちは、なぜ英語を<span class="keepword">話せるのか？</span></a>
-        </h2>
-        <p class="home-columns__lede">日本の英語教育との違いから見えてくる、「英語を使う環境」の大切さ。</p>
-        <p class="home-columns__actions">
-          <a href="column-nepal-english.html">続きを読む</a>
+        <h2 class="visually-hidden" id="home-columns-heading">留学コラム</h2>
+        <div class="home-columns__grid">
+          <article class="home-columns__card">
+            <h3 class="home-columns__title">
+              <a class="home-columns__card-link" href="column-srilanka-english.html">スリランカにおける英語教育の現状</a>
+            </h3>
+            <p class="home-columns__lede">準公用語として広く使われる英語。学校の外でも「使いながら身につける」環境。</p>
+            <p class="home-columns__actions">
+              <a class="home-columns__card-link" href="column-srilanka-english.html">続きを読む</a>
+            </p>
+          </article>
+          <article class="home-columns__card">
+            <h3 class="home-columns__title">
+              <a class="home-columns__card-link" href="column-nepal-english.html">ネパールの子どもたちは、なぜ英語を<span class="keepword">話せるのか？</span></a>
+            </h3>
+            <p class="home-columns__lede">日本の英語教育との違いから見えてくる、「英語を使う環境」の大切さ。</p>
+            <p class="home-columns__actions">
+              <a class="home-columns__card-link" href="column-nepal-english.html">続きを読む</a>
+            </p>
+          </article>
+        </div>
+        <p class="home-columns__footer">
           <a href="columns.html">留学コラム一覧</a>
         </p>
       </div>
@@ -388,7 +406,7 @@
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
   <script src="assets/js/card-visited.js" defer></script>
-  <script src="assets/js/analytics.js?v=20260612" defer></script>
+  <script src="assets/js/analytics.js?v=20260628a" defer></script>
   <link rel="stylesheet" href="/assets/css/taiken-chat-widget.css?v=20260613h">
   <script src="/assets/js/taiken-chat-widget.js?v=20260613h"></script>
 </body>

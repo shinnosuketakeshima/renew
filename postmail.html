@@ -13,14 +13,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>資料請求 | Beインターナショナル（スリランカ・ネパール 語学留学）</title>
-  <meta name="description" content="留学資料のご希望・お問い合わせをフォームで受け付けています。必須項目をご記入のうえ「確認」へお進みください。">
+  <meta name="description" content="留学資料のご希望・お問い合わせをフォームで受け付けています。必須項目をご記入のうえ「送信する」へお進みください。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://be-intl.com/postmail.html">
   <!-- OGP / SNS -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://be-intl.com/postmail.html">
   <meta property="og:title" content="資料請求 | Beインターナショナル（スリランカ・ネパール 語学留学）">
-  <meta property="og:description" content="留学資料のご希望・お問い合わせをフォームで受け付けています。必須項目をご記入のうえ「確認」へお進みください。">
+  <meta property="og:description" content="留学資料のご希望・お問い合わせをフォームで受け付けています。必須項目をご記入のうえ「送信する」へお進みください。">
   <meta property="og:image" content="https://be-intl.com/SriLankaPhotos/CoconutP1011106.JPG">
   <meta property="og:site_name" content="Beインターナショナル">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,9 +28,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"></noscript>
-  <link rel="stylesheet" href="assets/css/home.css?v=20260603">
-  <link rel="stylesheet" href="assets/css/typography.css?v=20260603">
-  <link rel="stylesheet" href="assets/css/postmail.css?v=20260603">
+  <link rel="stylesheet" href="assets/css/home.css?v=20260628a">
+  <link rel="stylesheet" href="assets/css/typography.css?v=20260628a">
+  <link rel="stylesheet" href="assets/css/postmail.css?v=20260628a">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -125,7 +125,7 @@
         <div class="sub-hero__panel">
           <p class="sub-hero__kicker">CONTACT <span class="hero__kicker-sep" aria-hidden="true">|</span> 資料請求・お問い合わせ</p>
           <h1 class="hero__title" id="postmail-h1">資料請求・お問い合わせ</h1>
-          <p class="hero__sub">お問い合わせや留学資料のご希望は、下記のフォームに必要事項をご記入のうえ「確認」ボタンを押してください。</p>
+          <p class="hero__sub">お問い合わせや留学資料のご希望は、下記のフォームに必要事項をご記入のうえ「送信する」ボタンを押してください。</p>
         </div>
       </div>
     </section>
@@ -143,9 +143,8 @@
         <p class="postmail-notice" role="note"><span class="postmail-req" aria-hidden="true">＊</span>印の項目は必須です。お手数ですがご入力ください。</p>
 
         <form class="postmail-form" id="postmail-form" action="mail.php" method="post">
-          <input type="hidden" name="need" value="name email email2 郵便番号 ご住所１ ご住所２">
-          <input type="hidden" name="match" value="email email2">
-          <input type="hidden" name="sort" value="留学資料 name ふりがな お客様属性 学校名 郵便番号 ご住所１ ご住所２ 携帯電話番号 お電話番号 FAX番号 email お問合わせ内容">
+          <input type="hidden" name="need" value="name email 郵便番号 ご住所１ ご住所２">
+          <input type="hidden" name="sort" value="留学資料 name お客様属性 郵便番号 ご住所１ ご住所２ お電話番号 email お問合わせ内容">
 
           <fieldset>
             <legend class="postmail-label">留学資料希望</legend>
@@ -161,22 +160,11 @@
           </fieldset>
 
           <fieldset>
-            <label class="postmail-label" for="postmail-furigana">ふりがな</label>
-            <input type="text" name="ふりがな" id="postmail-furigana" maxlength="100" autocomplete="off">
-          </fieldset>
-
-          <fieldset>
             <legend class="postmail-label">お客様属性</legend>
             <ul class="postmail-radios" role="presentation">
               <li><label><input type="radio" name="お客様属性" value="学生のお客様"> 学生のお客様</label></li>
               <li><label><input type="radio" name="お客様属性" value="社会人のお客様"> 社会人のお客様</label></li>
             </ul>
-            <p class="postmail-hint">学生の方は、下記「学校名」にご記入ください。</p>
-          </fieldset>
-
-          <fieldset>
-            <label class="postmail-label" for="postmail-school">学校名</label>
-            <input type="text" name="学校名" id="postmail-school" maxlength="100" autocomplete="organization">
           </fieldset>
 
           <fieldset>
@@ -246,33 +234,14 @@
           </fieldset>
 
           <fieldset>
-            <label class="postmail-label" for="postmail-mobile">携帯電話番号</label>
-            <input type="text" name="携帯電話番号" id="postmail-mobile" maxlength="100" autocomplete="tel-national">
-          </fieldset>
-
-          <fieldset>
             <label class="postmail-label" for="postmail-tel">お電話番号</label>
             <input type="text" name="お電話番号" id="postmail-tel" maxlength="100" autocomplete="tel">
           </fieldset>
 
-          <fieldset>
-            <label class="postmail-label" for="postmail-fax">FAX番号</label>
-            <input type="text" name="FAX番号" id="postmail-fax" maxlength="100" autocomplete="off">
-          </fieldset>
-
           <fieldset class="postmail-row--emails">
-            <legend class="visually-hidden">E-mail入力</legend>
-            <div class="postmail-email-grid">
-              <div>
-                <label class="postmail-label postmail-label--tight" for="postmail-email">E-mail（半角）<span class="postmail-req" aria-label="必須">＊</span></label>
-                <input type="text" name="email" id="postmail-email" maxlength="60" inputmode="email" autocomplete="email">
-              </div>
-              <div>
-                <label class="postmail-label postmail-label--tight" for="postmail-email2">確認のため再入力<span class="postmail-req" aria-label="必須">＊</span></label>
-                <input type="text" name="email2" id="postmail-email2" maxlength="60" inputmode="email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly onfocus="this.removeAttribute('readonly');">
-              </div>
-            </div>
-            <p class="postmail-hint">同じ内容を2回、半角でご入力ください。</p>
+            <label class="postmail-label" for="postmail-email">E-mail（半角）<span class="postmail-req" aria-label="必須">＊</span></label>
+            <input type="text" name="email" id="postmail-email" maxlength="60" inputmode="email" autocomplete="email">
+            <p class="postmail-hint">送信ボタンを押すと、入力したメールアドレスの確認画面が表示されます。</p>
           </fieldset>
 
           <fieldset>
@@ -281,7 +250,7 @@
           </fieldset>
 
           <div class="postmail-actions">
-            <input type="submit" value="確認">
+            <input type="submit" value="送信する">
             <input type="reset" value="リセット">
           </div>
         </form>
@@ -323,7 +292,8 @@
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
   <script src="assets/js/card-visited.js" defer></script>
-  <script src="assets/js/analytics.js?v=20260612" defer></script>
+  <script src="assets/js/postmail-form.js?v=20260628a" defer></script>
+  <script src="assets/js/analytics.js?v=20260628a" defer></script>
   <link rel="stylesheet" href="assets/css/taiken-chat-widget.css?v=20260613h">
   <script src="assets/js/taiken-chat-widget.js?v=20260613h"></script>
 </body>

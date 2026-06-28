@@ -169,17 +169,8 @@ body.page-postmail {
   accent-color: var(--pm-tq);
 }
 
-.postmail-row--emails .postmail-email-grid {
-  display: grid;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 600px) {
-  .postmail-row--emails .postmail-email-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-  }
+.postmail-row--emails input[type="text"] {
+  width: 100%;
 }
 
 .postmail-actions {
