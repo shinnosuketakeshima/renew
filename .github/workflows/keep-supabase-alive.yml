@@ -15,6 +15,7 @@ jobs:
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
             -X POST \
             -H "Content-Type: application/json" \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lcW9obXVkZmFpc2Ruc2lreml5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjY4ODEsImV4cCI6MjA5NjcwMjg4MX0.cfTJEJHOUmQVrizBwismc2AsXZ4d0L5-Nwhoesm_jx4" \
             -d '{"question":"スリランカの費用は"}' \
             https://oeqohmudfaisdnsikziy.supabase.co/functions/v1/taiken-chat)
 
