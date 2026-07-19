@@ -99,7 +99,12 @@ There is no build step, test suite, or linter configured.
 | `assets/js/back-to-top.js` | Back-to-top button |
 | `assets/js/faq-accordion.js` | FAQ accordion expand/collapse |
 | `assets/js/card-visited.js` | Marks `.voice-card`, `.home-voices-teaser__card`, `.report-index__card` as visited via localStorage |
+| `assets/js/analytics.js` | GA4 custom event helpers (see GA4 section below) |
+| `assets/js/taiken-chat-widget.js` | RAG chat widget frontend (see Supabase RAG Chat section) |
+| `assets/css/taiken-chat-widget.css` | Chat widget styles; back-to-top button offset set to `bottom: 84px` to avoid overlap |
 | `assets/images/` | Shared images referenced across multiple pages |
+| `supabase/functions/taiken-chat/` | Deno Edge Function — vector search + Gemini answer generation |
+| `supabase/migrations/` | DB table definitions for `taiken_experiences` (pgvector) and `chat_conversations` |
 | `docs/be-intl-site-redesign-spec.md` | Full redesign specification — canonical authority for all product decisions |
 | `docs/oldHP/` | Original legacy site preserved as reference (not served) |
 | `tools/taiken_seo_preview.tsv` | SEO improvement data for all 84 taiken articles (proposed title, description, participant attributes) |
@@ -170,6 +175,18 @@ All production images are **WebP** (converted from JPEG/PNG via `tools/convert_t
 
 GA4 property `G-40ZZ28MV66` is loaded on every page via `<script async src="https://www.googletagmanager.com/gtag/js?id=G-40ZZ28MV66">`. Copy the exact snippet from any existing page — do not omit it from new pages.
 
+Custom events are fired via `assets/js/analytics.js` (loaded on pages that need them):
+
+| Event | Trigger |
+|-------|---------|
+| `cta_click` | 資料請求 CTA button clicks |
+| `generate_lead` | Postmail form submission |
+| `nav_click` | Header navigation link clicks |
+| `scroll_depth` | 25 / 50 / 75 / 90% page scroll milestones |
+| `chat_open` | Chat widget opened |
+| `chat_question` | Question submitted in chat |
+| `chat_source_click` | Source taiken article link clicked in chat |
+
 ### Async font loading
 
 Non-critical fonts (Noto Serif JP) use the print-media swap pattern for non-blocking load:
@@ -177,6 +194,31 @@ Non-critical fonts (Noto Serif JP) use the print-media swap pattern for non-bloc
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap"></noscript>
 ```
+
+### Supabase RAG Chat
+
+A chat widget on `taiken.html` lets visitors ask questions answered from the 84 taiken articles via vector search.
+
+**Architecture:** Frontend widget → Supabase Edge Function (Deno) → pgvector similarity search → Gemini 2.5 Flash Lite answer generation.
+
+Key files:
+- `assets/js/taiken-chat-widget.js` — UI; fires GA4 `chat_open`, `chat_question`, `chat_source_click`
+- `assets/css/taiken-chat-widget.css`
+- `supabase/functions/taiken-chat/index.ts` — main Edge Function
+- `supabase/functions/taiken-chat/query-utils.ts` — search helpers
+- `supabase/migrations/` — `taiken_experiences` table + `match_taiken_experiences` RPC + `chat_conversations`
+
+**Supabase project ref:** `oeqohmudfaisdnsikziy`
+
+**Secrets (set in Supabase dashboard → Edge Functions → Secrets):**
+- `GOOGLE_API_KEY` — must be set manually; used for Gemini
+- `SUPABASE_SERVICE_ROLE_KEY` — auto-injected by Supabase; do not hardcode
+
+**CORS:** restricted to `https://be-intl.com` only (not `*`). Do not widen.
+
+**Known gap:** taiken #8 could not be vectorized (83/84 articles embedded).
+
+**Supabase deploy:** `supabase/` is not uploaded via FTP. Deploy Edge Functions via the Supabase CLI (`supabase functions deploy taiken-chat`) or dashboard. Migrations are applied via `supabase db push`.
 
 ### Participant attribute typography
 
@@ -378,3 +420,4 @@ The site is maintained by a single person (the owner). Any structural change —
 - Before any large change, list what will be modified as a short bullet summary.
 - If you want to add something not in the spec, propose it separately rather than implementing it unilaterally.
 - When creating new UI patterns, first check whether an existing pattern in `home.css` / `index.html` can be reused or extended.
+- When implementation details are unclear (photo filenames, exact copy, server config), add a `TODO:` comment in the code rather than guessing.
