@@ -1,0 +1,28 @@
+name: Keep Supabase alive
+
+on:
+  schedule:
+    # 毎週月曜 09:00 JST (00:00 UTC) に実行
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping taiken-chat Edge Function
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"question":"スリランカの費用は"}' \
+            https://oeqohmudfaisdnsikziy.supabase.co/functions/v1/taiken-chat)
+
+          echo "HTTP status: $STATUS"
+
+          if [ "$STATUS" != "200" ]; then
+            echo "ERROR: Edge Function returned $STATUS"
+            exit 1
+          fi
+
+          echo "OK: Supabase is alive"
