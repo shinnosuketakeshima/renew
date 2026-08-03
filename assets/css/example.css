@@ -1,0 +1,96 @@
+/* ホームステイ先参考写真（example.html） */
+
+.page-example .sub-hero {
+  height: min(42vh, 400px);
+}
+
+.page-example .page-legal__body {
+  padding-bottom: 0;
+}
+
+.page-example .legal-article {
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.page-example .legal-article h2:not(.page-toc__title) {
+  color: var(--color-primary);
+  border-top-color: var(--color-border);
+  text-align: center;
+}
+
+.hs-gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hs-gallery__item {
+  margin: 0 0 2.75rem;
+}
+
+.hs-gallery__item:last-child {
+  margin-bottom: 0.5rem;
+}
+
+/* 写真＋キャプションを同じ幅の中央カラムに揃える */
+.hs-gallery__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.hs-gallery__figure > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(70vh, 28rem);
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  filter: saturate(0.88);
+}
+
+.hs-gallery__caption {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.hs-gallery__note {
+  margin: 0 auto 2rem;
+  max-width: 30rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.hs-gallery__note p {
+  margin: 0 0 0.65rem;
+}
+
+.hs-gallery__note p:last-child {
+  margin-bottom: 0;
+}
+
+.page-example .hs-backlink {
+  margin: 2rem auto 0;
+  max-width: 30rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: center;
+}
