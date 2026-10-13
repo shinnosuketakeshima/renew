@@ -880,3 +880,23 @@ body.page-report {
   line-height: 1.55;
   color: var(--color-text-muted);
 }
+
+.page-column .column-figure {
+  margin: 0.25rem 0 1.6rem;
+}
+
+.page-column .column-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.page-column .column-figure figcaption {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  text-align: center;
+}
