@@ -146,7 +146,7 @@ def extract_taiken_metadata(html: str, taiken_number: int) -> Dict:
 
     Args:
         html: Full HTML content
-        taiken_number: Taiken page number (1-84)
+        taiken_number: Taiken page number (1-85)
 
     Returns:
         Dict with taiken_number, title, body, country, age, year, url
@@ -236,18 +236,18 @@ def crawl_taiken_pages(taiken_number: Optional[int] = None) -> List[Dict]:
     """
     Crawl taiken HTML files and extract metadata.
 
-    Reads HTML files from the repository root (taiken1.html through taiken84.html).
+    Reads HTML files from the repository root (taiken1.html through taiken85.html).
     Gracefully handles missing files by skipping them with a warning.
 
     Args:
-        taiken_number: If set, crawl only this specific page (1-84).
-                      If None, crawl all pages 1-84.
+        taiken_number: If set, crawl only this specific page (1-85).
+                      If None, crawl all pages 1-85.
 
     Returns:
         List of dicts containing extracted metadata for each taiken page.
     """
     results = []
-    numbers = [taiken_number] if taiken_number else range(1, 85)
+    numbers = [taiken_number] if taiken_number else range(1, 86)
 
     for num in numbers:
         # Construct path relative to current working directory
@@ -327,12 +327,12 @@ def main():
     parser.add_argument(
         "--initial",
         action="store_true",
-        help="Full crawl of all 84 pages (initial setup)"
+        help="Full crawl of all 85 pages (initial setup)"
     )
     parser.add_argument(
         "--taiken-number",
         type=int,
-        help="Update specific taiken page (1-84)"
+        help="Update specific taiken page (1-85)"
     )
 
     args = parser.parse_args()
