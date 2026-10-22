@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  var GA_LEAD_KEY = 'ga_lead_sent';
-
   function sendEvent(name, params) {
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', name, params || {});
@@ -12,16 +10,33 @@
     return /thanks\.html$/i.test(location.pathname) || /\/thanks\/?$/i.test(location.pathname);
   }
 
-  // 送信完了ページ（キーイベント: generate_lead）
-  if (isThanksPage()) {
-    if (!sessionStorage.getItem(GA_LEAD_KEY)) {
-      sessionStorage.setItem(GA_LEAD_KEY, '1');
-      sendEvent('generate_lead', {
-        method: 'postmail',
-        page_location: location.href
-      });
+  // 送信完了（キーイベント: generate_lead）
+  // thanks.html 先頭の計測が動いていればそちらに任せ、未計測のときだけ送る。
+  (function trackGenerateLead() {
+    if (window.__beLeadTracked) return;
+    var params;
+    try {
+      params = new URLSearchParams(location.search);
+    } catch (e) {
+      return;
     }
-  }
+    var sent = params.get('sent') === '1';
+    if (!sent && !isThanksPage()) return;
+    var token = params.get('t') || (sent ? 'sent' : 'thanks');
+    var onceKey = 'ga_lead_' + token;
+    try {
+      if (sessionStorage.getItem(onceKey)) return;
+    } catch (e) {}
+    sendEvent('generate_lead', {
+      method: 'postmail',
+      transport_type: 'beacon'
+    });
+    window.__beLeadTracked = true;
+    try {
+      sessionStorage.setItem(onceKey, '1');
+      sessionStorage.setItem('ga_lead_sent', '1');
+    } catch (e) {}
+  })();
 
   // 資料請求CTAボタン クリック（キーイベント: cta_click）
   document.addEventListener('click', function (e) {

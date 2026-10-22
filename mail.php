@@ -3,13 +3,16 @@
  * Beインターナショナル 資料請求・お問い合わせ メール送信スクリプト
  */
 
+// 警告出力で Location ヘッダが無効になると、メールは届いても完了ページに着かず計測できない
+ob_start();
+
 // --- 設定 ---
 // 管理者メールアドレス
 $to = 'info@be-intl.com';
 // メールの件名
 $subject_prefix = '【資料請求・お問い合わせ】';
-// 完了後のリダイレクト先
-$thanks_page = 'thanks.html';
+// 完了後のリダイレクト先（sent=1 と t は資料請求1件ごとの計測用）
+$thanks_page = '/thanks.html?sent=1&t=' . rawurlencode(bin2hex(random_bytes(8)));
 // エラー時の戻り先
 $error_page = 'postmail.html';
 
@@ -18,6 +21,7 @@ mb_language('uni');
 mb_internal_encoding('UTF-8');
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    ob_end_clean();
     header("Location: " . $error_page);
     exit;
 }
@@ -56,6 +60,7 @@ if (!empty($data['email'])) {
 
 // エラーがある場合はJavaScriptで通知して戻る
 if (!empty($errors)) {
+    ob_end_clean();
     echo "<script>alert('" . implode("\\n", $errors) . "'); history.back();</script>";
     exit;
 }
@@ -143,8 +148,19 @@ TEL:03-6770-6191
 }
 
 if ($result) {
-    header("Location: " . $thanks_page);
+    ob_end_clean();
+    if (!headers_sent()) {
+        header("Location: " . $thanks_page, true, 302);
+        exit;
+    }
+    $thanks_href = htmlspecialchars($thanks_page, ENT_QUOTES, 'UTF-8');
+    $thanks_js = json_encode($thanks_page, JSON_UNESCAPED_SLASHES);
+    echo '<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">';
+    echo '<meta http-equiv="refresh" content="0;url=' . $thanks_href . '">';
+    echo '<script>location.replace(' . $thanks_js . ');</script>';
+    echo '</head><body><p><a href="' . $thanks_href . '">送信完了ページへ進む</a></p></body></html>';
     exit;
-} else {
-    echo "メールの送信に失敗しました。システム管理者へお問い合わせください。";
 }
+
+ob_end_flush();
+echo "メールの送信に失敗しました。システム管理者へお問い合わせください。";

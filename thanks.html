@@ -9,6 +9,31 @@
     gtag('js', new Date());
 
     gtag('config', 'G-40ZZ28MV66');
+
+    // 資料請求の送信完了（mail.php が ?sent=1&t= を付けて着地させる）
+    (function () {
+      var params;
+      try {
+        params = new URLSearchParams(window.location.search);
+      } catch (e) {
+        return;
+      }
+      if (params.get('sent') !== '1') return;
+      var token = params.get('t') || 'sent';
+      var onceKey = 'ga_lead_' + token;
+      try {
+        if (window.sessionStorage.getItem(onceKey)) return;
+      } catch (e) {}
+      gtag('event', 'generate_lead', {
+        method: 'postmail',
+        transport_type: 'beacon'
+      });
+      window.__beLeadTracked = true;
+      try {
+        window.sessionStorage.setItem(onceKey, '1');
+        window.sessionStorage.setItem('ga_lead_sent', '1');
+      } catch (e) {}
+    })();
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -96,6 +121,6 @@
   <script src="assets/js/site-header-nav.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
   <script src="assets/js/card-visited.js" defer></script>
-  <script src="assets/js/analytics.js?v=20260612" defer></script>
+  <script src="assets/js/analytics.js?v=20261022c" defer></script>
 </body>
 </html>
