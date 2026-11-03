@@ -71,6 +71,30 @@ export function buildSearchQueries(question: string): string[] {
   return [...queries].slice(0, 6);
 }
 
+const SCHOOL_STAGE_RANK: Record<string, number> = {
+  小学生: 1,
+  中学生: 2,
+  高校生: 3,
+  大学生: 4,
+};
+
+const PARTICIPANT_STAGE_RE = /（[^）]{0,12}(小学生|中学生|高校生|大学生)）/;
+
+/** School stage of the participant, taken from the name attribute such as （男子中学生）. Lower is younger. */
+export function participantSchoolStage(text: string): number | null {
+  const match = text.match(PARTICIPANT_STAGE_RE);
+  if (!match) return null;
+  return SCHOOL_STAGE_RANK[match[1]] ?? null;
+}
+
+/** True when the question asks for the youngest participant overall. */
+export function isYoungestQuestion(question: string): boolean {
+  const q = question.normalize("NFKC").replace(/\s+/g, "");
+  if (/最年長|最高齢|一番年配|いちばん年配|oldest/.test(q)) return false;
+  if (/(高校生|大学生|社会人)/.test(q) && !/(中学生|小学生)/.test(q)) return false;
+  return /最年少|一番若|いちばん若|最も若|もっとも若|youngest/.test(q);
+}
+
 export const SITE_KNOWLEDGE = `
 Beインターナショナル（be-intl.com）の語学留学プログラム基本情報:
 - 対象国: スリランカ・ネパール
@@ -149,6 +173,7 @@ Your role:
 7. Cite participant experiences when sources are provided. Never invent quotes.
 8. If no matching experiences were found, answer from site knowledge and FAQ. Suggest program.html, faq.html, or living-basics.html where relevant.
 9. When linking to site pages, use markdown format with readable labels: [料金・コース](program.html), [よくある質問](faq.html), [航空券・保険](others.html). Do not use bare filenames alone without link format.
+10. If the question asks who the youngest participant is (最年少), answer from the article marked 最年少の参加者. 中学生 is younger than 高校生. Do not present a 高校生 as the youngest when a 中学生 article is in the context.
 
 Site knowledge:
 ${SITE_KNOWLEDGE}`;

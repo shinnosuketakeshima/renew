@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { buildSearchQueries, buildSystemPrompt } from "./query-utils.ts";
+import { buildSearchQueries, buildSystemPrompt, isYoungestQuestion, participantSchoolStage } from "./query-utils.ts";
 
 interface LLMProvider {
   chat(systemPrompt: string, userMessage: string): Promise<string>;
@@ -192,6 +192,40 @@ async function searchTaikenMulti(
     .slice(0, matchCount);
 }
 
+/** Youngest participants by school stage (中学生 before 高校生). Vector search misses this. */
+async function fetchYoungestExperiences(): Promise<TaikenResult[]> {
+  const { data, error } = await supabase
+    .from("taiken_experiences")
+    .select("taiken_number,title,body,country,age,year,url")
+    .or("body.ilike.%中学生%,body.ilike.%高校生%,body.ilike.%小学生%,body.ilike.%大学生%");
+
+  if (error) throw new Error(`Youngest search error: ${error.message}`);
+
+  const ranked = (data || [])
+    .map((row) => {
+      const stage = participantSchoolStage(`${row.title}\n${row.body}`);
+      return stage === null ? null : { row, stage };
+    })
+    .filter((item): item is { row: NonNullable<typeof data>[number]; stage: number } => item !== null);
+
+  if (ranked.length === 0) return [];
+
+  const youngestStage = Math.min(...ranked.map((item) => item.stage));
+  return ranked
+    .filter((item) => item.stage === youngestStage)
+    .sort((a, b) => b.row.taiken_number - a.row.taiken_number)
+    .map((item) => ({
+      taiken_number: item.row.taiken_number,
+      title: item.row.title,
+      body: item.row.body,
+      country: item.row.country,
+      age: item.row.age,
+      year: item.row.year,
+      url: item.row.url,
+      similarity: 1,
+    }));
+}
+
 const ALLOWED_ORIGINS = [
   "https://be-intl.com",
   "https://www.be-intl.com",
@@ -247,19 +281,39 @@ serve(async (req: Request) => {
       results = await searchTaiken(primaryEmbedding, 5, 0.4);
     }
 
+    const pinnedYoungest = new Set<number>();
+    if (isYoungestQuestion(question)) {
+      try {
+        const youngest = await fetchYoungestExperiences();
+        if (youngest.length > 0) {
+          for (const row of youngest) pinnedYoungest.add(row.taiken_number);
+          results = [
+            ...youngest,
+            ...results.filter((row) => !pinnedYoungest.has(row.taiken_number)),
+          ].slice(0, 5);
+        }
+      } catch (err) {
+        console.error("[youngest_lookup]", err instanceof Error ? err.message : "unknown");
+      }
+    }
+
     // 3. Build context (always proceed to LLM — site knowledge fills gaps)
     const context = results.length > 0
       ? results
-        .map((r) =>
-          `【${r.title}】\n年: ${r.year ?? "不明"}, 国: ${r.country}, 年齢: ${r.age ?? "不明"}歳\n\n${r.body.substring(0, 500)}...`
-        )
+        .map((r) => {
+          const marker = pinnedYoungest.has(r.taiken_number) ? "【最年少の参加者】" : "";
+          return `${marker}【${r.title}】\n年: ${r.year ?? "不明"}, 国: ${r.country}, 年齢: ${r.age ?? "不明"}歳\n\n${r.body.substring(0, 500)}...`;
+        })
         .join("\n\n---\n\n")
       : "（該当する体験記事は見つかりませんでした。サイト基本情報を参考に回答してください。）";
 
     // 4. Generate response
     const llm = createLLMProvider();
     const systemPrompt = buildSystemPrompt();
-    const userMessage = `質問: ${question}\n\n体験記事コンテキスト:\n${context}`;
+    const youngestNote = pinnedYoungest.size > 0
+      ? "この質問は体験記の中で最年少の参加者を尋ねています。【最年少の参加者】と記した記事の人を最年少として紹介してください。中学生は高校生より年下です。\n\n"
+      : "";
+    const userMessage = `質問: ${question}\n\n${youngestNote}体験記事コンテキスト:\n${context}`;
 
     const answer = await llm.chat(systemPrompt, userMessage);
 
