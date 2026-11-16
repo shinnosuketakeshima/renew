@@ -1435,7 +1435,7 @@ body.page-home .country-card__action .country-card__cta {
   transition: color 0.15s ease;
 }
 
-.site-footer--simple a:not(:last-child)::after {
+.site-footer--simple .layout-container > a:not(:last-child)::after {
   content: "·";
   display: inline-block;
   margin-left: 0.55rem;
@@ -1444,6 +1444,34 @@ body.page-home .country-card__action .country-card__cta {
   font-size: 0.95em;
   pointer-events: none;
   vertical-align: 0.05em;
+}
+
+.site-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 1.75rem;
+  width: 100%;
+  margin: 0;
+}
+
+.site-footer--simple .site-footer__social a {
+  gap: 0.45rem;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.site-footer--simple .site-footer__social a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.site-footer__social svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 
 .site-footer--simple a:hover {
